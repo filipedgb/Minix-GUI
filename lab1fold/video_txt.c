@@ -17,7 +17,14 @@ static unsigned scr_lines;	/* Height of screen in lines */
 
 void vt_fill(char ch, char attr) {
   
-  /* To complete */
+	int i;
+	char* current_addr = video_mem;
+	for (i = 0; i < scr_width*scr_lines; i++) {
+		*current_addr = ch;
+		*(current_addr + sizeof(char)) = attr;
+		current_addr += 2*sizeof(char);
+	}
+
   
 }
 
