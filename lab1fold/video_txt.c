@@ -24,13 +24,12 @@ void vt_fill(char ch, char attr) {
 		*(current_addr + sizeof(char)) = attr;
 		current_addr += 2*sizeof(char);
 	}
-
   
 }
 
 void vt_blank() {
 
-  /* To complete ... */
+  vt_fill(0x00,0x00);
 
 }
 
