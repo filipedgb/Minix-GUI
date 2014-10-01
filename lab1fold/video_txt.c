@@ -37,7 +37,7 @@ int vt_print_char(char ch, char attr, int r, int c) {
 	int i;
 	char* current_addr = video_mem;
 
-	for(i = 0; i < (r-1)*c + c; i++) {
+	for(i = 0; i < (r-1)*scr_width + c; i++) {
 		current_addr += 2*sizeof(char);
 	}
 
@@ -48,8 +48,26 @@ int vt_print_char(char ch, char attr, int r, int c) {
 }
 
 int vt_print_string(char *str, char attr, int r, int c) {
+	int row = r;
+	int col = c;
+	while(*str != '\0') {
+	//	printf("iteração");
+	//	printf("%s",str);
+		vt_print_char(*str, attr, row, col);
+		if(c < scr_width) {
+			col++;
+		//	printf("Entrou no if");
 
-  /* To complete ... */
+		}
+		else {
+		//	printf("Entrou no else");
+			col = 0;
+			row++;
+		}
+
+		str++;
+	}
+
 
 }
 
