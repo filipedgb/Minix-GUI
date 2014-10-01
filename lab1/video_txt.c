@@ -65,7 +65,7 @@ int vt_print_int(int num, char attr, int r, int c) {
 
 	if(num < 0) return -1;
 
-	//count digits of number
+	//count digits of the number
 	while(temp!=0)  {
 		temp/=10;
 		++size;
@@ -89,10 +89,30 @@ int vt_print_int(int num, char attr, int r, int c) {
 
 
 int vt_draw_frame(int width, int height, char attr, int r, int c) {
+	char upper_right = 0xBF;
+	char upper_left = 0xDA;
+	char bottom_right = 0xD9;
+	char bottom_left = 0xC0;
+	char line = 0xC4;
+
 	int i;
+	for(i = 1; i < width-1; i++) {
+		// linhas de baixo e de cima
+		vt_print_char(line,attr, r,c+i);
+		vt_print_char(line,attr, r + height-1,c+i);
+	}
 
-	//	for(i=0; i<)
+	for(i = 1; i < height-1; i++) {
+		// colunas da esquerda e da direita
+		vt_print_char(line,attr, r+i,c);
+		vt_print_char(line,attr, r+i,c+ width-1);
+	}
 
+	//cantos
+	vt_print_char(upper_right,attr,r,c);
+	vt_print_char(upper_left,attr,r,c + width-1);
+	vt_print_char(bottom_right,attr,r+ height-1,c +width-1);
+	vt_print_char(bottom_left,attr,r+ height-1,c);
 }
 
 /*
