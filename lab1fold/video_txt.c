@@ -34,8 +34,16 @@ void vt_blank() {
 }
 
 int vt_print_char(char ch, char attr, int r, int c) {
+	int i;
+	char* current_addr = video_mem;
+
+	for(i = 0; i < (r-1)*c + c; i++) {
+		current_addr += 2*sizeof(char);
+	}
+
+	*current_addr = ch;
+	*(current_addr + sizeof(char)) = attr;
   
-  /* To complete ... */
 
 }
 
