@@ -41,6 +41,8 @@ int timer_test_int(unsigned long time) {
 }
 
 int timer_test_config(unsigned long timer) {
-	
+	char config;
+	timer_get_conf(timer,&config);
+	timer_display_conf(config);
 	return 1;
 }
