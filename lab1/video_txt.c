@@ -1,7 +1,7 @@
 #include <minix/drivers.h>
 #include <sys/video.h>
 #include <sys/mman.h>
-#include <stack.h>
+
 
 #include <assert.h>
 
@@ -62,7 +62,7 @@ int vt_print_int(int num, char attr, int r, int c) {
 	int col = c;
 	int size = 0;
 	int temp = num;
-
+	int i;
 	if(num < 0) return -1;
 
 	//count digits of the number
