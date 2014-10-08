@@ -3,8 +3,33 @@
 #include "i8254.h"
 
 int timer_set_square(unsigned long timer, unsigned long freq) {
+	port_t control_reg = TIMER_CTRL;
 
-	return 1;
+	char temp;
+	char* timer_ptr;
+	timer_get_conf(timer_ptr,&temp);
+
+	char control_word = temp | BIT(4) | BIT(5) | TIMER_RB_SEL(timer);
+
+	if(sys_outb(control_reg, control_word) != OK)  {
+		return 1;
+	}
+
+	int div = freq*TIMER_FREQ;
+
+	if(timer == 0) timer = TIMER_0;
+	else if (timer == 1) timer = TIMER_1;
+	else timer = TIMER_2;
+
+	if(sys_outb(timer, div) != OK)  {  // Send LSB
+			return 1;
+	}
+
+	if(sys_outb(timer, div >> 8) != OK)  {  // Send MSB
+			return 1;
+	}
+
+	return 0;
 }
 
 int timer_subscribe_int(void ) {
@@ -44,12 +69,29 @@ int timer_get_conf(unsigned long timer, unsigned char *st) {
 }
 
 int timer_display_conf(unsigned char conf) {
-	printf("timer config: %c", conf);
+	if(conf >> 7 && 0x01) printf("Timer output: 1 \n");
+	else printf("Timer output: 0 \n");
+
+	if(conf >> 6 && 0x01 ) printf("Timer null count: 1 \n");
+	else printf("Timer null count: 0 \n");
+
+	if((conf >> 5 && 0x01 ) && (conf >> 4 && 0x01 ))  printf("Type of access: LSB followed by MSB \n");
+	else if (conf >> 5 && 0x01 ) printf("Type of access: MSB \n");
+	else printf("Type of access: LSB \n");
+
+	if((conf >> 5 && 0x01 ) && (conf >> 4 && 0x01 ))  printf("Type of access: LSB followed by MSB \n");
+	else if (conf >> 5 && 0x01 ) printf("Type of access: MSB \n");
+	else printf("Type of access: LSB \n");
+
+
+	if(conf && 0x01 ) printf("Counting mode: Binary \n");
+	else printf("Counting mode: BCD \n");
+
 	return 1;
 }
 
 int timer_test_square(unsigned long freq) {
-	
+	timer_set_square(2,freq);
 	return 1;
 }
 
