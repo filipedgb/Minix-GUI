@@ -91,7 +91,7 @@ int timer_display_conf(unsigned char conf) {
 }
 
 int timer_test_square(unsigned long freq) {
-	timer_set_square(2,freq);
+	timer_set_square(0,freq);
 	return 1;
 }
 
@@ -103,7 +103,6 @@ int timer_test_int(unsigned long time) {
 int timer_test_config(unsigned long timer) {
 	char config;
 	if(!timer_get_conf(timer,&config)) {
-		printf("TESTE");
 		return timer_display_conf(config);
 	}
 	else return 1;
