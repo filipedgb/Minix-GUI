@@ -6,29 +6,19 @@ static int counter = 0;
 
 int timer_set_square(unsigned long timer, unsigned long freq) {
 	port_t control_reg = TIMER_CTRL;
-
+	int div = freq*TIMER_FREQ;
 	char old_config;
 
 	//requires you to read the Timer 0 configuration before you change it.//
 	timer_get_conf(timer,&old_config);
 
 	char control_word = old_config | BIT(4) | BIT(5) | TIMER_RB_SEL(timer);
+	if(sys_outb(control_reg, control_word) != OK) return 1;
 
-	if(sys_outb(control_reg, control_word) != OK)  {
-		return 1;
-	}
+	timer = TIMER_0 + timer; //doing so will convert the timer number (0 to 2) to its corresponding address (0x40 to 0x42)
 
-	int div = freq*TIMER_FREQ;
-
-	timer = TIMER_0 + timer; //doing so will convert the timer number to its corresponding address
-
-	if(sys_outb(timer, div) != OK)  {  // Send LSB
-			return 1;
-	}
-
-	if(sys_outb(timer, div >> 8) != OK)  {  // Send MSB
-			return 1;
-	}
+	if(sys_outb(timer, div) != OK) return 1; //send LSB
+	if(sys_outb(timer, div >> 8) != OK) return 1; //send MSB
 
 	return 0;
 }
