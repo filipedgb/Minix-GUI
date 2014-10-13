@@ -2,14 +2,17 @@
 #include <minix/drivers.h>
 #include "i8254.h"
 
+static int counter = 0;
+
 int timer_set_square(unsigned long timer, unsigned long freq) {
 	port_t control_reg = TIMER_CTRL;
 
-	char temp;
-	char* timer_ptr;
-	timer_get_conf(timer_ptr,&temp);
+	char old_config;
 
-	char control_word = temp | BIT(4) | BIT(5) | TIMER_RB_SEL(timer);
+	//requires you to read the Timer 0 configuration before you change it.//
+	timer_get_conf(timer,&old_config);
+
+	char control_word = old_config | BIT(4) | BIT(5) | TIMER_RB_SEL(timer);
 
 	if(sys_outb(control_reg, control_word) != OK)  {
 		return 1;
@@ -17,9 +20,7 @@ int timer_set_square(unsigned long timer, unsigned long freq) {
 
 	int div = freq*TIMER_FREQ;
 
-	if(timer == 0) timer = TIMER_0;
-	else if (timer == 1) timer = TIMER_1;
-	else timer = TIMER_2;
+	timer = TIMER_0 + timer; //doing so will convert the timer number to its corresponding address
 
 	if(sys_outb(timer, div) != OK)  {  // Send LSB
 			return 1;
@@ -33,8 +34,10 @@ int timer_set_square(unsigned long timer, unsigned long freq) {
 }
 
 int timer_subscribe_int(void ) {
-
-	return 1;
+//	int hook_id = sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, TIMER0_HOOK_BIT); // returns a hook id that you can then use to enable and disable irqs.
+//	sys_irqenable(&hook_id);
+//
+//	return 1;
 }
 
 int timer_unsubscribe_int() {
@@ -43,11 +46,12 @@ int timer_unsubscribe_int() {
 }
 
 void timer_int_handler() {
-
+	counter++;
 }
 
 int timer_get_conf(unsigned long timer, unsigned char *st) {
 	port_t control_reg = TIMER_CTRL;
+
 
 	unsigned long temp;
 
@@ -96,8 +100,32 @@ int timer_test_square(unsigned long freq) {
 }
 
 int timer_test_int(unsigned long time) {
-	
-	return 1;
+
+//	int ipc_status;
+//	message msg;
+//
+//
+//	while( 1 ) { /* You may want to use a different condition */
+//		/* Get a request message. */
+//		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
+//			printf("driver_receive failed with: %d", r);
+//			continue;
+//		}
+//		if (is_ipc_notify(ipc_status)) { /* received notification */
+//			switch (_ENDPOINT_P(msg.m_source)) {
+//			case HARDWARE: /* hardware interrupt notification */
+//				if (msg.NOTIFY_ARG & irq_set) { /* subscribed interrupt */
+//					   /* process it */
+//				}
+//				break;
+//			default:
+//				break; /* no other notifications expected: do nothing */
+//			}
+//		} else { /* received a standard message, not a notification */
+//			/* no standard messages expected: do nothing */
+//		}
+//	}
+//	return 0;
 }
 
 int timer_test_config(unsigned long timer) {

@@ -12,11 +12,7 @@ static void print_usage(char *argv[]);
 int main(int argc, char **argv) {
 
   /* Initialize service */
-
   sef_startup();
-
-  /* Get video text mode info */
-
   if ( argc == 1 ) {
       print_usage(argv);
       return 0;
