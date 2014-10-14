@@ -67,7 +67,7 @@ static int proc_args(int argc, char *argv[]) {
 	  }
 	  if((timer = parse_ulong(argv[2], 10)) == ULONG_MAX ) return 1;
 	  printf("Called timer_test_int(%lu) \n", timer);
-	  timer_test_square(timer);
+	  timer_test_int(timer);
 	  return 0;
   }
   else {
