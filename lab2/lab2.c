@@ -71,7 +71,7 @@ static int proc_args(int argc, char *argv[]) {
 	  return 0;
   }
   else {
-	  printf("video_txt: non valid function \"%s\" to test\n", argv[1]);
+	  printf("Non valid function \"%s\" to test\n", argv[1]);
 	  return 1;
   }
 }
@@ -91,7 +91,7 @@ static unsigned long parse_ulong(char *str, int base) {
   }
 
   if (endptr == str) {
-	  printf("video_txt: parse_ulong: no digits were found in %s \n", str);
+	  printf("Parse_ulong: no digits were found in %s \n", str);
 	  return ULONG_MAX;
   }
 
@@ -112,7 +112,7 @@ static long parse_long(char *str, int base) {
   }
 
   if (endptr == str) {
-	  printf("video_txt: parse_long: no digits were found in %s \n", str);
+	  printf("parse_long: no digits were found in %s \n", str);
 	  return LONG_MAX;
   }
 

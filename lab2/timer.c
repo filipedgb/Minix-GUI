@@ -2,7 +2,7 @@
 #include <minix/drivers.h>
 #include "i8254.h"
 
-int counter = 0;
+static int counter = 0;
 static int hook_id = 0;
 
 int timer_set_square(unsigned long timer, unsigned long freq) {
@@ -13,6 +13,7 @@ int timer_set_square(unsigned long timer, unsigned long freq) {
 	// "requires you to read the Timer 0 configuration before you change it." //
 	timer_get_conf(timer,&old_config);
 
+	// changing type of access and timer bits only. Square wave mode is default and as said "do not change the 4 least significant bits"
 	char control_word = old_config | BIT(4) | BIT(5) | TIMER_RB_SEL(timer);
 	if(sys_outb(control_reg, control_word) != OK) return 1;
 
@@ -56,23 +57,23 @@ int timer_get_conf(unsigned long timer, unsigned char *st) {
 }
 
 int timer_display_conf(unsigned char conf) {
-	if(conf >> 7 && 0x01) printf("Timer output: 1 \n");
+	printf("\n**** TIMER CONFIGURATION ****\n\n");
+
+	if(conf >> 7 & 0x01) printf("Timer output: 1 \n");
 	else printf("Timer output: 0 \n");
 
-	if(conf >> 6 && 0x01 ) printf("Timer null count: 1 \n");
+	if(conf >> 6 & 0x01 ) printf("Timer null count: 1 \n");
 	else printf("Timer null count: 0 \n");
 
-	if((conf >> 5 && 0x01 ) && (conf >> 4 && 0x01 ))  printf("Type of access: LSB followed by MSB \n");
+	if((conf >> 5 & 0x01 ) && (conf >> 4 & 0x01 ))  printf("Type of access: LSB followed by MSB \n");
 	else if (conf >> 5 && 0x01 ) printf("Type of access: MSB \n");
 	else printf("Type of access: LSB \n");
 
-	if((conf >> 5 && 0x01 ) && (conf >> 4 && 0x01 ))  printf("Type of access: LSB followed by MSB \n");
-	else if (conf >> 5 && 0x01 ) printf("Type of access: MSB \n");
-	else printf("Type of access: LSB \n");
+	if((conf >> 1 & 0x01 ) && (conf >> 2 & 0x01 ))  printf("Operating mode %lu: Square wave \n",conf >> 1 & 0x03);
+	else printf("Other operating mode: %lu\n",(conf >> 1 & 0x03)); //shifts one bit right and && with bitmask so we have only the 3 digits. Then print them
 
-
-	if(conf && 0x01 ) printf("Counting mode: Binary \n");
-	else printf("Counting mode: BCD \n");
+	if(conf & 0x01 ) printf("Counting mode: BCD \n\n");
+	else printf("Counting mode: Binary \n\n");
 
 	return 1;
 }
@@ -83,11 +84,11 @@ int timer_test_square(unsigned long freq) {
 }
 
 int timer_test_int(unsigned long time) {
-	int ipc_status,r, i = 0;
+	int ipc_status,r, seconds = 0;
 	message msg;
 	int shift = timer_subscribe_int();
 
-	while(i < time) { /* assuming the timer frequency is set to 60*/
+	while(seconds < time) { /* assuming the timer frequency is set to 60*/
 
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
@@ -98,12 +99,13 @@ int timer_test_int(unsigned long time) {
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
-					 timer_int_handler();
-					 if (counter%60 == 0){
-						 printf("Hello\n!");
-						 i++;
-
-					 };
+					timer_int_handler();
+					if (counter%60 == 0){
+						//as the frequency of interruptions is 60Hz as assumed, that means every 60 interrupts 1 second has passed
+						//so whatever is inside this if-block happens each second
+						seconds++; // increments the seconds counter
+						printf("Hello\n!");
+					};
 				}
 				break;
 			default:
@@ -119,8 +121,11 @@ int timer_test_int(unsigned long time) {
 
 int timer_test_config(unsigned long timer) {
 	char config;
-	if(!timer_get_conf(timer,&config)) {
+	if(timer < 2 && !timer_get_conf(timer,&config)) {
 		return timer_display_conf(config);
 	}
-	else return 1;
+	else {
+		printf("An error occured. Make sure your timer is 0, 1 or 2.\n");
+		return 1;
+	}
 }
