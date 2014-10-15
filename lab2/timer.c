@@ -121,7 +121,7 @@ int timer_test_int(unsigned long time) {
 
 int timer_test_config(unsigned long timer) {
 	char config;
-	if(timer < 2 && !timer_get_conf(timer,&config)) {
+	if(timer <= 2 && !timer_get_conf(timer,&config)) {
 		return timer_display_conf(config);
 	}
 	else {
