@@ -85,7 +85,7 @@ int timer_test_square(unsigned long freq) {
 int timer_test_int(unsigned long time) {
 	int ipc_status,r, i = 0;
 	message msg;
-	timer_subscribe_int();
+	int shift = timer_subscribe_int();
 
 	while(i < time) { /* assuming the timer frequency is set to 60*/
 
@@ -97,7 +97,7 @@ int timer_test_int(unsigned long time) {
 		if (is_ipc_notify(ipc_status)) { /* received notification */
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
-				if (msg.NOTIFY_ARG & 1) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
+				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 					 timer_int_handler();
 					 if (counter%60 == 0){
 						 printf("Hello\n!");
