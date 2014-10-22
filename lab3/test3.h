@@ -47,17 +47,9 @@ int kbd_test_leds(unsigned short n, unsigned short *leds);
  */
 int kbd_test_timed_scan(unsigned short n);
 
-int keyboard_subscribe_int(void ) {
-		int temp = hook_id; //integer between 0 and 31
-        sys_irqsetpolicy(KBC_IRQ, IRQ_REENABLE,&hook_id); // returns a hook id that you can then use to enable and disable irqs.
-        sys_irqenable(&hook_id);
-        return temp;
-}
+int keyboard_subscribe_int(void );
 
-int timer_unsubscribe_int() {
-        if (sys_irqrmpolicy(&hook_id)!= OK) return 1;
-        return 0;
-}
+int timer_unsubscribe_int();
 
 
 
