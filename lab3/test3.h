@@ -1,6 +1,9 @@
 #ifndef __TEST3_H
 #define __TEST3_H
 
+
+#define KBC_IRQ 1
+
 /** @defgroup test3 test3
  * @{
  *
@@ -43,5 +46,19 @@ int kbd_test_leds(unsigned short n, unsigned short *leds);
  * @return Return 0 upon success and non-zero otherwise
  */
 int kbd_test_timed_scan(unsigned short n);
+
+int keyboard_subscribe_int(void ) {
+		int temp = hook_id; //integer between 0 and 31
+        sys_irqsetpolicy(KBC_IRQ, IRQ_REENABLE,&hook_id); // returns a hook id that you can then use to enable and disable irqs.
+        sys_irqenable(&hook_id);
+        return temp;
+}
+
+int timer_unsubscribe_int() {
+        if (sys_irqrmpolicy(&hook_id)!= OK) return 1;
+        return 0;
+}
+
+
 
 #endif /* __TEST3_H */
