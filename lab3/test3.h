@@ -3,6 +3,10 @@
 
 
 #define KBC_IRQ 1
+#define break_code 0x81
+#define make_code 0x01
+#define OUT_BUF 0x60
+
 
 /** @defgroup test3 test3
  * @{
