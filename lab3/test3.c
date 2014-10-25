@@ -24,12 +24,13 @@ void keyboard_int_handler() {
 }
 
 void loop() {
-	int ipc_status,r, seconds = 0;
+	int ipc_status,r, seconds = 0, running = 1;
 	message msg;
 	int shift = keyboard_subscribe_int();
 	unsigned long code;
 
-	while(seconds < 10) { /* 10 seconds hardcoded just for testing */
+
+	while(running) { /* 10 seconds hardcoded just for testing */
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
 			printf("driver_receive failed with: %d", r);
@@ -43,14 +44,12 @@ void loop() {
 
 					sys_inb(OUT_BUF,&code);
 
+					if(code ==
+
 					if(code & 0x80 == 1)  {
 						printf("Break code: %2x\n",code);
 					}
 					else printf("Make code: %2x\n", code);
-
-					 if (counter%60 == 0){
-						 seconds++;
-					 }
 
 				}
 				break;
