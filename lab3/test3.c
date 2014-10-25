@@ -71,13 +71,17 @@ void loop() {
 
 int kbd_test_scan(unsigned short ass) {
 
-	loop();
+	if(ass == 0) loop();
 
 	return 0;
 
 }
 int kbd_test_leds(unsigned short n, unsigned short *leds) {
-	/* To be completed */
+	int i;
+	printf("\n TESTE PARA VER SE OS PARAMETROS PASSARAM DIREITO \n");
+	for(i=0; i < n; i++) {
+		printf("%lu \n", leds[i]);
+	}
 }
 int kbd_test_timed_scan(unsigned short n) {
 	/* To be completed */
