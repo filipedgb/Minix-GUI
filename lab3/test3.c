@@ -44,11 +44,15 @@ void loop() {
 
 					sys_inb(OUT_BUF,&code);
 
-					if(code ==
+					if (code == ESC_BREAK_CODE) {
+						printf("Escape break code: %2x.\nTerminating...\n",code);
+						running = 0;
+					}
 
-					if(code & 0x80 == 1)  {
+					else if(code >> 7 & 0x01 == 1)  {
 						printf("Break code: %2x\n",code);
 					}
+
 					else printf("Make code: %2x\n", code);
 
 				}
