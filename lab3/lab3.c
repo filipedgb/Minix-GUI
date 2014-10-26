@@ -66,11 +66,13 @@ static int proc_args(int argc, char *argv[]) {
 	  }
 	  if((temp = parse_ulong(argv[2], 10)) == ULONG_MAX ) return 1;
 
+	  /* Verifica se o valor do 1º argumento (nº de toggles do array) é igual ao tamanho do array passado */
 	  if(temp != argc-3){
 		  printf("Your array should be the size of the 1st parameter passed\n");
 		  return 1;
 	  }
 
+	  /* Preenche um array de toggles e verifica se são válidos (entre 0 e 2) */
 	  temp_array = (unsigned short*)malloc( temp*sizeof(unsigned short)); // allocate memory for leds array
 	  int i;
 	  for(i=0; i < temp; i++) {
@@ -79,6 +81,7 @@ static int proc_args(int argc, char *argv[]) {
 		  else temp_array[i] = (unsigned short) array_value ;
 	  }
 
+	  /* Imprime e chama a função */
 	  printf("Called kbd_test_leds(%lu", temp);
 	  for(i=0; i < temp; i++) printf(" ,LED %lu", temp_array[i]);
 	  printf(")\n");

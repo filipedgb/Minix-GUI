@@ -2,10 +2,6 @@
 #define __TEST3_H
 
 
-#define KBC_IRQ 1
-#define break_code 0x81
-#define make_code 0x01
-#define OUT_BUF 0x60
 
 
 /** @defgroup test3 test3
@@ -53,7 +49,7 @@ int kbd_test_timed_scan(unsigned short n);
 
 int keyboard_subscribe_int(void );
 
-int timer_unsubscribe_int();
+int keyboard_unsubscribe_int();
 
 
 
