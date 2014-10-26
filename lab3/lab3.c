@@ -37,7 +37,7 @@ static void print_usage(char *argv[]) {
   printf("Usage: one of the following:\n"
 	 "\t service run %s -args \"scan <0 for C code, otherwise for Assembly>\" \n"
 	 "\t service run %s -args \"leds <decimal number> <array of decimal numbers>\" \n"
-	 "\t service run %s -args \"scantime <decimal number>\" \n",
+	 "\t service run %s -args \"timescan <decimal number>\" \n",
 	 argv[0], argv[0], argv[0]);
 }
 
@@ -90,13 +90,13 @@ static int proc_args(int argc, char *argv[]) {
 	  return 0;
   }
 
-  else if (strncmp(argv[1], "scantime", strlen("scantime")) == 0) {
+  else if (strncmp(argv[1], "timescan", strlen("timescan")) == 0) {
 	  if( argc != 3 ) {
 		  printf("Wrong no of arguments for scantime() \n");
 	  	  return 1;
 	  }
 	  if((temp = parse_ulong(argv[2], 10)) == ULONG_MAX ) return 1;
-	  printf("Called scantime(%lu) \n", temp);
+	  printf("Called timescan(%lu) \n", temp);
 	  kbd_test_timed_scan((unsigned short)temp);
 	  return 0;
   }

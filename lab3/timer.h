@@ -1,6 +1,10 @@
 #ifndef __TIMER_H
 #define __TIMER_H
 
+static int counter = 0;
+static int hook_id = 0;
+
+
 /** @defgroup timer timer
  * @{
  *
