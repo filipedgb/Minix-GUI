@@ -26,23 +26,23 @@ int keyboard_unsubscribe_int() {
 	return 0;
 }
 
-
+/*
 int keyboard_int_handler(unsigned long *code) {
 
-	kbc_output(code); // corre a função que lê o output do KBC
+	kbc_output(code); // corre a funï¿½ï¿½o que lï¿½ o output do KBC
 	if (*code == ESC_BREAK_CODE) return 1;
-	//sys_inb(OUT_BUF,&code); // vai buscar o código da tecla ao output buffer
+	//sys_inb(OUT_BUF,&code); // vai buscar o cï¿½digo da tecla ao output buffer
 	return 0;
-}
+}*/
 
 void print_codes(unsigned long code) {
 	if (code == ESC_BREAK_CODE) printf("Escape break code: %2x.\nTerminating...\n",code);
 
-	else if(code >> 7 & 0x01 == 1)  { // se o bit mais significativo se encontra a 1, então trata-se de um break code
+	else if(code >> 7 & 0x01 == 1)  { // se o bit mais significativo se encontra a 1, entï¿½o trata-se de um break code
 		printf("Break code: %2x\n",code);
 	}
 
-	else printf("Make code: %2x\n", code); // otherwise é um make code
+	else printf("Make code: %2x\n", code); // otherwise ï¿½ um make code
 
 }
 
@@ -211,10 +211,10 @@ int kbd_test_scan(unsigned short ass) {
 int kbd_test_leds(unsigned short n, unsigned short *leds) {
 	// 0 - scroll lock, 1 - numeric lock,  2 - caps lock
 
-	// VERIFICAÇÕES DE INPUT
+	// VERIFICAï¿½ï¿½ES DE INPUT
 	int i;
 
-	/* Imprime e verifica se os valores dos leds para toggle são todos validos */
+	/* Imprime e verifica se os valores dos leds para toggle sï¿½o todos validos */
 	for(i=0; i < n; i++) {
 		printf("LED: %lu \n",leds[i]);
 		if( leds[i] > 2 ||  leds[i] < 0){
@@ -223,7 +223,7 @@ int kbd_test_leds(unsigned short n, unsigned short *leds) {
 		}
 	}
 
-	// FUNÇÃO EM SI
+	// FUNï¿½ï¿½O EM SI
 
 	int leds_argument_cmd;
 	leds_state = malloc(3*sizeof(int));
