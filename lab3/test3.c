@@ -28,6 +28,7 @@ int keyboard_unsubscribe_int() {
 
 
 int keyboard_int_handler_C(unsigned long *code) {
+	printf("K\n");
 	kbc_output(code); // corre a fun��o que l� o output do KBC
 	if (*code == ESC_BREAK_CODE) return 1;
 	//sys_inb(OUT_BUF,&code); // vai buscar o c�digo da tecla ao output buffer
@@ -83,7 +84,7 @@ void receiver_loop() {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 
-					if(keyboard_int_handler_C(&code)) running = 0;
+					if(keyboard_int_handler_ASM(&code)) running = 0;
 					else seconds = 0;
 
 					print_codes(code);

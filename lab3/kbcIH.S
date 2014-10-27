@@ -1,5 +1,5 @@
-.globl _keyboard_int_handler
-_keyboard_int_handler:
+.globl _keyboard_int_handler_ASM
+_keyboard_int_handler_ASM:
 	pushl	%ebp
 	movl	%esp, %ebp
 	subl	$24, %esp
