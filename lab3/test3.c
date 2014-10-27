@@ -12,6 +12,7 @@ static int hook_id = 0;
 static int timer_flag = 0;
 static int assembly_flag = 0;
 static int time = 5;
+static int* leds_state;
 
 int keyboard_subscribe_int(void ) {
 	int temp = hook_id_2; //integer between 0 and 31
@@ -161,6 +162,37 @@ int kbc_output(unsigned long* data) {
 
 }
 
+int issue_command(unsigned long command, unsigned long argument) {
+	// If you want to issue a command without argument, pass -1 as second parameter
+
+	unsigned long stat;
+
+	sys_outb(0x60, command);//send command
+	sys_inb(OUT_BUF, &stat);//read ACK
+
+	if (stat != 0xFA) {
+		printf("STAT VALUE 0x%x , nerro a\n",stat);
+		return 1;
+	}
+
+	if(argument != -1) {
+		if (sys_outb(0x60, argument) != OK ) {
+			printf("\nerro b\n");
+			return 1;
+		}
+
+		sys_inb(OUT_BUF, &stat); //read ACK
+		if (stat != 0xFA) {
+			printf("\nerro c\n");
+			return 1;
+		}
+	}
+
+	return 0;
+
+}
+
+
 
 int kbd_test_scan(unsigned short ass) {
 	timer_flag = 0;
@@ -178,35 +210,42 @@ int kbd_test_scan(unsigned short ass) {
 int kbd_test_leds(unsigned short n, unsigned short *leds) {
 	// 0 - scroll lock, 1 - numeric lock,  2 - caps lock
 
-	int i, temp;
-	printf("\n TESTE PARA VER SE OS PARAMETROS PASSARAM DIREITO \n");
+	// VERIFICAÇÕES DE INPUT
+	int i;
 
-	//	int resp=kbc_input(DATA_REG, cmd);
-	//	if(resp != ACK)
-	//		return resp;
-	//	for(i = 0; i < tries; i++)
-	//	{
-	//		kbc_input(DATA_REG, cmd[1]);
-	//		temp = kbc_output();
-	//		if(aux == ACK || aux == Error || aux == -1)
-	//			return aux;
-	//
-	//		delay(1);
-	//	}
-	//
-
-
+	/* Imprime e verifica se os valores dos leds para toggle são todos validos */
 	for(i=0; i < n; i++) {
-		printf("LED: %lu \n", leds[i]);
+		printf("LED: %lu \n",leds[i]);
+		if( leds[i] > 2 ||  leds[i] < 0){
+			printf("\nERROR: Leds values must range from 0 to 2\n");
+			return 1;
+		}
 	}
 
+	// FUNÇÃO EM SI
+
+	int leds_argument_cmd;
+	leds_state = malloc(3*sizeof(int));
+	for(i=0; i < 3; i++) leds_state[i] = 0;
+
 	keyboard_subscribe_int();
+	for(i=0; i < n; i++) {
+		leds_argument_cmd = 1;
+		leds_argument_cmd = leds_argument_cmd << leds[i];
 
-	//	if(sys_outb(OUT_BUF,0xED)) return 1;
-	//kbc_output(0xED);
-	//kbc_ouput(0x04);
-	sleep(1);
+		printf("ARGUMENT: 0x%x \n",leds_argument_cmd);
 
+
+		if (issue_command(0xED,leds_argument_cmd) != 0) printf("\nerro 1\n");
+		else {
+			leds_state[leds[i]] = !leds_state[leds[i]]; // toggle led state (in the array of states) of the led indicated in leds array
+		}
+
+		//tickdelay(micros_to_ticks(DELAY_US));
+		sleep(2);
+	}
+
+	issue_command(0xF6,-1);
 	keyboard_unsubscribe_int();
 	return 0;
 

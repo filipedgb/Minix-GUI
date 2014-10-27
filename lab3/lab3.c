@@ -77,8 +77,7 @@ static int proc_args(int argc, char *argv[]) {
 	  int i;
 	  for(i=0; i < temp; i++) {
 		  if((array_value = parse_ulong(argv[i+3], 10)) == ULONG_MAX ) return 1;
-		  if(array_value > 2 || array_value < 0) printf("\nERROR: Leds values must range from 0 to 2\n");
-		  else temp_array[i] = (unsigned short) array_value ;
+		  temp_array[i] = (unsigned short) array_value ;
 	  }
 
 	  /* Imprime e chama a função */
