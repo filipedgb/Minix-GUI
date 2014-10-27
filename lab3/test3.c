@@ -27,16 +27,16 @@ int keyboard_unsubscribe_int() {
 }
 
 
-int keyboard_int_handler() {
-	unsigned long code;
+int keyboard_int_handler(unsigned long *code) {
 
-	kbc_output(&code); // corre a função que lê o output do KBC
+	kbc_output(code); // corre a função que lê o output do KBC
+	if (*code == ESC_BREAK_CODE) return 1;
 	//sys_inb(OUT_BUF,&code); // vai buscar o código da tecla ao output buffer
+	return 0;
+}
 
-	if (code == ESC_BREAK_CODE) {
-		printf("Escape break code: %2x.\nTerminating...\n",code);
-		return 1;
-	}
+void print_codes(unsigned long code) {
+	if (code == ESC_BREAK_CODE) printf("Escape break code: %2x.\nTerminating...\n",code);
 
 	else if(code >> 7 & 0x01 == 1)  { // se o bit mais significativo se encontra a 1, então trata-se de um break code
 		printf("Break code: %2x\n",code);
@@ -44,7 +44,6 @@ int keyboard_int_handler() {
 
 	else printf("Make code: %2x\n", code); // otherwise é um make code
 
-	return 0;
 }
 
 void timer_int_handler() {
@@ -71,6 +70,7 @@ void receiver_loop() {
 	int shift_timer;
 	if(timer_flag) shift_timer = timer_subscribe_int();
 
+	unsigned long code;
 
 
 	while(running && (seconds < time)) {
@@ -84,8 +84,11 @@ void receiver_loop() {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo Ã© 1*/
 
-					if(keyboard_int_handler()) running = 0;
+					if(keyboard_int_handler(&code)) running = 0;
 					else seconds = 0;
+
+					print_codes(code);
+
 
 				}
 
@@ -119,8 +122,6 @@ void receiver_loop() {
 
 
 }
-
-
 
 /*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_input(char kbc_command)  {
