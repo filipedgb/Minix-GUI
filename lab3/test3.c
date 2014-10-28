@@ -27,13 +27,16 @@ int keyboard_unsubscribe_int() {
 }
 
 
+
 int keyboard_int_handler_C(unsigned long *code) {
-	printf("K\n");
+	printf("*This is the C handler*  ");
 	kbc_output(code); // corre a fun��o que l� o output do KBC
 	if (*code == ESC_BREAK_CODE) return 1;
 	//sys_inb(OUT_BUF,&code); // vai buscar o c�digo da tecla ao output buffer
 	return 0;
 }
+
+
 
 void print_codes(unsigned long code) {
 	if (code == ESC_BREAK_CODE) printf("Escape break code: %2x.\nTerminating...\n",code);
@@ -83,9 +86,14 @@ void receiver_loop() {
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
-
-					if(keyboard_int_handler_ASM(&code)) running = 0;
-					else seconds = 0;
+					if(assembly_flag) {
+						if(keyboard_int_handler_ASM(&code)) running = 0;
+						else seconds = 0;
+					}
+					else {
+						if(keyboard_int_handler_C(&code)) running = 0;
+						else seconds = 0;
+					}
 
 					print_codes(code);
 
@@ -198,8 +206,12 @@ int issue_command(unsigned long command, unsigned long argument) {
 int kbd_test_scan(unsigned short ass) {
 	timer_flag = 0;
 
+
 	if(ass == 0) assembly_flag = 0;
-	else assembly_flag = 1;
+	else {
+		printf("Assembly code chosen.\n");
+		assembly_flag = 1;
+	}
 
 	receiver_loop();
 
@@ -214,7 +226,7 @@ int kbd_test_leds(unsigned short n, unsigned short *leds) {
 	// VERIFICA��ES DE INPUT
 	int i;
 
-	/* Imprime e verifica se os valores dos leds para toggle s�o todos validos */
+	/* Imprime e verifica se os valores dos leds para toggle sao todos validos */
 	for(i=0; i < n; i++) {
 		printf("LED: %lu \n",leds[i]);
 		if( leds[i] > 2 ||  leds[i] < 0){
@@ -223,16 +235,19 @@ int kbd_test_leds(unsigned short n, unsigned short *leds) {
 		}
 	}
 
-	// FUN��O EM SI
+	// FUNCAO EM SI
 
 	int leds_argument_cmd;
 	leds_state = malloc(3*sizeof(int));
 	for(i=0; i < 3; i++) leds_state[i] = 0;
 
+	leds_argument_cmd = 0;
+
 	keyboard_subscribe_int();
 	for(i=0; i < n; i++) {
-		leds_argument_cmd = 1;
-		leds_argument_cmd = leds_argument_cmd << leds[i];
+
+		if(leds_state[leds[i]] == 1) leds_argument_cmd &= (~(1 << leds[i]));
+		else leds_argument_cmd |= (1 << leds[i]);
 
 		printf("ARGUMENT: 0x%x \n",leds_argument_cmd);
 

@@ -21,6 +21,6 @@ L9:
 LC0:
 	.ascii "Escape break code: %2x.\12Terminating...\12\0"
 LC1:
-	.ascii "Break code: %2x\12\0"
+	.ascii "Function in assembly | Break code: %2x\12\0"
 LC2:
-	.ascii "Make code: %2x\12\0"
+	.ascii "Function in assembly | Make code: %2x\12\0"
