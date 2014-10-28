@@ -139,7 +139,7 @@ void receiver_loop() {
 
 }
 
-/*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
+
 int kbc_input(char kbc_command)  {
 
 	unsigned long stat;
@@ -160,7 +160,6 @@ int kbc_input(char kbc_command)  {
 	}
 }
 
-/*FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_output(unsigned long* data) {
 	unsigned long stat;
 
