@@ -4,6 +4,14 @@
 static int counter = 0;
 static int hook_id = 0;
 
+/* ADDED FUNCTIONS USEFUL FOR LAB3 */
+
+
+void reset_cronometer();
+
+int get_seconds();
+
+
 
 /** @defgroup timer timer
  * @{

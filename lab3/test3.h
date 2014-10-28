@@ -1,7 +1,7 @@
 #ifndef __TEST3_H
 #define __TEST3_H
 
-
+#include "keyboard.h"
 
 
 /** @defgroup test3 test3
@@ -46,11 +46,6 @@ int kbd_test_leds(unsigned short n, unsigned short *leds);
  * @return Return 0 upon success and non-zero otherwise
  */
 int kbd_test_timed_scan(unsigned short n);
-
-int keyboard_subscribe_int(void );
-
-int keyboard_unsubscribe_int();
-
 
 
 #endif /* __TEST3_H */

@@ -4,6 +4,7 @@
 
 static int counter = 0;
 static int hook_id = 0;
+static int seconds = 0;
 
 int timer_set_square(unsigned long timer, unsigned long freq) {
 	port_t control_reg = TIMER_CTRL;
@@ -39,7 +40,18 @@ int timer_unsubscribe_int() {
 
 void timer_int_handler() {
 	counter++;
+	if (counter%60 == 0) seconds++;
 }
+
+void reset_cronometer() {
+	seconds = 0;
+}
+
+int get_seconds() {
+	return seconds;
+}
+
+
 
 int timer_get_conf(unsigned long timer, unsigned char *st) {
 	port_t control_reg = TIMER_CTRL;
@@ -84,7 +96,7 @@ int timer_test_square(unsigned long freq) {
 }
 
 int timer_test_int(unsigned long time) {
-	int ipc_status,r, seconds = 0;
+	int ipc_status,r;
 	message msg;
 	int shift = timer_subscribe_int();
 
@@ -103,7 +115,7 @@ int timer_test_int(unsigned long time) {
 					if (counter%60 == 0){
 						//as the frequency of interruptions is 60Hz as assumed, that means every 60 interrupts 1 second has passed
 						//so whatever is inside this if-block happens each second
-						seconds++; // increments the seconds counter
+						// increments the seconds counter
 						printf("Hello\n!");
 					};
 				}
