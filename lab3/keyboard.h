@@ -21,6 +21,10 @@ int keyboard_unsubscribe_int();
 
 int issue_command(unsigned long command, unsigned long argument);
 
+void process_leds(unsigned short n, unsigned short *leds);
+
+void reset_leds();
+
 void receiver_loop();
 
 void print_codes(unsigned long code);

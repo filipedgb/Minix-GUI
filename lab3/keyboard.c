@@ -12,6 +12,36 @@ void setTime(int seconds) {
 	time = seconds;
 }
 
+void reset_leds() {
+	issue_command(0xF6,-1);
+}
+
+
+void process_leds(unsigned short n, unsigned short *leds) {
+
+	int i, leds_argument_cmd = 0; // command to be sent
+	leds_state = malloc(3*sizeof(int)); // array with the current states of each led
+	for(i=0; i < 3; i++) leds_state[i] = 0; // array initalization
+
+	for(i=0; i < n; i++) {
+
+		/* bit masks */
+		if(leds_state[leds[i]] == 1) leds_argument_cmd &= (~(1 << leds[i])); //if the state is ON, we have to set the bit to 0 with a mask
+		else leds_argument_cmd |= (1 << leds[i]); // if not , we want to set the bit to 1 with another mask
+
+		printf("ARGUMENT: 0x%x \n",leds_argument_cmd); // prints the argument so we can see the command was masked successfully
+
+		if (issue_command(0xED,leds_argument_cmd) != 0) printf("\nerro 1\n");
+		else {
+			leds_state[leds[i]] = !leds_state[leds[i]]; // toggle led state (in the array of states) of the led indicated in leds array
+		}
+
+		//tickdelay(micros_to_ticks(DELAY_US));
+		sleep(2);
+	}
+}
+
+
 int keyboard_subscribe_int(void ) {
 	int temp = hook_id_2; //integer between 0 and 31
 	sys_irqsetpolicy(KBC_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE ,&hook_id_2); // returns a hook id that you can then use to enable and disable irqs.
