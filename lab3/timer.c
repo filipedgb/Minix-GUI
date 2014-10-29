@@ -11,7 +11,7 @@ int timer_set_square(unsigned long timer, unsigned long freq) {
 	int div = freq*TIMER_FREQ;
 	char old_config;
 
-	// "requires you to read the Timer 0 configuration before you change it." //
+	// "this requires you to read the Timer 0 configuration before you change it." //
 	timer_get_conf(timer,&old_config);
 
 	// changing type of access and timer bits only. Square wave mode is default and as said "do not change the 4 least significant bits"
