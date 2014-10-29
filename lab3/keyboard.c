@@ -12,39 +12,6 @@ void setTime(int seconds) {
 	time = seconds;
 }
 
-void reset_leds() {
-	issue_command(0xF6,-1);
-}
-
-void process_leds(unsigned short n, unsigned short *leds) {
-	int i, leds_argument_cmd = 0; // command to be sent
-	leds_state = malloc(3*sizeof(int)); // array with the current states of each led
-	for(i=0; i < 3; i++) leds_state[i] = 0; // array initalization
-
-	for(i=0; i < n; i++) {
-		/* bit masks */
-		if(leds_state[leds[i]] == 1) leds_argument_cmd &= (~(1 << leds[i])); //if the state is ON, we have to set the bit to 0 with a mask
-		else leds_argument_cmd |= (1 << leds[i]); // if not , we want to set the bit to 1 with another mask
-
-		printf("ARGUMENT: 0x%x \n",leds_argument_cmd); // prints the argument so we can see the command was masked successfully
-
-		if (issue_command(0xED,leds_argument_cmd) != 0) printf("\nerro 1\n");
-		else {
-			leds_state[leds[i]] = !leds_state[leds[i]]; // toggle led state (in the array of states) of the led indicated in leds array
-		}
-
-		//tickdelay(micros_to_ticks(DELAY_US));
-		sleep(2);
-
-		//reset_cronometer();
-//		while(get_seconds() < 2) {
-//			//does nothing
-//		}
-
-	}
-}
-
-
 int keyboard_subscribe_int(void ) {
 	int temp = hook_id_2; //integer between 0 and 31
 	sys_irqsetpolicy(KBC_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE ,&hook_id_2); // returns a hook id that you can then use to enable and disable irqs.
@@ -67,23 +34,29 @@ int keyboard_int_handler_C(unsigned long *code) {
 }
 
 
+
 void print_codes(unsigned long code) {
 	if (code == ESC_BREAK_CODE) printf("Escape break code: %2x.\nTerminating...\n",code);
+
 	else if(code >> 7 & 0x01 == 1)  { // se o bit mais significativo se encontra a 1, ent�o trata-se de um break code
 		printf("Break code: %2x\n",code);
 	}
+
 	else printf("Make code: %2x\n", code); // otherwise � um make code
+
 }
 
 
 void receiver_loop() {
 	int ipc_status,r, seconds = 0, running = 1;
 	message msg;
-	unsigned long code;
 
 	int shift = keyboard_subscribe_int();
 	int shift_timer;
 	if(timer_flag) shift_timer = timer_subscribe_int();
+
+	unsigned long code;
+
 
 	while(running && (get_seconds()  < time)) {
 		/* Get a request message. */
@@ -103,11 +76,17 @@ void receiver_loop() {
 						if(keyboard_int_handler_C(&code)) running = 0;
 						else reset_cronometer();
 					}
+
 					print_codes(code);
+
+
 				}
+
 				else if (msg.NOTIFY_ARG & BIT(shift_timer) && timer_flag) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 					//printf("\n Entrou aqui. Counter %d \n", counter);
 					timer_int_handler();
+
+
 				}
 				break;
 			default:
@@ -122,12 +101,15 @@ void receiver_loop() {
 		printf("\nTimeout. Terminating...\n");
 	}
 
+
 	keyboard_unsubscribe_int();
 	timer_unsubscribe_int();
 	return;
+
+
 }
 
-
+/*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_input(char kbc_command)  {
 
 	unsigned long stat;
@@ -148,6 +130,7 @@ int kbc_input(char kbc_command)  {
 	}
 }
 
+/*FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_output(unsigned long* data) {
 	unsigned long stat;
 
