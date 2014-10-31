@@ -1,4 +1,3 @@
-#include "lab4.h"
 #include "test4.h"
 
 #include <minix/drivers.h>
@@ -30,10 +29,10 @@ int main(int argc, char **argv) {
 
 static void print_usage(char *argv[]) {
   printf("Usage: one of the following:\n\n"
-	 "service run %s -args \"packets <decimal number>\" \n"
-	 "service run %s -args \"async <decimal number>\" \n"
+	 "service run %s -args \"packets <+decimal number>\" \n"
+	 "service run %s -args \"async <+decimal number>\" \n"
 	 "service run %s -args \"config\" \n"
-	 "service run %s -args \"gesture <decimal number> <positive decimal number>\" \n\n",
+	 "service run %s -args \"gesture <decimal number> <+decimal number>\" \n\n",
 	 argv[0], argv[0], argv[0], argv[0]);
 }
 
@@ -69,14 +68,13 @@ static int proc_args(int argc, char *argv[]) {
 		  printf("Wrong no of arguments for test_config() \n");
 	  	  return 1;
 	  }
-	  if((temp = parse_ulong(argv[2], 10)) == ULONG_MAX ) return 1;
-	  printf("Called test_config(void) \n", temp);
+	  printf("Called test_config(void) \n");
 	  test_config();
 	  return 0;
   }
 
   else if (strncmp(argv[1], "gesture", strlen("gesture")) == 0) {
-	  if( argc != 3 ) {
+	  if( argc != 4 ) {
 		  printf("Wrong no of arguments for test_gesture() \n");
 	  	  return 1;
 	  }
