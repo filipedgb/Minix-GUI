@@ -5,6 +5,15 @@ static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
 
 
+void setTimerFlag() {
+	timer_flag = 1;
+}
+
+void setTime(int seconds) {
+	tempo = seconds;
+}
+
+
 int mouse_subscribe_int(void ) {
 	int temp = hook_id_3; //integer between 0 and 31
 	sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE ,&hook_id_3); // returns a hook id that you can then use to enable and disable irqs.
@@ -59,10 +68,9 @@ void interruption_loop() {
 	int ipc_status,r, seconds = 0;
 	message msg;
 	int shift = mouse_subscribe_int();
+	int shift_timer = timer_subscribe_int();
 
-	int i = 0;
-
-	while(total_packet_cnt < 500) { /* assuming the timer frequency is set to 60*/
+	while( (total_packet_cnt < 500) && (get_seconds() < tempo)) { /* assuming the timer frequency is set to 60*/
 
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
@@ -74,7 +82,14 @@ void interruption_loop() {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shift)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 					mouse_int_handler();
+					reset_cronometer();
 				}
+
+				else if(msg.NOTIFY_ARG & BIT(shift_timer) && timer_flag) {
+					timer_int_handler();
+				}
+
+
 				break;
 			default:
 				break; /* no other notifications expected: do nothing */
@@ -84,7 +99,10 @@ void interruption_loop() {
 		}
 	}
 
+	printf("Terminating...\n");
+
 	mouse_unsubscribe_int();
+	timer_unsubscribe_int();
 	return;
 }
 /*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
@@ -151,12 +169,4 @@ int issue_command_mouse(unsigned char command, unsigned char argument) {
 }
 
 
-void setTimerFlag() {
-	timer_flag = 1;
-}
-
-
-void setTime(int seconds) {
-	time = seconds;
-}
 

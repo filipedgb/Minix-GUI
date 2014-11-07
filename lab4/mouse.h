@@ -4,10 +4,16 @@
 #include <minix/syslib.h>
 #include <minix/drivers.h>
 #include "headers.h"
+#include "time.h"
+
 
 static int hook_id_3 = 1;
 static int timer_flag = 0;
-static int time = 5;
+static int tempo = 5;
+
+void setTimerFlag();
+
+void setTime(int seconds);
 
 void print_packet();
 
