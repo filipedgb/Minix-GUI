@@ -9,15 +9,17 @@ static int hook_id_3 = 1;
 static int timer_flag = 0;
 static int time = 5;
 
-int keyboard_int_handler();
+void print_packet();
 
-int keyboard_subscribe_int();
+int mouse_int_handler();
 
-int keyboard_unsubscribe_int();
+int mouse_subscribe_int();
 
-int issue_command(unsigned long command, unsigned long argument);
+int mouse_unsubscribe_int();
 
-void receiver_loop();
+int issue_command_mouse(unsigned char command, unsigned char argument);
+
+void interruption_loop();
 
 int kbc_input(char kbc_command);
 

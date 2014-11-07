@@ -61,3 +61,6 @@ int test_config(void);
 
 
 int test_gesture(short length, unsigned short tolerance);
+
+
+#endif
