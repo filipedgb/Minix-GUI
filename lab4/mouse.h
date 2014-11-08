@@ -17,6 +17,10 @@ void setTime(int seconds);
 
 void print_packet();
 
+void read_config();
+
+void print_mouse_config();
+
 int mouse_int_handler();
 
 int mouse_subscribe_int();

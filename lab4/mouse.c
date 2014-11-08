@@ -1,5 +1,6 @@
 #include "mouse.h"
 
+static unsigned char config[3];
 static unsigned char packet[3];
 static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
@@ -105,6 +106,59 @@ void interruption_loop() {
 	timer_unsubscribe_int();
 	return;
 }
+
+void read_config() {
+	unsigned long data;
+	kbc_output(&data); // byte 1
+	config[0] = (char) data;
+
+	kbc_output(&data); // byte 2
+	config[1] = (char) data;
+
+	kbc_output(&data); // byte 3
+	config[2] = (char) data;
+
+}
+
+
+
+void print_mouse_config() {
+
+	printf("\n**** MOUSE CONFIGURATION ****\n\n");
+
+	// BYTE 1
+	printf("Remote: "); //remote
+	if(config[0] >> 6 & 0x01) printf("Remote polled mode\n");
+	else printf("Stream mode\n");
+
+	printf("Enable: "); //enable
+	if(config[0] >> 5 & 0x01 ) printf("Data reporting enabled\n");
+	else printf("Data reporting disabled\n");
+
+	printf("Scaling: "); //scaling
+	if(config[0] >> 4 & 0x01)  printf(" Scaling is 2:1\n");
+	else printf("Scaling is 1:1\n");
+
+	printf("\nButtons: \n");
+
+	if(config[0] >> 2 & 0x01 ) printf("Left button is currently pressed\n");
+	else printf("Left button is not pressed\n");
+
+	if(config[0] >> 1 & 0x01 ) printf("Middle button is currently pressed\n");
+	else printf("Middle button is not pressed\n");
+
+	if(config[0] & 0x01) printf("Right button is currently pressed\n");
+	else printf("Right button is not pressed\n");
+
+	//BYTE 2
+	printf("\nResolution: %d\n",config[1]);
+
+	//BYTE 3
+	printf("\nSample Rate: %d\n",config[2]);
+
+}
+
+
 /*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_input(char kbc_command)  { // issues command to kbc
 
@@ -122,24 +176,22 @@ int kbc_input(char kbc_command)  { // issues command to kbc
 
 }
 
-/*FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf
+//FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf
 int kbc_output(unsigned long* data) {
 	unsigned long stat;
 
-	while( 1 ) {
-		sys_inb(STAT_REG, &stat); // assuming it returns OK
-		// loop while 8042 output buffer is empty
-		if( stat & OBF ) {
-			sys_inb(OUT_BUF, data); // assuming it returns OK
-			if ( (stat &(PAR_ERR | TO_ERR)) == 0 )
-				return *data;
-			else
-				return -1;
-		}
-		tickdelay(micros_to_ticks(DELAY_US));
+	sys_inb(STAT_REG, &stat); // assuming it returns OK
+	// loop while 8042 output buffer is empty
+	if( stat & OBF ) {
+		sys_inb(OUT_BUF, data); // assuming it returns OK
+		if ( (stat &(PAR_ERR | TO_ERR)) == 0 )
+			return *data;
+		else
+			return -1;
 	}
+	tickdelay(micros_to_ticks(DELAY_US));
 
-} */
+}
 
 int issue_command_mouse(unsigned char command, unsigned char argument) {
 	// If you want to issue a command without argument, pass -1 as second parameter
