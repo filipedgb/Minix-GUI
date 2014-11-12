@@ -6,6 +6,8 @@ static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
 static int max_packets = 10;
 static int state = 0;
+static int total_dx = 0;
+static int total_dy = 0;
 
 void setMaxPackets(int max) {
 	max_packets = max;
@@ -97,20 +99,31 @@ void print_packet() {
 
 
 
-int gesture_state_machine(int dx, int dy, int leftButton){
+int gesture_state_machine(int dx, int dy, int leftButton, int length, int tolerance){
+	total_dx += dx; //adiciona o ultimo movimento em x
+	total_dy += dy; //adiciona o ultimo movimento em y
 
 	switch(state) {
 	case 0: //Initial
-
+		if(total_dx > 0) state++; // se houve movimento positivo em x começou a desenhar o gesture
 		break;
 	case 1: //Drawing
-		if(leftButton == 0) {state = 0; break;} //levantou o botão, volta ao início
+		if(leftButton == 0 || (total_dy > tolerance)) {  //se levantou o botão esquerdo ou subiu demasiado, volta ao início
+			state = 0;
+			total_dx = 0; total_dy = 0;
+		}
+		else if (total_dx >= length) { // se o movimento total em dx já é igual ao length desejado para gesture termina
+			state++;
+		}
+
 		break;
 	case 2: //Completed
 		printf("Gesture completed!\n");
 		return 1;
 		break;
 	}
+
+	return 0;
 
 }
 
