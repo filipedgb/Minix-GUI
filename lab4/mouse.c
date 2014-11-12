@@ -78,10 +78,11 @@ int mouse_int_handler() {
 
 	if(packet_counter == 2) {
 		packet_counter = 0;
-		print_packet();
 		if(gesture_enabled) {
 			gesture_state_machine();
 		}
+		else print_packet();
+
 	}
 	else packet_counter++;
 
@@ -120,17 +121,22 @@ void print_packet() {
 int gesture_state_machine(){
 	int leftButton = packet[0] & 0x01;
 
+	printf("total_dx = %d ",total_dx);
+	printf("total_dy = %d \n",total_dy);
 
 
 	switch(state) {
 	case 0: //Initial
 		printf("Entrou no estado inicial\n");
-		total_dx += packet[1];
-		if(total_dx > 0 && leftButton) state++; // se houve movimento positivo em x começou a desenhar o gesture
+		if(leftButton) {
+			printf("Left button foi premido\n");
+			state++; // se houve movimento positivo em x começou a desenhar o gesture
+		}
 		break;
 	case 1: //Drawing
 		printf("Está a desenhar\n");
 
+		total_dx += packet[1];
 		total_dy += packet[2];
 
 
@@ -142,7 +148,8 @@ int gesture_state_machine(){
 		}
 
 		if(leftButton == 0 || (total_dy > tolerance)) {  //se levantou o botão esquerdo ou subiu demasiado, volta ao início
-			printf("Levantou o botão ou excedeu a tolerancia\n");
+			if(!leftButton)printf("Levantou o botão\n");
+			else printf("Excedeu a tolerancia\n");
 
 			state = 0;
 			total_dx = 0; total_dy = 0;
