@@ -5,7 +5,7 @@ static unsigned char packet[3];
 static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
 static int max_packets = 10;
-
+static int state = 0;
 
 void setMaxPackets(int max) {
 	max_packets = max;
@@ -29,6 +29,7 @@ int mouse_subscribe_int(void ) {
 }
 
 int mouse_unsubscribe_int() {
+	sys_irqdisable(&hook_id_3);
 	if (sys_irqrmpolicy(&hook_id_3)!= OK) return 1;
 	return 0;
 }
@@ -37,21 +38,25 @@ int mouse_unsubscribe_int() {
 int mouse_int_handler() {
 	unsigned long info;
 
-
-
 	sys_inb(OUT_BUF,&info);
 
-	printf("BYte: %x\n", info);
+	 unsigned char info2  = (unsigned char) info;
 
-	if(packet_counter == 0 && (info >> 3 & 0x01) == 0) {
-		printf("Can't be the first byte. Discarding\n");
+	if(total_packet_cnt == 0 && info2 != 0x0009) {
+		printf("YOU NEED TO PRESS LEFT BUTTON UNTIL IT STARTS\n");
+		return 1;
+	}
+
+	if(packet_counter == 0 && ( (info2 >> 3) & 0x01) == 0) {
+		printf("Went out of sync!\n");
+		//printf("Can't be the first byte. Discarding\n");
 		return 1; // "bit 3 of byte 1 must be 1"-verification
 	}
 
 
 	total_packet_cnt++;
 
-	packet[packet_counter] = (unsigned char) info;
+	packet[packet_counter] = info2;
 
 	if(packet_counter == 2) {
 		packet_counter = 0;
@@ -68,22 +73,29 @@ int mouse_int_handler() {
 
 
 void print_packet() {
-	printf("B1=0x%x B2=0x%x B3=0x%x ",packet[2],packet[1],packet[0]);
+	printf("B1=0x%x B2=0x%x B3=0x%x ",packet[0],packet[1],packet[2]);
 	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d ",
-			packet[2] & 0x01, packet[2] >> 2 & 0x01, packet[2] >> 1 & 0x01, packet[2] >> 6 & 0x01,packet[2] >> 7 & 0x01);
+			packet[0] & 0x01, packet[0] >> 2 & 0x01, packet[0] >> 1 & 0x01, packet[0] >> 6 & 0x01,packet[0] >> 7 & 0x01);
 
-	if(packet[2] >> 4 & 0x01) printf("X=-%d ",packet[1]);
+
+	if(packet[1] == 0) printf("X=0 ");
+	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",~(packet[1]-0x01));
 	else printf("X=%d ",packet[1]);
 
-	if(packet[2] >> 5 & 0x01) printf("Y=-%d\n",packet[0]);
-	else printf("X=%d\n",packet[1]);
+	if(packet[2] == 0) printf("Y=0\n");
+	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",~(packet[2]-0x01));
+	else printf("Y=%d\n",packet[2]);
 
+/*
+	printf("B2 with bits flipped: %x \n ",~packet[1]-0x01);
+	printf("B3 with bits flipped: %x \n ",~packet[2]-0x01);
+	*/
 
 	return;
 
 }
 
-/*
+
 
 int gesture_state_machine(int dx, int dy, int leftButton){
 
@@ -101,7 +113,7 @@ int gesture_state_machine(int dx, int dy, int leftButton){
 	}
 
 }
-*/
+
 
 
 void interruption_loop(int shift) {
@@ -206,8 +218,11 @@ int kbc_input(char kbc_command)  { // issues command to kbc
 	/* loop while 8042 input buffer is not empty */
 	if( (stat & IBF) == 0 ) {
 		if( sys_outb(KBC_CMD_REG, kbc_command) != OK) {
+			printf("Error sending kbc command\n");
 			return 1; /* no args command */
 		}
+
+		printf("KBC command written sucessfully\n");
 		return 0;
 	}
 	tickdelay(micros_to_ticks(DELAY_US));
@@ -239,9 +254,11 @@ int issue_command_mouse(unsigned char command, unsigned char argument) {
 	sys_outb(IO_BUF_PORT, command);
 	sys_inb(IO_BUF_PORT, &ack_byte);
 
-	if (ack_byte != 0xFA) {
-		printf("Command not aknowledged!\n");
-		return 1;
+	if (ack_byte == 0xFA) {
+		printf("Mouse command aknowledged!\n");
+	}
+	else {
+		printf("Failed, command no ack\n");
 	}
 
 	if(argument != -1) {

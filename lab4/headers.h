@@ -23,6 +23,11 @@
 #define STAT_REG 0x64
 #define KBC_CMD_REG 0x64
 
+/* LAB 4 DEFINES */
+
+#define KBC_WRITE_COMMAND 0xD4
+#define ENABLE_DATA_PACKETS 0xF4
+#define STATUS_REQUEST 0xE9
 
 #define ESC_BREAK_CODE 0x81
 #define ESC_MAKE_CODE 0x01
