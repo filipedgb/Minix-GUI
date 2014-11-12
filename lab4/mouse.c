@@ -125,14 +125,13 @@ int gesture_state_machine(){
 	switch(state) {
 	case 0: //Initial
 		printf("Entrou no estado inicial\n");
-
+		total_dx += packet[1];
 		if(total_dx > 0 && leftButton) state++; // se houve movimento positivo em x começou a desenhar o gesture
 		break;
 	case 1: //Drawing
 		printf("Está a desenhar\n");
 
 		total_dy += packet[2];
-		total_dx += packet[1];
 
 
 		if(packet[0] >> 4 & 0x01) { //se o rato voltar para tras, começa tudo de novo
