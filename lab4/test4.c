@@ -2,19 +2,22 @@
 #include "mouse.h"
 
 int test_packet(unsigned short cnt){
-	char writecommand = 0 | BIT(2) | BIT(4) | BIT(6) | BIT(7);
+	char writecommand = 0xD4;
+
+	int shift = mouse_subscribe_int();
+
 
 //	printf("Write byte: %x\n",writecommand);
 	kbc_input(writecommand);
 
-	char enable_data_packets = 0 | BIT(2) | BIT(4) |  BIT(5) | BIT(6) | BIT(7);
+	char enable_data_packets = 0xF4;
 
 //	printf("Enable packets byte: %x\n",enable_data_packets);
 	issue_command_mouse(enable_data_packets,-1);
 
 	setMaxPackets(cnt);
 
-	interruption_loop();
+	interruption_loop(shift);
 }
 
 int test_async(unsigned short idle_time) {

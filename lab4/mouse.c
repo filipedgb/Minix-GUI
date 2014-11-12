@@ -37,10 +37,13 @@ int mouse_unsubscribe_int() {
 int mouse_int_handler() {
 	unsigned long info;
 
+
+
 	sys_inb(OUT_BUF,&info);
 
+	printf("BYte: %x\n", info);
 
-	if(packet_counter == 0 && (info >> 3 & 0x01) ) {
+	if(packet_counter == 0 && (info >> 3 & 0x01) == 0) {
 		printf("Can't be the first byte. Discarding\n");
 		return 1; // "bit 3 of byte 1 must be 1"-verification
 	}
@@ -72,13 +75,15 @@ void print_packet() {
 	if(packet[2] >> 4 & 0x01) printf("X=-%d ",packet[1]);
 	else printf("X=%d ",packet[1]);
 
-	if(packet[2] >> 5 & 0x01) printf("Y=-%d ",packet[0]);
-	else printf("X=%d ",packet[1]);
+	if(packet[2] >> 5 & 0x01) printf("Y=-%d\n",packet[0]);
+	else printf("X=%d\n",packet[1]);
 
 
 	return;
 
 }
+
+/*
 
 int gesture_state_machine(int dx, int dy, int leftButton){
 
@@ -96,13 +101,12 @@ int gesture_state_machine(int dx, int dy, int leftButton){
 	}
 
 }
+*/
 
 
-
-void interruption_loop() {
+void interruption_loop(int shift) {
 	int ipc_status,r, seconds = 0;
 	message msg;
-	int shift = mouse_subscribe_int();
 	int shift_timer = timer_subscribe_int();
 
 	while( (total_packet_cnt < max_packets) && (get_seconds() < tempo)) { /* assuming the timer frequency is set to 60*/
