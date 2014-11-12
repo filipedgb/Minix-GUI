@@ -8,6 +8,22 @@ static int max_packets = 10;
 static int state = 0;
 static int total_dx = 0;
 static int total_dy = 0;
+static int length = 0;
+static int tolerance = 0;
+static int end_flag = 0;
+static int gesture_enabled = 0;
+
+void setTolerance(int val) {
+	tolerance = val;
+}
+void setLength(int val) {
+	length = val;
+}
+
+
+void setGesture() {
+	gesture_enabled = 1;
+}
 
 void setMaxPackets(int max) {
 	max_packets = max;
@@ -63,6 +79,9 @@ int mouse_int_handler() {
 	if(packet_counter == 2) {
 		packet_counter = 0;
 		print_packet();
+		if(gesture_enabled) {
+			gesture_state_machine();
+		}
 	}
 	else packet_counter++;
 
@@ -98,20 +117,38 @@ void print_packet() {
 }
 
 
+int gesture_state_machine(){
+	int leftButton = packet[0] & 0x01;
 
-int gesture_state_machine(int dx, int dy, int leftButton, int length, int tolerance){
-	total_dx += dx; //adiciona o ultimo movimento em x
-	total_dy += dy; //adiciona o ultimo movimento em y
+
 
 	switch(state) {
 	case 0: //Initial
-		if(total_dx > 0) state++; // se houve movimento positivo em x começou a desenhar o gesture
+		printf("Entrou no estado inicial\n");
+
+		if(total_dx > 0 && leftButton) state++; // se houve movimento positivo em x começou a desenhar o gesture
 		break;
 	case 1: //Drawing
+		printf("Está a desenhar\n");
+
+		total_dy += packet[2];
+		total_dx += packet[1];
+
+
+		if(packet[0] >> 4 & 0x01) { //se o rato voltar para tras, começa tudo de novo
+			printf("Rato voltou atrás\n");
+			total_dx = 0;
+			total_dy = 0;
+			state = 0;
+		}
+
 		if(leftButton == 0 || (total_dy > tolerance)) {  //se levantou o botão esquerdo ou subiu demasiado, volta ao início
+			printf("Levantou o botão ou excedeu a tolerancia\n");
+
 			state = 0;
 			total_dx = 0; total_dy = 0;
 		}
+
 		else if (total_dx >= length) { // se o movimento total em dx já é igual ao length desejado para gesture termina
 			state++;
 		}
@@ -119,6 +156,7 @@ int gesture_state_machine(int dx, int dy, int leftButton, int length, int tolera
 		break;
 	case 2: //Completed
 		printf("Gesture completed!\n");
+		end_flag = 1;
 		return 1;
 		break;
 	}
@@ -134,7 +172,7 @@ void interruption_loop(int shift) {
 	message msg;
 	int shift_timer = timer_subscribe_int();
 
-	while( (total_packet_cnt < max_packets) && (get_seconds() < tempo)) { /* assuming the timer frequency is set to 60*/
+	while( (total_packet_cnt < max_packets) && (get_seconds() < tempo) && (end_flag == 0)) { /* assuming the timer frequency is set to 60*/
 
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {

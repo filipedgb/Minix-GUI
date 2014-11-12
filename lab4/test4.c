@@ -44,5 +44,16 @@ int test_config(void) {
 }
 
 int test_gesture(short length, unsigned short tolerance) {
-    /* To be completed ... */
+	int shift = mouse_subscribe_int();
+
+	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(ENABLE_DATA_PACKETS,-1);
+
+	setMaxPackets(99999);
+	setTolerance(tolerance);
+	setLength(length);
+	setGesture();
+
+	interruption_loop(shift);
+
 }
