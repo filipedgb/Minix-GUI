@@ -11,6 +11,14 @@ static int hook_id_3 = 1;
 static int timer_flag = 0;
 static int tempo = 5;
 
+void setTolerance(int val);
+
+void setLength(int val);
+
+void setGesture();
+
+void setMaxPackets(int max);
+
 void setTimerFlag();
 
 void setTime(int seconds);
@@ -20,6 +28,9 @@ void print_packet();
 void read_config();
 
 void print_mouse_config();
+
+int gesture_state_machine();
+
 
 int mouse_int_handler();
 

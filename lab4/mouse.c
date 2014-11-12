@@ -1,4 +1,5 @@
 #include "mouse.h"
+#include <stdlib.h>
 
 static unsigned char config[3];
 static unsigned char packet[3];
@@ -61,7 +62,7 @@ int mouse_int_handler() {
 	 unsigned char info2  = (unsigned char) info;
 
 	if(total_packet_cnt == 0 && info2 != 0x0009) {
-		printf("YOU NEED TO PRESS LEFT BUTTON UNTIL IT STARTS\n");
+		printf("Move the mouse a bit until it syncs\n");
 		return 1;
 	}
 
@@ -99,14 +100,13 @@ void print_packet() {
 	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d ",
 			packet[0] & 0x01, packet[0] >> 2 & 0x01, packet[0] >> 1 & 0x01, packet[0] >> 6 & 0x01,packet[0] >> 7 & 0x01);
 
-
 	if(packet[1] == 0) printf("X=0 ");
-	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",~(packet[1]-0x01));
-	else printf("X=%d ",packet[1]);
+	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",abs(packet[1]));
+	else printf("X=%d ",abs(packet[1]));
 
 	if(packet[2] == 0) printf("Y=0\n");
-	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",~(packet[2]-0x01));
-	else printf("Y=%d\n",packet[2]);
+	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",abs(packet[2]));
+	else printf("Y=%d\n",abs(packet[2]));
 
 /*
 	printf("B2 with bits flipped: %x \n ",~packet[1]-0x01);
@@ -117,6 +117,14 @@ void print_packet() {
 
 }
 
+
+/**
+ *  Nota importante: Sempre que há valores negativos no dx e dy não os consegui ler correctamente, aparecendo sempre -255 tanto movendo
+ *  para a esquerda como para baixo. Portanto, para testar esta função com a tolerancia vertical terá de o fazer movendo o
+ *  rato para cima, pois para baixo como os valores eram sempre -255 decidi ignorar. Para a esquerda ele detecta que houve movimento
+ *  negativo simplesmente e faz reset, portanto também funciona nesse caso.
+ *
+ */
 
 int gesture_state_machine(){
 	int leftButton = packet[0] & 0x01;
@@ -137,7 +145,7 @@ int gesture_state_machine(){
 		printf("Está a desenhar\n");
 
 		total_dx += packet[1];
-		total_dy += packet[2];
+		if( (packet[0] >> 5 & 0x01) == 0) total_dy += packet[2];
 
 
 		if(packet[0] >> 4 & 0x01) { //se o rato voltar para tras, começa tudo de novo
