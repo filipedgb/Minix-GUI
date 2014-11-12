@@ -4,6 +4,12 @@ static unsigned char config[3];
 static unsigned char packet[3];
 static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
+static int max_packets = 10;
+
+
+void setMaxPackets(int max) {
+	max_packets = max;
+}
 
 
 void setTimerFlag() {
@@ -34,18 +40,22 @@ int mouse_int_handler() {
 	sys_inb(OUT_BUF,&info);
 
 
-	if(packet_counter == 0 && (info >> 3 & 0x01) ) return 1; // "bit 3 of byte 1 must be 1"-verification
+	if(packet_counter == 0 && (info >> 3 & 0x01) ) {
+		printf("Can't be the first byte. Discarding\n");
+		return 1; // "bit 3 of byte 1 must be 1"-verification
+	}
 
-	packet[packet_counter] = info;
+
+	total_packet_cnt++;
+
+	packet[packet_counter] = (unsigned char) info;
 
 	if(packet_counter == 2) {
 		packet_counter = 0;
 		print_packet();
 	}
+	else packet_counter++;
 
-	packet_counter++;
-	total_packet_cnt++;
-	if(total_packet_cnt == 18) return 1;
 
 	return 0;
 
@@ -55,14 +65,38 @@ int mouse_int_handler() {
 
 
 void print_packet() {
-	printf("B1=0x%x B2=0x%x B3=0x%x ",packet[0],packet[1],packet[2]);
-	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d X=%d Y=%d\n",
-			packet[0] & 0x01, packet[0] >> 2 & 0x01, packet[0] >> 1 & 0x01, packet[0] >> 6 & 0x01,packet[0] >> 7 & 0x01,
-			packet[1],packet[2]);
+	printf("B1=0x%x B2=0x%x B3=0x%x ",packet[2],packet[1],packet[0]);
+	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d ",
+			packet[2] & 0x01, packet[2] >> 2 & 0x01, packet[2] >> 1 & 0x01, packet[2] >> 6 & 0x01,packet[2] >> 7 & 0x01);
+
+	if(packet[2] >> 4 & 0x01) printf("X=-%d ",packet[1]);
+	else printf("X=%d ",packet[1]);
+
+	if(packet[2] >> 5 & 0x01) printf("Y=-%d ",packet[0]);
+	else printf("X=%d ",packet[1]);
+
 
 	return;
 
 }
+
+int gesture_state_machine(int dx, int dy, int leftButton){
+
+	switch(state) {
+	case 0: //Initial
+
+		break;
+	case 1: //Drawing
+		if(leftButton == 0) {state = 0; break;} //levantou o botão, volta ao início
+		break;
+	case 2: //Completed
+		printf("Gesture completed!\n");
+		return 1;
+		break;
+	}
+
+}
+
 
 
 void interruption_loop() {
@@ -71,7 +105,7 @@ void interruption_loop() {
 	int shift = mouse_subscribe_int();
 	int shift_timer = timer_subscribe_int();
 
-	while( (total_packet_cnt < 500) && (get_seconds() < tempo)) { /* assuming the timer frequency is set to 60*/
+	while( (total_packet_cnt < max_packets) && (get_seconds() < tempo)) { /* assuming the timer frequency is set to 60*/
 
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {

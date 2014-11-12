@@ -12,6 +12,8 @@ int test_packet(unsigned short cnt){
 //	printf("Enable packets byte: %x\n",enable_data_packets);
 	issue_command_mouse(enable_data_packets,-1);
 
+	setMaxPackets(cnt);
+
 	interruption_loop();
 }
 
@@ -26,6 +28,7 @@ int test_async(unsigned short idle_time) {
 //	printf("Enable packets byte: %x\n",enable_data_packets);
 	issue_command_mouse(enable_data_packets,-1);
 
+	setMaxPackets(99999);
 	setTimerFlag();
 	setTime((int)idle_time);
 	interruption_loop();
