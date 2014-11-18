@@ -1,8 +1,11 @@
 #include "test5.h"
+#include "video_gr.h"
 
 void *test_init(unsigned short mode, unsigned short delay) {
 
-	/* To be completed */
+	vg_init(mode);
+	sleep(2);
+	vg_exit();
 
 }
 
