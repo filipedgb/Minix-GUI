@@ -39,7 +39,7 @@ void * vg_init(unsigned short mode) {
 		return NULL;
 	}
 
-	/* O RESTO DESTA FUNÇÃO É PRECISO REFORMULAR  */
+	/* O RESTO DESTA FUNï¿½ï¿½O ï¿½ PRECISO REFORMULAR  */
 	vbe_mode_info_t vmi;
 	if (vbe_get_mode_info(mode, &vmi) != 0){}
 	phys_bytes mem_start = vmi.PhysBasePtr;
@@ -87,6 +87,24 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 	return 0;
 }
 
+int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color) {
+
+	int i, j;
+
+	if (xi < 0 || yi < 0 || xf < 0 || yf < 0) {
+		printf("Error: out of the screen limits\n");
+		return 1;
+	}
+
+	for (i = xi; i < xf; i++) {
+		for (j = yi; j < yf; j++) {
+			vg_set_pixel(xi + i,yi + i,color);
+			break; //Only draws once per position
+		}
+	}
+
+	return 0;
+}
 
 int draw_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, char * pixmap) {
 

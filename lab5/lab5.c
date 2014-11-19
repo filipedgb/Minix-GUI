@@ -16,7 +16,9 @@ int main(int argc, char **argv) {
 
 	//test_square(500,200,100,0x16);
 
-	test_xpm(500,200,penguin);
+	test_line(-50,50,150,250,0x16);
+
+	//test_xpm(500,200,penguin);
 
 	return 0;
 
