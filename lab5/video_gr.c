@@ -39,7 +39,7 @@ void * vg_init(unsigned short mode) {
 		return NULL;
 	}
 
-	/* CODE NOT ORIGINAL */
+	/* O RESTO DESTA FUNÇÃO É PRECISO REFORMULAR  */
 	vbe_mode_info_t vmi;
 	if (vbe_get_mode_info(mode, &vmi) != 0){}
 	phys_bytes mem_start = vmi.PhysBasePtr;
@@ -85,6 +85,25 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 	}
 
 	return 0;
+}
+
+
+int draw_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, char * pixmap) {
+
+	int i, k;
+
+	unsigned video_mem_rowsize = H_RES*(BITS_PER_PIXEL/8);
+
+	unsigned xpm_row_size = n_columns*(BITS_PER_PIXEL/8);
+
+	for(i = 0; i < n_rows ; i++){
+		void* dest = video_mem +  video_mem_rowsize*(yi+i) + xi*(BITS_PER_PIXEL/8);
+		void* src = pixmap + xpm_row_size*i;
+		memcpy(dest,src,xpm_row_size);
+
+	}
+	return 0;
+
 }
 
 

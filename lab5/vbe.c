@@ -12,7 +12,7 @@
 
 
 /*
- *COPIED CODE
+ *COPIED CODE FROM: http://web.fe.up.pt/~pfs/aulas/lcom2011/labs/lab2/src/vbe.c
  */
 
 typedef struct {
