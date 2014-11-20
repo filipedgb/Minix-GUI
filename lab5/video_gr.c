@@ -62,6 +62,8 @@ int vg_set_pixel(unsigned long x, unsigned long y, unsigned long color) {
 	return 0;
 }
 
+//Used for draw_rectangle
+int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color);
 
 int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsigned short height, unsigned long color) {
 	int i;
@@ -71,18 +73,16 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 		return 1;
 	}
 
-	//desenhar linhas de cima e de baixo
-	for(i = 0; i < width; i++) {
-		vg_set_pixel(x+i,y,color); //cima
-		vg_set_pixel(x+i,y+height,color); //baixo
-	}
+	//Horizontal - cima
+	draw_line(x,y,x + width,y,color);
+	//baixo
+	draw_line(x,y + height,x + width,y + height,color);
 
-	//desenhar linhas do lado esquerdo e direito
-	for(i = 0; i < height; i++) {
-		vg_set_pixel(x,y+i,color); //esquerda
-		vg_set_pixel(x+width,y+i,color); //direita
+	//Vertical - esquerda
+	draw_line(x,y,x,y + height,color);
+	//direita
+	draw_line(x + width,y,x + width,y + height,color);
 
-	}
 
 	return 0;
 }
