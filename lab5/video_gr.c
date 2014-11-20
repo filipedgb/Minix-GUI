@@ -89,18 +89,38 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 
 int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color) {
 
-	int i, j;
+	int dx, dy;
+	int sx, sy;
+	int error, error2;
 
 	if (xi < 0 || yi < 0 || xf < 0 || yf < 0) {
 		printf("Error: out of the screen limits\n");
 		return 1;
 	}
 
-	for (i = xi; i < xf; i++) {
-		for (j = yi; j < yf; j++) {
-			vg_set_pixel(xi + i,yi + i,color);
-			break; //Only draws once per position
-		}
+	dx = abs(xf - xi);
+	sx = xi < xf ? 1 : -1;
+
+	dy = abs(yf - yi);
+	sy = yi < yf ? 1 : -1;
+
+	error = (dx > dy ? dx : -dy) / 2;
+
+	while(1) {
+
+		vg_set_pixel(xi,yi,color);
+
+		if (xi == xf && yi == yf) break;
+
+		error2 = error;
+	    if (error2 > -dx) {
+	    	error -= dy;
+	    	xi += sx;
+	    }
+	    if (error2 < dy) {
+	    	error += dx;
+	    	yi += sy;
+	    }
 	}
 
 	return 0;
