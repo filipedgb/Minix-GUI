@@ -47,12 +47,7 @@ int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]) {
 
 	vg_init(0x105);
 
-	int width, height;
-	char *map;
-
-	map = initialize_sprite(xpm, &width, &height);
-
-	draw_map(xi,yi,width,height,map);
+	draw_sprite(xi, yi, xpm);
 
 	sleep(2);
 
