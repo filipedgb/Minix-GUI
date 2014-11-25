@@ -56,7 +56,7 @@ static void print_usage(char *argv[]) {
 			"service run %s -args \"square <int> <int> <int> <hex>\" \n"
 			"service run %s -args \"line <int> <int> <int> <int> <hex>\" \n"
 			"service run %s -args \"xpm <int> <int> <char>\" \n"
-			"service run %s -args \"move <int> <int> <char> <int> <int> <int>\" \n"
+			"service run %s -args \"move <int><int><char><int><int><int>\" \n"
 			"service run %s -args \"controller\" \n\n",
 			argv[0], argv[0], argv[0], argv[0], argv[0], argv[0]);
 }

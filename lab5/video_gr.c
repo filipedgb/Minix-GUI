@@ -39,21 +39,36 @@ void * vg_init(unsigned short mode) {
 		return NULL;
 	}
 
-	/* O RESTO DESTA FUN��O � PRECISO REFORMULAR  */
-	vbe_mode_info_t vmi;
-	if (vbe_get_mode_info(mode, &vmi) != 0){}
-	phys_bytes mem_start = vmi.PhysBasePtr;
-	phys_bytes mem_limit = vmi.PhysBasePtr + vmi.XResolution * vmi.YResolution * vmi.BitsPerPixel;
+	/* CALLS VBE_MODE_INFO TO FILL vbe_info */
+	vbe_mode_info_t vbe_info;
+	if (vbe_get_mode_info(mode, &vbe_info) != 0){
+		printf("Error reading vbe mode info\n");
+	}
 
-	struct mem_range range;
-	range.mr_base = vmi.PhysBasePtr;
-	range.mr_limit = range.mr_base + vmi.XResolution * vmi.YResolution*(vmi.BitsPerPixel);
-	sys_privctl(SELF, SYS_PRIV_ADD_MEM, &range);
-	video_mem = vm_map_phys(SELF,(void *) range.mr_base, vmi.XResolution * vmi.YResolution * (vmi.BitsPerPixel));
+	/* CODE BASED ON LAB1 VT_INIT */
+	struct mem_range mem_range;
 
-	bits_per_pixel = vmi.BitsPerPixel;
-	h_res = vmi.XResolution;
-	v_res = vmi.YResolution;
+	/* Allow memory mapping */
+	mem_range.mr_base = vbe_info.PhysBasePtr;
+	mem_range.mr_limit = mem_range.mr_base + vbe_info.XResolution*vbe_info.YResolution*vbe_info.BitsPerPixel;
+
+	if( sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mem_range) != OK) {
+		panic("video_gr: sys_privctl (ADD_MEM) failed: %d\n", r);
+	}
+
+	/* Map memory */
+
+	video_mem = vm_map_phys(SELF,(void *) mem_range.mr_base, vbe_info.XResolution*vbe_info.YResolution*vbe_info.BitsPerPixel);
+
+	if(video_mem == MAP_FAILED)
+		panic("video_gr couldn't map video memory");
+
+	//Store values in private global variables
+
+	h_res = vbe_info.XResolution;
+	v_res = vbe_info.YResolution;
+	bits_per_pixel = vbe_info.BitsPerPixel;
+
 	return NULL;
 }
 

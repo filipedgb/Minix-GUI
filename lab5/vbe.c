@@ -11,9 +11,6 @@
 #define PB2OFF(x) ((x) & 0x0FFFF)
 
 
-/*
- *COPIED CODE FROM: http://web.fe.up.pt/~pfs/aulas/lcom2011/labs/lab2/src/vbe.c
- */
 
 typedef struct {
   /* Mandatory information for all VBE revisions */
@@ -74,69 +71,6 @@ typedef struct {
 } VbeModeInfoBlock_t;
 
 
-
-static void vbe_unpack_mode_info(void *buf, vbe_mode_info_t *dst) {
-
-  VbeModeInfoBlock_t *src = buf;
-
-  printf("vbe_unpack_mode_info: src = 0x%p dst = 0x%p\n", src, dst);
-
-  memcpy(&(dst->ModeAttributes), src->ModeAttributes, 2);
-  dst->WinAAttributes = src->WinAAttributes;
-  dst->WinBAttributes = src->WinBAttributes;
-  memcpy(&(dst->WinGranularity), src->WinGranularity, 2);
-  memcpy(&(dst->WinSize), src->WinSize, 2);
-  memcpy(&(dst->WinASegment), src->WinASegment, 2);
-  memcpy(&(dst->WinBSegment), src->WinBSegment, 2);
-  memcpy(&(dst->WinFuncPtr), src->WinFuncPtr, 4);
-  memcpy(&(dst->BytesPerScanLine), src->BytesPerScanLine, 2);
-
-  /* Mandatory information for VBE 1.2 and above */
-
-  memcpy(&(dst->XResolution), src->XResolution, 2);
-  memcpy(&(dst->YResolution), src->YResolution, 2);
-  dst->XCharSize = src->XCharSize;
-  dst->YCharSize = src->YCharSize;
-  dst->NumberOfPlanes = src->NumberOfPlanes;
-  dst->BitsPerPixel = src->BitsPerPixel;
-  dst->NumberOfBanks = src->NumberOfBanks;
-  dst->MemoryModel = src->MemoryModel;
-  dst->BankSize = src->BankSize;
-  dst->NumberOfImagePages = src->NumberOfImagePages;
-
-  /* Direct Color fields (required for direct/6 and YUV/7 memory models) */
-  dst->RedMaskSize = src->RedMaskSize;
-  dst->RedFieldPosition = src->RedFieldPosition;
-  dst->GreenMaskSize = src->GreenMaskSize;
-  dst->GreenFieldPosition = src->GreenFieldPosition;
-  dst->BlueMaskSize = src->BlueMaskSize;
-  dst->BlueFieldPosition = src->BlueFieldPosition;
-  dst->RsvdMaskSize = src->RsvdMaskSize;
-  dst->RsvdFieldPosition = src->RsvdFieldPosition;
-  dst->DirectColorModeInfo = src->DirectColorModeInfo;
-
-  /* Mandatory information for VBE 2.0 and above */
-  memcpy(&(dst->PhysBasePtr), src->PhysBasePtr, 4);
-
-  /* Mandatory information for VBE 3.0 and above */
-  memcpy(&(dst->LinBytesPerScanLine), src->LinBytesPerScanLine, 2);
-  dst->BnkNumberOfImagePages = src->BnkNumberOfImagePages;
-  dst->LinNumberOfImagePages = src->LinNumberOfImagePages;
-  dst->LinRedMaskSize = src->LinRedMaskSize;
-  dst->LinRedFieldPosition = src->LinRedFieldPosition;
-  dst->LinGreenMaskSize = src->LinGreenMaskSize;
-  dst->LinGreenFieldPosition = src->LinGreenFieldPosition;
-  dst->LinBlueMaskSize = src->LinBlueMaskSize;
-  dst->LinBlueFieldPosition = src->LinBlueFieldPosition;
-  dst->LinRsvdMaskSize = src->LinRsvdMaskSize;
-  dst->LinRsvdFieldPosition = src->LinRsvdFieldPosition;
-  memcpy(&(dst->MaxPixelClock), src->MaxPixelClock, 4);
-}
-
-/* END OF COPIED CODE */
-
-
-
 int vbe_get_mode_info(unsigned short mode, vbe_mode_info_t *vmi_p) {
   
   struct reg86u r;
@@ -156,7 +90,7 @@ int vbe_get_mode_info(unsigned short mode, vbe_mode_info_t *vmi_p) {
 
   sys_int86(&r);
 
-  vbe_unpack_mode_info(map.virtual, vmi_p);
+  memcpy(vmi_p,map.virtual,map.size);
 
   lm_free(&map); // void lm_free(mmap_t *map);
   
