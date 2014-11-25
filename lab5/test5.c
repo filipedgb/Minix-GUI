@@ -45,19 +45,14 @@ int test_line(unsigned short xi, unsigned short yi,
 
 int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]) {
 
-	int width, height;
-	char *map_sprite, *map_here;
-
-	map_sprite = initialize_sprite(xpm);
-	//map_here = read_xpm(xpm, &width, &height);
-
-	//map_sprite =/= map_here pq??
-
-	if(map_sprite == map_here) printf("Okay"); else printf("Not Okay");sleep(1);
-
 	vg_init(0x105);
 
-	draw_map(xi,yi,width,height,map_sprite);
+	int width, height;
+	char *map;
+
+	map = initialize_sprite(xpm, &width, &height);
+
+	draw_map(xi,yi,width,height,map);
 
 	sleep(2);
 
