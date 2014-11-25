@@ -1,4 +1,4 @@
-nan#include "test5.h"
+#include "test5.h"
 #include "keyboard.h"
 #include "read_xpm.h"
 
@@ -72,7 +72,9 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 			draw_sprite(xi + i, yi, xpm); //horizontal
 		}
 	}
+
 	vg_exit();
+
 	return 0;
 }
 
