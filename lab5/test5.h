@@ -79,6 +79,10 @@ int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]);
  */
 int test_move(unsigned short xi, unsigned short yi, char *xpm[], unsigned short hor, short delta, unsigned short time);
 
+
+int test_controller();
+
+
 /** @} end of video_gr */
 
 #endif /* __TEST5_H */

@@ -27,7 +27,7 @@ int keyboard_unsubscribe_int() {
 
 
 int keyboard_int_handler_C(unsigned long *code) {
-	printf("*This is the C handler*  ");
+	//printf("*This is the C handler*  ");
 	//kbc_output(code); // corre a fun��o que l� o output do KBC
 
 	sys_inb(OUT_BUF,code); // vai buscar o c�digo da tecla ao output buffer
