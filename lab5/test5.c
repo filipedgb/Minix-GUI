@@ -2,6 +2,8 @@
 #include "keyboard.h"
 #include "read_xpm.h"
 
+#include "sprite.h"
+
 void *test_init(unsigned short mode, unsigned short delay) {
 	vg_init(mode);
 	sleep(delay);
@@ -43,16 +45,19 @@ int test_line(unsigned short xi, unsigned short yi,
 
 int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]) {
 
-
 	int width, height;
-	char *map;
-	// get the pix map from the XPM
-	map = read_xpm(xpm, &width, &height);
-	// copy it to graphics memory
+	char *map_sprite, *map_here;
+
+	map_sprite = initialize_sprite(xpm);
+	//map_here = read_xpm(xpm, &width, &height);
+
+	//map_sprite =/= map_here pq??
+
+	if(map_sprite == map_here) printf("Okay"); else printf("Not Okay");sleep(1);
 
 	vg_init(0x105);
 
-	draw_map(xi,yi,width,height,map);
+	draw_map(xi,yi,width,height,map_sprite);
 
 	sleep(2);
 
