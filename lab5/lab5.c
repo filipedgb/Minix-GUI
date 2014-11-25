@@ -3,28 +3,28 @@
 
 #include <minix/drivers.h>
 
-/*
-int main(int argc, char **argv) {
-	sef_startup();
 
-	//test_init(0x105,3);
-
-	//test_square(15,70,400,0x16);
-
-	//test_line(0,0,100,0,0x16); //horizontal
-	//test_line(0,0,0,100,0x16); //vertical
-	//test_line(0,0,100,100,0x16); // i > f
-	//test_line(100,10,70,100,0x16); // yi > yf
-	//test_line(100,10,10,100,0x16); // xi > xf
-	//test_line(50,5,0,0,0x16); // xi > xf, yi > yf
-
-	//test_xpm(500,200,penguin);
-
-	test_move(100, 100, penguin, 0, 3, 0);
-
-	return 0;
-
-}*/
+//int main(int argc, char **argv) {
+//	sef_startup();
+//
+//	//test_init(0x105,3);
+//
+//	test_square(15,70,400,0x16);
+//
+//	//test_line(0,0,100,0,0x16); //horizontal
+//	//test_line(0,0,0,100,0x16); //vertical
+//	//test_line(0,0,100,100,0x16); // i > f
+//	//test_line(100,10,70,100,0x16); // yi > yf
+//	test_line(100,10,10,100,0x16); // xi > xf
+//	//test_line(50,5,0,0,0x16); // xi > xf, yi > yf
+//
+//	//test_xpm(500,200,penguin);
+//
+//	//test_move(100, 100, penguin, 0, 3, 0);
+//
+//	return 0;
+//
+//}
 
 static int proc_args(int argc, char *argv[]);
 static unsigned long parse_ulong(char *str, int base);
@@ -65,7 +65,7 @@ static int proc_args(int argc, char *argv[]) {
 
 	unsigned long temp,temp2,temp3,temp4,temp5,temp6;
 
-	/* check the function to test: if the first characters match, accept it */
+	// check the function to test: if the first characters match, accept it
 	if (strncmp(argv[1], "init", strlen("init")) == 0) {
 		if( argc != 4 ) {
 			printf("Wrong no of arguments for test_init()\n");
@@ -90,8 +90,8 @@ static int proc_args(int argc, char *argv[]) {
 		if((temp4 = parse_ulong(argv[5], 10)) == ULONG_MAX ) return 1;
 
 
-		printf("Called test_square(%lu,%lu,%lu,%lu)\n", temp,temp2,temp3,temp4);
-		test_square((unsigned short)temp,(unsigned short)temp2,(unsigned short)temp3,(unsigned short)temp4);
+		printf("Called test_square(%lu,%lu,%lu,0x%X)\n", temp,temp2,temp3,(unsigned)temp4);
+		test_square((unsigned short)temp,(unsigned short)temp2,(unsigned short)temp3,temp4);
 		return 0;
 	}
 
@@ -107,8 +107,8 @@ static int proc_args(int argc, char *argv[]) {
 		if((temp5 = parse_ulong(argv[6], 10)) == ULONG_MAX ) return 1;
 
 
-		printf("Called test_line(%lu,%lu,%lu,%lu)\n", temp,temp2,temp3,temp4);
-		test_line((unsigned short)temp,(unsigned short)temp2,(unsigned short)temp3,(unsigned short)temp4,(unsigned short)temp5);
+		printf("Called test_line(%lu,%lu,%lu,%lu,0x%X)\n", temp,temp2,temp3,temp4,temp5);
+		test_line((unsigned short)temp,(unsigned short)temp2,(unsigned short)temp3,(unsigned short)temp4,temp5);
 		return 0;
 	}
 
