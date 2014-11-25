@@ -51,7 +51,7 @@ void print_codes(unsigned long code) {
 }
 
 
-int receiver_loop(int shiftkeybaord) {
+int receiver_loop(int shiftkeyboard) {
 	int ipc_status,r, seconds = 0, running = 1;
 	message msg;
 
@@ -70,7 +70,7 @@ int receiver_loop(int shiftkeybaord) {
 		if (is_ipc_notify(ipc_status)) { /* received notification */
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
-				if (msg.NOTIFY_ARG & BIT(shiftkeybaord)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
+				if (msg.NOTIFY_ARG & BIT(shiftkeyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 					if(keyboard_int_handler_C(&code)) running = 0;
 				}
 				break;

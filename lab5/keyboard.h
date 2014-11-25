@@ -5,12 +5,19 @@
 #include <minix/drivers.h>
 #include "headers.h"
 #include "i8254.h"
+#include "timer.h"
 
 static int hook_id_2 = 1;
 static int timer_flag = 0;
 static int assembly_flag = 0;
 static int time = 5;
 static int* leds_state;
+
+
+
+void setTimerFlag();
+
+void setTime(int seconds);
 
 int keyboard_int_handler_C(unsigned long *code);
 

@@ -1,6 +1,21 @@
 #ifndef __TIMER_H
 #define __TIMER_H
 
+
+static int counter = 0;
+static int hook_id = 0;
+static int seconds = 0;
+
+/* ADDED FUNCTIONS USEFUL FOR LAB4 */
+
+
+void reset_cronometer();
+
+int get_seconds();
+
+int get_counter();
+
+
 /** @defgroup timer timer
  * @{
  *

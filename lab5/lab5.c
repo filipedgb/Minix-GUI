@@ -44,7 +44,9 @@ int main(int argc, char **argv) {
 	}
 	return 0;*/
 
-	test_xpm(100,100,penguin);
+//	test_xpm(100,100,penguin);
+
+	test_move(100,100,penguin,0,100,30) ;
 
 }
 
