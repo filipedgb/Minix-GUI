@@ -65,20 +65,18 @@ int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]) {
 int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 		unsigned short hor, short delta, unsigned short time) {
 
-	int shift = keyboard_subscribe_int();
-
 	vg_init(0x105);
 
 	int i = 0;
 	for (i; i < delta; i++) {
-		if (hor == 0) test_xpm(xi, yi + i, xpm); //vertical
-		else test_xpm(xi + i, yi, xpm); //horizontal
-	}
+		if (hor == 0) {
+			test_xpm(xi, yi + i, xpm); //vertical
 
-	if(receiver_loop(shift)) {
-			vg_exit();
-			keyboard_unsubscribe_int();
 		}
+		else {
+			test_xpm(xi + i, yi, xpm); //horizontal
+		}
+	}
 
 	return 0;
 }
