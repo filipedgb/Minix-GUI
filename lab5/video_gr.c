@@ -73,16 +73,10 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 		return 1;
 	}
 
-	//Horizontal - cima
-	draw_line(x,y,x + width,y,color);
-	//baixo
-	draw_line(x,y + height,x + width,y + height,color);
-
-	//Vertical - esquerda
-	draw_line(x,y,x,y + height,color);
-	//direita
-	draw_line(x + width,y,x + width,y + height,color);
-
+	draw_line(x,y,x + width,y,color); //cima
+	draw_line(x,y + height,x + width,y + height,color); //baixo
+	draw_line(x,y,x,y + height,color); //esquerda
+	draw_line(x + width,y,x + width,y + height,color); //direita
 
 	return 0;
 }

@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
 
 	//test_init(0x105,3);
 
-	test_square(15,70,400,0x16);
+	//test_square(15,70,400,0x16);
 
 	//test_line(0,0,100,0,0x16); //horizontal
 	//test_line(0,0,0,100,0x16); //vertical
@@ -24,6 +24,8 @@ int main(int argc, char **argv) {
 	//test_line(50,5,0,0,0x16); // xi > xf, yi > yf
 
 	//test_xpm(500,200,penguin);
+
+	test_move(100, 100, penguin, 0, 3, 0);
 
 	return 0;
 
