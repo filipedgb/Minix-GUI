@@ -65,11 +65,11 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 	int i = 0;
 	for (i; i < delta; i++) {
 		if (hor == 0) {
-			test_xpm(xi, yi + i, xpm); //vertical
+			draw_sprite(xi, yi + i, xpm); //vertical
 
 		}
 		else {
-			test_xpm(xi + i, yi, xpm); //horizontal
+			draw_sprite(xi + i, yi, xpm); //horizontal
 		}
 	}
 
