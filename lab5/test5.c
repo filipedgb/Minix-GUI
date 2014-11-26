@@ -102,14 +102,18 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 
 				//	printf("xi: %d, yi: %d, inc: %d\n",xi,yi,inc);
 
+					/*NOTA: era suposto fazer um vg_blank() no final de desenhar a imagem no ecrã ao fazer move, no entanto
+					 * não conseguimos que ficasse a funcionar de forma ideal
+					 */
+
 					if (hor == 0) {
 						draw_sprite(xi, yi + inc, xpm); //vertical
-
+						//vt_blank();
 
 					}
 					else {
 						draw_sprite(xi + inc, yi, xpm); //horizontal´
-
+						//vt_blank();
 					}
 				}
 
