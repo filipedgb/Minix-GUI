@@ -152,14 +152,26 @@ int draw_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, ch
 
 }
 
+void vt_blank() {
+
+	int row = 0; int column = 0;
+	int i = 0;
+	for (i; i < H_RES*V_RES; i++) {
+		if (column == H_RES) {column = 0; row++;}
+		vg_set_pixel(column, row, 0x00);
+		column++;
+	}
+}
+
 void display_VBE_controller_info() {
 
 	VbeInfoBlock_t vbe_info;
+	char* apontador;
 
 	printf("size: %d", sizeof(VbeInfoBlock_t));
 
 
-	if (vbe_get_info(&vbe_info) != 0){
+	if (vbe_get_info(&vbe_info,apontador) != 0){
 		printf("Error reading vbe info\n");
 	}
 
@@ -176,8 +188,20 @@ void display_VBE_controller_info() {
 
 	printf("\nSIZE OF VRAM MEMORY: %lu",vbe_info.TotalMemory);
 
-	return;
-
+//	/*MODES*/
+//
+//	int segment = VideoModePtr[1] << 4;
+//	int offset = VideoModePtr[0];
+//
+//	int resultado = segment + offset;
+//
+//	char* enderecofinal = apontador+resultado;
+//
+//
+//	//Usar endereço final para fazer print dos modes aqui
+//
+//	return;
+//
 
 }
 

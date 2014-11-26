@@ -22,7 +22,7 @@ typedef struct {
   uint16_t VbeVersion;
   uint32_t OemStringPtr;
   u8_t Capabilities[4];
-  uint32_t VideoModePtr;
+  uint16_t VideoModePtr[2];
   uint16_t TotalMemory;
   uint16_t OemSoftwareRev;
   uint32_t OemVendorNamePtr;

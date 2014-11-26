@@ -40,12 +40,12 @@ int vbe_get_mode_info(unsigned short mode, vbe_mode_info_t *vmi_p) {
 
 
 
-int vbe_get_info(VbeInfoBlock_t * v_info) {
+int vbe_get_info(VbeInfoBlock_t * v_info, int* pointer) {
 
   struct reg86u r;
   mmap_t map;
 
-  lm_init();
+  pointer = lm_init();
   lm_alloc(256, &map);
 
   /* CODE COPIED FROM SLIDES */
