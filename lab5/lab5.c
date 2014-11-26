@@ -35,18 +35,18 @@ int main(int argc, char **argv) {
 	/* Initialize service */
 	sef_startup();
 
-	/*
+
 	if ( argc == 1 ) {
 		print_usage(argv);
 		return 0;
 	} else {
 		proc_args(argc, argv);
 	}
-	return 0;*/
+	return 0;
 
 //	test_xpm(100,100,penguin);
 
-	test_move(100,100,penguin,0,100,30) ;
+//	test_move(100,100,penguin,0,100,30) ;
 
 }
 

@@ -9,6 +9,33 @@
  * Functions related to the VBE standard
  */
 
+
+/** @name VBE Info Block */
+/**@{
+ *
+ * Packed VBE Info Block
+ */
+
+typedef struct {
+  /* Mandatory information for all VBE revisions */
+  uint32_t VbeSignature;
+  uint16_t VbeVersion;
+  uint32_t OemStringPtr;
+  u8_t Capabilities;
+  uint32_t VideoModePtr;
+  uint16_t TotalMemory;
+  uint16_t OemSoftwareRev;
+  uint32_t OemVendorNamePtr;
+  uint32_t OemProductNamePtr;
+  uint32_t OemProductRevPtr;
+  u8_t Reserved;
+  u8_t OemData;
+}__attribute__((packed)) VbeInfoBlock_t;
+
+
+
+
+
 /** @name VBE Mode Info Block */
 /**@{
  *
