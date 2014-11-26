@@ -159,16 +159,11 @@ void display_VBE_controller_info() {
 	printf("size: %d", sizeof(VbeInfoBlock_t));
 
 
-
 	if (vbe_get_info(&vbe_info) != 0){
 		printf("Error reading vbe info\n");
 	}
 
 	int capabilities = (int) vbe_info.Capabilities;
-
-
-
-
 
 	if(capabilities & 0x01) printf("DAC width is switchable to 8 bits per primary color\n");
 	else printf("DAC is fixed width, with 6 bits per primary color\n");
@@ -179,9 +174,7 @@ void display_VBE_controller_info() {
 	if(capabilities >> 2 & 0x01 ) printf(" When programming large blocks of information to the RAMDAC,use the blank bit in Function 09h \n");
 	else printf("Normal RAMDAC operation\n");
 
-
 	printf("\nSIZE OF VRAM MEMORY: %lu",vbe_info.TotalMemory);
-
 
 	return;
 

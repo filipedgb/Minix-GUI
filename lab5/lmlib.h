@@ -24,9 +24,9 @@ typedef struct {
 /**
  * @brief Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the process' physical memory address
  *
- * @return 0 on success, non-zero otherwise
+ * @return virtual address on which the first 1 MiB was mapped, NULL upon failure
  */
-int lm_init(void);
+void *lm_init(void);
 
 /**
  * @brief Allocates a memory block in low memory area with the specified size

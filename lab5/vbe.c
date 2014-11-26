@@ -62,7 +62,7 @@ int vbe_get_info(VbeInfoBlock_t * v_info) {
 
   lm_free(&map); // void lm_free(mmap_t *map);
 
-  return 1;
+  return 0;
 }
 
 
