@@ -6,7 +6,7 @@
 #include "sprite.h"
 
 void *test_init(unsigned short mode, unsigned short delay) {
-	vg_init(mode);
+	vg_init(0x105);
 	sleep(delay);
 	vg_exit();
 
@@ -19,7 +19,7 @@ int test_square(unsigned short x, unsigned short y, unsigned short size, unsigne
 	vg_init(0x105);
 	draw_rectangle(x,y,size,size,color);
 
-	if(receiver_loop(shift,-1)) {
+	if(receiver_loop(shift)) {
 		vg_exit();
 		keyboard_unsubscribe_int();
 	}
@@ -36,7 +36,7 @@ int test_line(unsigned short xi, unsigned short yi,
 
 	draw_line(xi,yi,xf,yf,color);
 
-	if(receiver_loop(shift,-1)) {
+	if(receiver_loop(shift)) {
 		vg_exit();
 		keyboard_unsubscribe_int();
 	}
@@ -45,18 +45,20 @@ int test_line(unsigned short xi, unsigned short yi,
 }
 
 int test_xpm(unsigned short xi, unsigned short yi, char *xpm[]) {
+	int shift = keyboard_subscribe_int();
 
 	vg_init(0x105);
 
 	draw_sprite(xi, yi, xpm);
 
-	sleep(2);
+	if(receiver_loop(shift)) {
+		vg_exit();
+		keyboard_unsubscribe_int();
+	}
 
 	vg_exit();
 
 	return 0;
-
-	//POR AQUI PARA SAIR COM ESC;
 
 }
 
@@ -125,6 +127,8 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 }
 
 int test_controller() {
+	display_VBE_controller_info();
+
 	return 0;
 }
 

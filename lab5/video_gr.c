@@ -156,17 +156,27 @@ void display_VBE_controller_info() {
 
 	VbeInfoBlock_t vbe_info;
 
+	printf("size: %d", sizeof(VbeInfoBlock_t));
+
+
+
 	if (vbe_get_info(&vbe_info) != 0){
 		printf("Error reading vbe info\n");
 	}
 
-	if(vbe_info.Capabilities & 0x01) printf("DAC width is switchable to 8 bits per primary color\n");
+	int capabilities = (int) vbe_info.Capabilities;
+
+
+
+
+
+	if(capabilities & 0x01) printf("DAC width is switchable to 8 bits per primary color\n");
 	else printf("DAC is fixed width, with 6 bits per primary color\n");
 
-	if(vbe_info.Capabilities >> 1 & 0x01) printf("Controller is not VGA compatible\n");
+	if(capabilities >> 1 & 0x01) printf("Controller is not VGA compatible\n");
 	else printf("Controller is VGA compatible\n");
 
-	if(vbe_info.Capabilities >> 2 & 0x01 ) printf(" When programming large blocks of information to the RAMDAC,use the blank bit in Function 09h \n");
+	if(capabilities >> 2 & 0x01 ) printf(" When programming large blocks of information to the RAMDAC,use the blank bit in Function 09h \n");
 	else printf("Normal RAMDAC operation\n");
 
 

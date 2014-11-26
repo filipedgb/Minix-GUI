@@ -21,15 +21,15 @@ typedef struct {
   uint32_t VbeSignature;
   uint16_t VbeVersion;
   uint32_t OemStringPtr;
-  u8_t Capabilities;
+  u8_t Capabilities[4];
   uint32_t VideoModePtr;
   uint16_t TotalMemory;
   uint16_t OemSoftwareRev;
   uint32_t OemVendorNamePtr;
   uint32_t OemProductNamePtr;
   uint32_t OemProductRevPtr;
-  u8_t Reserved;
-  u8_t OemData;
+  u8_t Reserved[222];
+  u8_t OemData[256];
 }__attribute__((packed)) VbeInfoBlock_t;
 
 
