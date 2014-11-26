@@ -1,0 +1,154 @@
+\documentclass[a4paper]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{pl}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{url}
+\usepackage{framed}
+\usepackage{graphicx,wrapfig,lipsum}
+
+
+
+
+\begin{document}
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{22cm}
+\lstset{language=Prolog}
+
+\title{\Huge\textbf{Interface Gráfica para Minix }\linebreak\linebreak\linebreak
+\Large\textbf{Especificação do Projecto}\linebreak\linebreak
+\linebreak\linebreak
+\includegraphics[scale=0.1]{feup-logo.png}\linebreak\linebreak
+\linebreak\linebreak
+\Large{Mestrado Integrado em Engenharia Informática e Computação} \linebreak\linebreak
+\Large{Laboratório de Computadores}\linebreak
+}
+
+\author{\textbf{Turma 1 Grupo 2}\\
+Filipe Gama - ei12068 \\
+Guilherme Routar - ei12042 \\
+\linebreak\linebreak \\
+ \\ Faculdade de Engenharia da Universidade do Porto \\ Rua Roberto Frias, s\/n, 4200-465 Porto, Portugal \linebreak\linebreak\linebreak
+\linebreak\linebreak\vspace{1cm}}
+
+\maketitle
+\thispagestyle{empty}
+
+%************************************************************************************************
+%************************************************************************************************
+
+\newpage
+
+%Todas as figuras devem ser referidas no texto. %\ref{fig:codigoFigura}
+%
+%%Exemplo de código para inserção de figuras
+%%\begin{figure}[h!]
+%%\begin{center}
+%%escolher entre uma das seguintes três linhas:
+%%\includegraphics[height=20cm,width=15cm]{path relativo da imagem}
+%%\includegraphics[scale=0.5]{path relativo da imagem}
+%%\includegraphics{path relativo da imagem}
+%%\caption{legenda da figura}
+%%\label{fig:codigoFigura}
+%%\end{center}
+%%\end{figure}
+%
+%
+%\textit{Para escrever em itálico}
+%\textbf{Para escrever em negrito}
+%Para escrever em letra normal
+%``Para escrever texto entre aspas''
+%
+%Para fazer parágrafo, deixar uma linha em branco.
+%
+%Como fazer bullet points:
+%\begin{itemize}
+	%\item Item1
+	%\item Item2
+%\end{itemize}
+%
+%Como enumerar itens:
+%\begin{enumerate}
+	%\item Item 1
+	%\item Item 2
+%\end{enumerate}
+%
+%\begin{quote}``Isto é uma citação''\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Periféricos}
+
+
+
+Conforme mencionado na Proposta de Projeto, o projeto a desenvolver baseia-se na implementação de uma interface gráfica adaptada ao Minix que, tal como o explorer do Windows, possibilite a executação de operações básicas, nomeadamente copiar, colar, cortar, renomear, etc.
+
+Para o efeito, serão usados os seguintes periféricos:
+  
+  
+ \begin{itemize}  
+\item  \textbf{Video card} - Permitirá o display em modo gráfico (para manipulação do “explorer”). \textbf{Polling}
+ 
+\item \textbf{Keyboard} - Permitirá renomear uma pasta e/ou apagá-la (pressionando DEL, por exemplo). \textbf{Interrupções}
+ 
+\item \textbf{Timer} - Poderá servir para, por exemplo, fazer a contagem do tempo entre clicks (de forma a detetar double-clicks).  \textbf{Interrupções}
+ 
+\item \textbf{Mouse} - Permitirá a navegação pelo explorador e a seleção de pastas/ficheiros.  \textbf{Interrupções}
+ 
+\item \textbf{RTC} - Permitirá mostrar a hora actual do sistema operativo, semelhante ao relógio do windows ou linux.  \textbf{Interrupções}
+ 
+\item \textbf{Porta de série} (sem compromisso)
+Permitirá a transferência de ficheiros entre computadores;
+
+ \end{itemize}  
+
+
+\section{Ficheiros a utilizar}
+ 
+Os ficheiros/módulos corresponderão, principalmente, aos Labs desenvolvidos durante as aulas laboratoriais, que já se encontram especificados acima. Para além disso, serão adicionados ficheiros para lidar com todas as interrupções em simultâneo, provavelmente um ficheiro com o estado actual do minix gravado (por exemplo em que pasta do directorio o user se encontra).
+
+
+
+\begin{itemize}
+  \item Timer.c
+  \item Keyboard.c
+  \item Mouse.c
+  \item VideoGr.c
+  \item Rtc.c
+  \item SerialPort.c
+  \item Logic.c
+  
+\end{itemize}
+
+
+\section{Versões executáveis}
+ 
+ 
+ 
+\begin{enumerate}
+	
+
+
+\item Numa versão preliminar, para a demonstração inicial, tentaremos implementar os periféricos básicos, tal como pedido. O programa fará basicamente display de uma espécie de “ambiente de trabalho” recorrendo à placa de vídeo. Tentaremos usar o teclado e o timer para possibilitar ao utilizador sair do programa: a ideia será o utilizador premir duas vezes o botão “esc” (por exemplo), num intervalo de tempo que seja suficientemente pequeno para ser considerado “double click”. (prevemos ter esta versão totalmente pronta para a última aula laboratorial, no entanto esperamos já ter começado a fase seguinte antes da mesma)
+
+
+\item Nesta 2ª versão tentaremos adicionar o cursor (mais uma vez semelhante aos sistemas operativos já conhecidos), e adicionaremos um “botão de desligar” em que o utilizador poderá clicar, como alternativa ao atalho de teclado (double click no escape) - temos intenções de terminar esta versão no máximo 1 semana após a versão 1.
+
+
+\item Tendo as 2 versões acima referidas a funcionar devidamente começaremos então a tratar da lógica do “explorador” em si. Em princípio, inicialmente estará apenas a pasta root desenhada no ambiente de trabalho. Se o utilizador a abrir, aparecerão todas as pastas/ficheiros que se encontrarem dentro dessa pasta (e desaparece a anterior), e assim sucessivamente. Não sabemos, visto não termos dado isso nas aulas, o quão fácil será aceder aos directorios do minix através de system calls. Eventualmente, caso não consigamos fazê-lo, utilizaremos uma árvore de directórios fictícia. Tentaremos ainda adicionar o RTC para mostrar o relógio num canto do ecrã, tarefa que esperamos que seja relativamente fácil. 
+
+
+\item Finalmente, se sobrar tempo, tentaremos implementar a porta de série para transferir ficheiros de uma maquina virtual para outra. 
+
+\end{enumerate} 
+	
+
+
+
+
+
+\end{document}
