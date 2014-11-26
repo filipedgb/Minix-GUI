@@ -65,8 +65,6 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 
 	vg_init(0x105);
 
-
-
 	int shiftkeyboard = keyboard_subscribe_int();
 	int shift_timer = timer_subscribe_int();
 
@@ -94,7 +92,7 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 
 				}
 
-				else if (msg.NOTIFY_ARG & BIT(shift_timer)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
+				else if (msg.NOTIFY_ARG & BIT(shift_timer)) { /* subscribed interrupt  bit 1 fica a 1, logo ï¿½ 1*/
 				//	printf("\n Entrou aqui. Counter %d \n", get_counter());
 					timer_int_handler();
 
@@ -109,10 +107,7 @@ int test_move(unsigned short xi, unsigned short yi, char *xpm[],
 					else {
 						draw_sprite(xi + inc, yi, xpm); //horizontal
 					}
-
-
 				}
-
 
 			default:
 				break; /* no other notifications expected: do nothing */

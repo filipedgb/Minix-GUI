@@ -2,7 +2,7 @@
 #include "stdlib.h"
 #include "video_gr.h"
 
-char *initialize_sprite(char *xpm[], int * width2, int * height2) {
+Sprite *initialize_sprite(char *xpm[], int * width2, int * height2) {
 
 	Sprite *Sp = (Sprite *) malloc (sizeof(Sprite));
 
@@ -13,12 +13,12 @@ char *initialize_sprite(char *xpm[], int * width2, int * height2) {
 
 	if (mapb == NULL) {free(Sp); return NULL;}
 
-	Sp->map = mapb;
+	Sp->map = mapb; //Assigning sprite's map
 
-	return Sp->map; //Assigning sprite's map
+	return Sp;
 }
 
-void destroy_sprite(Sprite *Sp, char *base) {
+void destroy_sprite(Sprite *Sp) {
 
 	if (Sp == NULL) return;
 
@@ -33,7 +33,11 @@ void draw_sprite(unsigned short xi, unsigned short yi, char *xpm[]) {
 	int width, height;
 	char *map;
 
-	map = initialize_sprite(xpm, &width, &height);
+	Sprite *Sp;
 
-	draw_map(xi,yi,width,height,map);
+	Sp = initialize_sprite(xpm, &width, &height);
+
+	draw_map(xi,yi,width,height,Sp->map);
+
+	destroy_sprite(Sp);
 }
