@@ -20,6 +20,8 @@ int keyboard_subscribe_int(void ) {
 }
 
 int keyboard_unsubscribe_int() {
+	if (sys_irqdisable(&hook_id_2)!= OK) return 1;
+
 	if (sys_irqrmpolicy(&hook_id_2)!= OK) return 1;
 	return 0;
 }
@@ -27,9 +29,10 @@ int keyboard_unsubscribe_int() {
 
 int keyboard_int_handler_C(unsigned long *code) {
 	printf("*This is the C handler*  ");
-	kbc_output(code); // corre a fun��o que l� o output do KBC
+//	kbc_output(code); // corre a fun��o que l� o output do KBC
+	sys_inb(OUT_BUF,code); // vai buscar o c�digo da tecla ao output buffer
+
 	if (*code == ESC_BREAK_CODE) return 1;
-	//sys_inb(OUT_BUF,&code); // vai buscar o c�digo da tecla ao output buffer
 	return 0;
 }
 
