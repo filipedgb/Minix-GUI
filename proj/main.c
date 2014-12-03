@@ -1,30 +1,10 @@
-#include "test5.h"
-#include "pixmap.c"
+#include "keyboard.h"
+#include "read_xpm.h"
+#include "timer.h"
+
+#include "sprite.h"
 
 #include <minix/drivers.h>
-
-
-//int main(int argc, char **argv) {
-//	sef_startup();
-//
-//	//test_init(0x105,3);
-//
-//	test_square(15,70,400,0x16);
-//
-//	//test_line(0,0,100,0,0x16); //horizontal
-//	//test_line(0,0,0,100,0x16); //vertical
-//	//test_line(0,0,100,100,0x16); // i > f
-//	//test_line(100,10,70,100,0x16); // yi > yf
-//	test_line(100,10,10,100,0x16); // xi > xf
-//	//test_line(50,5,0,0,0x16); // xi > xf, yi > yf
-//
-//	//test_xpm(500,200,penguin);
-//
-//	//test_move(100, 100, penguin, 0, 3, 0);
-//
-//	return 0;
-//
-//}
 
 static int proc_args(int argc, char *argv[]);
 static unsigned long parse_ulong(char *str, int base);
@@ -35,12 +15,65 @@ int main(int argc, char **argv) {
 	/* Initialize service */
 	sef_startup();
 
+	vg_init(0x105);
+
+	int shiftkeyboard = keyboard_subscribe_int();
+	int shift_timer = timer_subscribe_int();
+
+	int ipc_status,r, seconds = 0, running = 1;
+	message msg;
+	unsigned long code;
+
+	int esc_pressed = 0;
 
 
-//	test_xpm(100,100,penguin);
+	while(running) {
+		/* Get a request message. */
+		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
+			printf("driver_receive failed with: %d", r);
+			continue;
+		}
+		if (is_ipc_notify(ipc_status)) { /* received notification */
+			switch (_ENDPOINT_P(msg.m_source)) {
+			case HARDWARE: /* hardware interrupt notification */
+				if (msg.NOTIFY_ARG & BIT(shiftkeyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
+					if(keyboard_int_handler_C(&code)) {
 
-	test_move(100,100,penguin,0,100,30) ;
+						if(esc_pressed) {
+							if(get_counter() < 25) {
+								running = 0;
+							}
+						}
 
+						reset_counter();
+						esc_pressed = 1;
+
+
+					}
+
+
+				}
+
+				else if (msg.NOTIFY_ARG & BIT(shift_timer)) { /* subscribed interrupt  bit 1 fica a 1, logo � 1*/
+					//	printf("\n Entrou aqui. Counter %d \n", get_counter());
+					timer_int_handler();
+
+				}
+
+			default:
+				break; /* no other notifications expected: do nothing */
+			}
+		} else { /* received a standard message, not a notification */
+			/* no standard messages expected: do nothing */
+		}
+	}
+
+	keyboard_unsubscribe_int();
+	timer_unsubscribe_int();
+
+	vg_exit();
+
+	return 0;
 }
 
 

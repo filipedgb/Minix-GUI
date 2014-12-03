@@ -45,6 +45,12 @@ void reset_cronometer() {
 	seconds = 0;
 }
 
+void reset_counter(){
+	counter = 0;
+
+}
+
+
 int get_seconds() {
 	return seconds;
 }
