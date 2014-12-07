@@ -10,6 +10,8 @@ int test_packet(unsigned short cnt){
 	setMaxPackets(cnt);
 
 	interruption_loop(shift);
+	mouse_unsubscribe_int();
+
 
 	return 0;
 }
@@ -25,6 +27,8 @@ int test_async(unsigned short idle_time) {
 	setTime((int)idle_time);
 
 	interruption_loop(shift);
+	mouse_unsubscribe_int();
+
 
 	return 0;
 }
@@ -55,5 +59,7 @@ int test_gesture(short length, unsigned short tolerance) {
 	setGesture();
 
 	interruption_loop(shift);
+	mouse_unsubscribe_int();
+
 
 }
