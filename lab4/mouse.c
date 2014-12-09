@@ -55,42 +55,22 @@ int mouse_unsubscribe_int() {
 
 
 int mouse_int_handler() {
-	unsigned long info;
+	int i = 0;
+	unsigned long data;
 
-	sys_inb(OUT_BUF,&info);
-
-	 unsigned char info2  = (unsigned char) info;
-
-	if(total_packet_cnt == 0 && info2 != 0x0009) {
-		printf("Move the mouse a bit until it syncs\n");
-		return 1;
-	}
-
-	if(packet_counter == 0 && ( (info2 >> 3) & 0x01) == 0) {
-		printf("Went out of sync!\n");
-		//printf("Can't be the first byte. Discarding\n");
-		return 1; // "bit 3 of byte 1 must be 1"-verification
-	}
-
-
-	total_packet_cnt++;
-
-	packet[packet_counter] = info2;
-
-	if(packet_counter == 2) {
-		packet_counter = 0;
-		if(gesture_enabled) {
-			gesture_state_machine();
+	for(; i < 3; i++) {
+		if((data & BIT(3))==0 && i == 0) {
+	        sys_inb(OUT_BUF, &data);
+			return 1;
 		}
-		else print_packet();
+
+        sys_inb(OUT_BUF, &data);
+        packet[i] = data;
 
 	}
-	else packet_counter++;
 
-
+	print_packet();
 	return 0;
-
-
 }
 
 
@@ -100,13 +80,14 @@ void print_packet() {
 	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d ",
 			packet[0] & 0x01, packet[0] >> 2 & 0x01, packet[0] >> 1 & 0x01, packet[0] >> 6 & 0x01,packet[0] >> 7 & 0x01);
 
+
 	if(packet[1] == 0) printf("X=0 ");
-	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",abs(packet[1]));
-	else printf("X=%d ",abs(packet[1]));
+	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",~packet[1]+1);
+	else printf("X=%d ",packet[1]);
 
 	if(packet[2] == 0) printf("Y=0\n");
-	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",abs(packet[2]));
-	else printf("Y=%d\n",abs(packet[2]));
+	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",~packet[2]+1);
+	else printf("Y=%d\n",packet[2]);
 
 /*
 	printf("B2 with bits flipped: %x \n ",~packet[1]-0x01);
