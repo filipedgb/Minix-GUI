@@ -44,7 +44,7 @@ void interruption_loop();
 
 int kbc_input(char kbc_command);
 
-int kbc_output(unsigned long* data);
+int kbc_output();
 
 
 #endif /* __KEYBOARD_H */

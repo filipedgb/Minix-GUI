@@ -1,8 +1,10 @@
 #include "mouse.h"
 #include <stdlib.h>
+#include <string.h>     /* strcat */
+
 
 static unsigned char config[3];
-static unsigned char packet[3];
+static unsigned long packet[3];
 static unsigned short total_packet_cnt = 0;
 static unsigned short packet_counter = 0;
 static int max_packets = 10;
@@ -13,6 +15,12 @@ static int length = 0;
 static int tolerance = 0;
 static int end_flag = 0;
 static int gesture_enabled = 0;
+
+static int mouse_x=0;
+static int mouse_y=0;
+static int mouse_lc=0;
+static int mouse_rc=0;
+static int mouse_updated=0;
 
 void setTolerance(int val) {
 	tolerance = val;
@@ -53,50 +61,71 @@ int mouse_unsubscribe_int() {
 	return 0;
 }
 
+//FUNÇÃO retirada da internet: http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+const char *byte_to_binary(int x)
+{
+	static char b[9];
+	b[0] = '\0';
+
+	int z;
+	for (z = 128; z > 0; z >>= 1)
+	{
+		strcat(b, ((x & z) == z) ? "1" : "0");
+	}
+
+	return b;
+}
 
 int mouse_int_handler() {
-	int i = 0;
-	unsigned long data;
 
-	for(; i < 3; i++) {
-		if((data & BIT(3))==0 && i == 0) {
-	        sys_inb(OUT_BUF, &data);
-			return 1;
-		}
+	unsigned long packetPart;
+	//packetPart = kbc_output();
+	sys_inb(OUT_BUF, &packetPart);
 
-        sys_inb(OUT_BUF, &data);
-        packet[i] = data;
+
+	if( !((packetPart >> 3) & 1) && packet_counter == 0) {
+		printf("packet not sync: 0x%x\n",packetPart);
+		printf("Waiting to sync\n");
+		return 1;
+	}
+
+	else if(packet_counter == 2) {
+		packet[packet_counter] = packetPart;
+		packet_counter = 0;
+		print_packet();
+	}
+
+	else {
+		packet[packet_counter] = packetPart;
+		packet_counter++;
 
 	}
 
-	print_packet();
-	return 0;
+	total_packet_cnt++;
 }
-
 
 
 void print_packet() {
+
 	printf("B1=0x%x B2=0x%x B3=0x%x ",packet[0],packet[1],packet[2]);
+
 	printf("LB=%d MB=%d RB=%d XOV=%d YOV=%d ",
+
 			packet[0] & 0x01, packet[0] >> 2 & 0x01, packet[0] >> 1 & 0x01, packet[0] >> 6 & 0x01,packet[0] >> 7 & 0x01);
 
-
 	if(packet[1] == 0) printf("X=0 ");
-	else if(packet[0] >> 4 & 0x01) printf("X=-%d ",~packet[1]+1);
+
+	else if(packet[0] >> 4 & 0x01) printf("X=%d ",packet[1]-255);
 	else printf("X=%d ",packet[1]);
 
 	if(packet[2] == 0) printf("Y=0\n");
-	else if(packet[0] >> 5 & 0x01) printf("Y=-%d\n",~packet[2]+1);
+
+	else if(packet[0] >> 5 & 0x01) printf("Y=%d\n",packet[2]-255);
 	else printf("Y=%d\n",packet[2]);
-
-/*
-	printf("B2 with bits flipped: %x \n ",~packet[1]-0x01);
-	printf("B3 with bits flipped: %x \n ",~packet[2]-0x01);
-	*/
-
 	return;
 
 }
+
 
 
 /**
@@ -276,21 +305,25 @@ int kbc_input(char kbc_command)  { // issues command to kbc
 }
 
 //FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf
-int kbc_output(unsigned long* data) {
-	unsigned long stat;
+int kbc_output() {
+	unsigned long stat, data;
 
-	sys_inb(STAT_REG, &stat); // assuming it returns OK
-	// loop while 8042 output buffer is empty
-	if( stat & OBF ) {
-		sys_inb(OUT_BUF, data); // assuming it returns OK
-		if ( (stat &(PAR_ERR | TO_ERR)) == 0 )
-			return *data;
-		else
-			return -1;
+	while(1) {
+		printf("Preso no loop\n");
+
+		sys_inb(STAT_REG, &stat);
+		if(stat & OBF) {
+			sys_inb(OUT_BUF, &data);
+			if ( (stat &(PAR_ERR | TO_ERR)) == 0 )
+				return data;
+			else
+				return -1;
+		}
+		tickdelay(micros_to_ticks(DELAY_US));
 	}
-	tickdelay(micros_to_ticks(DELAY_US));
-
+	return -1;
 }
+
 
 int issue_command_mouse(unsigned char command, unsigned char argument) {
 	// If you want to issue a command without argument, pass -1 as second parameter
