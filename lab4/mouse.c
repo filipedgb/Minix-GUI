@@ -61,7 +61,7 @@ int mouse_unsubscribe_int() {
 	return 0;
 }
 
-//FUNÇÃO retirada da internet: http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+//FUNï¿½ï¿½O retirada da internet: http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
 const char *byte_to_binary(int x)
 {
 	static char b[9];
@@ -80,28 +80,43 @@ int mouse_int_handler() {
 
 	unsigned long packetPart;
 	//packetPart = kbc_output();
-	sys_inb(OUT_BUF, &packetPart);
+	if(sys_inb(OUT_BUF, &packetPart) != 0){
+		printf("Error reading from OUT_BUF\n");
+	}
+
+	unsigned char p = (unsigned char)packetPart;
 
 
-	if( !((packetPart >> 3) & 1) && packet_counter == 0) {
-		printf("packet not sync: 0x%x\n",packetPart);
+	if( !((p>> 3) & 1) && packet_counter == 0) {
+	//if(packet_counter == 0 && (p & BIT(3)) == 0){
+		printf("packet not sync: 0x%x\n",p);
 		printf("Waiting to sync\n");
 		return 1;
 	}
 
 	else if(packet_counter == 2) {
-		packet[packet_counter] = packetPart;
+		packet[packet_counter] = p;
 		packet_counter = 0;
 		print_packet();
 	}
-
 	else {
-		packet[packet_counter] = packetPart;
+		packet[packet_counter] = p;
 		packet_counter++;
-
 	}
 
 	total_packet_cnt++;
+
+	/*
+
+
+	packet[packet_counter++] = (unsigned char)packetPart;
+	if(packet_counter == 2){
+		packet_counter == 0;
+		print_packet();
+	}
+
+	total_packet_cnt++;
+	*/
 }
 
 
@@ -129,14 +144,15 @@ void print_packet() {
 
 
 /**
- *  Nota importante: Sempre que há valores negativos no dx e dy não os consegui ler correctamente, aparecendo sempre -255 tanto movendo
- *  para a esquerda como para baixo. Portanto, para testar esta função com a tolerancia vertical terá de o fazer movendo o
+ *  Nota importante: Sempre que hï¿½ valores negativos no dx e dy nï¿½o os consegui ler correctamente, aparecendo sempre -255 tanto movendo
+ *  para a esquerda como para baixo. Portanto, para testar esta funï¿½ï¿½o com a tolerancia vertical terï¿½ de o fazer movendo o
  *  rato para cima, pois para baixo como os valores eram sempre -255 decidi ignorar. Para a esquerda ele detecta que houve movimento
- *  negativo simplesmente e faz reset, portanto também funciona nesse caso.
+ *  negativo simplesmente e faz reset, portanto tambï¿½m funciona nesse caso.
  *
  */
 
 int gesture_state_machine(){
+
 	int leftButton = packet[0] & 0x01;
 
 	printf("total_dx = %d ",total_dx);
@@ -148,32 +164,32 @@ int gesture_state_machine(){
 		printf("Entrou no estado inicial\n");
 		if(leftButton) {
 			printf("Left button foi premido\n");
-			state++; // se houve movimento positivo em x começou a desenhar o gesture
+			state++; // se houve movimento positivo em x comeï¿½ou a desenhar o gesture
 		}
 		break;
 	case 1: //Drawing
-		printf("Está a desenhar\n");
+		printf("Estï¿½ a desenhar\n");
 
 		total_dx += packet[1];
 		if( (packet[0] >> 5 & 0x01) == 0) total_dy += packet[2];
 
 
-		if(packet[0] >> 4 & 0x01) { //se o rato voltar para tras, começa tudo de novo
-			printf("Rato voltou atrás\n");
+		if(packet[0] >> 4 & 0x01) { //se o rato voltar para tras, comeï¿½a tudo de novo
+			printf("Rato voltou atrï¿½s\n");
 			total_dx = 0;
 			total_dy = 0;
 			state = 0;
 		}
 
-		if(leftButton == 0 || (total_dy > tolerance)) {  //se levantou o botão esquerdo ou subiu demasiado, volta ao início
-			if(!leftButton)printf("Levantou o botão\n");
+		if(leftButton == 0 || (total_dy > tolerance)) {  //se levantou o botï¿½o esquerdo ou subiu demasiado, volta ao inï¿½cio
+			if(!leftButton)printf("Levantou o botï¿½o\n");
 			else printf("Excedeu a tolerancia\n");
 
 			state = 0;
 			total_dx = 0; total_dy = 0;
 		}
 
-		else if (total_dx >= length) { // se o movimento total em dx já é igual ao length desejado para gesture termina
+		else if (total_dx >= length) { // se o movimento total em dx jï¿½ ï¿½ igual ao length desejado para gesture termina
 			state++;
 		}
 
@@ -283,16 +299,41 @@ void print_mouse_config() {
 
 }
 
+int kbc_write(unsigned long port, unsigned char byte){
+	printf("0x%02X -> 0x%02X\n", byte, port);
+
+	if(sys_outb(port, byte) != 0){
+		printf("error in kbc_write\n");
+		return -1;
+	}
+
+	return 0;
+}
+
+int kbc_read(unsigned long port, unsigned char *byte){
+	unsigned long buf;
+	if(sys_inb(port, &buf) != OK){
+		printf("erro em kbc_read\n");
+		return -1;
+	}
+
+	*byte = (unsigned char)buf;
+
+	printf("0x%02X <- 0x%02X\n", byte, port);
+}
 
 /*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
 int kbc_input(char kbc_command)  { // issues command to kbc
 
-	unsigned long stat;
+	//unsigned long stat;
+	unsigned char stat;
 
-	sys_inb(STAT_REG, &stat); /* assuming it returns OK */
+	//sys_inb(STAT_REG, &stat); /* assuming it returns OK */
+	kbc_read(STAT_REG, &stat);
 	/* loop while 8042 input buffer is not empty */
 	if( (stat & IBF) == 0 ) {
-		if( sys_outb(KBC_CMD_REG, kbc_command) != OK) {
+		//if( sys_outb(KBC_CMD_REG, kbc_command) != OK) {
+		if( kbc_write(KBC_CMD_REG, kbc_command) != 0) {
 			printf("Error sending kbc command\n");
 			return 1; /* no args command */
 		}
@@ -328,10 +369,13 @@ int kbc_output() {
 int issue_command_mouse(unsigned char command, unsigned char argument) {
 	// If you want to issue a command without argument, pass -1 as second parameter
 
-	unsigned long ack_byte;
+	//unsigned long ack_byte;
+	unsigned char ack_byte;
 
-	sys_outb(IO_BUF_PORT, command);
-	sys_inb(IO_BUF_PORT, &ack_byte);
+	//sys_outb(IO_BUF_PORT, command);
+	kbc_write(IO_BUF_PORT, command);
+	//sys_inb(IO_BUF_PORT, &ack_byte);
+	kbc_read(IO_BUF_PORT, &ack_byte);
 
 	if (ack_byte == 0xFA) {
 		printf("Mouse command aknowledged!\n");
@@ -340,8 +384,10 @@ int issue_command_mouse(unsigned char command, unsigned char argument) {
 		printf("Failed, command no ack\n");
 	}
 
+	/*
 	if(argument != -1) {
-		if (sys_outb(IO_BUF_PORT, argument) != OK ) return 1;
+		//if (sys_outb(IO_BUF_PORT, argument) != OK ) return 1;
+		if (kbc_write(IO_BUF_PORT, argument) != OK ) return 1;
 
 		sys_inb(IO_BUF_PORT, &ack_byte);
 		if (ack_byte != 0xFA) return 1;
@@ -349,6 +395,7 @@ int issue_command_mouse(unsigned char command, unsigned char argument) {
 	}
 
 	else ("No arguments\n");
+	*/
 
 	return 0;
 

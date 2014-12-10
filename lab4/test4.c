@@ -20,6 +20,13 @@ int test_async(unsigned short idle_time) {
 	int shift = mouse_subscribe_int();
 
 	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(0xF6,-1);
+
+
+	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(ENABLE_STREAM_MODE,-1);
+
+	kbc_input(KBC_WRITE_COMMAND);
 	issue_command_mouse(ENABLE_DATA_PACKETS,-1);
 
 	setMaxPackets(99999);
