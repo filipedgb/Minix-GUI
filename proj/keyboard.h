@@ -31,9 +31,7 @@ int receiver_loop();
 
 void print_codes(unsigned long code);
 
-int kbc_input(char kbc_command);
 
-int kbc_output(unsigned long* data);
 
 
 #endif /* __KEYBOARD_H */

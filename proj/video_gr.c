@@ -28,6 +28,17 @@ static unsigned h_res;		/* Horizontal screen resolution in pixels */
 static unsigned v_res;		/* Vertical screen resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 
+
+unsigned getHRES() {
+	return h_res;
+}
+
+
+unsigned getVRES() {
+	return v_res;
+}
+
+
 void * vg_init(unsigned short mode) {
 
 	struct reg86u r;

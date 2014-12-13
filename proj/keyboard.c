@@ -87,46 +87,6 @@ int receiver_loop(int shiftkeyboard) {
 
 }
 
-/*FUNCTION FROM SLIDE 21: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
-int kbc_input(char kbc_command)  {
-
-	unsigned long stat;
-
-	while( 1 ) {
-		sys_inb(STAT_REG, &stat); /* assuming it returns OK */
-		/* loop while 8042 input buffer is not empty */
-		if( (stat & IBF) == 0 ) {
-			if( sys_outb(KBC_CMD_REG, kbc_command) != OK) {
-				printf("Erro no sys_outb");
-				return 1; /* no args command */
-			}
-			printf("gets here 1");
-			return 0;
-		}
-		printf("gets here 2");
-		tickdelay(micros_to_ticks(DELAY_US));
-	}
-}
-
-/*FUNCTION FROM SLIDE 22: http://web.fe.up.pt/~pfs/aulas/lcom2014/at/5kbrd.pdf*/
-int kbc_output(unsigned long* data) {
-	unsigned long stat;
-
-	while( 1 ) {
-		sys_inb(STAT_REG, &stat); /* assuming it returns OK */
-		/* loop while 8042 output buffer is empty */
-		if( stat & OBF ) {
-			sys_inb(OUT_BUF, data); /* assuming it returns OK */
-			if ( (stat &(PAR_ERR | TO_ERR)) == 0 )
-				return *data;
-			else
-				return -1;
-		}
-		tickdelay(micros_to_ticks(DELAY_US));
-	}
-
-}
-
 int issue_command(unsigned long command, unsigned long argument) {
 	// If you want to issue a command without argument, pass -1 as second parameter
 

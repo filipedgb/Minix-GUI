@@ -27,6 +27,10 @@ void *vg_init(unsigned short mode);
  */
 int vg_exit(void);
 
+unsigned getHRES();
+
+unsigned getVRES();
+
  /** @} end of video_gr */
  
 #endif /* __VIDEO_GR_H */

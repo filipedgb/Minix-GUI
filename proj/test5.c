@@ -2,6 +2,7 @@
 #include "keyboard.h"
 #include "read_xpm.h"
 #include "timer.h"
+#include "interface.h"
 
 #include "sprite.h"
 
