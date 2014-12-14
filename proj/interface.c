@@ -6,11 +6,17 @@ void mainDraw() {
 
 
 void drawCursor(mouse_state current_mouse_state) {
+	draw_sprite(current_mouse_state.x, current_mouse_state.y, cursor);
+}
 
-	//draw_sprite(current_mouse_state.x, current_mouse_state.y, cursor);
 
 
-	draw_rectangle(current_mouse_state.x,current_mouse_state.y,15,15,20);
+void cleanCursor(mouse_state current_mouse_state) {
+	draw_rectangle(current_mouse_state.x-10,current_mouse_state.y-10,10,10,0);
+}
 
+
+void cleanScreen() {
+	vg_fill(0x00);
 
 }

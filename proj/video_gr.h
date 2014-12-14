@@ -27,6 +27,8 @@ void *vg_init(unsigned short mode);
  */
 int vg_exit(void);
 
+int vg_fill(unsigned long color);
+
 unsigned getHRES();
 
 unsigned getVRES();

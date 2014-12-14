@@ -21,6 +21,7 @@ int main(int argc, char **argv) {
 
 
 
+
 	int shift_mouse = mouse_subscribe_int();
 
 	int shiftkeyboard = keyboard_subscribe_int();
@@ -46,6 +47,11 @@ int main(int argc, char **argv) {
 
 
 	while(running && get_seconds() < 60) {
+
+		drawCursor(current_mouse_state);
+
+
+
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
 			printf("driver_receive failed with: %d", r);
@@ -55,7 +61,7 @@ int main(int argc, char **argv) {
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shiftkeyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo Ã© 1*/
-					printf("KEYBOARD INTERRUPT\n");
+				//	printf("KEYBOARD INTERRUPT\n");
 
 
 					if(keyboard_int_handler_C(&code)) {
@@ -71,11 +77,11 @@ int main(int argc, char **argv) {
 				}
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
-					printf("MOUSE INTERRUPT\n");
+				//	printf("MOUSE INTERRUPT\n");
 					mouse_int_handler(&current_mouse_state);
-					drawCursor(current_mouse_state);
 
-					printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
+
+				//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 
 
 				}

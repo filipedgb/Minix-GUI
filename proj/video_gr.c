@@ -87,6 +87,18 @@ int vg_set_pixel(unsigned long x, unsigned long y, unsigned long color) {
 	return 0;
 }
 
+
+int vg_fill(unsigned long color) {
+        int i, success;
+
+        for(i = 0; i < h_res*v_res; i++){
+                *(video_mem + i ) = color;
+        }
+
+        return 0;
+}
+
+
 //Used for draw_rectangle
 int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color);
 

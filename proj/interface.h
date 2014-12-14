@@ -9,7 +9,7 @@ void mainDraw();
 
 void drawCursor(mouse_state current_mouse_state);
 
-
+void cleanScreen();
 
 
 #endif
