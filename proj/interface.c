@@ -34,9 +34,26 @@ void cleanScreen() {
 
 }
 
+
+void printFolders() {
+
+	getSubFolders(".",getDirectories());
+
+	int i = 0;
+
+	for(; i < getNumberFolders(); i++) {
+		printf("%s \n",getDirectories()[i].name);
+
+
+	}
+
+
+}
+
+
 void drawFolders() {
 	int i = 0;
-	for(; i < 10; i++) {
+	for(; i < getNumberFolders(); i++) {
 		draw_sprite(i*60 + 30, 50, folder);
 
 	}

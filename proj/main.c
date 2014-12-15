@@ -4,7 +4,6 @@
 #include "mouse.h"
 #include "interface.h"
 #include "rtc.h"
-#include "state.h"
 
 #include "sprite.h"
 
@@ -49,6 +48,8 @@ int main(int argc, char **argv) {
 	drawBackground();
 	drawMainMenu();
 
+	printFolders();
+
 
 	while(running && get_seconds() < 60) {
 
@@ -82,14 +83,14 @@ int main(int argc, char **argv) {
 				}
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
-				//	printf("MOUSE INTERRUPT\n");
+					printf("MOUSE INTERRUPT\n");
 					cleanCursor(current_mouse_state);
 					drawMainMenu();
 					drawFolders();
 					mouse_int_handler(&current_mouse_state);
 					if(check_mouse_click(current_mouse_state)) running = 0;
 
-				//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
+					//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 
 
 				}
