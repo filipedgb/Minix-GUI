@@ -29,6 +29,8 @@ int vg_exit(void);
 
 int vg_fill(unsigned long color);
 
+int draw_solid_rectangle( unsigned short x, unsigned short y, unsigned short width,unsigned short height, unsigned long color);
+
 unsigned getHRES();
 
 unsigned getVRES();

@@ -3,6 +3,8 @@
 #include "timer.h"
 #include "mouse.h"
 #include "interface.h"
+#include "rtc.h"
+#include "state.h"
 
 #include "sprite.h"
 
@@ -19,9 +21,6 @@ int main(int argc, char **argv) {
 
 	vg_init(0x105);
 
-
-
-
 	int shift_mouse = mouse_subscribe_int();
 
 	int shiftkeyboard = keyboard_subscribe_int();
@@ -30,6 +29,8 @@ int main(int argc, char **argv) {
 	int shift_timer = timer_subscribe_int();
 
 	mouse_state current_mouse_state;
+	rtc_state current_rtc_state;
+
 
 	kbc_input(KBC_WRITE_COMMAND);
 	issue_command_mouse(0xF6,-1);
@@ -45,8 +46,12 @@ int main(int argc, char **argv) {
 
 	int esc_pressed = 0;
 
+	drawBackground();
+	drawMainMenu();
+
 
 	while(running && get_seconds() < 60) {
+
 
 		drawCursor(current_mouse_state);
 
@@ -78,8 +83,11 @@ int main(int argc, char **argv) {
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 				//	printf("MOUSE INTERRUPT\n");
+					cleanCursor(current_mouse_state);
+					drawMainMenu();
+					drawFolders();
 					mouse_int_handler(&current_mouse_state);
-
+					if(check_mouse_click(current_mouse_state)) running = 0;
 
 				//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 

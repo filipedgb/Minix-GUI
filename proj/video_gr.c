@@ -89,13 +89,13 @@ int vg_set_pixel(unsigned long x, unsigned long y, unsigned long color) {
 
 
 int vg_fill(unsigned long color) {
-        int i, success;
+	int i, success;
 
-        for(i = 0; i < h_res*v_res; i++){
-                *(video_mem + i ) = color;
-        }
+	for(i = 0; i < h_res*v_res; i++){
+		*(video_mem + i ) = color;
+	}
 
-        return 0;
+	return 0;
 }
 
 
@@ -116,6 +116,22 @@ int draw_rectangle(unsigned short x, unsigned short y, unsigned short width,unsi
 	draw_line(x + width,y,x + width,y + height,color); //direita
 
 	return 0;
+}
+
+
+int draw_solid_rectangle(unsigned short x, unsigned short y, unsigned short width,unsigned short height, unsigned long color ) {
+	if(x < 0 || y < 0 || x+width > H_RES || y+height > V_RES) {
+		printf("Error: out of the screen limits\n");
+		return 1;
+	}
+
+	int i = 0;
+
+	for (; i < height; i++) {
+		draw_line(x,y+i,x+width,y+i,color);
+	}
+
+
 }
 
 int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color) {
@@ -144,14 +160,14 @@ int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned 
 		if (xi == xf && yi == yf) break;
 
 		error2 = error;
-	    if (error2 > -dx) {
-	    	error -= dy;
-	    	xi += sx;
-	    }
-	    if (error2 < dy) {
-	    	error += dx;
-	    	yi += sy;
-	    }
+		if (error2 > -dx) {
+			error -= dy;
+			xi += sx;
+		}
+		if (error2 < dy) {
+			error += dx;
+			yi += sy;
+		}
 	}
 
 	return 0;
@@ -211,20 +227,20 @@ void display_VBE_controller_info() {
 
 	printf("\nSIZE OF VRAM MEMORY: %lu",vbe_info.TotalMemory);
 
-//	/*MODES*/
-//
-//	int segment = VideoModePtr[1] << 4;
-//	int offset = VideoModePtr[0];
-//
-//	int resultado = segment + offset;
-//
-//	char* enderecofinal = apontador+resultado;
-//
-//
-//	//Usar endereço final para fazer print dos modes aqui
-//
-//	return;
-//
+	//	/*MODES*/
+	//
+	//	int segment = VideoModePtr[1] << 4;
+	//	int offset = VideoModePtr[0];
+	//
+	//	int resultado = segment + offset;
+	//
+	//	char* enderecofinal = apontador+resultado;
+	//
+	//
+	//	//Usar endereço final para fazer print dos modes aqui
+	//
+	//	return;
+	//
 
 }
 

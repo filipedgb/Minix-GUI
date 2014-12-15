@@ -11,5 +11,7 @@ void drawCursor(mouse_state current_mouse_state);
 
 void cleanScreen();
 
+void drawMainMenu();
+
 
 #endif

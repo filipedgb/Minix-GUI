@@ -30,6 +30,28 @@
 #define ENABLE_DATA_PACKETS 0xF4
 #define STATUS_REQUEST 0xE9
 
+/* RTC */
+
+#define RTC_IRQ 8
+
+#define RTC_ADDR_REG 0x70
+#define RTC_DATA_REG 0x71
+#define SECONDS_ADDR 0
+#define MINUTES_ADDR 2
+#define HOURS_ADDR 4
+
+#define REG_B_PIE 6
+#define REG_B_AIE 5
+#define REG_B_UIE 4
+
+#define REG_A_UIP 7
+
+#define RTC_REG_A 10
+#define RTC_REG_B 11
+#define RTC_REG_C 12
+#define RTC_REG_D 13
+
+/*keyboard */
 
 #define ESC_BREAK_CODE 0x81
 #define ESC_MAKE_CODE 0x01
