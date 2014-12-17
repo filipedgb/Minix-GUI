@@ -45,10 +45,10 @@ int main(int argc, char **argv) {
 
 	int esc_pressed = 0;
 
-	//drawBackground();
-	//drawMainMenu();
+	drawBackground();
+	drawMainMenu();
 
-	//printFolders();
+	printFolders();
 
 
 	while(running && get_seconds() < 60) {
