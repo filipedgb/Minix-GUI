@@ -24,6 +24,9 @@
 
 static char *video_mem;		/* Process address to which VRAM is mapped */
 
+static char *double_buffer;
+static unsigned int videoMemSize;
+
 static unsigned h_res;		/* Horizontal screen resolution in pixels */
 static unsigned v_res;		/* Vertical screen resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
@@ -62,6 +65,8 @@ void * vg_init(unsigned short mode) {
 	v_res = vbe_info.YResolution;
 	bits_per_pixel = vbe_info.BitsPerPixel;
 
+	videoMemSize = h_res * v_res;
+
 
 	/* CODE BASED ON LAB1 VT_INIT TO GET VIDEO_MEM ADDRESS */
 
@@ -79,11 +84,13 @@ void * vg_init(unsigned short mode) {
 	video_mem = vm_map_phys(SELF,(void *) mem_range.mr_base, h_res*v_res*bits_per_pixel);
 	if(video_mem == MAP_FAILED) panic("video_gr couldn't map video memory");
 
+	double_buffer = (char*) malloc (videoMemSize);
+
 	return NULL;
 }
 
 int vg_set_pixel(unsigned long x, unsigned long y, unsigned long color) {
-	*(video_mem + x + y*h_res) = color;
+	*(double_buffer + x + y*h_res) = color;
 	return 0;
 }
 
@@ -92,12 +99,15 @@ int vg_fill(unsigned long color) {
 	int i, success;
 
 	for(i = 0; i < h_res*v_res; i++){
-		*(video_mem + i ) = color;
+		*(double_buffer + i ) = color;
 	}
 
 	return 0;
 }
 
+void flipDisplay() {
+	memcpy(video_mem, double_buffer, videoMemSize);
+}
 
 //Used for draw_rectangle
 int draw_line(unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color);
@@ -182,7 +192,7 @@ int draw_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, ch
 	unsigned xpm_row_size = n_columns*(BITS_PER_PIXEL/8);
 
 	for(i = 0; i < n_rows ; i++){
-		void* dest = video_mem +  video_mem_rowsize*(yi+i) + xi*(BITS_PER_PIXEL/8);
+		void* dest = double_buffer +  video_mem_rowsize*(yi+i) + xi*(BITS_PER_PIXEL/8);
 		void* src = pixmap + xpm_row_size*i;
 		memcpy(dest,src,xpm_row_size);
 
@@ -237,7 +247,7 @@ void display_VBE_controller_info() {
 	//	char* enderecofinal = apontador+resultado;
 	//
 	//
-	//	//Usar endereço final para fazer print dos modes aqui
+	//	//Usar endereï¿½o final para fazer print dos modes aqui
 	//
 	//	return;
 	//

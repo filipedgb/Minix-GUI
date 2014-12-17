@@ -45,17 +45,17 @@ int main(int argc, char **argv) {
 
 	int esc_pressed = 0;
 
-	drawBackground();
-	drawMainMenu();
+	//drawBackground();
+	//drawMainMenu();
 
-	printFolders();
+	//printFolders();
 
 
 	while(running && get_seconds() < 60) {
 
 
+		cleanScreen();
 		drawCursor(current_mouse_state);
-
 
 
 		/* Get a request message. */
@@ -84,13 +84,13 @@ int main(int argc, char **argv) {
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 					printf("MOUSE INTERRUPT\n");
-					cleanCursor(current_mouse_state);
+					//cleanCursor(current_mouse_state);
 					drawMainMenu();
 					drawFolders();
 					mouse_int_handler(&current_mouse_state);
 					if(check_mouse_click(current_mouse_state)) running = 0;
 
-					//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
+					//printf("Cursor 	posiï¿½ï¿½o x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 
 
 				}
@@ -105,6 +105,8 @@ int main(int argc, char **argv) {
 		} else { /* received a standard message, not a notification */
 			/* no standard messages expected: do nothing */
 		}
+
+		flipDisplay();
 	}
 
 	keyboard_unsubscribe_int();

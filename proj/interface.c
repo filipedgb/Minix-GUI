@@ -31,7 +31,6 @@ void drawMainMenu() {
 
 void cleanScreen() {
 	vg_fill(0x00);
-
 }
 
 
