@@ -17,7 +17,23 @@ int check_mouse_click(mouse_state current_mouse_state) {
 }
 
 
-directory* getDirectories() {
+char* getFolderName(int index) {
+	printf("Values inside getFolderName() function : %s\n", currentFolders[index].name);
+	return currentFolders[index].name ;
+}
+
+
+
+void printCurrentFolders() {
+	int i = 0;
+	for(; i < getNumberFolders(); i++) {
+		printf("Values inside printCurrentFolders() function %s\n", currentFolders[i].name);
+	}
+
+}
+
+
+Directory* getDirectories() {
 	return currentFolders;
 }
 
@@ -26,9 +42,7 @@ int getNumberFolders() {
 }
 
 
-
-
-int getSubFolders(char* foldername,directory folders[30]) {
+int getSubFolders(char* foldername) {
 	num_folders = 0;
 
 	struct dirent *de=NULL;
@@ -44,16 +58,19 @@ int getSubFolders(char* foldername,directory folders[30]) {
 	  // Loop while not NULL
 	  while(de = readdir(d)) {
 		num_folders++;
-		directory temp;
-	    temp.name = de->d_name;
+		Directory temp;
 
-	    folders[i] = temp;
+		strcpy(	currentFolders[i].name, de->d_name);
+
+
+	    printf("Values inside getSubFolders function: %s\n",currentFolders[i].name);
+
 		i++;
 	  }
 
+	  printCurrentFolders();
+
 	  closedir(d);
 	  return(0);
-
-
 
 }

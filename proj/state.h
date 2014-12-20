@@ -7,34 +7,34 @@
 
 static int num_folders = 0;
 
-typedef struct {
+typedef struct Buttons {
 	int button_id;
 	int xi;
 	int xf;
 	int yi;
 	int yf;
 
-} button;
+} Button;
 
 
-typedef struct {
+typedef struct Directories {
 
-	char* name;
+	char name[256];
 	int active;
 
-} directory;
+} Directory;
 
-static directory currentFolders[30];
+Directory currentFolders[30];
 
 
 int getNumberFolders();
+Directory* getDirectories();
 
 
-directory* getDirectories();
-int getSubFolders(char* foldername,directory folders[30]);
+char* getFolderName(int index);
 
 
-
+int getSubFolders(char* foldername);
 int check_mouse_click(mouse_state current_mouse_state) ;
 
 
