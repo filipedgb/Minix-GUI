@@ -19,6 +19,8 @@ service proj
                 40:4
                 60
                 64
+                70
+                71
                 ;               
         irq
                 0         # TIMER 0 IRQ
