@@ -67,7 +67,7 @@ void updateState(mouse_state* this_state) {
 	else  (*this_state).x += packet[1];
 
 	if ((*this_state).x < 0 ) (*this_state).x = 0;
-	else if((*this_state).x > 1024 ) (*this_state).x = 1024;
+	else if((*this_state).x > 1024-20 ) (*this_state).x = 1024-20;
 
 	if(packet[0] >> 5 & 0x01)   (*this_state).y -= (packet[2]-255);
 	else  (*this_state).y -= packet[2];

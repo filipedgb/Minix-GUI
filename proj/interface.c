@@ -144,7 +144,11 @@ void drawFolders() {
 	int k;
 
 	for(k = 0; k < getNumberFolders(); k++) {
-		draw_sprite(k*60 + 30, 50, folder);
+		setFolderCoords(k,k*60 + 30,50);
+
+		if(isFolderSelected(k))  draw_sprite(k*60 + 30, 50, folder_selected);
+		else draw_sprite(k*60 + 30, 50, folder);
+
 		char* name = getFolderName(k);
 		draw_string(name,k*60 + 35, 100);
 	}

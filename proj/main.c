@@ -84,6 +84,7 @@ int main(int argc, char **argv) {
 					cleanCursor(current_mouse_state);
 
 					mouse_int_handler(&current_mouse_state);
+
 					if(check_mouse_click(current_mouse_state)) running = 0;
 
 					updated = 1;
