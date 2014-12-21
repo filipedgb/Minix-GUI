@@ -91,6 +91,8 @@ int mouse_int_handler(mouse_state* this_state) {
 
 	unsigned char p = (unsigned char)packetPart;
 
+	total_packet_cnt++;
+
 
 	if( !((p>> 3) & 1) && packet_counter == 0) {
 	//if(packet_counter == 0 && (p & BIT(3)) == 0){
@@ -106,15 +108,15 @@ int mouse_int_handler(mouse_state* this_state) {
 
 		updateState(this_state);
 
-
-
+		return 2;
 	}
 	else {
 		packet[packet_counter] = p;
 		packet_counter++;
+
+		return 0;
 	}
 
-	total_packet_cnt++;
 
 	/*
 

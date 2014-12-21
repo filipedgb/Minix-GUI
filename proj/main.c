@@ -31,10 +31,6 @@ int main(int argc, char **argv) {
 	rtc_state current_rtc_state;
 
 
-
-
-
-
 	kbc_input(KBC_WRITE_COMMAND);
 	issue_command_mouse(0xF6,-1);
 	kbc_input(KBC_WRITE_COMMAND);
@@ -48,14 +44,12 @@ int main(int argc, char **argv) {
 	unsigned long code;
 
 	int esc_pressed = 0;
+	int ticker = 0;
+	int updated = 0;
 
-	drawBackground();
-	drawMainMenu();
 
-	drawFolders();
 
-	while(running && get_seconds() < 60) {
-
+	while(running) {
 
 		drawCursor(current_mouse_state);
 
@@ -70,7 +64,7 @@ int main(int argc, char **argv) {
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
 				if (msg.NOTIFY_ARG & BIT(shiftkeyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo Ã© 1*/
-				//	printf("KEYBOARD INTERRUPT\n");
+					//	printf("KEYBOARD INTERRUPT\n");
 
 
 					if(keyboard_int_handler_C(&code)) {
@@ -88,17 +82,40 @@ int main(int argc, char **argv) {
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 					printf("MOUSE INTERRUPT\n");
 					cleanCursor(current_mouse_state);
-					drawMainMenu();
+
 					mouse_int_handler(&current_mouse_state);
 					if(check_mouse_click(current_mouse_state)) running = 0;
 
+					updated = 1;
 					//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 
 
 				}
 				else if (msg.NOTIFY_ARG & BIT(shift_timer)) {
 					//printf("TIMER INTERRUPT\n");
+					ticker++;
+
 					timer_int_handler();
+
+					if(ticker%10) {
+						get_clock(&current_rtc_state);
+						printf("H1: %d, M1: %d, S1: %d \n",current_rtc_state.hours, current_rtc_state.minutes, current_rtc_state.seconds);
+
+						drawMainMenu();
+						drawClock(current_rtc_state);
+
+						if(updated) {
+							//cleanScreen();
+							drawFolders();
+							updated = 0;
+						}
+
+
+
+
+					}
+
+
 				}
 
 			default:
@@ -107,6 +124,7 @@ int main(int argc, char **argv) {
 		} else { /* received a standard message, not a notification */
 			/* no standard messages expected: do nothing */
 		}
+
 	}
 
 	keyboard_unsubscribe_int();

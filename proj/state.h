@@ -4,8 +4,14 @@
 #include "mouse.h"
 #include <sys/types.h>
 #include <dirent.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 
 static int num_folders = 0;
+
+static char current_path[1024];
+
 
 typedef struct Buttons {
 	int button_id;
@@ -18,7 +24,6 @@ typedef struct Buttons {
 
 
 typedef struct Directories {
-
 	char name[256];
 	int active;
 
@@ -32,8 +37,9 @@ Directory* getDirectories();
 
 
 char* getFolderName(int index);
+char* getPath();
 
-
+void setCurrentPath(char* path);
 int getSubFolders(char* foldername);
 int check_mouse_click(mouse_state current_mouse_state) ;
 

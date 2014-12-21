@@ -17,7 +17,7 @@ int rtc_unsubscribe_int() {
 }
 
 
-void rtc_interrupt_handler(rtc_state* current_clock_state) {
+void get_clock(rtc_state* current_clock_state) {
 
 	unsigned long h,m,s;
 
@@ -31,7 +31,14 @@ void rtc_interrupt_handler(rtc_state* current_clock_state) {
 	sys_outb(RTC_ADDR_REG,SECONDS_ADDR);
 	sys_inb(RTC_DATA_REG,&s);
 
-	printf("H: %d, M: %d, S: %d \n", BCDToDecimal(h), BCDToDecimal(m), BCDToDecimal(s));
+	if(h > 12) 	(*current_clock_state).hours = BCDToDecimal(h) -69;
+	else (*current_clock_state).hours = BCDToDecimal(h);
+	(*current_clock_state).minutes = BCDToDecimal(m);
+	(*current_clock_state).seconds = BCDToDecimal(s);
+
+
+
+	printf("H: %d, M: %d, S: %d \n",(*current_clock_state).hours, (*current_clock_state).minutes, (*current_clock_state).seconds);
 
 
 }
@@ -64,5 +71,9 @@ void enable() {
 
 void disable() {
 	sys_outb(RTC_ADDR_REG, RTC_REG_B);
-	sys_outb(RTC_DATA_REG, (0 << REG_B_PIE | 0 << REG_B_AIE | 0 << REG_B_UIE));
+	int mask = 0 | BIT(REG_B_PIE) | BIT(REG_B_AIE) | BIT(REG_B_UIE) ;
+	char char_mask =(char) ( ~(mask) );
+
+
+	sys_outb(RTC_DATA_REG, RTC_REG_B & char_mask);
 }

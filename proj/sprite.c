@@ -41,3 +41,18 @@ void draw_sprite(unsigned short xi, unsigned short yi, char *xpm[]) {
 
 	destroy_sprite(Sp);
 }
+
+
+void draw_transp_sprite(unsigned short xi, unsigned short yi, char *xpm[]) {
+
+	int width, height;
+	char *map;
+
+	Sprite *Sp;
+
+	Sp = initialize_sprite(xpm, &width, &height);
+
+	draw_transparent_map(xi,yi,width,height,Sp->map);
+
+	destroy_sprite(Sp);
+}

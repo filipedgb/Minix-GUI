@@ -6,7 +6,7 @@ void mainDraw() {
 
 
 void drawCursor(mouse_state current_mouse_state) {
-	draw_sprite(current_mouse_state.x, current_mouse_state.y, a);
+	draw_transp_sprite(current_mouse_state.x, current_mouse_state.y, cursor);
 }
 
 
@@ -35,8 +35,6 @@ void cleanScreen() {
 
 void draw_letter(char letter,int x,int y) {
 	char **letra;
-
-	printf("Letra que chega ao draw_letter: %c\n",letter);
 
 	switch(letter) {
 	case ' ': letra = space; break;
@@ -82,7 +80,7 @@ void draw_letter(char letter,int x,int y) {
 
 	};
 
-	draw_sprite(x,y,letra);
+	draw_transp_sprite(x,y,letra);
 }
 
 
@@ -97,6 +95,45 @@ void draw_string(char* string,int positionX,int positionY)  {
 		x += 8;
 
 	}
+}
+
+
+
+void drawClock(rtc_state current_rtc_state) {
+
+	//printf("Chegou ao draw clock\n");
+
+	//printf("H2: %d, M2: %d, S2: %d \n",current_rtc_state.hours, current_rtc_state.minutes, current_rtc_state.seconds);
+
+
+	char final_string[256];
+
+	char hours[10];
+	char minutes[10];
+	char seconds[10];
+
+	//printf("Teste das horas: %d",current_rtc_state.hours  );
+
+	if(current_rtc_state.hours < 10) {
+		sprintf(hours,"0%d",current_rtc_state.hours);
+	} else sprintf(hours,"%d",current_rtc_state.hours);
+
+	//printf("Horas %s:", hours);
+
+	if(current_rtc_state.minutes < 10) {
+		sprintf(minutes,"0%d",current_rtc_state.minutes);
+	} else sprintf(minutes,"%d",current_rtc_state.minutes);
+
+	if(current_rtc_state.seconds < 10) {
+		sprintf(seconds,"0%d",current_rtc_state.seconds);
+	} else sprintf(seconds,"%d",current_rtc_state.seconds);
+
+	sprintf(final_string,"%s  %s  %s",hours,minutes,seconds);
+
+	//printf("Chegou ao fim");
+
+	draw_string(final_string,getHRES()-200,15);
+
 }
 
 

@@ -5,6 +5,7 @@
 #include "video_gr.h"
 #include "mouse.h"
 #include "state.h"
+#include "rtc.h"
 
 void mainDraw();
 

@@ -29,6 +29,8 @@ static unsigned v_res;		/* Vertical screen resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 
 
+
+
 unsigned getHRES() {
 	return h_res;
 }
@@ -189,6 +191,19 @@ int draw_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, ch
 	}
 	return 0;
 
+}
+
+int draw_transparent_map(unsigned short xi, unsigned short yi,  int n_columns,int n_rows, char * pixmap) {
+	int i,k;
+
+	for (i = 0; i < n_rows; ++i) {
+		for (k = 0; k < n_columns; ++k) {
+			unsigned long color = *(pixmap + (n_columns*i + k));
+			if (color) {
+				vg_set_pixel((xi + k), (yi + i), color);
+			}
+		}
+	}
 }
 
 void vt_blank() {
