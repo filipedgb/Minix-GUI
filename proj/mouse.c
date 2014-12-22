@@ -104,7 +104,7 @@ int mouse_int_handler(mouse_state* this_state) {
 	else if(packet_counter == 2) {
 		packet[packet_counter] = p;
 		packet_counter = 0;
-		print_packet();
+		//print_packet();
 
 		updateState(this_state);
 

@@ -33,54 +33,82 @@ void cleanScreen() {
 
 }
 
-void draw_letter(char letter,int x,int y) {
-	char **letra;
+void draw_letter(char letter,int xIn,int yIn) {
+
+	printf("letra actua: %c",letter);
 
 	switch(letter) {
-	case ' ': letra = space; break;
-	case '.': letra = ponto; break;
-	case '0': letra = xpm0; break;
-	case '1': letra = xpm1; break;
-	case '2': letra = xpm2; break;
-	case '3': letra = xpm3; break;
-	case '4': letra = xpm4; break;
-	case '5': letra = xpm5; break;
-	case '6': letra = xpm6; break;
-	case '7': letra = xpm7; break;
-	case '8': letra = xpm8; break;
-	case '9': letra = xpm9; break;
+	case '_':draw_transp_sprite(xIn,yIn,underscore); break;
+	case ' ':draw_transp_sprite(xIn,yIn,space); break;
+	case '.':draw_transp_sprite(xIn,yIn,ponto); break;
+	case '0':draw_transp_sprite(xIn,yIn,xpm0); break;
+	case '1':draw_transp_sprite(xIn,yIn,xpm1); break;
+	case '2':draw_transp_sprite(xIn,yIn,xpm2); break;
+	case '3':draw_transp_sprite(xIn,yIn,xpm3); break;
+	case '4':draw_transp_sprite(xIn,yIn,xpm4); break;
+	case '5':draw_transp_sprite(xIn,yIn,xpm5); break;
+	case '6':draw_transp_sprite(xIn,yIn,xpm6); break;
+	case '7':draw_transp_sprite(xIn,yIn,xpm7); break;
+	case '8':draw_transp_sprite(xIn,yIn,xpm8); break;
+	case '9':draw_transp_sprite(xIn,yIn,xpm9); break;
 
-	case 'a': letra = a; break;
-	case 'b': letra = b; break;
-	case 'c': letra = c; break;
-	case 'd': letra = d; break;
-	case 'e': letra = e; break;
-	case 'f': letra = f; break;
-	case 'g': letra = g; break;
-	case 'h': letra = h; break;
-	case 'i': letra = i; break;
-	case 'j': letra = j; break;
-	case 'k': letra = k; break;
-	case 'l': letra = l; break;
-	case 'm': letra = m; break;
-	case 'n': letra = n; break;
-	case 'o': letra = o; break;
-	case 'p': letra = p; break;
-	case 'q': letra = q; break;
-	case 'r': letra = r; break;
-	case 's': letra = s; break;
-	case 't': letra = t; break;
-	case 'u': letra = u; break;
-	case 'v': letra = v; break;
-	case 'x': letra = x; break;
-	case 'z': letra = z; break;
-	case 'y': letra = y; break;
-	case 'w': letra = w; break;
+	case 'a': 	draw_transp_sprite(xIn,yIn,a);break;
+	case 'b': 	draw_transp_sprite(xIn,yIn,b);break;
+	case 'c': 	draw_transp_sprite(xIn,yIn,c);break;
+	case 'd': 	draw_transp_sprite(xIn,yIn,d);break;
+	case 'e': 	draw_transp_sprite(xIn,yIn,e);break;
+	case 'f': 	draw_transp_sprite(xIn,yIn,f);break;
+	case 'g': 	draw_transp_sprite(xIn,yIn,g);break;
+	case 'h':	draw_transp_sprite(xIn,yIn,h);break;
+	case 'i': 	draw_transp_sprite(xIn,yIn,i);break;
+	case 'j': 	draw_transp_sprite(xIn,yIn,j);break;
+	case 'k': 	draw_transp_sprite(xIn,yIn,k);break;
+	case 'l': 	draw_transp_sprite(xIn,yIn,l);break;
+	case 'm': 	draw_transp_sprite(xIn,yIn,m);break;
+	case 'n': 	draw_transp_sprite(xIn,yIn,n);break;
+	case 'o': 	draw_transp_sprite(xIn,yIn,o);break;
+	case 'p': 	draw_transp_sprite(xIn,yIn,p);break;
+	case 'q':	draw_transp_sprite(xIn,yIn,q);break;
+	case 'r': 	draw_transp_sprite(xIn,yIn,r);break;
+	case 's': 	draw_transp_sprite(xIn,yIn,s);break;
+	case 't': 	draw_transp_sprite(xIn,yIn,t);break;
+	case 'u': 	draw_transp_sprite(xIn,yIn,u);break;
+	case 'v': 	draw_transp_sprite(xIn,yIn,v);break;
+	case 'x':	draw_transp_sprite(xIn,yIn,x);break;
+	case 'z': 	draw_transp_sprite(xIn,yIn,z);break;
+	case 'y': 	draw_transp_sprite(xIn,yIn,y);break;
+	case 'w': 	draw_transp_sprite(xIn,yIn,w);break;
+
+	case 'A': 	draw_transp_sprite(xIn,yIn,a);break;
+	case 'B': 	draw_transp_sprite(xIn,yIn,b);break;
+	case 'C': 	draw_transp_sprite(xIn,yIn,c);break;
+	case 'D': 	draw_transp_sprite(xIn,yIn,d);break;
+	case 'E': 	draw_transp_sprite(xIn,yIn,e);break;
+	case 'F': 	draw_transp_sprite(xIn,yIn,f);break;
+	case 'G': 	draw_transp_sprite(xIn,yIn,g);break;
+	case 'H':	draw_transp_sprite(xIn,yIn,h);break;
+	case 'I': 	draw_transp_sprite(xIn,yIn,i);break;
+	case 'J': 	draw_transp_sprite(xIn,yIn,j);break;
+	case 'K': 	draw_transp_sprite(xIn,yIn,k);break;
+	case 'L': 	draw_transp_sprite(xIn,yIn,l);break;
+	case 'M': 	draw_transp_sprite(xIn,yIn,m);break;
+	case 'N': 	draw_transp_sprite(xIn,yIn,n);break;
+	case 'O': 	draw_transp_sprite(xIn,yIn,o);break;
+	case 'P': 	draw_transp_sprite(xIn,yIn,p);break;
+	case 'Q':	draw_transp_sprite(xIn,yIn,q);break;
+	case 'R': 	draw_transp_sprite(xIn,yIn,r);break;
+	case 'S': 	draw_transp_sprite(xIn,yIn,s);break;
+	case 'T': 	draw_transp_sprite(xIn,yIn,t);break;
+	case 'U': 	draw_transp_sprite(xIn,yIn,u);break;
+	case 'V': 	draw_transp_sprite(xIn,yIn,v);break;
+	case 'X':	draw_transp_sprite(xIn,yIn,x);break;
+	case 'Z': 	draw_transp_sprite(xIn,yIn,z);break;
+	case 'Y': 	draw_transp_sprite(xIn,yIn,y);break;
+	case 'W': 	draw_transp_sprite(xIn,yIn,w);break;
 
 
 	};
 
-	draw_transp_sprite(x,y,letra);
 }
 
 
@@ -89,6 +117,10 @@ void draw_string(char* string,int positionX,int positionY)  {
 
 	int x = positionX;
 	int y = positionY;
+
+	printf("Tamanho no draw-string: %d\n",strlen(string));
+	printf("String no draw-string: %s\n",string);
+
 
 	for(i = 0; i < strlen(string); i++) {
 		draw_letter(string[i],x,y);
@@ -139,17 +171,25 @@ void drawClock(rtc_state current_rtc_state) {
 
 void drawFolders() {
 
-	getSubFolders(".");
-
-	int k;
+	int k, altura = 30, posX = 30;
 
 	for(k = 0; k < getNumberFolders(); k++) {
-		setFolderCoords(k,k*60 + 30,50);
+		if(k%10 == 0 && k > 0) {
+			altura += 100;
+			posX = 30;
+		}
+		else if(k > 0) posX += 90;
 
-		if(isFolderSelected(k))  draw_sprite(k*60 + 30, 50, folder_selected);
-		else draw_sprite(k*60 + 30, 50, folder);
+		setFolderCoords(k,posX + 30,50+altura);
 
-		char* name = getFolderName(k);
-		draw_string(name,k*60 + 35, 100);
+		if(isFolderSelected(k))  draw_sprite(posX + 30, 50+altura, folder_selected);
+		else draw_sprite(posX + 30, 50+altura, folder);
+
+		char name[256];
+		strcpy(name,getFolderName(k));
+		printf("Passou aqui\n");
+		printf("crashou no foldername, copia: %s original: %s\n",name,getFolderName(k));
+
+		draw_string(getFolderName(k),posX + 35, 100+altura);
 	}
 }

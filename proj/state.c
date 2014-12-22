@@ -22,9 +22,24 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 	return 0;
 
+}
+
+int check_mouse_double_click(mouse_state current_mouse_state) {
+
+	int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
+	if(index != -1) {
+		printf("double click no index %d", index);
+		openFolder(index);
+	}
 
 }
 
+
+void openFolder(int index) {
+
+
+	getSubFolders(getFolderName(index));
+}
 
 char* getFolderName(int index) {
 	return currentFolders[index].name ;
@@ -71,12 +86,27 @@ int getFolderByCoords(int x, int y) {
 
 
 int getSubFolders(char* foldername) {
+
+	memset(currentFolders,0, 100);
+
+	char temp[256];
+	strcpy(temp,foldername);
+
+	printf("FOLDERNAME: %s\n",foldername);
+
+	if(strcmp(temp,"") == 0) strcpy(current_path,".");
+
+	else sprintf(current_path,"%s/%s",current_path,temp);
+
+	printf("Current path: %s\n", current_path);
+
+
 	num_folders = 0;
 
 	struct dirent *de=NULL;
 	DIR *d=NULL;
 
-	d=opendir(foldername);
+	d=opendir(current_path);
 	if(d == NULL) {
 		perror("Couldn't open directory");
 		return(2);
@@ -85,9 +115,25 @@ int getSubFolders(char* foldername) {
 	// Loop while not NULL
 	while(de = readdir(d)) {
 		num_folders++;
-		Directory temp;
-		strcpy(	currentFolders[i].name, de->d_name);
+
+		if(i > 50) break;
+
+		if (strlen(de->d_name) > 0x20)
+			printf("name too long: %s", de->d_name);
+
+		else if(strlen(de->d_name) < 0x01)
+			printf("name empty\n");
+
+
+		else {
+
+			printf("Folder %d name: %s\n",i,de->d_name);
+
+			strcpy(	currentFolders[i].name, de->d_name);
+
+		}
 		i++;
+
 	}
 
 	closedir(d);

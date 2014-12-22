@@ -38,7 +38,7 @@ void get_clock(rtc_state* current_clock_state) {
 
 
 
-	printf("H: %d, M: %d, S: %d \n",(*current_clock_state).hours, (*current_clock_state).minutes, (*current_clock_state).seconds);
+	//printf("H: %d, M: %d, S: %d \n",(*current_clock_state).hours, (*current_clock_state).minutes, (*current_clock_state).seconds);
 
 
 }

@@ -118,6 +118,19 @@ static char *folder[] = {
 };
 
 
+
+static char *underscore[] = {
+		"9 6 2",
+		". 0", //background
+		"% 14",
+		".........",
+		".........",
+		".........",
+		".........",
+		"%%%%%%%%%",
+		".........",
+};
+
 static char *ponto[] = {
 		"9 6 2",
 		". 0", //background

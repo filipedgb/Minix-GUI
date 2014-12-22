@@ -24,7 +24,7 @@ typedef struct Buttons {
 
 
 typedef struct Directories {
-	char name[256];
+	char name[50];
 	int active;
 	int selected;
 	int x;
@@ -32,7 +32,7 @@ typedef struct Directories {
 
 } Directory;
 
-Directory currentFolders[30];
+Directory currentFolders[100];
 
 
 int getNumberFolders();
@@ -41,6 +41,8 @@ Directory* getDirectories();
 int isFolderSelected(int index);
 
 char* getFolderName(int index);
+
+void openFolder(int index);
 
 int getFolderByCoords(int x, int y);
 
