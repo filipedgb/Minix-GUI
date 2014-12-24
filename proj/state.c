@@ -61,6 +61,10 @@ void toggleSelected(int index) {
 
 }
 
+char* getPath() {
+	return current_path;
+}
+
 Directory* getDirectories() {
 	return currentFolders;
 }
@@ -85,12 +89,24 @@ int getFolderByCoords(int x, int y) {
 }
 
 
+int isFile(char* path) {
+	struct stat s;
+	if( stat(path,&s) == 0 ) {
+		if( s.st_mode & S_IFDIR ) return 0;
+		else if( s.st_mode & S_IFREG ) return 1;
+	}
+}
+
+
 int getSubFolders(char* foldername) {
 
 	memset(currentFolders,0, 100);
 
 	char temp[256];
+	char old_path[1024];
 	strcpy(temp,foldername);
+	strcpy(old_path,current_path);
+
 
 	printf("FOLDERNAME: %s\n",foldername);
 
@@ -100,6 +116,11 @@ int getSubFolders(char* foldername) {
 
 	printf("Current path: %s\n", current_path);
 
+
+	if(isFile(current_path)) {
+		strcpy(current_path,old_path);
+		return 1;
+	}
 
 	num_folders = 0;
 

@@ -7,6 +7,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 
 static int num_folders = 0;
 
@@ -25,6 +29,7 @@ typedef struct Buttons {
 
 typedef struct Directories {
 	char name[50];
+	int file; //1 for file, 0 for folder
 	int active;
 	int selected;
 	int x;
@@ -33,6 +38,8 @@ typedef struct Directories {
 } Directory;
 
 Directory currentFolders[100];
+
+
 
 
 int getNumberFolders();

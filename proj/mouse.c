@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>     /* strcat */
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 static unsigned char config[3];
 static unsigned long packet[3];

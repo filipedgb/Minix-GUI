@@ -38,6 +38,7 @@ void draw_letter(char letter,int xIn,int yIn) {
 	printf("letra actua: %c",letter);
 
 	switch(letter) {
+	case '/':draw_transp_sprite(xIn,yIn,barra); break;
 	case '_':draw_transp_sprite(xIn,yIn,underscore); break;
 	case ' ':draw_transp_sprite(xIn,yIn,space); break;
 	case '.':draw_transp_sprite(xIn,yIn,ponto); break;
@@ -172,6 +173,14 @@ void drawClock(rtc_state current_rtc_state) {
 void drawFolders() {
 
 	int k, altura = 30, posX = 30;
+
+	char path[1024];
+	sprintf(path,"%s/%s","Current path: ",getPath());
+
+	draw_string(path,posX+30,altura+25);
+	draw_rectangle(posX+25,altura+20,getHRES()-150,15,20);
+	draw_rectangle(posX+25,altura+20,posX+25+55,15,20);
+
 
 	for(k = 0; k < getNumberFolders(); k++) {
 		if(k%10 == 0 && k > 0) {

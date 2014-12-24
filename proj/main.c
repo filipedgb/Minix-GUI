@@ -53,8 +53,6 @@ int main(int argc, char **argv) {
 
 	while(running) {
 
-		drawCursor(current_mouse_state);
-
 
 
 		/* Get a request message. */
@@ -83,10 +81,9 @@ int main(int argc, char **argv) {
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 					printf("MOUSE INTERRUPT\n");
-					cleanCursor(current_mouse_state);
+					//cleanCursor(current_mouse_state);
 
 					if(mouse_int_handler(&current_mouse_state) == 2 && current_mouse_state.lb == 1) {
-						drawFolders();
 
 						switch(estado) {
 
@@ -101,6 +98,12 @@ int main(int argc, char **argv) {
 
 								check_mouse_double_click(current_mouse_state);
 
+								cleanScreen();
+								drawFolders();
+								drawMainMenu();
+								drawClock(current_rtc_state);
+								drawFolders();
+
 								printf("Entrou aqui\n");
 							}
 							else {
@@ -114,6 +117,7 @@ int main(int argc, char **argv) {
 						//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 					}
 
+					drawCursor(current_mouse_state);
 					updated = 1;
 
 				}
@@ -123,15 +127,21 @@ int main(int argc, char **argv) {
 
 					timer_int_handler();
 
-					if(ticker%10) {
+
+
+
+					if(ticker%50 == 0) {
 						get_clock(&current_rtc_state);
 						//printf("H1: %d, M1: %d, S1: %d \n",current_rtc_state.hours, current_rtc_state.minutes, current_rtc_state.seconds);
 
-						//drawClock(current_rtc_state);
+
+
 
 						if(updated) {
 							cleanScreen();
+							drawFolders();
 							drawMainMenu();
+							drawClock(current_rtc_state);
 							drawFolders();
 							updated = 0;
 						}
