@@ -192,6 +192,7 @@ void drawFolders() {
 		setFolderCoords(k,posX + 30,50+altura);
 
 		if(isFolderSelected(k))  draw_sprite(posX + 30, 50+altura, folder_selected);
+		else if(isFileByIndex(k)) draw_sprite(posX + 30, 50+altura, document);
 		else draw_sprite(posX + 30, 50+altura, folder);
 
 		char name[256];

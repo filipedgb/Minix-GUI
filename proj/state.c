@@ -88,6 +88,12 @@ int getFolderByCoords(int x, int y) {
 
 }
 
+int isFileByIndex(int index) {
+	return currentFolders[index].file ;
+}
+
+
+
 
 int isFile(char* path) {
 	struct stat s;
@@ -99,11 +105,8 @@ int isFile(char* path) {
 
 char* updatePath(char* foldername) {
 	char temp[256];
-	char old_path[1024];
 
 	strcpy(temp,foldername);
-	strcpy(old_path,current_path);
-
 
 	if(strcmp(temp,"") == 0) strcpy(current_path,".");
 
@@ -112,11 +115,6 @@ char* updatePath(char* foldername) {
 	printf("Current path: %s\n", current_path);
 
 
-	if(isFile(current_path)) {
-		strcpy(current_path,old_path);
-		return 1;
-	}
-
 }
 
 
@@ -124,7 +122,17 @@ int getSubFolders(char* foldername) {
 
 	memset(currentFolders,0, 100);
 
+	char old_path[1024];
+	strcpy(old_path,current_path);
+
 	updatePath(foldername);
+
+	if(isFile(current_path)) {
+		strcpy(current_path,old_path);
+		return 1;
+	}
+
+
 
 	num_folders = 0;
 
@@ -151,10 +159,28 @@ int getSubFolders(char* foldername) {
 
 
 		else {
+			currentFolders[i].selected = 0;
+
+			currentFolders[i].file = 0;
 
 			printf("Folder %d name: %s\n",i,de->d_name);
 
 			strcpy(	currentFolders[i].name, de->d_name);
+
+			char parent_path[1024];
+			strcpy(parent_path,current_path);
+
+			updatePath(currentFolders[i].name);
+
+			if(isFile(current_path)) {
+				currentFolders[i].file = 1;
+			}
+
+			strcpy(current_path,parent_path);
+
+
+
+
 
 		}
 		i++;
