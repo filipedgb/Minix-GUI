@@ -28,7 +28,6 @@ void setLength(int val) {
 	length = val;
 }
 
-
 void setGesture() {
 	gesture_enabled = 1;
 }
@@ -50,7 +49,7 @@ int mouse_unsubscribe_int() {
 	return 0;
 }
 
-//FUN��O retirada da internet: http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+//FUNCAO retirada da internet: http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
 const char *byte_to_binary(int x)
 {
 	static char b[9];

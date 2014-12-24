@@ -161,6 +161,8 @@ int main(int argc, char **argv) {
 			/* no standard messages expected: do nothing */
 		}
 
+		flipDisplay();
+
 	}
 
 	keyboard_unsubscribe_int();
