@@ -97,18 +97,13 @@ int isFile(char* path) {
 	}
 }
 
-
-int getSubFolders(char* foldername) {
-
-	memset(currentFolders,0, 100);
-
+char* updatePath(char* foldername) {
 	char temp[256];
 	char old_path[1024];
+
 	strcpy(temp,foldername);
 	strcpy(old_path,current_path);
 
-
-	printf("FOLDERNAME: %s\n",foldername);
 
 	if(strcmp(temp,"") == 0) strcpy(current_path,".");
 
@@ -121,6 +116,15 @@ int getSubFolders(char* foldername) {
 		strcpy(current_path,old_path);
 		return 1;
 	}
+
+}
+
+
+int getSubFolders(char* foldername) {
+
+	memset(currentFolders,0, 100);
+
+	updatePath(foldername);
 
 	num_folders = 0;
 
