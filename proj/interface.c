@@ -6,7 +6,11 @@ void mainDraw() {
 
 
 void drawCursor(mouse_state current_mouse_state) {
+	//printf("Chegou aqui no draw cursor\n");
+	//printf("Mouse aqui x: %d , y: %d\n",current_mouse_state.x, current_mouse_state.y);
 	draw_transp_sprite(current_mouse_state.x, current_mouse_state.y, cursor);
+	//printf("Chegou aquitb\n");
+
 }
 
 
@@ -21,9 +25,13 @@ void cleanCursor(mouse_state current_mouse_state) {
 }
 
 void drawMainMenu() {
+	//printf("Chegou aqui no draw main menu\n");
 
 	draw_solid_rectangle(0,0,getHRES(),30,23) ;
 	draw_solid_rectangle(0,0,30,30,20);
+
+	//printf("Chegou aqui no draw main menu 2\n");
+
 
 }
 

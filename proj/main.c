@@ -4,6 +4,7 @@
 #include "mouse.h"
 #include "interface.h"
 #include "rtc.h"
+#include "video_gr.h"
 
 #include "sprite.h"
 
@@ -13,6 +14,10 @@ static int proc_args(int argc, char *argv[]);
 static unsigned long parse_ulong(char *str, int base);
 static long parse_long(char *str, int base);
 static void print_usage(char *argv[]);
+
+static char *background;
+
+
 
 int main(int argc, char **argv) {
 	/* Initialize service */
@@ -48,10 +53,22 @@ int main(int argc, char **argv) {
 	int updated = 0;
 	int estado = 0;
 
+
+	background = (char*) malloc (getVideoMemSize());
+
 	getSubFolders(".");
+
+	cleanScreen();
+	drawFolders();
+	drawMainMenu();
+
+
+	memcpy(background, getBuffer(), getVideoMemSize());
+
 
 
 	while(running) {
+
 
 
 
@@ -101,8 +118,9 @@ int main(int argc, char **argv) {
 								cleanScreen();
 								drawFolders();
 								drawMainMenu();
-								drawClock(current_rtc_state);
-								drawFolders();
+
+
+								memcpy(background, getBuffer(), getVideoMemSize());
 
 								printf("Entrou aqui\n");
 							}
@@ -117,7 +135,6 @@ int main(int argc, char **argv) {
 						//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
 					}
 
-					drawCursor(current_mouse_state);
 					updated = 1;
 
 				}
@@ -125,24 +142,19 @@ int main(int argc, char **argv) {
 					//printf("TIMER INTERRUPT\n");
 					ticker++;
 
+					setDisplay(background);
+					get_clock(&current_rtc_state);
+					drawClock(current_rtc_state);
+					drawCursor(current_mouse_state);
+
 					timer_int_handler();
 
-
-
-
-					if(ticker%50 == 0) {
-						get_clock(&current_rtc_state);
+					if(ticker%2 == 0) {
 						//printf("H1: %d, M1: %d, S1: %d \n",current_rtc_state.hours, current_rtc_state.minutes, current_rtc_state.seconds);
 
 
-
-
 						if(updated) {
-							cleanScreen();
-							drawFolders();
-							drawMainMenu();
-							drawClock(current_rtc_state);
-							drawFolders();
+
 							updated = 0;
 						}
 

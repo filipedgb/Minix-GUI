@@ -44,6 +44,10 @@ unsigned getVRES() {
 	return v_res;
 }
 
+unsigned int getVideoMemSize() {
+	return videoMemSize;
+}
+
 
 void * vg_init(unsigned short mode) {
 
@@ -113,6 +117,15 @@ int vg_fill(unsigned long color) {
 
 void flipDisplay() {
 	memcpy(video_mem, double_buffer, videoMemSize);
+}
+
+void setDisplay(char* buffer) {
+	memcpy(double_buffer,buffer , videoMemSize);
+
+}
+
+char* getBuffer() {
+	return double_buffer;
 }
 
 
