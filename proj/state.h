@@ -51,6 +51,8 @@ char* getFolderName(int index);
 
 void openFolder(int index);
 
+void deleteFolder(int index);
+
 int getFolderByCoords(int x, int y);
 
 char* getPath();
@@ -58,6 +60,8 @@ char* getPath();
 void toggleSelected(int index);
 
 void setFolderCoords(int index, int inX, int inY);
+
+void updatePath(char* foldername);
 
 void setCurrentPath(char* path);
 

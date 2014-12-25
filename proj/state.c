@@ -41,9 +41,40 @@ int check_mouse_double_click(mouse_state current_mouse_state) {
 }
 
 
+int check_delete_files() {
+	int i = 0;
+
+	for(; i < num_folders; i++) {
+
+		if(currentFolders[i].selected) {
+			deleteFolder(i);
+		}
+
+	}
+
+}
+
+
 void openFolder(int index) {
 	getSubFolders(getFolderName(index));
 }
+
+
+void deleteFolder(int index) {
+	char tempPath[1024];
+
+	strcpy(tempPath,current_path);
+
+	updatePath(getFolderName(index));
+
+	remove(current_path);
+
+	strcpy(current_path,tempPath);
+
+	getSubFolders(current_path);
+}
+
+
 
 char* getFolderName(int index) {
 	return currentFolders[index].name ;
@@ -107,7 +138,7 @@ int isFile(char* path) {
 	}
 }
 
-char* updatePath(char* foldername) {
+void updatePath(char* foldername) {
 	char temp[256];
 
 	strcpy(temp,foldername);

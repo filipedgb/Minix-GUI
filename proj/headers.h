@@ -55,6 +55,7 @@
 
 #define ESC_BREAK_CODE 0x81
 #define ESC_MAKE_CODE 0x01
+#define DELETE_MAKE_CODE 0x53
 
 /* LAB 5 DEFINES */
 

@@ -75,7 +75,7 @@ void updateState(mouse_state* this_state) {
 	else  (*this_state).y -= packet[2];
 
 	if ((*this_state).y < 0 ) (*this_state).y = 0;
-	else if((*this_state).y > getVRES()  ) (*this_state).y = getVRES() ;
+	else if((*this_state).y > getVRES()-18  ) (*this_state).y = getVRES()-18 ;
 
 
 	 (*this_state).lb =  packet[0] & 0x01;

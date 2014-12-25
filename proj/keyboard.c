@@ -33,6 +33,7 @@ int keyboard_int_handler_C(unsigned long *code) {
 	sys_inb(OUT_BUF,code); // vai buscar o c�digo da tecla ao output buffer
 
 	if (*code == ESC_BREAK_CODE) return 1;
+	else if(*code == DELETE_MAKE_CODE) return 2;
 
 	return 0;
 }

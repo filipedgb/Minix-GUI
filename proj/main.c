@@ -83,8 +83,9 @@ int main(int argc, char **argv) {
 				if (msg.NOTIFY_ARG & BIT(shiftkeyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
 					//	printf("KEYBOARD INTERRUPT\n");
 
+					int output = keyboard_int_handler_C(&code);
 
-					if(keyboard_int_handler_C(&code)) {
+					if(output == 1) {
 						if(esc_pressed) {
 							if(get_counter() < 25) {
 								running = 0;
@@ -93,6 +94,10 @@ int main(int argc, char **argv) {
 
 						reset_counter();
 						esc_pressed = 1;
+					}
+
+					else if(output == 2) {
+						check_delete_files();
 					}
 				}
 
