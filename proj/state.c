@@ -14,8 +14,6 @@ int check_mouse_click(mouse_state current_mouse_state) {
 	else if( current_mouse_state.lb) {
 		int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
 
-		printf("Index found: %d\n", index);
-
 		if(index != -1) {
 			toggleSelected(index);
 			return 2; //index found
@@ -23,9 +21,18 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 	}
 
+	else if(current_mouse_state.rb) {
+		int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
+
+		if(index != -1) {
+			return 3; //index found
+		}
+	}
+
 	return 0;
 
 }
+
 
 int check_mouse_double_click(mouse_state current_mouse_state) {
 

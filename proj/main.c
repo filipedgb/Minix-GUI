@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 
 	memcpy(background, getBuffer(), getVideoMemSize());
 
-
+	int menu_open = 0;
 
 	while(running) {
 
@@ -101,6 +101,8 @@ int main(int argc, char **argv) {
 						cleanScreen();
 						drawFolders();
 						drawMainMenu();
+						if(menu_open) drawRightClickMenu(current_mouse_state);
+
 						memcpy(background, getBuffer(), getVideoMemSize());
 					}
 				}
@@ -109,47 +111,33 @@ int main(int argc, char **argv) {
 					printf("MOUSE INTERRUPT\n");
 					//cleanCursor(current_mouse_state);
 
-					if(mouse_int_handler(&current_mouse_state) == 2 && current_mouse_state.lb == 1) {
+					int output = mouse_int_handler(&current_mouse_state);
 
-						switch(estado) {
+					if(output == 2) { // Só há verificações lógicas no final de cada pacote (return 2 do handler)
 
-						case 0:
-							if(check_mouse_click(current_mouse_state) == 2) {
-
-								cleanScreen();
-								drawFolders();
-								drawMainMenu();
-								memcpy(background, getBuffer(), getVideoMemSize());
-
-							}
-
-							estado++;
-							reset_counter();
-							break;
-
-						case 1:
-							if(get_counter() < 25){
-
-								if(check_mouse_double_click(current_mouse_state)) {
-									cleanScreen();
-									drawFolders();
-									drawMainMenu();
-									memcpy(background, getBuffer(), getVideoMemSize());
-								}
-
-
-								printf("Entrou aqui\n");
+						if(current_mouse_state.lb == 1) {
+							if(get_counter() > 25) {
+								check_mouse_click(current_mouse_state);
 							}
 							else {
-								estado = 0;
+								check_mouse_double_click(current_mouse_state);
 							}
 
-							break;
+							reset_counter();
+							updateScreen();
 
 
 						}
-						//printf("Cursor posição x: %d  y: %d\n",current_mouse_state.x,current_mouse_state.y);
+
+						else if(current_mouse_state.rb == 1 && check_mouse_click(current_mouse_state) == 3) {
+							updateScreen();
+							drawRightClickMenu(current_mouse_state);
+							memcpy(background, getBuffer(), getVideoMemSize());
+
+						}
+
 					}
+
 
 					updated = 1;
 
@@ -164,22 +152,6 @@ int main(int argc, char **argv) {
 					drawCursor(current_mouse_state);
 
 					timer_int_handler();
-
-					if(ticker%2 == 0) {
-						//printf("H1: %d, M1: %d, S1: %d \n",current_rtc_state.hours, current_rtc_state.minutes, current_rtc_state.seconds);
-
-
-						if(updated) {
-
-							updated = 0;
-						}
-
-
-
-
-					}
-
-
 				}
 
 			default:
@@ -199,6 +171,14 @@ int main(int argc, char **argv) {
 	vg_exit();
 
 	return 0;
+}
+
+
+void updateScreen() {
+	cleanScreen();
+	drawMainMenu();
+	drawFolders();
+	memcpy(background, getBuffer(), getVideoMemSize());
 }
 
 

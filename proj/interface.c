@@ -138,6 +138,23 @@ void draw_string(char* string,int positionX,int positionY)  {
 	}
 }
 
+void drawRightClickMenu(mouse_state current_mouse_state) {
+
+	draw_solid_rectangle(current_mouse_state.x,current_mouse_state.y,80,90,20);
+
+	draw_rectangle(current_mouse_state.x,current_mouse_state.y,80,30,0);
+	draw_string("Cut",current_mouse_state.x+15,current_mouse_state.y+15);
+
+	draw_rectangle(current_mouse_state.x,current_mouse_state.y+30,80,30,0);
+	draw_string("Copy",current_mouse_state.x+15,current_mouse_state.y+45);
+
+	draw_rectangle(current_mouse_state.x,current_mouse_state.y+60,80,30,0);
+	draw_string("Paste",current_mouse_state.x+15,current_mouse_state.y+75);
+
+
+
+}
+
 
 
 void drawClock(rtc_state current_rtc_state) {

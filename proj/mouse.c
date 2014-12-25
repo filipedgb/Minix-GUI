@@ -78,9 +78,9 @@ void updateState(mouse_state* this_state) {
 	else if((*this_state).y > getVRES()-18  ) (*this_state).y = getVRES()-18 ;
 
 
-	 (*this_state).lb =  packet[0] & 0x01;
-	 (*this_state).rb = packet[0] >> 2 & 0x01;
-	 (*this_state).mb = packet[0] >> 1 & 0x01;
+	(*this_state).lb =  packet[0] & 0x01;
+	(*this_state).rb = packet[0] >> 1 & 0x01;
+	(*this_state).mb = packet[0] >> 2 & 0x01;
 }
 
 int mouse_int_handler(mouse_state* this_state) {
@@ -97,7 +97,7 @@ int mouse_int_handler(mouse_state* this_state) {
 
 
 	if( !((p>> 3) & 1) && packet_counter == 0) {
-	//if(packet_counter == 0 && (p & BIT(3)) == 0){
+		//if(packet_counter == 0 && (p & BIT(3)) == 0){
 		printf("packet not sync: 0x%x\n",p);
 		printf("Waiting to sync\n");
 		return 1;
@@ -130,7 +130,7 @@ int mouse_int_handler(mouse_state* this_state) {
 	}
 
 	total_packet_cnt++;
-	*/
+	 */
 }
 
 
@@ -368,7 +368,7 @@ int issue_command_mouse(unsigned char command, unsigned char argument) {
 	}
 
 	else ("No arguments\n");
-	*/
+	 */
 
 	return 0;
 
