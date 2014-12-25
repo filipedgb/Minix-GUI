@@ -98,6 +98,10 @@ int main(int argc, char **argv) {
 
 					else if(output == 2) {
 						check_delete_files();
+						cleanScreen();
+						drawFolders();
+						drawMainMenu();
+						memcpy(background, getBuffer(), getVideoMemSize());
 					}
 				}
 
