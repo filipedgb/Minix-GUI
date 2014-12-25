@@ -16,7 +16,10 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 		printf("Index found: %d\n", index);
 
-		if(index != -1) toggleSelected(index);
+		if(index != -1) {
+			toggleSelected(index);
+			return 2; //index found
+		}
 
 	}
 
@@ -30,14 +33,15 @@ int check_mouse_double_click(mouse_state current_mouse_state) {
 	if(index != -1) {
 		printf("double click no index %d", index);
 		openFolder(index);
+		return 1;
 	}
+
+	return 0;
 
 }
 
 
 void openFolder(int index) {
-
-
 	getSubFolders(getFolderName(index));
 }
 
@@ -161,7 +165,6 @@ int getSubFolders(char* foldername) {
 		else {
 			currentFolders[i].selected = 0;
 
-			currentFolders[i].file = 0;
 
 			printf("Folder %d name: %s\n",i,de->d_name);
 
@@ -174,6 +177,8 @@ int getSubFolders(char* foldername) {
 
 			if(isFile(current_path)) {
 				currentFolders[i].file = 1;
+			} else {
+				currentFolders[i].file = 0;
 			}
 
 			strcpy(current_path,parent_path);

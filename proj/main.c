@@ -105,7 +105,15 @@ int main(int argc, char **argv) {
 						switch(estado) {
 
 						case 0:
-							check_mouse_click(current_mouse_state);
+							if(check_mouse_click(current_mouse_state) == 2) {
+
+								cleanScreen();
+								drawFolders();
+								drawMainMenu();
+								memcpy(background, getBuffer(), getVideoMemSize());
+
+							}
+
 							estado++;
 							reset_counter();
 							break;
@@ -113,14 +121,13 @@ int main(int argc, char **argv) {
 						case 1:
 							if(get_counter() < 25){
 
-								check_mouse_double_click(current_mouse_state);
+								if(check_mouse_double_click(current_mouse_state)) {
+									cleanScreen();
+									drawFolders();
+									drawMainMenu();
+									memcpy(background, getBuffer(), getVideoMemSize());
+								}
 
-								cleanScreen();
-								drawFolders();
-								drawMainMenu();
-
-
-								memcpy(background, getBuffer(), getVideoMemSize());
 
 								printf("Entrou aqui\n");
 							}
