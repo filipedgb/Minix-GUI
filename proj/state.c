@@ -1,5 +1,6 @@
 #include "state.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 
 
 int check_mouse_click(mouse_state current_mouse_state) {
@@ -144,6 +145,7 @@ int isFile(char* path) {
 		else if( s.st_mode & S_IFREG ) return 1;
 	}
 }
+
 
 void updatePath(char* foldername) {
 	char temp[256];

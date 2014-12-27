@@ -280,7 +280,7 @@ void display_VBE_controller_info() {
 	//	char* enderecofinal = apontador+resultado;
 	//
 	//
-	//	//Usar endereço final para fazer print dos modes aqui
+	//	//Usar endereï¿½o final para fazer print dos modes aqui
 	//
 	//	return;
 	//

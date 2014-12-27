@@ -17,8 +17,6 @@ static void print_usage(char *argv[]);
 
 static char *background;
 
-
-
 int main(int argc, char **argv) {
 	/* Initialize service */
 	sef_startup();
@@ -100,7 +98,7 @@ int main(int argc, char **argv) {
 						check_delete_files();
 						cleanScreen();
 						drawFolders();
-						drawMainMenu();
+						//drawMainMenu();
 						if(menu_open) drawRightClickMenu(current_mouse_state);
 
 						memcpy(background, getBuffer(), getVideoMemSize());
@@ -113,7 +111,7 @@ int main(int argc, char **argv) {
 
 					int output = mouse_int_handler(&current_mouse_state);
 
-					if(output == 2) { // Só há verificações lógicas no final de cada pacote (return 2 do handler)
+					if(output == 2) { // Sï¿½ hï¿½ verificaï¿½ï¿½es lï¿½gicas no final de cada pacote (return 2 do handler)
 
 						if(current_mouse_state.lb == 1) {
 							if(get_counter() > 25) {

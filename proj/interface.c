@@ -1,9 +1,7 @@
 #include "interface.h"
 
 void mainDraw() {
-
 }
-
 
 void drawCursor(mouse_state current_mouse_state) {
 	//printf("Chegou aqui no draw cursor\n");
@@ -120,6 +118,53 @@ void draw_letter(char letter,int xIn,int yIn) {
 
 }
 
+char *load_file(char *filePath) {
+
+	FILE *fileToLoad;
+	long fSize;
+	char *buffer;
+
+	fileToLoad = fopen(filePath, "rb");
+	if (!fileToLoad) {
+		perror(filePath); exit(1);
+	}
+
+	fseek(fileToLoad, 0L, SEEK_END);
+	fSize = ftell(fileToLoad);
+	rewind(fileToLoad);
+
+	/*Allocating file mem*/
+	buffer = malloc(fSize + 1);
+	if (!buffer) {
+		fclose(fileToLoad);
+		perror("Mem alloc failed"); //exit(1);
+	}
+
+	if (fread(buffer, fSize, 1, fileToLoad) != 1) {
+		fclose(fileToLoad);
+		free(buffer);
+		perror("Failed to read file");
+		//exit(1);
+	}
+
+	fclose(fileToLoad);
+	return buffer;
+}
+
+void drawFile(char *filePath) {
+
+	char *buffer = load_file(filePath);
+	int i = 0, x = 0, y = 0;
+
+	while(buffer[i] != '\0') {
+
+		if (buffer[i] == '\n') y++;
+
+
+		draw_letter(buffer[i], x, y);
+		x++;
+	}
+}
 
 void draw_string(char* string,int positionX,int positionY)  {
 	int i = 0;
@@ -216,8 +261,10 @@ void drawFolders() {
 
 		setFolderCoords(k,posX + 30,50+altura);
 
+		//cleanScreen(), drawFile(path);
+		//draw_sprite(posX + 30, 50+altura, document_selected);
 		if(isFolderSelected(k) && isFileByIndex(k) ) draw_sprite(posX + 30, 50+altura, document_selected);
-		else if(isFolderSelected(k))  draw_sprite(posX + 30, 50+altura, folder_selected);
+		else if(isFolderSelected(k)) draw_sprite(posX + 30, 50+altura, folder_selected);
 		else if(isFileByIndex(k)) draw_sprite(posX + 30, 50+altura, document);
 		else draw_sprite(posX + 30, 50+altura, folder);
 
