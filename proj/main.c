@@ -113,6 +113,9 @@ int main(int argc, char **argv) {
 						navigateRight();
 						updateScreen();
 					}
+					else if (output == 5) {
+
+					}
 				}
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {

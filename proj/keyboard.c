@@ -34,8 +34,8 @@ int keyboard_int_handler_C(unsigned long *code) {
 
 	if (*code == ESC_BREAK_CODE) return 1;
 	else if(*code == DELETE_MAKE_CODE) return 2;
-	else if(*code == LEFT_ARROW_MAKE_CODE) return 3;
-	else if(*code == RIGHT_ARROW_MAKE_CODE) return 4;
+	else if(*code == LEFT_ARROW_BREAK_CODE) return 3;
+	else if(*code == RIGHT_ARROW_BREAK_CODE) return 4;
 
 	return 0;
 }
