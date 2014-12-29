@@ -114,7 +114,16 @@ int main(int argc, char **argv) {
 						updateScreen();
 					}
 					else if (output == 5) {
-
+						navigateUp();
+						updateScreen();
+					}
+					else if (output == 6) {
+						navigateDown();
+						updateScreen();
+					}
+					else if (output == 7) {
+						openFolderByEnter();
+						updateScreen();
 					}
 				}
 

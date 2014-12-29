@@ -86,6 +86,8 @@ int navigateLeft() {
 
 	int folderSelected = getFolderSelected();
 
+	if (folderSelected == -1) toggleSelected(0);
+
 	if (folderSelected > 0) {
 		toggleSelected(folderSelected);
 		toggleSelected(folderSelected - 1);
@@ -97,10 +99,38 @@ int navigateRight() {
 	int folderSelected = getFolderSelected();
 	int nFolders = getNumberFolders();
 
+	if (folderSelected == -1) toggleSelected(0);
+
 	if (folderSelected < nFolders && folderSelected > -1) {
 		toggleSelected(folderSelected);
 		toggleSelected(folderSelected + 1);
 		}
+}
+
+int navigateUp() {
+
+	int folderSelected = getFolderSelected();
+
+	if (folderSelected == -1) toggleSelected(0);
+
+	if (folderSelected > 10) {
+		toggleSelected(folderSelected);
+		toggleSelected(folderSelected - 10);
+	}
+}
+
+int navigateDown() {
+
+	int folderSelected = getFolderSelected();
+	int nFolders = getNumberFolders();
+	int folderToNavigate = folderSelected + 10;
+
+	if (folderSelected == -1) toggleSelected(0);
+
+	if (folderToNavigate <= nFolders) {
+		toggleSelected(folderSelected);
+		toggleSelected(folderSelected + 10);
+	}
 }
 
 char* getFolderName(int index) {
@@ -110,6 +140,12 @@ char* getFolderName(int index) {
 int isFolderSelected(int index) {
 	return currentFolders[index].selected;
 
+}
+
+int openFolderByEnter() {
+
+	int index = getFolderSelected();
+	openFolder(index);
 }
 
 int getFolderSelected() {
