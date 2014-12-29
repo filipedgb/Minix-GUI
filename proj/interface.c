@@ -148,14 +148,13 @@ char *load_file(char *filePath) {
 	buffer = malloc(fSize + 1);
 	if (!buffer) {
 		fclose(fileToLoad);
-		perror("Mem alloc failed"); //exit(1);
+		perror("Mem alloc failed");
 	}
 
 	if (fread(buffer, fSize, 1, fileToLoad) != 1) {
 		fclose(fileToLoad);
 		free(buffer);
 		perror("Failed to read file");
-		//exit(1);
 	}
 
 	fclose(fileToLoad);
@@ -171,6 +170,7 @@ void drawFile(char *filePath) {
 
 		if (buffer[i] == '\n') y++;
 
+		//Fazer verificacao para x > screenWidth
 
 		draw_letter(buffer[i], x, y);
 		x++;

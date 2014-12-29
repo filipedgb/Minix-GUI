@@ -82,7 +82,26 @@ void deleteFolder(int index) {
 	getSubFolders(current_path);
 }
 
+int navigateLeft() {
 
+	int folderSelected = getFolderSelected();
+
+	if (folderSelected > 0) {
+		toggleSelected(folderSelected);
+		toggleSelected(folderSelected - 1);
+	}
+}
+
+int navigateRight() {
+
+	int folderSelected = getFolderSelected();
+	int nFolders = getNumberFolders();
+
+	if (folderSelected < nFolders && folderSelected > -1) {
+		toggleSelected(folderSelected);
+		toggleSelected(folderSelected + 1);
+		}
+}
 
 char* getFolderName(int index) {
 	return currentFolders[index].name ;
@@ -91,6 +110,17 @@ char* getFolderName(int index) {
 int isFolderSelected(int index) {
 	return currentFolders[index].selected;
 
+}
+
+int getFolderSelected() {
+
+	int i = 0;
+	int nFolders = getNumberFolders();
+	for (i; i < nFolders; i++) {
+		if (currentFolders[i].selected == 1) return i;
+	}
+
+	return -1;
 }
 
 void setFolderCoords(int index, int inX, int inY) {

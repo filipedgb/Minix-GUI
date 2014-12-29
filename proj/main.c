@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 	vg_init(0x105);
 	mainDraw();
 	flipDisplay();
-	sleep(3);
+	sleep(1);
 
 	int shift_mouse = mouse_subscribe_int();
 
@@ -71,8 +71,6 @@ int main(int argc, char **argv) {
 	while(running) {
 
 
-
-
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
 			printf("driver_receive failed with: %d", r);
@@ -105,6 +103,17 @@ int main(int argc, char **argv) {
 						if(menu_open) drawRightClickMenu(current_mouse_state);
 
 						memcpy(background, getBuffer(), getVideoMemSize());
+					}
+					else if (output == 3) {
+						updateScreen();
+						navigateLeft();
+						updateScreen();
+					}
+
+					else if (output == 4) {
+						updateScreen();
+						navigateRight();
+						updateScreen();
 					}
 				}
 
