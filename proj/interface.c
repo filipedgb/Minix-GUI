@@ -1,6 +1,17 @@
 #include "interface.h"
 
-void mainDraw() {
+ void mainDraw() {
+    draw_transp_sprite(405,200,logoM); //300
+    draw_transp_sprite(435,201,logoI); // +30
+    draw_transp_sprite(460,200,logoN); // +25
+    draw_transp_sprite(488,201,logoI); // +17
+    draw_transp_sprite(510,200,logoX); // +23
+    draw_transp_sprite(560,200,logo3); // +39
+    draw_transp_sprite(593,215,logoP); // +33
+    draw_transp_sprite(605,200,logo1); // +12
+    draw_transp_sprite(620,215,logoP); // +15
+    draw_transp_sprite(634,200,logo8); // +14
+    draw_transp_sprite(310,175,penguin);
 }
 
 void drawCursor(mouse_state current_mouse_state) {

@@ -22,6 +22,9 @@ int main(int argc, char **argv) {
 	sef_startup();
 
 	vg_init(0x105);
+	mainDraw();
+	flipDisplay();
+	sleep(3);
 
 	int shift_mouse = mouse_subscribe_int();
 
