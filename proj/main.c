@@ -105,13 +105,11 @@ int main(int argc, char **argv) {
 						memcpy(background, getBuffer(), getVideoMemSize());
 					}
 					else if (output == 3) {
-						updateScreen();
 						navigateLeft();
 						updateScreen();
 					}
 
 					else if (output == 4) {
-						updateScreen();
 						navigateRight();
 						updateScreen();
 					}
