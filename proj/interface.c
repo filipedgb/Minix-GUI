@@ -1,17 +1,17 @@
 #include "interface.h"
 
- void mainDraw() {
-    draw_transp_sprite(405,200,logoM); //300
-    draw_transp_sprite(435,201,logoI); // +30
-    draw_transp_sprite(460,200,logoN); // +25
-    draw_transp_sprite(488,201,logoI); // +17
-    draw_transp_sprite(510,200,logoX); // +23
-    draw_transp_sprite(560,200,logo3); // +39
-    draw_transp_sprite(593,215,logoP); // +33
-    draw_transp_sprite(605,200,logo1); // +12
-    draw_transp_sprite(620,215,logoP); // +15
-    draw_transp_sprite(634,200,logo8); // +14
-    draw_transp_sprite(310,175,penguin);
+void mainDraw() {
+	draw_transp_sprite(405,200,logoM); //300
+	draw_transp_sprite(435,201,logoI); // +30
+	draw_transp_sprite(460,200,logoN); // +25
+	draw_transp_sprite(488,201,logoI); // +17
+	draw_transp_sprite(510,200,logoX); // +23
+	draw_transp_sprite(560,200,logo3); // +39
+	draw_transp_sprite(593,215,logoP); // +33
+	draw_transp_sprite(605,200,logo1); // +12
+	draw_transp_sprite(620,215,logoP); // +15
+	draw_transp_sprite(634,200,logo8); // +14
+	draw_transp_sprite(310,175,penguin);
 }
 
 void drawCursor(mouse_state current_mouse_state) {
@@ -55,6 +55,7 @@ void draw_letter(char letter,int xIn,int yIn) {
 	printf("letra actua: %c",letter);
 
 	switch(letter) {
+	case '*':draw_transp_sprite(xIn,yIn,asterisc); break;
 	case '/':draw_transp_sprite(xIn,yIn,barra); break;
 	case '_':draw_transp_sprite(xIn,yIn,underscore); break;
 	case ' ':draw_transp_sprite(xIn,yIn,space); break;
@@ -274,16 +275,50 @@ void drawFolders() {
 
 		//cleanScreen(), drawFile(path);
 		//draw_sprite(posX + 30, 50+altura, document_selected);
-		if(isFolderSelected(k) && isFileByIndex(k) ) draw_sprite(posX + 30, 50+altura, document_selected);
-		else if(isFolderSelected(k)) draw_sprite(posX + 30, 50+altura, folder_selected);
-		else if(isFileByIndex(k)) draw_sprite(posX + 30, 50+altura, document);
-		else draw_sprite(posX + 30, 50+altura, folder);
+		if(isFolderSelected(k) && isFileByIndex(k) ) {
+			draw_sprite(posX + 30, 50+altura, document_selected);
+			draw_string(getFolderName(k),posX + 35, 100+altura);
 
-		char name[256];
-		strcpy(name,getFolderName(k));
-		printf("Passou aqui\n");
-		printf("crashou no foldername, copia: %s original: %s\n",name,getFolderName(k));
+		}
 
-		draw_string(getFolderName(k),posX + 35, 100+altura);
+
+		else if(isFolderSelected(k)) {
+			draw_sprite(posX + 30, 50+altura, folder_selected);
+			draw_string(getFolderName(k),posX + 35, 100+altura);
+
+		}
+
+		else if(isFileByIndex(k)) {
+			draw_sprite(posX + 30, 50+altura, document);
+			char name[5], name_cortado[6];
+			strcpy(name,getFolderName(k));
+			name[6] = 0;
+
+			if( strlen(getFolderName(k)) > strlen(name)) {
+				sprintf(name_cortado,"%s*",name);
+				draw_string(name_cortado,posX + 35, 100+altura);
+			} else {
+				draw_string(name,posX + 35, 100+altura);
+
+			}
+		}
+
+
+		else {
+			draw_sprite(posX + 30, 50+altura, folder);
+			char name[5], name_cortado[6];
+			strcpy(name,getFolderName(k));
+			name[6] = 0;
+
+			if( strlen(getFolderName(k)) > strlen(name)) {
+				sprintf(name_cortado,"%s*",name);
+				draw_string(name_cortado,posX + 35, 100+altura);
+			} else {
+				draw_string(name,posX + 35, 100+altura);
+
+			}
+		}
+
+
 	}
 }
