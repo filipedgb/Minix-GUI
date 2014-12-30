@@ -23,7 +23,12 @@ void updateScreen() {
 	cleanScreen();
 	drawMainMenu();
 	drawFolders();
-	drawInputBox("Are you sure you want to quit?");
+
+	if(isBox()) {
+		if(isOutput()) drawOutputBox("Are you sure you want to quit?");
+		else drawInputBox();
+
+	}
 	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
 }
 
@@ -153,6 +158,11 @@ int main(int argc, char **argv) {
 						if(current_mouse_state.lb == 1) {
 							if(get_counter() > 25) {
 								if(check_mouse_click(current_mouse_state) == 1) {
+								//vg_exit();
+								//	running = 0;
+								}
+
+								else if(check_mouse_click(current_mouse_state) == 4) {
 									vg_exit();
 									running = 0;
 								}

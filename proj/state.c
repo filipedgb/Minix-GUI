@@ -5,9 +5,27 @@
 
 int check_mouse_click(mouse_state current_mouse_state) {
 
+	if(isBox()) {
+		if(current_mouse_state.x > getHRES()/2 -100 && current_mouse_state.x < getHRES()/2 -40 &&
+				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60)
+			return 4;
+
+		else if(current_mouse_state.x > getHRES()/2 +50 && current_mouse_state.x < getHRES()/2 +110 &&
+				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
+			disableBox();
+			return 5;
+
+		}
+
+		else return -1;
+	}
+
 	if(current_mouse_state.lb &&
 			current_mouse_state.x < 30 && current_mouse_state.x > 0 &&
 			current_mouse_state.y < 30 && current_mouse_state.y > 0) {
+
+		enableBox(1);
+
 		return 1;
 	}
 
@@ -64,6 +82,24 @@ int check_delete_files() {
 
 void openFolder(int index) {
 	getSubFolders(getFolderName(index));
+}
+
+
+void disableBox() {
+	currentBox.active = 0;
+}
+
+void enableBox(int type) {
+	currentBox.active = 1;
+	currentBox.output = type;
+}
+
+int isBox() {
+	return currentBox.active;
+}
+
+int isOutput() {
+	return currentBox.output;
 }
 
 

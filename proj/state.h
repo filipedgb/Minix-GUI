@@ -37,8 +37,18 @@ typedef struct Directories {
 
 } Directory;
 
+
+typedef struct ioboxes {
+	char text[256];
+	int output; //if 1 é output if 0 é input
+	int active;
+
+} iobox ;
+
+
 Directory currentFolders[100];
 
+static iobox currentBox;
 
 
 
