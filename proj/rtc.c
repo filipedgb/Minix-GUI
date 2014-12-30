@@ -19,7 +19,7 @@ int rtc_unsubscribe_int() {
 
 void get_clock(rtc_state* current_clock_state) {
 
-	unsigned long h,m,s;
+	unsigned long h,m,s,d,mth,y;
 
 	wait_valid_rtc();
 	sys_outb(RTC_ADDR_REG,HOURS_ADDR);
@@ -31,10 +31,22 @@ void get_clock(rtc_state* current_clock_state) {
 	sys_outb(RTC_ADDR_REG,SECONDS_ADDR);
 	sys_inb(RTC_DATA_REG,&s);
 
+	sys_outb(RTC_ADDR_REG,DAY_ADDR);
+	sys_inb(RTC_DATA_REG,&d);
+
+	sys_outb(RTC_ADDR_REG,MONTH_ADDR);
+	sys_inb(RTC_DATA_REG,&mth);
+
+	sys_outb(RTC_ADDR_REG,YEAR_ADDR);
+	sys_inb(RTC_DATA_REG,&y);
+
 	if(h > 12) 	(*current_clock_state).hours = BCDToDecimal(h) -69;
 	else (*current_clock_state).hours = BCDToDecimal(h);
 	(*current_clock_state).minutes = BCDToDecimal(m);
 	(*current_clock_state).seconds = BCDToDecimal(s);
+	(*current_clock_state).day = BCDToDecimal(d);
+	(*current_clock_state).month = BCDToDecimal(mth);
+	(*current_clock_state).year = BCDToDecimal(y);
 
 
 

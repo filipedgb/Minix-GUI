@@ -14,6 +14,9 @@ typedef struct {
 	int seconds;
 	int minutes;
 	int hours;
+	int day;
+	int month;
+	int year;
 
 } rtc_state;
 

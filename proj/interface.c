@@ -55,6 +55,7 @@ void draw_letter(char letter,int xIn,int yIn) {
 	printf("letra actua: %c",letter);
 
 	switch(letter) {
+	case ':':draw_transp_sprite(xIn,yIn,duplo_ponto); break;
 	case '*':draw_transp_sprite(xIn,yIn,asterisc); break;
 	case '/':draw_transp_sprite(xIn,yIn,barra); break;
 	case '_':draw_transp_sprite(xIn,yIn,underscore); break;
@@ -222,10 +223,14 @@ void drawClock(rtc_state current_rtc_state) {
 
 
 	char final_string[256];
+	char final_string_date[256];
 
 	char hours[10];
 	char minutes[10];
 	char seconds[10];
+	char day[10];
+	char month[10];
+	char year[10];
 
 	//printf("Teste das horas: %d",current_rtc_state.hours  );
 
@@ -243,11 +248,17 @@ void drawClock(rtc_state current_rtc_state) {
 		sprintf(seconds,"0%d",current_rtc_state.seconds);
 	} else sprintf(seconds,"%d",current_rtc_state.seconds);
 
-	sprintf(final_string,"%s  %s  %s",hours,minutes,seconds);
+	sprintf(final_string,"%s:%s:%s",hours,minutes,seconds);
+
+
+	sprintf(final_string_date,"%d/%d/%d",current_rtc_state.day,current_rtc_state.month,current_rtc_state.year);
+
 
 	//printf("Chegou ao fim");
 
-	draw_string(final_string,getHRES()-200,15);
+	draw_string(final_string,getHRES()-100,10);
+	draw_string(final_string_date,getHRES()-100,20);
+
 
 }
 
@@ -277,6 +288,7 @@ void drawFolders() {
 		//draw_sprite(posX + 30, 50+altura, document_selected);
 		if(isFolderSelected(k) && isFileByIndex(k) ) {
 			draw_sprite(posX + 30, 50+altura, document_selected);
+
 			draw_string(getFolderName(k),posX + 35, 100+altura);
 
 		}

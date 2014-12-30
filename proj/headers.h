@@ -39,6 +39,9 @@
 #define SECONDS_ADDR 0
 #define MINUTES_ADDR 2
 #define HOURS_ADDR 4
+#define DAY_ADDR 7
+#define MONTH_ADDR 8
+#define YEAR_ADDR 9
 
 #define REG_B_PIE 6
 #define REG_B_AIE 5
