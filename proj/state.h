@@ -16,6 +16,9 @@ static int num_folders = 0;
 
 static char current_path[1024];
 
+static int delete_flag;
+static int turn_off_flag;
+
 
 typedef struct Buttons {
 	int button_id;
@@ -42,6 +45,7 @@ typedef struct ioboxes {
 	char text[256];
 	int output; //if 1 é output if 0 é input
 	int active;
+	int confirmed;
 
 } iobox ;
 

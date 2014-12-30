@@ -7,8 +7,12 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 	if(isBox()) {
 		if(current_mouse_state.x > getHRES()/2 -100 && current_mouse_state.x < getHRES()/2 -40 &&
-				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60)
+				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
+			currentBox.confirmed = 1;
+			disableBox();
 			return 4;
+
+		}
 
 		else if(current_mouse_state.x > getHRES()/2 +50 && current_mouse_state.x < getHRES()/2 +110 &&
 				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
@@ -24,7 +28,9 @@ int check_mouse_click(mouse_state current_mouse_state) {
 			current_mouse_state.x < 30 && current_mouse_state.x > 0 &&
 			current_mouse_state.y < 30 && current_mouse_state.y > 0) {
 
-		enableBox(1);
+		enableBox(1,"Are you sure you want to turn off?");
+
+		turn_off_flag = 1;
 
 		return 1;
 	}
@@ -77,6 +83,27 @@ int check_delete_files() {
 
 	}
 
+	delete_flag = 0;
+
+
+}
+
+void setDeleteFlag() {
+	delete_flag = 1;
+}
+
+int getDeleteFlag() {
+	return delete_flag;
+}
+
+int getTurnOffFlag() {
+	return turn_off_flag;
+}
+
+int isBoxConfirmed() {
+	return currentBox.confirmed ;
+
+
 }
 
 
@@ -89,9 +116,14 @@ void disableBox() {
 	currentBox.active = 0;
 }
 
-void enableBox(int type) {
+void enableBox(int type,char* text) {
+	strcpy(currentBox.text,text);
 	currentBox.active = 1;
 	currentBox.output = type;
+}
+
+char* getBoxText(){
+	return currentBox.text;
 }
 
 int isBox() {

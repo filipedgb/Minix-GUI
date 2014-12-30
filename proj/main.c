@@ -25,7 +25,7 @@ void updateScreen() {
 	drawFolders();
 
 	if(isBox()) {
-		if(isOutput()) drawOutputBox("Are you sure you want to quit?");
+		if(isOutput()) drawOutputBox(getBoxText());
 		else drawInputBox();
 
 	}
@@ -86,6 +86,18 @@ int main(int argc, char **argv) {
 
 	while(running) {
 
+		if(getDeleteFlag() && isBoxConfirmed()) {
+			check_delete_files();
+			updateScreen();
+		}
+
+		if(isBoxConfirmed() && getTurnOffFlag()) {
+			printf("entrou aqui");
+			vg_exit();
+			running = 0;
+
+		}
+
 
 		/* Get a request message. */
 		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
@@ -112,13 +124,10 @@ int main(int argc, char **argv) {
 					}
 
 					else if(output == 2) {
-						check_delete_files();
-						cleanScreen();
-						drawFolders();
-						drawMainMenu();
-						if(menu_open) drawRightClickMenu(current_mouse_state);
+						enableBox(1,"Do you want to delete the selected files?");
+						setDeleteFlag();
+						updateScreen();
 
-						memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
 					}
 					else if (output == 3) {
 						navigateLeft();
@@ -158,13 +167,13 @@ int main(int argc, char **argv) {
 						if(current_mouse_state.lb == 1) {
 							if(get_counter() > 25) {
 								if(check_mouse_click(current_mouse_state) == 1) {
-								//vg_exit();
-								//	running = 0;
+
+
 								}
 
 								else if(check_mouse_click(current_mouse_state) == 4) {
-									vg_exit();
-									running = 0;
+
+
 								}
 							}
 							else {
