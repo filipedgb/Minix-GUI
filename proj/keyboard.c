@@ -39,6 +39,7 @@ int keyboard_int_handler_C(unsigned long *code) {
 	else if(*code == UP_ARROW_BREAK_CODE) return 5;
 	else if(*code == DOWN_ARROW_BREAK_CODE) return 6;
 	else if(*code == ENTER_MAKE_CODE) return 7;
+	else if(*code == BACKSPACE_MAKE_CODE) return 8;
 
 	return 0;
 }

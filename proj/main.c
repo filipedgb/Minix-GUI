@@ -125,6 +125,10 @@ int main(int argc, char **argv) {
 						openFolderByEnter();
 						updateScreen();
 					}
+					else if (output == 8) {
+						moveBack();
+						updateScreen();
+					}
 				}
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {

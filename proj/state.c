@@ -148,6 +148,11 @@ int openFolderByEnter() {
 	openFolder(index);
 }
 
+int moveBack() {
+
+	openFolder(0);
+}
+
 int getFolderSelected() {
 
 	int i = 0;
