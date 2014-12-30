@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 
 	cleanScreen();
 	drawFolders();
-	drawMainMenu();
+	//drawMainMenu();
 
 
 	memcpy(background, getBuffer(), getVideoMemSize());
@@ -200,7 +200,7 @@ int main(int argc, char **argv) {
 
 void updateScreen() {
 	cleanScreen();
-	drawMainMenu();
+	//drawMainMenu();
 	drawFolders();
 	memcpy(background, getBuffer(), getVideoMemSize());
 }
