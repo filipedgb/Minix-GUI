@@ -39,11 +39,12 @@ void drawMainMenu() {
 	draw_solid_rectangle(0,0,getHRES(),30,23) ;
 	draw_solid_rectangle(0,0,30,30,20);
 
+	draw_transp_sprite(0,9,shutdown);
+
 	//printf("Chegou aqui no draw main menu 2\n");
 
 
 }
-
 
 void cleanScreen() {
 	vg_fill(0x00);
@@ -137,7 +138,7 @@ char *load_file(char *filePath) {
 	long fSize;
 	char *buffer;
 
-	fileToLoad = fopen(filePath, "rb");
+	fileToLoad = fopen(filePath, "r");
 	if (!fileToLoad) {
 		perror(filePath); exit(1);
 	}
