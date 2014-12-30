@@ -51,6 +51,19 @@ void cleanScreen() {
 
 }
 
+void drawInputBox() {
+
+
+
+}
+
+void drawOutputBox() {
+	draw_solid_rectangle(getHRES()/2 -250,getVRES()/2 -200,500,300,20);
+
+}
+
+
+
 void draw_letter(char letter,int xIn,int yIn) {
 
 	printf("letra actua: %c",letter);

@@ -17,6 +17,17 @@ static void print_usage(char *argv[]);
 
 static char *background;
 
+
+
+void updateScreen() {
+	cleanScreen();
+	drawMainMenu();
+	drawFolders();
+	drawOutputBox();
+	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
+}
+
+
 int main(int argc, char **argv) {
 	/* Initialize service */
 	sef_startup();
@@ -64,7 +75,7 @@ int main(int argc, char **argv) {
 	drawMainMenu();
 
 
-	memcpy(background, getBuffer(), getVideoMemSize());
+	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
 
 	int menu_open = 0;
 
@@ -102,7 +113,7 @@ int main(int argc, char **argv) {
 						drawMainMenu();
 						if(menu_open) drawRightClickMenu(current_mouse_state);
 
-						memcpy(background, getBuffer(), getVideoMemSize());
+						memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
 					}
 					else if (output == 3) {
 						navigateLeft();
@@ -159,7 +170,7 @@ int main(int argc, char **argv) {
 						else if(current_mouse_state.rb == 1 && check_mouse_click(current_mouse_state) == 3) {
 							updateScreen();
 							drawRightClickMenu(current_mouse_state);
-							memcpy(background, getBuffer(), getVideoMemSize());
+							memcpy((char*)background, (char*) getBuffer(), getVideoMemSize());
 
 						}
 
@@ -200,13 +211,6 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-
-void updateScreen() {
-	cleanScreen();
-	drawMainMenu();
-	drawFolders();
-	memcpy(background, getBuffer(), getVideoMemSize());
-}
 
 
 

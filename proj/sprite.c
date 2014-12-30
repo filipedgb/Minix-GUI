@@ -9,7 +9,7 @@ Sprite *initialize_sprite(char *xpm[], int * width2, int * height2) {
 	if (Sp == NULL) return NULL;
 
 	char *mapb;
-	mapb = read_xpm(xpm, width2, height2);
+	mapb = (char*) read_xpm(xpm, width2, height2);
 
 	if (mapb == NULL) {free(Sp); return NULL;}
 
