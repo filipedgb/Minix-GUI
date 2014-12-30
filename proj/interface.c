@@ -52,14 +52,37 @@ void cleanScreen() {
 }
 
 void drawInputBox() {
+	draw_solid_rectangle(getHRES()/2 -250,getVRES()/2 -200,500,300,20);
+	draw_rectangle(getHRES()/2 -248,getVRES()/2 -198,496,50,0);
 
 
+	draw_rectangle(getHRES()/2 -200,getVRES()/2-50,400,25,0);
+	draw_string("Type here:",getHRES()/2 -200,getVRES()/2-60);
 
+
+	draw_rectangle(getHRES()/2 -100,getVRES()/2 + 30 ,60,30,0);
+	draw_string("OK",getHRES()/2 -80,getVRES()/2 + 45);
+
+
+	draw_rectangle(getHRES()/2 + 50,getVRES()/2 + 30 ,60,30,0);
+	draw_string("CANCEL",getHRES()/2 +55,getVRES()/2 + 45);
+
+	draw_string("TYPE IN THE BOX: ",getHRES()/2 -80,getVRES()/2 -170 );
 }
 
-void drawOutputBox() {
+void drawOutputBox(char* message) {
 	draw_solid_rectangle(getHRES()/2 -250,getVRES()/2 -200,500,300,20);
+	draw_rectangle(getHRES()/2 -248,getVRES()/2 -198,496,50,0);
 
+	draw_rectangle(getHRES()/2 -100,getVRES()/2 + 30 ,60,30,0);
+	draw_string("OK",getHRES()/2 -80,getVRES()/2 + 45);
+
+
+	draw_rectangle(getHRES()/2 + 50,getVRES()/2 + 30 ,60,30,0);
+	draw_string("CANCEL",getHRES()/2 +55,getVRES()/2 + 45);
+
+	draw_string("MESSAGE: ",getHRES()/2 -50,getVRES()/2 -170 );
+	draw_string(message,getHRES()/2 - 100,getVRES()/2 -50 );
 }
 
 

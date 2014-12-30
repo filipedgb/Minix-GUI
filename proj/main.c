@@ -23,7 +23,7 @@ void updateScreen() {
 	cleanScreen();
 	drawMainMenu();
 	drawFolders();
-	drawOutputBox();
+	drawInputBox("Are you sure you want to quit?");
 	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
 }
 
