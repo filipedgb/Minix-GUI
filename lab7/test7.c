@@ -1,6 +1,7 @@
 #include "test7.h"
 
 
+
 int ser_test_conf(unsigned short base_addr) {
     /* To be completed */
 }

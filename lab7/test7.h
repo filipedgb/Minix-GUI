@@ -1,6 +1,10 @@
 #ifndef _TEST7_
 #define _TEST7_
 
+#include "headers.h"
+#include <minix/syslib.h>
+#include <minix/drivers.h>
+
 int ser_test_conf(unsigned short base_addr);
 
 int ser_test_set(unsigned short base_addr, unsigned long bits, unsigned long stop, 
