@@ -37,7 +37,7 @@ int minixBootAnimation(unsigned short time) {
 
 	vg_init(0x105);
 
-	char *sprites[5] = {loading, loading2, loading3, loading4, loading5};
+	//char *sprites[5] = {loading, loading2, loading3, loading4, loading5};
 
 	int shift_timer = timer_subscribe_int();
 
@@ -67,8 +67,8 @@ int minixBootAnimation(unsigned short time) {
 			case HARDWARE: // hardware interrupt notification
 				if (msg.NOTIFY_ARG & BIT(shift_timer)) { // subscribed interrupt  bit 1 fica a 1, logo � 1
 					timer_int_handler();
-					if(index > 4) break; else draw_sprite(480, 250, sprites[index]);
-					if(index != 0) sleep(1);
+					//if(index > 4) break; else draw_sprite(480, 250, sprites[index]);
+					//if(index != 0) sleep(1);
 				}
 
 			default:
@@ -85,6 +85,7 @@ int minixBootAnimation(unsigned short time) {
 	timer_unsubscribe_int();
 
 	return 0;
+}
 
 int main(int argc, char **argv) {
 	/* Initialize service */
