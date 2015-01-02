@@ -4,6 +4,7 @@ void init() {
 	sef_startup();
 	subscribe_devices();
 	getSubFolders(".");
+	initButtons();
 
 	background = (char*) malloc (getVideoMemSize());
 	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
@@ -94,7 +95,7 @@ void kbc_consequences(int output) {
 }
 
 void mouse_consequences(int output) {
-	if(output == 2) { // Sï¿½ hï¿½ verificaï¿½ï¿½es lï¿½gicas no final de cada pacote (return 2 do handler)
+	if(output == 2) { // So faz verificações no final de cada pacote (return 2 do handler)
 
 		if(current_mouse_state.lb == 1) {
 			if(get_counter() > 25) {
@@ -129,7 +130,6 @@ int loop() {
 	unsigned long code;
 
 	int ticker = 0;
-	int updated = 0;
 	int estado = 0;
 	int esc_pressed = 0;
 
@@ -158,9 +158,10 @@ int loop() {
 		if (is_ipc_notify(ipc_status)) { /* received notification */
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
-				if (msg.NOTIFY_ARG & BIT(shift_keyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo Ã© 1*/
-					//	printf("KEYBOARD INTERRUPT\n");
 
+				//INTERRUPÇÕES DO KEYBOARD
+
+				if (msg.NOTIFY_ARG & BIT(shift_keyboard)) {
 					output = keyboard_int_handler_C(&code);
 
 					if(output == 1) {
@@ -178,20 +179,20 @@ int loop() {
 
 				}
 
+				//INTERRUPÇÕES DO RATO
+
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 					printf("MOUSE INTERRUPT\n");
-					//cleanCursor(current_mouse_state);
 
 					output = mouse_int_handler(&current_mouse_state);
 					mouse_consequences(output);
 
-
-					updated = 1;
-
 				}
+
+				//INTERRUPÇÕES DO TIMER
+
 				else if (msg.NOTIFY_ARG & BIT(shift_timer)) {
 					//printf("TIMER INTERRUPT\n");
-					ticker++;
 
 					setDisplay(background);
 					get_clock(&current_rtc_state);

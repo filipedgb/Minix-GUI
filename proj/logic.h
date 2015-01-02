@@ -50,11 +50,15 @@ typedef struct ioboxes {
 } iobox ;
 
 
-Directory currentFolders[100];
-
 static iobox currentBox;
+static Button exitButton;
+static Button yesButton;
+static Button noButton;
 
 
+
+
+Directory currentFolders[100];
 
 int getNumberFolders();
 Directory* getDirectories();

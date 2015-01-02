@@ -3,19 +3,27 @@
 #include <stdlib.h>
 
 
+
+
+int collision(mouse_state mouse, Button a) {
+	if(mouse.x > a.xi && mouse.x < a.xf && mouse.y > a.yi && mouse.y < a.yf)
+		return 1;
+
+	return 0;
+}
+
+
 int check_mouse_click(mouse_state current_mouse_state) {
 
 	if(isBox()) {
-		if(current_mouse_state.x > getHRES()/2 -100 && current_mouse_state.x < getHRES()/2 -40 &&
-				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
+		if(collision(current_mouse_state,yesButton)) {
 			currentBox.confirmed = 1;
 			disableBox();
 			return 4;
 
 		}
 
-		else if(current_mouse_state.x > getHRES()/2 +50 && current_mouse_state.x < getHRES()/2 +110 &&
-				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
+		else if(collision(current_mouse_state,noButton)) {
 			disableBox();
 			return 5;
 
@@ -24,9 +32,7 @@ int check_mouse_click(mouse_state current_mouse_state) {
 		else return -1;
 	}
 
-	if(current_mouse_state.lb &&
-			current_mouse_state.x < 30 && current_mouse_state.x > 0 &&
-			current_mouse_state.y < 30 && current_mouse_state.y > 0) {
+	if(current_mouse_state.lb && collision(current_mouse_state,exitButton) ) {
 
 		enableBox(1,"Are you sure you want to turn off?");
 
@@ -55,6 +61,19 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 	return 0;
 
+}
+
+
+
+void initButtons() {
+	exitButton.xi = 0; exitButton.xf = 30;
+	exitButton.yi = 0; 	exitButton.yf = 30;
+
+	yesButton.xi = getHRES()/2-100; yesButton.xf = getHRES()/2-40;
+	yesButton.yi = getVRES()/2+30; yesButton.yf = getVRES()/2+60;
+
+	noButton.xi = getHRES()/2+50; noButton.xf = getHRES()/2 +110;
+	noButton.yi = getVRES()/2+30; noButton.yf =getVRES()/2+60;
 }
 
 

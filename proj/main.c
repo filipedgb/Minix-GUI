@@ -3,19 +3,15 @@
 
 #include "state.h"
 
-
-
-
 int main(int argc, char **argv) {
 	/* Initialize service */
-	//minixBootAnimation(1);
 	init();
 	playIntro();
+	//minixBootAnimation(1);
+
 	if(loop()) unsubscribe_devices();
 	return 0;
 }
-
-
 
 
 //
