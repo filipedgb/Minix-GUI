@@ -29,10 +29,18 @@ int vg_exit(void);
 
 int vg_fill(unsigned long color);
 
+/**
+ * Draws a rectangle
+ */
 int draw_solid_rectangle( unsigned short x, unsigned short y, unsigned short width,unsigned short height, unsigned long color);
 
+/**
+ * Returns horizontal resolution of the screen
+ */
 unsigned getHRES();
-
+/**
+ * Returns vertical resolution of the screen
+ */
 unsigned getVRES();
 
  /** @} end of video_gr */

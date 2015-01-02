@@ -9,7 +9,9 @@
 
 static int hook_id_4 = 3;
 
-
+/**
+ * Struct to handle date and time
+ */
 typedef struct {
 	int seconds;
 	int minutes;
@@ -20,16 +22,34 @@ typedef struct {
 
 } rtc_state;
 
+/**
+ * Converts BCD format into Decimal
+ */
 unsigned int BCDToDecimal (unsigned int bcdByte);
 
+/**
+ * Prints time
+ */
 void print_time();
 
+/**
+ * Gets computer clock
+ */
 void get_clock(rtc_state* current_clock_state);
 
+/**
+ * Validates time after changing hour
+ */
 void wait_valid_rtc(void);
 
+/**
+ * Enables RTC
+ */
 void enable();
 
+/**
+ * Disables RTC
+ */
 void disable();
 
 

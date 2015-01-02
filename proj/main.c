@@ -28,7 +28,6 @@ void minixBootAnimation(unsigned int time) {
 
 	int ipc_status,r, seconds = 0, running = 1;
 	message msg;
-	unsigned long code;
 
 	int index = 0;
 	mainDraw();

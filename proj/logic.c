@@ -122,7 +122,6 @@ int getTurnOffFlag() {
 int isBoxConfirmed() {
 	return currentBox.confirmed ;
 
-
 }
 
 

@@ -31,15 +31,26 @@ void print_packet();
 
 void read_config();
 
+/**
+ * Prints mouse configuration
+ */
 void print_mouse_config();
 
 int gesture_state_machine();
 
-
+/**
+ * Handles mouse interrupts
+ */
 int mouse_int_handler();
 
+/**
+ * Subscribes mouse interrupts
+ */
 int mouse_subscribe_int();
 
+/**
+ * Unsubscribes mouse interrupts
+ */
 int mouse_unsubscribe_int();
 
 int issue_command_mouse(unsigned char command, unsigned char argument);
