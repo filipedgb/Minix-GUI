@@ -46,7 +46,7 @@ void cleanCursor(mouse_state current_mouse_state) {
 void drawMainMenu() {
 	//printf("Chegou aqui no draw main menu\n");
 
-	draw_solid_rectangle(0,0,getHRES(),30,7) ;
+	draw_solid_rectangle(0,0,getHRES(),30,8) ;
 	draw_solid_rectangle(0,0,30,30,4);
 
 	draw_transp_sprite(0,9,shutdown);
