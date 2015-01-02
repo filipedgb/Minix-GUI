@@ -1,376 +1,218 @@
 #include "state.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 
-int check_mouse_click(mouse_state current_mouse_state) {
+void updateScreen() {
+	cleanScreen();
+	drawMainMenu();
+	drawFolders();
 
 	if(isBox()) {
-		if(current_mouse_state.x > getHRES()/2 -100 && current_mouse_state.x < getHRES()/2 -40 &&
-				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
-			currentBox.confirmed = 1;
-			disableBox();
-			return 4;
+		if(isOutput()) drawOutputBox(getBoxText());
+		else drawInputBox();
+
+	}
+	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
+}
+
+
+void playIntro(){
+	mainDraw();
+	flipDisplay();
+	sleep(1);
+}
+
+
+void subscribe_devices() {
+	vg_init(0x105);
+
+	shift_mouse = mouse_subscribe_int();
+	shift_keyboard = keyboard_subscribe_int();
+	shift_timer = timer_subscribe_int();
+
+	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(0xF6,-1);
+	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(ENABLE_STREAM_MODE,-1);
+	kbc_input(KBC_WRITE_COMMAND);
+	issue_command_mouse(ENABLE_DATA_PACKETS,-1);
+
+}
+
+void init() {
+	sef_startup();
+	subscribe_devices();
+	getSubFolders(".");
+
+	background = (char*) malloc (getVideoMemSize());
+	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
+
+}
+
+
+void unsubscribe_devices() {
+	keyboard_unsubscribe_int();
+	timer_unsubscribe_int();
+	mouse_unsubscribe_int();
+	vg_exit();
+
+}
+
+
+int loop() {
+
+	int menu_open = 0;
+
+
+	int ipc_status,r, seconds = 0, running = 1;
+	message msg;
+	unsigned long code;
+
+	int esc_pressed = 0;
+	int ticker = 0;
+	int updated = 0;
+	int estado = 0;
+
+	updateScreen();
+
+	while(running) {
+
+		if(getDeleteFlag() && isBoxConfirmed()) {
+			check_delete_files();
+			updateScreen();
+		}
+
+		if(isBoxConfirmed() && getTurnOffFlag()) {
+			printf("entrou aqui");
+			vg_exit();
+			running = 0;
 
 		}
 
-		else if(current_mouse_state.x > getHRES()/2 +50 && current_mouse_state.x < getHRES()/2 +110 &&
-				current_mouse_state.y > getVRES()/2 + 30 && current_mouse_state.y < getVRES()/2 + 60) {
-			disableBox();
-			return 5;
 
+		/* Get a request message. */
+		if ( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
+			printf("driver_receive failed with: %d", r);
+			continue;
 		}
+		if (is_ipc_notify(ipc_status)) { /* received notification */
+			switch (_ENDPOINT_P(msg.m_source)) {
+			case HARDWARE: /* hardware interrupt notification */
+				if (msg.NOTIFY_ARG & BIT(shift_keyboard)) { /* subscribed interrupt  bit 1 fica a 1, logo é 1*/
+					//	printf("KEYBOARD INTERRUPT\n");
+
+					int output = keyboard_int_handler_C(&code);
 
-		else return -1;
-	}
-
-	if(current_mouse_state.lb &&
-			current_mouse_state.x < 30 && current_mouse_state.x > 0 &&
-			current_mouse_state.y < 30 && current_mouse_state.y > 0) {
-
-		enableBox(1,"Are you sure you want to turn off?");
-
-		turn_off_flag = 1;
-
-		return 1;
-	}
-
-	else if( current_mouse_state.lb) {
-		int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
-
-		if(index != -1) {
-			toggleSelected(index);
-			return 2; //index found
-		}
-
-	}
-
-	else if(current_mouse_state.rb) {
-		int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
-
-		if(index != -1) {
-			return 3; //index found
-		}
-	}
-
-	return 0;
-
-}
-
-
-int check_mouse_double_click(mouse_state current_mouse_state) {
-
-	int index = getFolderByCoords(current_mouse_state.x,current_mouse_state.y);
-	if(index != -1) {
-		printf("double click no index %d", index);
-		openFolder(index);
-		return 1;
-	}
-
-	return 0;
-
-}
-
-
-int check_delete_files() {
-	int i = 0;
-
-	for(; i < num_folders; i++) {
-
-		if(currentFolders[i].selected) {
-			deleteFolder(i);
-		}
-
-	}
-
-	delete_flag = 0;
-
-
-}
-
-void setDeleteFlag() {
-	delete_flag = 1;
-}
-
-int getDeleteFlag() {
-	return delete_flag;
-}
-
-int getTurnOffFlag() {
-	return turn_off_flag;
-}
-
-int isBoxConfirmed() {
-	return currentBox.confirmed ;
-
-
-}
-
-
-void openFolder(int index) {
-	getSubFolders(getFolderName(index));
-}
-
-
-void disableBox() {
-	currentBox.active = 0;
-}
-
-void enableBox(int type,char* text) {
-	strcpy(currentBox.text,text);
-	currentBox.active = 1;
-	currentBox.output = type;
-}
-
-char* getBoxText(){
-	return currentBox.text;
-}
-
-int isBox() {
-	return currentBox.active;
-}
-
-int isOutput() {
-	return currentBox.output;
-}
-
-
-void deleteFolder(int index) {
-	char tempPath[1024];
-
-	strcpy(tempPath,current_path);
-
-	updatePath(getFolderName(index));
-
-	remove(current_path);
-
-	strcpy(current_path,tempPath);
-
-	getSubFolders(current_path);
-}
-
-int navigateLeft() {
-
-	int folderSelected = getFolderSelected();
-
-	if (folderSelected == -1) toggleSelected(0);
-
-	if (folderSelected > 0) {
-		toggleSelected(folderSelected);
-		toggleSelected(folderSelected - 1);
-	}
-}
-
-int navigateRight() {
-
-	int folderSelected = getFolderSelected();
-	int nFolders = getNumberFolders();
-
-	if (folderSelected == -1) toggleSelected(0);
-
-	if (folderSelected < nFolders && folderSelected > -1) {
-		toggleSelected(folderSelected);
-		toggleSelected(folderSelected + 1);
-		}
-}
-
-int navigateUp() {
-
-	int folderSelected = getFolderSelected();
-
-	if (folderSelected == -1) toggleSelected(0);
-
-	if (folderSelected > 10) {
-		toggleSelected(folderSelected);
-		toggleSelected(folderSelected - 10);
-	}
-}
-
-int navigateDown() {
-
-	int folderSelected = getFolderSelected();
-	int nFolders = getNumberFolders();
-	int folderToNavigate = folderSelected + 10;
-
-	if (folderSelected == -1) toggleSelected(0);
-
-	if (folderToNavigate <= nFolders) {
-		toggleSelected(folderSelected);
-		toggleSelected(folderSelected + 10);
-	}
-}
-
-char* getFolderName(int index) {
-	return currentFolders[index].name ;
-}
-
-int isFolderSelected(int index) {
-	return currentFolders[index].selected;
-
-}
-
-int openFolderByEnter() {
-
-	int index = getFolderSelected();
-	openFolder(index);
-}
-
-int moveBack() {
-
-	openFolder(1);
-}
-
-int getFolderSelected() {
-
-	int i = 0;
-	int nFolders = getNumberFolders();
-	for (i; i < nFolders; i++) {
-		if (currentFolders[i].selected == 1) return i;
-	}
-
-	return -1;
-}
-
-void setFolderCoords(int index, int inX, int inY) {
-	currentFolders[index].x = inX;
-	currentFolders[index].y = inY;
-}
-
-void toggleSelected(int index) {
-	if(currentFolders[index].selected == 1) currentFolders[index].selected = 0;
-	else currentFolders[index].selected = 1;
-
-}
-
-char* getPath() {
-	return current_path;
-}
-
-Directory* getDirectories() {
-	return currentFolders;
-}
-
-int getNumberFolders() {
-	return num_folders;
-}
-
-
-int getFolderByCoords(int x, int y) {
-	int k;
-	for(k = 0; k < num_folders; k++){
-
-		if(x > currentFolders[k].x && x < currentFolders[k].x + 36 && y > currentFolders[k].y &&  y < currentFolders[k].y+31) {
-			return k;
-		}
-
-	}
-
-	return -1;
-
-}
-
-int isFileByIndex(int index) {
-	return currentFolders[index].file ;
-}
-
-
-
-
-int isFile(char* path) {
-	struct stat s;
-	if( stat(path,&s) == 0 ) {
-		if( s.st_mode & S_IFDIR ) return 0;
-		else if( s.st_mode & S_IFREG ) return 1;
-	}
-}
-
-
-void updatePath(char* foldername) {
-	char temp[256];
-
-	strcpy(temp,foldername);
-
-	if(strcmp(temp,"") == 0) strcpy(current_path,".");
-
-	else sprintf(current_path,"%s/%s",current_path,temp);
-
-	printf("Current path: %s\n", current_path);
-
-
-}
-
-
-int getSubFolders(char* foldername) {
-
-	memset(currentFolders,0, 100);
-
-	char old_path[1024];
-	strcpy(old_path,current_path);
-
-	updatePath(foldername);
-
-	if(isFile(current_path)) {
-		strcpy(current_path,old_path);
-		return 1;
-	}
-
-
-
-	num_folders = 0;
-
-	struct dirent *de=NULL;
-	DIR *d=NULL;
-
-	d=opendir(current_path);
-	if(d == NULL) {
-		perror("Couldn't open directory");
-		return(2);
-	}
-	int i = 0;
-	// Loop while not NULL
-	while(de = readdir(d)) {
-		num_folders++;
-
-		if(i > 50) break;
-
-		if (strlen(de->d_name) > 0x20)
-			printf("name too long: %s", de->d_name);
-
-		else if(strlen(de->d_name) < 0x01)
-			printf("name empty\n");
-
-
-		else {
-			currentFolders[i].selected = 0;
-
-
-			printf("Folder %d name: %s\n",i,de->d_name);
-
-			strcpy(	currentFolders[i].name, de->d_name);
-
-			char parent_path[1024];
-			strcpy(parent_path,current_path);
-
-			updatePath(currentFolders[i].name);
-
-			if(isFile(current_path)) {
-				currentFolders[i].file = 1;
-			} else {
-				currentFolders[i].file = 0;
+					if(output == 1) {
+						if(esc_pressed) {
+							if(get_counter() < 25) {
+								running = 0;
+							}
+						}
+
+						reset_counter();
+						esc_pressed = 1;
+					}
+
+					else if(output == 2) {
+						enableBox(1,"Do you want to delete the selected files?");
+						setDeleteFlag();
+						updateScreen();
+
+					}
+					else if (output == 3) {
+						navigateLeft();
+						updateScreen();
+					}
+
+					else if (output == 4) {
+						navigateRight();
+						updateScreen();
+					}
+					else if (output == 5) {
+						navigateUp();
+						updateScreen();
+					}
+					else if (output == 6) {
+						navigateDown();
+						updateScreen();
+					}
+					else if (output == 7) {
+						openFolderByEnter();
+						updateScreen();
+					}
+					else if (output == 8) {
+						moveBack();
+						updateScreen();
+					}
+				}
+
+				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
+					printf("MOUSE INTERRUPT\n");
+					//cleanCursor(current_mouse_state);
+
+					int output = mouse_int_handler(&current_mouse_state);
+
+					if(output == 2) { // S� h� verifica��es l�gicas no final de cada pacote (return 2 do handler)
+
+						if(current_mouse_state.lb == 1) {
+							if(get_counter() > 25) {
+								if(check_mouse_click(current_mouse_state) == 1) {
+
+
+								}
+
+								else if(check_mouse_click(current_mouse_state) == 4) {
+
+
+								}
+							}
+							else {
+								check_mouse_double_click(current_mouse_state);
+							}
+
+							reset_counter();
+							updateScreen();
+
+
+						}
+
+						else if(current_mouse_state.rb == 1 && check_mouse_click(current_mouse_state) == 3) {
+							updateScreen();
+							drawRightClickMenu(current_mouse_state);
+							memcpy((char*)background, (char*) getBuffer(), getVideoMemSize());
+
+						}
+
+					}
+
+
+					updated = 1;
+
+				}
+				else if (msg.NOTIFY_ARG & BIT(shift_timer)) {
+					//printf("TIMER INTERRUPT\n");
+					ticker++;
+
+					setDisplay(background);
+					get_clock(&current_rtc_state);
+					drawClock(current_rtc_state);
+					drawCursor(current_mouse_state);
+
+					timer_int_handler();
+				}
+
+			default:
+				break; /* no other notifications expected: do nothing */
 			}
-
-			strcpy(current_path,parent_path);
-
-
-
-
-
+		} else { /* received a standard message, not a notification */
+			/* no standard messages expected: do nothing */
 		}
-		i++;
+
+		flipDisplay();
 
 	}
 
-	closedir(d);
-	return(0);
+	return 1;
+
 
 }

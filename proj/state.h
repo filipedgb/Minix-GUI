@@ -1,87 +1,32 @@
 #ifndef __STATE_H
 #define __STATE_H
 
+#include "keyboard.h"
+#include "read_xpm.h"
+#include "timer.h"
 #include "mouse.h"
-#include <sys/types.h>
-#include <dirent.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include "interface.h"
+#include "rtc.h"
+#include "video_gr.h"
+#include "sprite.h"
+#include "logic.h"
 
 
-static int num_folders = 0;
-
-static char current_path[1024];
-
-static int delete_flag;
-static int turn_off_flag;
-
-
-typedef struct Buttons {
-	int button_id;
-	int xi;
-	int xf;
-	int yi;
-	int yf;
-
-} Button;
-
-
-typedef struct Directories {
-	char name[50];
-	int file; //1 for file, 0 for folder
-	int active;
-	int selected;
-	int x;
-	int y;
-
-} Directory;
-
-
-typedef struct ioboxes {
-	char text[256];
-	int output; //if 1 é output if 0 é input
-	int active;
-	int confirmed;
-
-} iobox ;
-
-
-Directory currentFolders[100];
-
-static iobox currentBox;
+#include <minix/drivers.h>
 
 
 
-int getNumberFolders();
-Directory* getDirectories();
 
-int isFolderSelected(int index);
+static char *background;
 
-char* getFolderName(int index);
+mouse_state current_mouse_state;
 
-void openFolder(int index);
+rtc_state current_rtc_state;
 
-void deleteFolder(int index);
+static int shift_mouse;
+static int shift_keyboard;
+static int shift_timer;
 
-int getFolderByCoords(int x, int y);
-
-char* getPath();
-
-void toggleSelected(int index);
-
-void setFolderCoords(int index, int inX, int inY);
-
-void updatePath(char* foldername);
-
-void setCurrentPath(char* path);
-
-int getSubFolders(char* foldername);
-
-int check_mouse_click(mouse_state current_mouse_state) ;
 
 
 

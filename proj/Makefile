@@ -5,7 +5,7 @@ COMPILER_TYPE= gnu
 CC=gcc
 
 PROG=	proj
-SRCS=	main.c test5.c video_gr.c vbe.c keyboard.c read_xpm.c pixmap.c sprite.c timer.c mouse.c interface.c rtc.c state.c
+SRCS=	main.c test5.c video_gr.c vbe.c keyboard.c read_xpm.c pixmap.c sprite.c timer.c mouse.c interface.c rtc.c state.c logic.c
 
 CCFLAGS= -Wall
 

@@ -4,7 +4,7 @@
 #include "pixmap.c"
 #include "video_gr.h"
 #include "mouse.h"
-#include "state.h"
+#include "logic.h"
 #include "rtc.h"
 
 void mainDraw();
