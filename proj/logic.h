@@ -66,11 +66,16 @@ Directory currentFolders[100];
 
 /**
  * Handles mouse collisions
+ * @param mouse
+ * @param a
+ * @return
  */
 int collision(mouse_state mouse, Button a);
 
 /**
- * Handles mouse single click
+ * Does verifications when the mouse is clicked once
+ * @param current_mouse_state
+ * @return
  */
 int check_mouse_click(mouse_state current_mouse_state);
 
@@ -80,7 +85,9 @@ int check_mouse_click(mouse_state current_mouse_state);
 void initButtons();
 
 /**
- * Handles mouse double clicks
+ *  Does verifications when the mouse is clicked twice in less than 0.25 seconds (double click)
+ * @param current_mouse_state
+ * @return
  */
 int check_mouse_double_click(mouse_state current_mouse_state);
 
@@ -99,8 +106,16 @@ void setDeleteFlag();
  */
 int getDeleteFlag();
 
+/**
+ * Sets rename flag to true
+ */
 void setRenameFlag();
 
+
+/**
+ * Receives an index of a folder to rename and uses the text from the input box to do so
+ * @param index
+ */
 void renameFolder(int index);
 
 int getRenameFlag();
@@ -236,12 +251,13 @@ int isFileByIndex(int index);
 int isFile(char* path);
 
 /**
- * Updates current path
+ *	Given a foldername this function updates the current path, if file doesn't
+ * @param foldername
  */
 void updatePath(char* foldername);
 
 /**
- * Gets a folder subfolders
+ * Gets a folder subfolders, and stores them in a static array to be used later
  */
 int getSubFolders(char* foldername);
 

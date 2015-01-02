@@ -9,6 +9,9 @@
 
 /**
  * Centers an image on the screen
+ *
+ * @param imageWidth
+ * @return
  */
 int centerImageX(int imageWidth);
 
@@ -18,7 +21,8 @@ int centerImageX(int imageWidth);
 void mainDraw() ;
 
 /**
- * Draws the cursor on the screen
+ * Draws the cursor on the screen according to mouse_state coordinates
+ * @param current_mouse_state
  */
 void drawCursor(mouse_state current_mouse_state);
 
@@ -28,7 +32,8 @@ void drawCursor(mouse_state current_mouse_state);
 void drawBackground();
 
 /**
- * Cleans the cursor
+ * Erases the cursor from the screen according to mouse_state coordinates
+ * @param current_mouse_state
  */
 void cleanCursor(mouse_state current_mouse_state);
 
@@ -44,11 +49,15 @@ void cleanScreen();
 
 /**
  * Draws input box for rename purposes
+ * @param title
+ * @param message
  */
 void drawInputBox(char* title, char* message);
 
 /**
- * Draws pop out messages
+ * Draws a pop-up box with title and message
+ * @param title
+ * @param message
  */
 void drawOutputBox(char* title, char* message);
 
@@ -63,17 +72,24 @@ void draw_letter(char letter,int xIn,int yIn);
 void drawFile(char *filePath);
 
 /**
- * Draws a string to the screen
+ *	Receives a string and draws it starting from  positionX and positionY coordinates
+ * @param string
+ * @param positionX
+ * @param positionY
  */
 void draw_string(char* string,int positionX,int positionY);
 
 /**
- * Draws right click menu
+ * Draws right click menu according to mouse_state coordinates
+ * @param current_mouse_state
  */
 void drawRightClickMenu(mouse_state current_mouse_state);
 
+
+
 /**
- * Draws RTC
+ * Draws Clock according to its current state
+ * @param current_rtc_state
  */
 void drawClock(rtc_state current_rtc_state);
 

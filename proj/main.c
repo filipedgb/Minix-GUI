@@ -3,6 +3,13 @@
 
 #include "state.h"
 
+/**
+ * Main function
+ * @param argc
+ * @param argv
+ * @return
+ */
+
 int main(int argc, char **argv) {
 
 	/* Initialize service */
