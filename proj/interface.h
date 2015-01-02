@@ -45,12 +45,12 @@ void cleanScreen();
 /**
  * Draws input box for rename purposes
  */
-void drawInputBox();
+void drawInputBox(char* title, char* message);
 
 /**
  * Draws pop out messages
  */
-void drawOutputBox(char* message);
+void drawOutputBox(char* title, char* message);
 
 /**
  * Draws letters

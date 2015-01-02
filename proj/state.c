@@ -40,8 +40,8 @@ void updateScreen() {
 	drawFolders();
 
 	if(isBox()) {
-		if(isOutput()) drawOutputBox((char*) getBoxText());
-		else drawInputBox();
+		if(isOutput()) drawOutputBox((char*) getBoxTitle(),(char*) getBoxText());
+		else drawInputBox((char*) getBoxTitle(),(char*) getBoxText());
 
 	}
 	memcpy((char*)background,(char*) getBuffer(), getVideoMemSize());
@@ -60,7 +60,7 @@ void kbc_consequences(int output) {
 	switch(output) {
 
 	case 2:
-		enableBox(1,"Do you want to delete the selected files?");
+		enableBox(1,"DELETE","Do you want to delete the selected files?");
 		setDeleteFlag();
 		updateScreen();
 		break;
@@ -88,8 +88,16 @@ void kbc_consequences(int output) {
 		moveBack();
 		updateScreen();
 		break;
-	}
+	case 9:
+		setRenameFlag();
+		enableBox(0,"RENAME",NULL);
+		updateScreen();
 
+	default:
+		if(getRenameFlag() && output >= 10 && output <= 36) updateTextBox(output);
+		updateScreen();
+
+	}
 
 }
 
@@ -112,8 +120,6 @@ void mouse_consequences(int output) {
 		memcpy((char*)background, (char*) getBuffer(), getVideoMemSize());
 
 	}
-
-
 }
 
 
@@ -134,6 +140,11 @@ int loop() {
 	updateScreen();
 
 	while(running) {
+
+		if(getRenameFlag() && isBoxConfirmed()) {
+			check_rename_folder();
+			updateScreen();
+		}
 
 		if(getDeleteFlag() && isBoxConfirmed()) {
 			check_delete_files();

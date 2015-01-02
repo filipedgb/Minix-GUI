@@ -18,6 +18,7 @@ static char current_path[1024];
 
 static int delete_flag;
 static int turn_off_flag;
+static int rename_flag;
 
 /**
  * Struct to handle buttons of the interface
@@ -48,7 +49,8 @@ typedef struct Directories {
  * Struct to handle I/O boxes
  */
 typedef struct ioboxes {
-	char text[256];
+	char title[50];
+	char text[50];
 	int output; //if 1 � output if 0 � input
 	int active;
 	int confirmed;
@@ -97,6 +99,12 @@ void setDeleteFlag();
  */
 int getDeleteFlag();
 
+void setRenameFlag();
+
+void renameFolder(int index);
+
+int getRenameFlag();
+
 /**
  * Returns turn off flag
  */
@@ -120,7 +128,7 @@ void disableBox();
 /**
  * Enables box
  */
-void enableBox(int type,char* text);
+void enableBox(int type,char* title, char* text);
 
 /**
  * Gets a box input

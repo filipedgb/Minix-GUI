@@ -40,6 +40,36 @@ int keyboard_int_handler_C(unsigned long *code) {
 	else if(*code == DOWN_ARROW_BREAK_CODE) return 6;
 	else if(*code == ENTER_MAKE_CODE) return 7;
 	else if(*code == BACKSPACE_MAKE_CODE) return 8;
+	else if(*code == KEY_R_SHIFT) return 9;
+	else if(*code == KEY_A) return 10;
+	else if(*code == KEY_B) return 11;
+	else if(*code == KEY_C) return 12;
+	else if(*code == KEY_D) return 13;
+	else if(*code == KEY_E) return 14;
+	else if(*code == KEY_F) return 15;
+	else if(*code == KEY_G) return 16;
+	else if(*code == KEY_H) return 17;
+	else if(*code == KEY_I) return 18;
+	else if(*code == KEY_J) return 19;
+	else if(*code == KEY_K) return 20;
+	else if(*code == KEY_L) return 21;
+	else if(*code == KEY_M) return 22;
+	else if(*code == KEY_N) return 23;
+	else if(*code == KEY_O) return 24;
+	else if(*code == KEY_P) return 25;
+	else if(*code == KEY_Q) return 26;
+	else if(*code == KEY_R) return 27;
+	else if(*code == KEY_S) return 28;
+	else if(*code == KEY_T) return 29;
+	else if(*code == KEY_U) return 30;
+	else if(*code == KEY_V) return 31;
+	else if(*code == KEY_W) return 32;
+	else if(*code == KEY_X) return 33;
+	else if(*code == KEY_Y) return 34;
+	else if(*code == KEY_Z) return 35;
+	else if(*code == KEY_SPACE) return 36;
+
+
 
 	return 0;
 }

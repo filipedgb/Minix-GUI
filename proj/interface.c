@@ -61,12 +61,13 @@ void cleanScreen() {
 
 }
 
-void drawInputBox() {
+void drawInputBox(char* title, char* text) {
 	draw_solid_rectangle(getHRES()/2 -250,getVRES()/2 -200,500,300,20);
 	draw_rectangle(getHRES()/2 -248,getVRES()/2 -198,496,50,0);
 
 
 	draw_rectangle(getHRES()/2 -200,getVRES()/2-50,400,25,0);
+	draw_string(text,getHRES()/2 -196,getVRES()/2 -40 );
 	draw_string("Type here:",getHRES()/2 -200,getVRES()/2-60);
 
 
@@ -77,10 +78,10 @@ void drawInputBox() {
 	draw_rectangle(getHRES()/2 + 50,getVRES()/2 + 30 ,60,30,0);
 	draw_string("CANCEL",getHRES()/2 +55,getVRES()/2 + 45);
 
-	draw_string("TYPE IN THE BOX: ",getHRES()/2 -80,getVRES()/2 -170 );
+	draw_string(title,getHRES()/2 -80,getVRES()/2 -170 );
 }
 
-void drawOutputBox(char* message) {
+void drawOutputBox(char* title, char* message) {
 	draw_solid_rectangle(getHRES()/2 -250,getVRES()/2 -200,500,300,20);
 	draw_rectangle(getHRES()/2 -248,getVRES()/2 -198,496,50,0);
 
@@ -91,7 +92,7 @@ void drawOutputBox(char* message) {
 	draw_rectangle(getHRES()/2 + 50,getVRES()/2 + 30 ,60,30,0);
 	draw_string("CANCEL",getHRES()/2 +55,getVRES()/2 + 45);
 
-	draw_string("MESSAGE: ",getHRES()/2 -50,getVRES()/2 -170 );
+	draw_string(title,getHRES()/2 -50,getVRES()/2 -170 );
 	draw_string(message,getHRES()/2 - 100,getVRES()/2 -50 );
 }
 
@@ -99,7 +100,7 @@ void drawOutputBox(char* message) {
 
 void draw_letter(char letter,int xIn,int yIn) {
 
-	printf("letra actua: %c",letter);
+	//printf("letra actua: %c",letter);
 
 	switch(letter) {
 	case ':':draw_transp_sprite(xIn,yIn,duplo_ponto); break;

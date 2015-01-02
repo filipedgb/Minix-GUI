@@ -13,6 +13,9 @@ int collision(mouse_state mouse, Button a) {
 }
 
 
+
+
+
 int check_mouse_click(mouse_state current_mouse_state) {
 
 	if(isBox()) {
@@ -34,7 +37,7 @@ int check_mouse_click(mouse_state current_mouse_state) {
 
 	if(current_mouse_state.lb && collision(current_mouse_state,exitButton) ) {
 
-		enableBox(1,"Are you sure you want to turn off?");
+		enableBox(1,"TURN OFF","Are you sure you want to turn off?");
 
 		turn_off_flag = 1;
 
@@ -91,6 +94,21 @@ int check_mouse_double_click(mouse_state current_mouse_state) {
 }
 
 
+void check_rename_folder() {
+	int i = 0;
+
+	for(; i < num_folders; i++) {
+
+		if(currentFolders[i].selected) {
+			renameFolder(i);
+		}
+
+	}
+
+	rename_flag = 0;
+}
+
+
 int check_delete_files() {
 	int i = 0;
 
@@ -119,6 +137,15 @@ int getTurnOffFlag() {
 	return turn_off_flag;
 }
 
+void setRenameFlag() {
+	rename_flag = 1;
+}
+
+int getRenameFlag() {
+	return rename_flag;
+}
+
+
 int isBoxConfirmed() {
 	return currentBox.confirmed ;
 
@@ -132,13 +159,24 @@ void openFolder(int index) {
 
 void disableBox() {
 	currentBox.active = 0;
+	strcpy(currentBox.title,"");
+	//strcpy(currentBox.text,"");
+
 }
 
-void enableBox(int type,char* text) {
-	strcpy(currentBox.text,text);
+void enableBox(int type,char* title, char* text) {
+	strcpy(currentBox.title,title);
+	if(text != NULL) strcpy(currentBox.text,text);
+
+
 	currentBox.active = 1;
 	currentBox.output = type;
 }
+
+char* getBoxTitle(){
+	return currentBox.title;
+}
+
 
 char* getBoxText(){
 	return currentBox.text;
@@ -150,6 +188,10 @@ int isBox() {
 
 int isOutput() {
 	return currentBox.output;
+}
+
+char* getTitle() {
+	return currentBox.title;
 }
 
 
@@ -166,6 +208,31 @@ void deleteFolder(int index) {
 
 	getSubFolders(current_path);
 }
+
+void renameFolder(int index) {
+	char tempPath[1024];
+	char old_name[1024];
+	char new_name[1024];
+
+	strcpy(tempPath,current_path); //copia do inicial
+
+	updatePath(getFolderName(index)); // criar o path para o ficheiro que é suposto mudar de nome
+	strcpy(old_name,current_path); // guardar o path do ficheiro que é para mudar de nome
+
+	strcpy(current_path,tempPath);// voltar a por o path da pasta onde estamos
+	sprintf(new_name,"%s%s%s",current_path,"/",currentBox.text);
+
+	strcpy(current_path,tempPath);// voltar a por o path da pasta onde estamos
+
+	printf("Old name: %s",old_name);
+	printf("New name: %s",new_name);
+	printf("Text Box: %s",currentBox.text);
+
+	rename(old_name,new_name);
+
+	getSubFolders(current_path);
+}
+
 
 int navigateLeft() {
 
@@ -189,7 +256,7 @@ int navigateRight() {
 	if (folderSelected < nFolders && folderSelected > -1) {
 		toggleSelected(folderSelected);
 		toggleSelected(folderSelected + 1);
-		}
+	}
 }
 
 int navigateUp() {
@@ -287,6 +354,49 @@ int getFolderByCoords(int x, int y) {
 
 }
 
+char getCharByNumber(unsigned long input)  {
+	switch(input) {
+	case 10: return 'a'; break;
+	case 11: return 'b'; break;
+	case 12: return 'c'; break;
+	case 13: return 'd'; break;
+	case 14: return 'e'; break;
+	case 15: return 'f'; break;
+	case 16: return 'g'; break;
+	case 17: return 'h'; break;
+	case 18: return 'i'; break;
+	case 19: return 'j'; break;
+	case 20: return 'k'; break;
+	case 21: return 'l'; break;
+	case 22: return 'm'; break;
+	case 23: return 'n'; break;
+	case 24: return 'o'; break;
+	case 25: return 'p'; break;
+	case 26: return 'q'; break;
+	case 27: return 'r'; break;
+	case 28: return 's'; break;
+	case 29: return 't'; break;
+	case 30: return 'u'; break;
+	case 31: return 'v'; break;
+	case 32: return 'w'; break;
+	case 33: return 'x'; break;
+	case 34: return 'y'; break;
+	case 35: return 'z'; break;
+	case 36: return ' '; break;
+
+	}
+}
+
+void updateTextBox(unsigned long input) {
+	char letter = getCharByNumber(input);
+	char newText[50];
+	sprintf(newText,"%s%c",currentBox.text,letter);
+	strcpy(currentBox.text,newText);
+
+}
+
+
+
 int isFileByIndex(int index) {
 	return currentFolders[index].file ;
 }
@@ -362,7 +472,7 @@ int getSubFolders(char* foldername) {
 			currentFolders[i].selected = 0;
 
 
-			printf("Folder %d name: %s\n",i,de->d_name);
+			//printf("Folder %d name: %s\n",i,de->d_name);
 
 			strcpy(	currentFolders[i].name, de->d_name);
 
