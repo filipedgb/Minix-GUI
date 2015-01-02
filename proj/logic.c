@@ -393,3 +393,36 @@ int getSubFolders(char* foldername) {
 	return(0);
 
 }
+
+
+//char *load_file(char *filePath) {
+//
+//	FILE *fileToLoad;
+//	long fSize;
+//	char *buffer;
+//
+//	fileToLoad = fopen(filePath, "r");
+//	if (!fileToLoad) {
+//		perror(filePath); exit(1);
+//	}
+//
+//	fseek(fileToLoad, 0L, SEEK_END);
+//	fSize = ftell(fileToLoad);
+//	rewind(fileToLoad);
+//
+//	/*Allocating file mem*/
+//	buffer = malloc(fSize + 1);
+//	if (!buffer) {
+//		fclose(fileToLoad);
+//		perror("Mem alloc failed");
+//	}
+//
+//	if (fread(buffer, fSize, 1, fileToLoad) != 1) {
+//		fclose(fileToLoad);
+//		free(buffer);
+//		perror("Failed to read file");
+//	}
+//
+//	fclose(fileToLoad);
+//	return buffer;
+//}

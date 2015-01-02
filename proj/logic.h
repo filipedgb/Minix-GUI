@@ -54,39 +54,78 @@ static iobox currentBox;
 static Button exitButton;
 static Button yesButton;
 static Button noButton;
-
-
-
-
 Directory currentFolders[100];
 
-int getNumberFolders();
-Directory* getDirectories();
 
-int isFolderSelected(int index);
+int collision(mouse_state mouse, Button a);
 
-char* getFolderName(int index);
+int check_mouse_click(mouse_state current_mouse_state);
+
+void initButtons();
+
+int check_mouse_double_click(mouse_state current_mouse_state);
+
+int check_delete_files();
+
+void setDeleteFlag();
+
+int getDeleteFlag();
+
+int getTurnOffFlag();
+
+int isBoxConfirmed();
 
 void openFolder(int index);
 
+void disableBox();
+
+void enableBox(int type,char* text);
+
+char* getBoxText();
+
+int isBox();
+
+int isOutput();
+
 void deleteFolder(int index);
 
-int getFolderByCoords(int x, int y);
+int navigateLeft();
 
-char* getPath();
+int navigateRight();
 
-void toggleSelected(int index);
+int navigateUp();
+
+int navigateDown();
+
+char* getFolderName(int index);
+
+int isFolderSelected(int index);
+
+int openFolderByEnter();
+
+int moveBack();
+
+int getFolderSelected();
 
 void setFolderCoords(int index, int inX, int inY);
 
+void toggleSelected(int index);
+
+char* getPath();
+
+Directory* getDirectories();
+
+int getNumberFolders();
+
+int getFolderByCoords(int x, int y);
+
+int isFileByIndex(int index);
+
+int isFile(char* path);
+
 void updatePath(char* foldername);
 
-void setCurrentPath(char* path);
-
 int getSubFolders(char* foldername);
-
-int check_mouse_click(mouse_state current_mouse_state) ;
-
 
 
 #endif

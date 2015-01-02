@@ -40,7 +40,7 @@ void updateScreen() {
 	drawFolders();
 
 	if(isBox()) {
-		if(isOutput()) drawOutputBox(getBoxText());
+		if(isOutput()) drawOutputBox((char*) getBoxText());
 		else drawInputBox();
 
 	}
@@ -57,65 +57,63 @@ void playIntro(){
 
 void kbc_consequences(int output) {
 
-	if(output == 2) {
+	switch(output) {
+
+	case 2:
 		enableBox(1,"Do you want to delete the selected files?");
 		setDeleteFlag();
 		updateScreen();
-
-	}
-	else if (output == 3) {
+		break;
+	case 3:
 		navigateLeft();
 		updateScreen();
-	}
-
-	else if (output == 4) {
+		break;
+	case 4:
 		navigateRight();
 		updateScreen();
-	}
-	else if (output == 5) {
+		break;
+	case 5:
 		navigateUp();
 		updateScreen();
-	}
-	else if (output == 6) {
+		break;
+	case 6:
 		navigateDown();
 		updateScreen();
-	}
-	else if (output == 7) {
+		break;
+	case 7:
 		openFolderByEnter();
 		updateScreen();
-	}
-	else if (output == 8) {
+		break;
+	case 8:
 		moveBack();
 		updateScreen();
+		break;
 	}
-
-
 
 
 }
 
 void mouse_consequences(int output) {
-	if(output == 2) { // So faz verificações no final de cada pacote (return 2 do handler)
 
-		if(current_mouse_state.lb == 1) {
-			if(get_counter() > 25) {
-				check_mouse_click(current_mouse_state);
-			}
-			else {
-				check_mouse_double_click(current_mouse_state);
-			}
-
-			reset_counter();
-			updateScreen();
+	if(current_mouse_state.lb == 1) {
+		if(get_counter() > 25) {
+			check_mouse_click(current_mouse_state);
 		}
-		else if(current_mouse_state.rb == 1 && check_mouse_click(current_mouse_state) == 3) {
-			updateScreen();
-			drawRightClickMenu(current_mouse_state);
-			memcpy((char*)background, (char*) getBuffer(), getVideoMemSize());
-
+		else {
+			check_mouse_double_click(current_mouse_state);
 		}
+
+		reset_counter();
+		updateScreen();
+	}
+	else if(current_mouse_state.rb == 1 && check_mouse_click(current_mouse_state) == 3) {
+		updateScreen();
+		drawRightClickMenu(current_mouse_state);
+		memcpy((char*)background, (char*) getBuffer(), getVideoMemSize());
 
 	}
+
+
 }
 
 
@@ -185,7 +183,7 @@ int loop() {
 					printf("MOUSE INTERRUPT\n");
 
 					output = mouse_int_handler(&current_mouse_state);
-					mouse_consequences(output);
+					if(output == 2) mouse_consequences(output);
 
 				}
 
