@@ -34,12 +34,10 @@ void drawCursor(mouse_state current_mouse_state) {
 
 }
 
-
 void drawBackground() {
 	vg_fill(0x0);
 
 }
-
 
 void cleanCursor(mouse_state current_mouse_state) {
 	draw_solid_rectangle(current_mouse_state.x,current_mouse_state.y,20,20,0);
@@ -48,8 +46,8 @@ void cleanCursor(mouse_state current_mouse_state) {
 void drawMainMenu() {
 	//printf("Chegou aqui no draw main menu\n");
 
-	draw_solid_rectangle(0,0,getHRES(),30,23) ;
-	draw_solid_rectangle(0,0,30,30,20);
+	draw_solid_rectangle(0,0,getHRES(),30,7) ;
+	draw_solid_rectangle(0,0,30,30,4);
 
 	draw_transp_sprite(0,9,shutdown);
 
