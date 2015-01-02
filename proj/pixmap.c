@@ -58,6 +58,111 @@ static char *shutdown[] = {
 
 };
 
+static char *loading1[] = {
+        "135 13 4", //x y color
+        ". 0", //background
+        "+ 8",
+        "o 14",
+        "$ 3",
+        ".......................................................................................................................................",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooo.........................................................................................................................ooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+};
+
+static char *loading2[] = {
+        "135 13 4", //x y color
+        ". 0", //background
+        "+ 8",
+        "o 14",
+        "$ 3",
+        ".......................................................................................................................................",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooo++++++++.................................................................................................................ooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+};
+
+static char *loading3[] = {
+        "135 13 4", //x y color
+        ". 0", //background
+        "+ 8",
+        "o 14",
+        "$ 3",
+        ".......................................................................................................................................",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++......................................................................ooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+};
+
+static char *loading4[] = {
+        "135 13 4", //x y color
+        ". 0", //background
+        "+ 8",
+        "o 14",
+        "$ 3",
+        ".......................................................................................................................................",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.........................ooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+};
+
+static char *loading5[] = {
+        "135 13 4", //x y color
+        ". 0", //background
+        "+ 8",
+        "o 14",
+        "$ 3",
+        ".......................................................................................................................................",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooo+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+        "....ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....",
+};
+
 static char *logoM[] = {
         "35 21 4", //x y color
         ". 0", //background

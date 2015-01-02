@@ -7,6 +7,7 @@
 #include "logic.h"
 #include "rtc.h"
 
+int centerImageX(int imageWidth);
 
 void mainDraw() ;
 

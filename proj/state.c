@@ -1,7 +1,7 @@
 #include "state.h"
 
 void init() {
-	sef_startup();
+
 	subscribe_devices();
 	getSubFolders(".");
 	initButtons();
@@ -157,7 +157,7 @@ int loop() {
 			switch (_ENDPOINT_P(msg.m_source)) {
 			case HARDWARE: /* hardware interrupt notification */
 
-				//INTERRUPÇÕES DO KEYBOARD
+				//INTERRUPï¿½ï¿½ES DO KEYBOARD
 
 				if (msg.NOTIFY_ARG & BIT(shift_keyboard)) {
 					output = keyboard_int_handler_C(&code);
@@ -177,7 +177,7 @@ int loop() {
 
 				}
 
-				//INTERRUPÇÕES DO RATO
+				//INTERRUPï¿½ï¿½ES DO RATO
 
 				else if(msg.NOTIFY_ARG & BIT(shift_mouse)) {
 					printf("MOUSE INTERRUPT\n");
@@ -187,7 +187,7 @@ int loop() {
 
 				}
 
-				//INTERRUPÇÕES DO TIMER
+				//INTERRUPï¿½ï¿½ES DO TIMER
 
 				else if (msg.NOTIFY_ARG & BIT(shift_timer)) {
 					//printf("TIMER INTERRUPT\n");

@@ -1,17 +1,29 @@
 #include "interface.h"
 
+int centerImageX(int imageWidth) {
+	return getHRES()/2 - imageWidth/2;
+}
+
 void mainDraw() {
-	draw_transp_sprite(405,200,logoM); //300
-	draw_transp_sprite(435,201,logoI); // +30
-	draw_transp_sprite(460,200,logoN); // +25
-	draw_transp_sprite(488,201,logoI); // +17
-	draw_transp_sprite(510,200,logoX); // +23
-	draw_transp_sprite(560,200,logo3); // +39
-	draw_transp_sprite(593,215,logoP); // +33
-	draw_transp_sprite(605,200,logo1); // +12
-	draw_transp_sprite(620,215,logoP); // +15
-	draw_transp_sprite(634,200,logo8); // +14
-	draw_transp_sprite(310,175,penguin);
+
+	draw_transp_sprite(381,250,logoM); //300
+	draw_transp_sprite(411,251,logoI); // +30
+	draw_transp_sprite(437,250,logoN); // +25
+	draw_transp_sprite(464,251,logoI); // +17
+	draw_transp_sprite(486,250,logoX); // +23
+	draw_transp_sprite(536,250,logo3); // +39
+	draw_transp_sprite(568,265,logoP); // +33
+	draw_transp_sprite(581,250,logo1); // +12
+	draw_transp_sprite(596,265,logoP); // +15
+	draw_transp_sprite(610,250,logo8); // +14
+
+	draw_transp_sprite(centerImageX(64),155,penguin);
+
+	char dev[] = "Developers";
+	char names[] = "Filipe Gama Guilherme Routar";
+
+	draw_string(dev,470,360);
+	draw_string(names,395,375);
 }
 
 void drawCursor(mouse_state current_mouse_state) {
