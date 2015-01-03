@@ -1,0 +1,6 @@
+<map id="openFolder" name="openFolder">
+<area shape="rect" id="node2" href="$logic_8c.html#af25edb24b597453fb95c3c2080569bd5" title="getSubFolders" alt="" coords="144,31,251,57"/>
+<area shape="rect" id="node5" href="$logic_8c.html#a31ba4de847c8b9762dfe9fdbb08ef4f1" title="getFolderName" alt="" coords="142,81,253,108"/>
+<area shape="rect" id="node3" href="$logic_8c.html#a5b0080e32e3cb075b00c7184ce3f5ad0" title="updatePath" alt="" coords="301,5,389,32"/>
+<area shape="rect" id="node4" href="$logic_8c.html#abfbb060a687a19a5ecb65b761bb153c0" title="isFile" alt="" coords="319,56,372,83"/>
+</map>

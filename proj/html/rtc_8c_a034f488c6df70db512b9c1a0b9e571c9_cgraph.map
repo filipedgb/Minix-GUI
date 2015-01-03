@@ -1,0 +1,6 @@
+<map id="get_clock" name="get_clock">
+<area shape="rect" id="node2" href="$rtc_8c.html#a788e56085fe57e083210ad3c8887ecb1" title="wait_valid_rtc" alt="" coords="140,31,239,57"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#a0da83a3605c8b0816e952a4d41fa168a" title="BCDToDecimal" alt="" coords="134,81,245,108"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a8cfbbe53c1cf6e3054736daea3044c0f" title="disable" alt="" coords="294,5,357,32"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#a486f22824bd83c5308a0d70ffac6f758" title="enable" alt="" coords="295,56,355,83"/>
+</map>

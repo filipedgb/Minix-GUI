@@ -1,0 +1,395 @@
+\hypertarget{group__video__gr}{}\section{video\+\_\+gr}
+\label{group__video__gr}\index{video\+\_\+gr@{video\+\_\+gr}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{group__video__gr_ga6e39c6cb8202eb0246f40572deef605a}{test\+\_\+init} (unsigned short mode, unsigned short delay)
+\begin{DoxyCompactList}\small\item\em Tests initialization of video card in graphics mode. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga41ec579061f8d7e2dc435e94efaac75e}{test\+\_\+square} (unsigned short x, unsigned short y, unsigned short size, unsigned long color)
+\begin{DoxyCompactList}\small\item\em Tests drawing a square with a given color. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_gaddb118e00aa3152b6b6445f77a95b189}{test\+\_\+line} (unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color)
+\begin{DoxyCompactList}\small\item\em Tests drawing a line segment with specifed end points and color. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga4dfc8ee51e363da1ecfe9fba1210bdb2}{test\+\_\+xpm} (unsigned short xi, unsigned short yi, char $\ast$xpm\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Tests drawing X\+P\+M on the screen at specified coordinates. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga07be3b073d0119c528934e24c0312c87}{test\+\_\+move} (unsigned short xi, unsigned short yi, char $\ast$xpm\mbox{[}$\,$\mbox{]}, unsigned short hor, short delta, unsigned short time)
+\begin{DoxyCompactList}\small\item\em Tests moving sprite on the screen along horizontal/vertical axes. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga8ef5b4814293ba5d60d1d9cfaa648680}{test\+\_\+controller} ()
+\item 
+void $\ast$ \hyperlink{group__video__gr_gacef21667c79365d57a084bed994c2189}{vg\+\_\+init} (unsigned short mode)
+\begin{DoxyCompactList}\small\item\em Initializes the video module in graphics mode. \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga42f593e6656f1a978315aff02b1bcebf}{vg\+\_\+exit} (void)
+\begin{DoxyCompactList}\small\item\em Returns to default Minix 3 text mode (0x03\+: 25 x 80, 16 colors) \end{DoxyCompactList}\item 
+int \hyperlink{group__video__gr_ga225408a4d744af43112aa410a92d303b}{vg\+\_\+fill} (unsigned long color)
+\item 
+int \hyperlink{group__video__gr_ga021afd3327df962eafa769b82ed8e9a2}{draw\+\_\+solid\+\_\+rectangle} (unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned long color)
+\item 
+unsigned \hyperlink{group__video__gr_ga62a06f3a0dc2bfe74941b60f3f0e4294}{get\+H\+R\+E\+S} ()
+\item 
+unsigned \hyperlink{group__video__gr_ga200a747d2cbe6ff688b650fa5972dcec}{get\+V\+R\+E\+S} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for outputing data to screen in graphics mode 
+
+\subsection{Function Documentation}
+\hypertarget{group__video__gr_ga021afd3327df962eafa769b82ed8e9a2}{}\index{video\+\_\+gr@{video\+\_\+gr}!draw\+\_\+solid\+\_\+rectangle@{draw\+\_\+solid\+\_\+rectangle}}
+\index{draw\+\_\+solid\+\_\+rectangle@{draw\+\_\+solid\+\_\+rectangle}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{draw\+\_\+solid\+\_\+rectangle}]{\setlength{\rightskip}{0pt plus 5cm}int draw\+\_\+solid\+\_\+rectangle (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{x, }
+\item[{unsigned short}]{y, }
+\item[{unsigned short}]{width, }
+\item[{unsigned short}]{height, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga021afd3327df962eafa769b82ed8e9a2}
+Draws a rectangle 
+
+Definition at line 152 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga021afd3327df962eafa769b82ed8e9a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga62a06f3a0dc2bfe74941b60f3f0e4294}{}\index{video\+\_\+gr@{video\+\_\+gr}!get\+H\+R\+E\+S@{get\+H\+R\+E\+S}}
+\index{get\+H\+R\+E\+S@{get\+H\+R\+E\+S}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{get\+H\+R\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}unsigned get\+H\+R\+E\+S (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga62a06f3a0dc2bfe74941b60f3f0e4294}
+Returns horizontal resolution of the screen 
+
+Definition at line 38 of file video\+\_\+gr.\+c.
+
+\hypertarget{group__video__gr_ga200a747d2cbe6ff688b650fa5972dcec}{}\index{video\+\_\+gr@{video\+\_\+gr}!get\+V\+R\+E\+S@{get\+V\+R\+E\+S}}
+\index{get\+V\+R\+E\+S@{get\+V\+R\+E\+S}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{get\+V\+R\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}unsigned get\+V\+R\+E\+S (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga200a747d2cbe6ff688b650fa5972dcec}
+Returns vertical resolution of the screen 
+
+Definition at line 43 of file video\+\_\+gr.\+c.
+
+\hypertarget{group__video__gr_ga8ef5b4814293ba5d60d1d9cfaa648680}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+controller@{test\+\_\+controller}}
+\index{test\+\_\+controller@{test\+\_\+controller}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga8ef5b4814293ba5d60d1d9cfaa648680}
+
+
+Definition at line 136 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga8ef5b4814293ba5d60d1d9cfaa648680_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga6e39c6cb8202eb0246f40572deef605a}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+init@{test\+\_\+init}}
+\index{test\+\_\+init@{test\+\_\+init}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ test\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{mode, }
+\item[{unsigned short}]{delay}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga6e39c6cb8202eb0246f40572deef605a}
+
+
+Tests initialization of video card in graphics mode. 
+
+Uses the V\+B\+E I\+N\+T 0x10 interface to set the desired graphics mode, and resets Minix\textquotesingle{}s default text mode after a short delay. Before exiting, displays on the console the physical address of V\+R\+A\+M in the input graphics mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & 16-\/bit V\+B\+E mode to set \\
+\hline
+{\em delay} & delay in seconds after which returns to text mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Virtual address V\+R\+A\+M was mapped to. N\+U\+L\+L, upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga6e39c6cb8202eb0246f40572deef605a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_gaddb118e00aa3152b6b6445f77a95b189}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+line@{test\+\_\+line}}
+\index{test\+\_\+line@{test\+\_\+line}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{unsigned short}]{xf, }
+\item[{unsigned short}]{yf, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_gaddb118e00aa3152b6b6445f77a95b189}
+
+
+Tests drawing a line segment with specifed end points and color. 
+
+Tests drawing a line segment with the specified end points and the input color, by writing to V\+R\+A\+M in video mode 0x105
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & horizontal coordinate of \char`\"{}first\char`\"{} endpoint, starts at 0 (leftmost pixel) \\
+\hline
+{\em yi} & vertical coordinate of \char`\"{}first\char`\"{} endpoint, starts at 0 (top pixel) \\
+\hline
+{\em xf} & horizontal coordinate of \char`\"{}last\char`\"{} endpoint, starts at 0 (leftmost pixel) \\
+\hline
+{\em yf} & vertical coordinate of \char`\"{}last\char`\"{} endpoint, starts at 0 (top pixel) \\
+\hline
+{\em color} & color of the line segment to draw \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, non-\/zero upon failure 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_gaddb118e00aa3152b6b6445f77a95b189_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga07be3b073d0119c528934e24c0312c87}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+move@{test\+\_\+move}}
+\index{test\+\_\+move@{test\+\_\+move}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+move}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+move (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{char $\ast$}]{xpm\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned short}]{hor, }
+\item[{short}]{delta, }
+\item[{unsigned short}]{time}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga07be3b073d0119c528934e24c0312c87}
+
+
+Tests moving sprite on the screen along horizontal/vertical axes. 
+
+Tests moving a X\+P\+M on the screen along horizontal/vertical axes, at the specified speed, in video mode 0x105
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & horizontal coordinate of upper-\/left corner, starts at 0 (leftmost pixel) \\
+\hline
+{\em yi} & vertical coordinate of upper-\/left corner, starts at 0 (top pixel) \\
+\hline
+{\em xpm} & array with X\+P\+M (assuming indexed color mode) \\
+\hline
+{\em hor} & whether the movement is in the horizontal direction (!= 0) or in the vertical direction (== 0) \\
+\hline
+{\em delta} & movement in along specified direction in pixels \\
+\hline
+{\em time} & duration in seconds of the movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, non-\/zero upon failure 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga07be3b073d0119c528934e24c0312c87_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga41ec579061f8d7e2dc435e94efaac75e}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+square@{test\+\_\+square}}
+\index{test\+\_\+square@{test\+\_\+square}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+square}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+square (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{x, }
+\item[{unsigned short}]{y, }
+\item[{unsigned short}]{size, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga41ec579061f8d7e2dc435e94efaac75e}
+
+
+Tests drawing a square with a given color. 
+
+Tests drawing a square with the specified size and color, at the specified coordinates (which specify the upper left corner (U\+L\+C)) in video mode 0x105
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & horizontal coordinate of U\+L\+C, starts at 0 (leftmost pixel) \\
+\hline
+{\em y} & vertical coordinate of U\+L\+C, starts at 0 (top pixel) \\
+\hline
+{\em size} & of each side in pixels \\
+\hline
+{\em color} & color to set the pixel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga41ec579061f8d7e2dc435e94efaac75e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga4dfc8ee51e363da1ecfe9fba1210bdb2}{}\index{video\+\_\+gr@{video\+\_\+gr}!test\+\_\+xpm@{test\+\_\+xpm}}
+\index{test\+\_\+xpm@{test\+\_\+xpm}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{test\+\_\+xpm}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+xpm (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{char $\ast$}]{xpm\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga4dfc8ee51e363da1ecfe9fba1210bdb2}
+
+
+Tests drawing X\+P\+M on the screen at specified coordinates. 
+
+Tests drawing a sprite from an X\+P\+M on the screen at specified coordinates by writing to V\+R\+A\+M in video mode 0x105
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & horizontal coordinate of upper-\/left corner, starts at 0 (leftmost pixel) \\
+\hline
+{\em yi} & vertical coordinate of upper-\/left corner, starts at 0 (top pixel) \\
+\hline
+{\em xpm} & array with X\+P\+M (assuming indexed color mode) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, non-\/zero upon failure 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file test5.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_ga4dfc8ee51e363da1ecfe9fba1210bdb2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__video__gr_ga42f593e6656f1a978315aff02b1bcebf}{}\index{video\+\_\+gr@{video\+\_\+gr}!vg\+\_\+exit@{vg\+\_\+exit}}
+\index{vg\+\_\+exit@{vg\+\_\+exit}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{vg\+\_\+exit}]{\setlength{\rightskip}{0pt plus 5cm}int vg\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga42f593e6656f1a978315aff02b1bcebf}
+
+
+Returns to default Minix 3 text mode (0x03\+: 25 x 80, 16 colors) 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, non-\/zero upon failure 
+\end{DoxyReturn}
+
+
+Definition at line 291 of file video\+\_\+gr.\+c.
+
+\hypertarget{group__video__gr_ga225408a4d744af43112aa410a92d303b}{}\index{video\+\_\+gr@{video\+\_\+gr}!vg\+\_\+fill@{vg\+\_\+fill}}
+\index{vg\+\_\+fill@{vg\+\_\+fill}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{vg\+\_\+fill}]{\setlength{\rightskip}{0pt plus 5cm}int vg\+\_\+fill (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_ga225408a4d744af43112aa410a92d303b}
+
+
+Definition at line 107 of file video\+\_\+gr.\+c.
+
+\hypertarget{group__video__gr_gacef21667c79365d57a084bed994c2189}{}\index{video\+\_\+gr@{video\+\_\+gr}!vg\+\_\+init@{vg\+\_\+init}}
+\index{vg\+\_\+init@{vg\+\_\+init}!video\+\_\+gr@{video\+\_\+gr}}
+\subsubsection[{vg\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ vg\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{mode}
+\end{DoxyParamCaption}
+)}\label{group__video__gr_gacef21667c79365d57a084bed994c2189}
+
+
+Initializes the video module in graphics mode. 
+
+Uses the V\+B\+E I\+N\+T 0x10 interface to set the desired graphics mode, maps V\+R\+A\+M to the process\textquotesingle{} address space and initializes static global variables with the resolution of the screen, and the number of colors
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & 16-\/bit V\+B\+E mode to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Virtual address V\+R\+A\+M was mapped to. N\+U\+L\+L, upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video__gr_gacef21667c79365d57a084bed994c2189_cgraph}
+\end{center}
+\end{figure}
+
+

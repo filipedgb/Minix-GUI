@@ -1,0 +1,122 @@
+\hypertarget{rtc_8c}{}\section{rtc.\+c File Reference}
+\label{rtc_8c}\index{rtc.\+c@{rtc.\+c}}
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}{rtc\+\_\+subscribe\+\_\+int} ()
+\item 
+int \hyperlink{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int} ()
+\item 
+void \hyperlink{rtc_8c_a034f488c6df70db512b9c1a0b9e571c9}{get\+\_\+clock} (\hyperlink{structrtc__state}{rtc\+\_\+state} $\ast$current\+\_\+clock\+\_\+state)
+\item 
+unsigned int \hyperlink{rtc_8c_a0da83a3605c8b0816e952a4d41fa168a}{B\+C\+D\+To\+Decimal} (unsigned int bcd\+Byte)
+\item 
+void \hyperlink{rtc_8c_a788e56085fe57e083210ad3c8887ecb1}{wait\+\_\+valid\+\_\+rtc} (void)
+\item 
+void \hyperlink{rtc_8c_a486f22824bd83c5308a0d70ffac6f758}{enable} ()
+\item 
+void \hyperlink{rtc_8c_a8cfbbe53c1cf6e3054736daea3044c0f}{disable} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rtc_8c_a0da83a3605c8b0816e952a4d41fa168a}{}\index{rtc.\+c@{rtc.\+c}!B\+C\+D\+To\+Decimal@{B\+C\+D\+To\+Decimal}}
+\index{B\+C\+D\+To\+Decimal@{B\+C\+D\+To\+Decimal}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{B\+C\+D\+To\+Decimal}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int B\+C\+D\+To\+Decimal (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{bcd\+Byte}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_a0da83a3605c8b0816e952a4d41fa168a}
+Converts B\+C\+D format into Decimal 
+
+Definition at line 60 of file rtc.\+c.
+
+\hypertarget{rtc_8c_a8cfbbe53c1cf6e3054736daea3044c0f}{}\index{rtc.\+c@{rtc.\+c}!disable@{disable}}
+\index{disable@{disable}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{disable}]{\setlength{\rightskip}{0pt plus 5cm}void disable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_a8cfbbe53c1cf6e3054736daea3044c0f}
+Disables R\+T\+C 
+
+Definition at line 84 of file rtc.\+c.
+
+\hypertarget{rtc_8c_a486f22824bd83c5308a0d70ffac6f758}{}\index{rtc.\+c@{rtc.\+c}!enable@{enable}}
+\index{enable@{enable}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{enable}]{\setlength{\rightskip}{0pt plus 5cm}void enable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_a486f22824bd83c5308a0d70ffac6f758}
+Enables R\+T\+C 
+
+Definition at line 78 of file rtc.\+c.
+
+\hypertarget{rtc_8c_a034f488c6df70db512b9c1a0b9e571c9}{}\index{rtc.\+c@{rtc.\+c}!get\+\_\+clock@{get\+\_\+clock}}
+\index{get\+\_\+clock@{get\+\_\+clock}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{get\+\_\+clock}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+clock (
+\begin{DoxyParamCaption}
+\item[{{\bf rtc\+\_\+state} $\ast$}]{current\+\_\+clock\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_a034f488c6df70db512b9c1a0b9e571c9}
+Gets computer clock 
+
+Definition at line 20 of file rtc.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{rtc_8c_a034f488c6df70db512b9c1a0b9e571c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}{}\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+subscribe\+\_\+int@{rtc\+\_\+subscribe\+\_\+int}}
+\index{rtc\+\_\+subscribe\+\_\+int@{rtc\+\_\+subscribe\+\_\+int}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{rtc\+\_\+subscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int rtc\+\_\+subscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}
+
+
+Definition at line 5 of file rtc.\+c.
+
+\hypertarget{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}{}\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+unsubscribe\+\_\+int@{rtc\+\_\+unsubscribe\+\_\+int}}
+\index{rtc\+\_\+unsubscribe\+\_\+int@{rtc\+\_\+unsubscribe\+\_\+int}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{rtc\+\_\+unsubscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int rtc\+\_\+unsubscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}
+
+
+Definition at line 13 of file rtc.\+c.
+
+\hypertarget{rtc_8c_a788e56085fe57e083210ad3c8887ecb1}{}\index{rtc.\+c@{rtc.\+c}!wait\+\_\+valid\+\_\+rtc@{wait\+\_\+valid\+\_\+rtc}}
+\index{wait\+\_\+valid\+\_\+rtc@{wait\+\_\+valid\+\_\+rtc}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{wait\+\_\+valid\+\_\+rtc}]{\setlength{\rightskip}{0pt plus 5cm}void wait\+\_\+valid\+\_\+rtc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{rtc_8c_a788e56085fe57e083210ad3c8887ecb1}
+Validates time after changing hour 
+
+Definition at line 67 of file rtc.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{rtc_8c_a788e56085fe57e083210ad3c8887ecb1_cgraph}
+\end{center}
+\end{figure}
+
+

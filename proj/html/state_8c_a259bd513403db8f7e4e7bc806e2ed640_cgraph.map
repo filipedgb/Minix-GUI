@@ -1,0 +1,6 @@
+<map id="unsubscribe_devices" name="unsubscribe_devices">
+<area shape="rect" id="node2" href="$keyboard_8c.html#ac95aea27a5e91b363b876fed881f368f" title="keyboard_unsubscribe_int" alt="" coords="197,5,371,32"/>
+<area shape="rect" id="node3" href="$group__timer.html#gab9eea51549744bca5c5c923b388bb4ee" title="Unsubscribes Timer 0 interrupts. " alt="" coords="209,56,359,83"/>
+<area shape="rect" id="node4" href="$mouse_8c.html#a685ad2706aca36d9869a30a19b9f446a" title="mouse_unsubscribe_int" alt="" coords="205,107,363,133"/>
+<area shape="rect" id="node5" href="$group__video__gr.html#ga42f593e6656f1a978315aff02b1bcebf" title="Returns to default Minix 3 text mode (0x03: 25 x 80, 16 colors) " alt="" coords="253,157,315,184"/>
+</map>

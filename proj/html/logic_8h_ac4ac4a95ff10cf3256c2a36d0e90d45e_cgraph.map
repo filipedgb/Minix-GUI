@@ -1,0 +1,7 @@
+<map id="check_delete_files" name="check_delete_files">
+<area shape="rect" id="node2" href="$logic_8c.html#a530fba246396179676ecb402fb2d2e4a" title="deleteFolder" alt="" coords="184,31,277,57"/>
+<area shape="rect" id="node3" href="$logic_8c.html#a5b0080e32e3cb075b00c7184ce3f5ad0" title="updatePath" alt="" coords="485,5,573,32"/>
+<area shape="rect" id="node4" href="$logic_8c.html#a31ba4de847c8b9762dfe9fdbb08ef4f1" title="getFolderName" alt="" coords="326,31,437,57"/>
+<area shape="rect" id="node5" href="$logic_8c.html#af25edb24b597453fb95c3c2080569bd5" title="getSubFolders" alt="" coords="328,81,435,108"/>
+<area shape="rect" id="node6" href="$logic_8c.html#abfbb060a687a19a5ecb65b761bb153c0" title="isFile" alt="" coords="503,81,556,108"/>
+</map>

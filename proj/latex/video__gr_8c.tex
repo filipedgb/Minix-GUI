@@ -1,0 +1,284 @@
+\hypertarget{video__gr_8c}{}\section{video\+\_\+gr.\+c File Reference}
+\label{video__gr_8c}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+{\ttfamily \#include $<$minix/syslib.\+h$>$}\\*
+{\ttfamily \#include $<$minix/drivers.\+h$>$}\\*
+{\ttfamily \#include $<$machine/int86.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}vbe.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{video__gr_8c_ac854e8352d97c69bdfe247573593ba3b}{V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R}~0x\+E0000000
+\item 
+\#define \hyperlink{video__gr_8c_abf6f66114c31b8f87c80534ca695a00b}{H\+\_\+\+R\+E\+S}~1024
+\item 
+\#define \hyperlink{video__gr_8c_aac2466862bcfc18231c38fe1eacc22e3}{V\+\_\+\+R\+E\+S}~768
+\item 
+\#define \hyperlink{video__gr_8c_a35faf89171af20cd21088c37d62bb7ee}{B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{group__video__gr_ga62a06f3a0dc2bfe74941b60f3f0e4294}{get\+H\+R\+E\+S} ()
+\item 
+unsigned \hyperlink{group__video__gr_ga200a747d2cbe6ff688b650fa5972dcec}{get\+V\+R\+E\+S} ()
+\item 
+unsigned int \hyperlink{video__gr_8c_accd11b97cbe02e658083a97f1eb46ed7}{get\+Video\+Mem\+Size} ()
+\item 
+void $\ast$ \hyperlink{group__video__gr_gacef21667c79365d57a084bed994c2189}{vg\+\_\+init} (unsigned short mode)
+\begin{DoxyCompactList}\small\item\em Initializes the video module in graphics mode. \end{DoxyCompactList}\item 
+int \hyperlink{video__gr_8c_a8399aae2d2f8a89099f6724e54b5cc42}{vg\+\_\+set\+\_\+pixel} (unsigned long x, unsigned long y, unsigned long color)
+\item 
+int \hyperlink{group__video__gr_ga225408a4d744af43112aa410a92d303b}{vg\+\_\+fill} (unsigned long color)
+\item 
+void \hyperlink{video__gr_8c_a79fb5e869c1712e57057bfa9875c10f8}{flip\+Display} ()
+\item 
+void \hyperlink{video__gr_8c_a705763ba4b0edbc99f7948780a2fd031}{set\+Display} (char $\ast$buffer)
+\item 
+char $\ast$ \hyperlink{video__gr_8c_a1cd7727ad0fc3fe3ffbbb98cd9115c1c}{get\+Buffer} ()
+\item 
+int \hyperlink{video__gr_8c_a9677ee1d2ff56c4791a196feca494fdf}{draw\+\_\+line} (unsigned short xi, unsigned short yi, unsigned short xf, unsigned short yf, unsigned long color)
+\item 
+int \hyperlink{video__gr_8c_ad84bc9bf7b3634e87401ccbd26153935}{draw\+\_\+rectangle} (unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned long color)
+\item 
+int \hyperlink{group__video__gr_ga021afd3327df962eafa769b82ed8e9a2}{draw\+\_\+solid\+\_\+rectangle} (unsigned short x, unsigned short y, unsigned short width, unsigned short height, unsigned long color)
+\item 
+int \hyperlink{video__gr_8c_a11dba15680d97efad5ac51abdac1eb63}{draw\+\_\+map} (unsigned short xi, unsigned short yi, int n\+\_\+columns, int n\+\_\+rows, char $\ast$pixmap)
+\item 
+int \hyperlink{video__gr_8c_aeac38e0c4152dd54143e87088d044240}{draw\+\_\+transparent\+\_\+map} (unsigned short xi, unsigned short yi, int n\+\_\+columns, int n\+\_\+rows, char $\ast$pixmap)
+\item 
+void \hyperlink{video__gr_8c_af1fc6aaea69bec89457fa76d945b90f0}{vt\+\_\+blank} ()
+\item 
+void \hyperlink{video__gr_8c_ae8da92089ef7516ba9b8cdc89a978219}{display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info} ()
+\item 
+int \hyperlink{group__video__gr_ga42f593e6656f1a978315aff02b1bcebf}{vg\+\_\+exit} ()
+\begin{DoxyCompactList}\small\item\em Returns to default Minix 3 text mode (0x03\+: 25 x 80, 16 colors) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{video__gr_8c_a35faf89171af20cd21088c37d62bb7ee}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L@{B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L}}
+\index{B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L@{B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+I\+T\+S\+\_\+\+P\+E\+R\+\_\+\+P\+I\+X\+E\+L~8}\label{video__gr_8c_a35faf89171af20cd21088c37d62bb7ee}
+
+
+Definition at line 21 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_abf6f66114c31b8f87c80534ca695a00b}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!H\+\_\+\+R\+E\+S@{H\+\_\+\+R\+E\+S}}
+\index{H\+\_\+\+R\+E\+S@{H\+\_\+\+R\+E\+S}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{H\+\_\+\+R\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+\_\+\+R\+E\+S~1024}\label{video__gr_8c_abf6f66114c31b8f87c80534ca695a00b}
+
+
+Definition at line 19 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_aac2466862bcfc18231c38fe1eacc22e3}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!V\+\_\+\+R\+E\+S@{V\+\_\+\+R\+E\+S}}
+\index{V\+\_\+\+R\+E\+S@{V\+\_\+\+R\+E\+S}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{V\+\_\+\+R\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+\_\+\+R\+E\+S~768}\label{video__gr_8c_aac2466862bcfc18231c38fe1eacc22e3}
+
+
+Definition at line 20 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_ac854e8352d97c69bdfe247573593ba3b}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R@{V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R}}
+\index{V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R@{V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+R\+A\+M\+\_\+\+P\+H\+Y\+S\+\_\+\+A\+D\+D\+R~0x\+E0000000}\label{video__gr_8c_ac854e8352d97c69bdfe247573593ba3b}
+
+
+Definition at line 18 of file video\+\_\+gr.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{video__gr_8c_ae8da92089ef7516ba9b8cdc89a978219}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info@{display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info}}
+\index{display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info@{display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+\+V\+B\+E\+\_\+controller\+\_\+info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_ae8da92089ef7516ba9b8cdc89a978219}
+
+
+Definition at line 248 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{video__gr_8c_ae8da92089ef7516ba9b8cdc89a978219_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{video__gr_8c_a9677ee1d2ff56c4791a196feca494fdf}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!draw\+\_\+line@{draw\+\_\+line}}
+\index{draw\+\_\+line@{draw\+\_\+line}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{draw\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}int draw\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{unsigned short}]{xf, }
+\item[{unsigned short}]{yf, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a9677ee1d2ff56c4791a196feca494fdf}
+
+
+Definition at line 167 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{video__gr_8c_a9677ee1d2ff56c4791a196feca494fdf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{video__gr_8c_a11dba15680d97efad5ac51abdac1eb63}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!draw\+\_\+map@{draw\+\_\+map}}
+\index{draw\+\_\+map@{draw\+\_\+map}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{draw\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}int draw\+\_\+map (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{int}]{n\+\_\+columns, }
+\item[{int}]{n\+\_\+rows, }
+\item[{char $\ast$}]{pixmap}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a11dba15680d97efad5ac51abdac1eb63}
+
+
+Definition at line 206 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_ad84bc9bf7b3634e87401ccbd26153935}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!draw\+\_\+rectangle@{draw\+\_\+rectangle}}
+\index{draw\+\_\+rectangle@{draw\+\_\+rectangle}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{draw\+\_\+rectangle}]{\setlength{\rightskip}{0pt plus 5cm}int draw\+\_\+rectangle (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{x, }
+\item[{unsigned short}]{y, }
+\item[{unsigned short}]{width, }
+\item[{unsigned short}]{height, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_ad84bc9bf7b3634e87401ccbd26153935}
+
+
+Definition at line 135 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{video__gr_8c_ad84bc9bf7b3634e87401ccbd26153935_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{video__gr_8c_aeac38e0c4152dd54143e87088d044240}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!draw\+\_\+transparent\+\_\+map@{draw\+\_\+transparent\+\_\+map}}
+\index{draw\+\_\+transparent\+\_\+map@{draw\+\_\+transparent\+\_\+map}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{draw\+\_\+transparent\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}int draw\+\_\+transparent\+\_\+map (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{int}]{n\+\_\+columns, }
+\item[{int}]{n\+\_\+rows, }
+\item[{char $\ast$}]{pixmap}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_aeac38e0c4152dd54143e87088d044240}
+
+
+Definition at line 224 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{video__gr_8c_aeac38e0c4152dd54143e87088d044240_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{video__gr_8c_a79fb5e869c1712e57057bfa9875c10f8}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!flip\+Display@{flip\+Display}}
+\index{flip\+Display@{flip\+Display}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{flip\+Display}]{\setlength{\rightskip}{0pt plus 5cm}void flip\+Display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a79fb5e869c1712e57057bfa9875c10f8}
+
+
+Definition at line 118 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_a1cd7727ad0fc3fe3ffbbb98cd9115c1c}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{get\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a1cd7727ad0fc3fe3ffbbb98cd9115c1c}
+
+
+Definition at line 127 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_accd11b97cbe02e658083a97f1eb46ed7}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!get\+Video\+Mem\+Size@{get\+Video\+Mem\+Size}}
+\index{get\+Video\+Mem\+Size@{get\+Video\+Mem\+Size}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{get\+Video\+Mem\+Size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int get\+Video\+Mem\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_accd11b97cbe02e658083a97f1eb46ed7}
+
+
+Definition at line 47 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_a705763ba4b0edbc99f7948780a2fd031}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!set\+Display@{set\+Display}}
+\index{set\+Display@{set\+Display}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{set\+Display}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Display (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a705763ba4b0edbc99f7948780a2fd031}
+
+
+Definition at line 122 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_a8399aae2d2f8a89099f6724e54b5cc42}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!vg\+\_\+set\+\_\+pixel@{vg\+\_\+set\+\_\+pixel}}
+\index{vg\+\_\+set\+\_\+pixel@{vg\+\_\+set\+\_\+pixel}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{vg\+\_\+set\+\_\+pixel}]{\setlength{\rightskip}{0pt plus 5cm}int vg\+\_\+set\+\_\+pixel (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{x, }
+\item[{unsigned long}]{y, }
+\item[{unsigned long}]{color}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_a8399aae2d2f8a89099f6724e54b5cc42}
+
+
+Definition at line 101 of file video\+\_\+gr.\+c.
+
+\hypertarget{video__gr_8c_af1fc6aaea69bec89457fa76d945b90f0}{}\index{video\+\_\+gr.\+c@{video\+\_\+gr.\+c}!vt\+\_\+blank@{vt\+\_\+blank}}
+\index{vt\+\_\+blank@{vt\+\_\+blank}!video\+\_\+gr.\+c@{video\+\_\+gr.\+c}}
+\subsubsection[{vt\+\_\+blank}]{\setlength{\rightskip}{0pt plus 5cm}void vt\+\_\+blank (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{video__gr_8c_af1fc6aaea69bec89457fa76d945b90f0}
+
+
+Definition at line 237 of file video\+\_\+gr.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{video__gr_8c_af1fc6aaea69bec89457fa76d945b90f0_cgraph}
+\end{center}
+\end{figure}
+
+

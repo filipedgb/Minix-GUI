@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['gesture_5fstate_5fmachine',['gesture_state_machine',['../mouse_8c.html#a58b93efb6a8f4663e3483eff76868253',1,'gesture_state_machine():&#160;mouse.c'],['../mouse_8h.html#a58b93efb6a8f4663e3483eff76868253',1,'gesture_state_machine():&#160;mouse.c']]],
+  ['get_5fclock',['get_clock',['../rtc_8c.html#a034f488c6df70db512b9c1a0b9e571c9',1,'get_clock(rtc_state *current_clock_state):&#160;rtc.c'],['../rtc_8h.html#a034f488c6df70db512b9c1a0b9e571c9',1,'get_clock(rtc_state *current_clock_state):&#160;rtc.c']]],
+  ['get_5fcounter',['get_counter',['../timer_8c.html#a75543692071e8869de9c2fc41a470b24',1,'get_counter():&#160;timer.c'],['../timer_8h.html#a75543692071e8869de9c2fc41a470b24',1,'get_counter():&#160;timer.c']]],
+  ['get_5fseconds',['get_seconds',['../timer_8c.html#aa44db83dc50df091c2f5177a750511c7',1,'get_seconds():&#160;timer.c'],['../timer_8h.html#aa44db83dc50df091c2f5177a750511c7',1,'get_seconds():&#160;timer.c']]],
+  ['getboxtext',['getBoxText',['../logic_8c.html#a158bfa83c4b1dd186a3a89151b687e01',1,'getBoxText():&#160;logic.c'],['../logic_8h.html#a158bfa83c4b1dd186a3a89151b687e01',1,'getBoxText():&#160;logic.c']]],
+  ['getboxtitle',['getBoxTitle',['../logic_8c.html#ac767299fe51a7511dc7dcb8f41a1f4b9',1,'logic.c']]],
+  ['getbuffer',['getBuffer',['../video__gr_8c.html#a1cd7727ad0fc3fe3ffbbb98cd9115c1c',1,'video_gr.c']]],
+  ['getcharbynumber',['getCharByNumber',['../logic_8c.html#aa5aa39c1f1818cfbd5141e37c3a9e5c0',1,'logic.c']]],
+  ['getdeleteflag',['getDeleteFlag',['../logic_8c.html#aaa9525bb143ec0e36c7b6eda42881715',1,'getDeleteFlag():&#160;logic.c'],['../logic_8h.html#aaa9525bb143ec0e36c7b6eda42881715',1,'getDeleteFlag():&#160;logic.c']]],
+  ['getdirectories',['getDirectories',['../logic_8c.html#a4b7468f1ca81496cf0ee00452194e81f',1,'getDirectories():&#160;logic.c'],['../logic_8h.html#a4b7468f1ca81496cf0ee00452194e81f',1,'getDirectories():&#160;logic.c']]],
+  ['getfolderbycoords',['getFolderByCoords',['../logic_8c.html#a65b0f047568e3d106306bd405b5be72b',1,'getFolderByCoords(int x, int y):&#160;logic.c'],['../logic_8h.html#a65b0f047568e3d106306bd405b5be72b',1,'getFolderByCoords(int x, int y):&#160;logic.c']]],
+  ['getfoldername',['getFolderName',['../logic_8c.html#a31ba4de847c8b9762dfe9fdbb08ef4f1',1,'getFolderName(int index):&#160;logic.c'],['../logic_8h.html#a31ba4de847c8b9762dfe9fdbb08ef4f1',1,'getFolderName(int index):&#160;logic.c']]],
+  ['getfolderselected',['getFolderSelected',['../logic_8c.html#a4ea80b22f633b3030dec0db2269ada1d',1,'getFolderSelected():&#160;logic.c'],['../logic_8h.html#a4ea80b22f633b3030dec0db2269ada1d',1,'getFolderSelected():&#160;logic.c']]],
+  ['gethres',['getHRES',['../group__video__gr.html#ga62a06f3a0dc2bfe74941b60f3f0e4294',1,'getHRES():&#160;video_gr.c'],['../group__video__gr.html#ga62a06f3a0dc2bfe74941b60f3f0e4294',1,'getHRES():&#160;video_gr.c']]],
+  ['getnumberfolders',['getNumberFolders',['../logic_8c.html#a00fee6141a63232b663143211aacc392',1,'getNumberFolders():&#160;logic.c'],['../logic_8h.html#a00fee6141a63232b663143211aacc392',1,'getNumberFolders():&#160;logic.c']]],
+  ['getpath',['getPath',['../logic_8c.html#a551b12c420e086648c320df4fa034130',1,'getPath():&#160;logic.c'],['../logic_8h.html#a551b12c420e086648c320df4fa034130',1,'getPath():&#160;logic.c']]],
+  ['getrenameflag',['getRenameFlag',['../logic_8c.html#a62436370dd4c3bd2452cef7f4fd7b7f0',1,'getRenameFlag():&#160;logic.c'],['../logic_8h.html#a62436370dd4c3bd2452cef7f4fd7b7f0',1,'getRenameFlag():&#160;logic.c']]],
+  ['getsubfolders',['getSubFolders',['../logic_8c.html#af25edb24b597453fb95c3c2080569bd5',1,'getSubFolders(char *foldername):&#160;logic.c'],['../logic_8h.html#af25edb24b597453fb95c3c2080569bd5',1,'getSubFolders(char *foldername):&#160;logic.c']]],
+  ['gettitle',['getTitle',['../logic_8c.html#a87d8b4ed67ed030ef2f6f3faeb7aa6df',1,'logic.c']]],
+  ['getturnoffflag',['getTurnOffFlag',['../logic_8c.html#a283e5fd540509ad3e89cd63bb7f6e999',1,'getTurnOffFlag():&#160;logic.c'],['../logic_8h.html#a283e5fd540509ad3e89cd63bb7f6e999',1,'getTurnOffFlag():&#160;logic.c']]],
+  ['getvideomemsize',['getVideoMemSize',['../video__gr_8c.html#accd11b97cbe02e658083a97f1eb46ed7',1,'video_gr.c']]],
+  ['getvres',['getVRES',['../group__video__gr.html#ga200a747d2cbe6ff688b650fa5972dcec',1,'getVRES():&#160;video_gr.c'],['../group__video__gr.html#ga200a747d2cbe6ff688b650fa5972dcec',1,'getVRES():&#160;video_gr.c']]]
+];

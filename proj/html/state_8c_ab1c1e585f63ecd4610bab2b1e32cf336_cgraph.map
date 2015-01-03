@@ -1,0 +1,25 @@
+<map id="minixBootAnimation" name="minixBootAnimation">
+<area shape="rect" id="node2" href="$group__video__gr.html#gacef21667c79365d57a084bed994c2189" title="Initializes the video module in graphics mode. " alt="" coords="237,95,296,121"/>
+<area shape="rect" id="node7" href="$group__timer.html#ga4c5d9f47323eda494cfd826f6d62eec9" title="Subscribes and enables Timer 0 interrupts. " alt="" coords="199,157,334,184"/>
+<area shape="rect" id="node8" href="$interface_8c.html#aaee65a42f436525f7b9887fbe4f3663d" title="mainDraw" alt="" coords="227,208,306,235"/>
+<area shape="rect" id="node19" href="$timer_8c.html#aa44db83dc50df091c2f5177a750511c7" title="get_seconds" alt="" coords="219,360,315,387"/>
+<area shape="rect" id="node20" href="$group__timer.html#ga10fc9c867b15c7da6649311c9987cd17" title="Timer 0 interrupt handler. " alt="" coords="206,411,327,437"/>
+<area shape="rect" id="node21" href="$sprite_8c.html#a691f3ea004e32d6b8773872b3cbcf620" title="draw_sprite" alt="" coords="725,296,813,323"/>
+<area shape="rect" id="node15" href="$interface_8c.html#a2d06ffd4626bb0d6bb6b6bccb7feb3c3" title="centerImageX" alt="" coords="406,259,506,285"/>
+<area shape="rect" id="node23" href="$video__gr_8c.html#a79fb5e869c1712e57057bfa9875c10f8" title="flipDisplay" alt="" coords="226,461,307,488"/>
+<area shape="rect" id="node24" href="$group__timer.html#gab9eea51549744bca5c5c923b388bb4ee" title="Unsubscribes Timer 0 interrupts. " alt="" coords="192,512,341,539"/>
+<area shape="rect" id="node3" href="$group__vbe.html#ga4ef3234e41f2050bc094a22049b69e45" title="Returns information on the input VBE mode, including screen dimensions, color depth and VRAM physical..." alt="" coords="390,81,522,108"/>
+<area shape="rect" id="node4" href="$group__lmlib.html#ga00a9c17c01e794a6bfc80fc5c6ab1ed1" title="Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the ..." alt="" coords="583,5,643,32"/>
+<area shape="rect" id="node5" href="$group__lmlib.html#gae45d971ce2ffcf4dc2677eba033a92cd" title="Allocates a memory block in low memory area with the specified size. " alt="" coords="578,56,649,83"/>
+<area shape="rect" id="node6" href="$group__lmlib.html#ga73e89d9c297b7390021fb545513579c6" title="Frees a memory block in the low memory area, previously allocated using lm_alloc() ..." alt="" coords="581,107,645,133"/>
+<area shape="rect" id="node9" href="$sprite_8c.html#aedbe780f71c8f924022265095a0796d3" title="draw_transp_sprite" alt="" coords="704,208,835,235"/>
+<area shape="rect" id="node17" href="$interface_8c.html#a53105180167cdfba24a8c9f7ac6f0c2b" title="draw_string" alt="" coords="412,208,500,235"/>
+<area shape="rect" id="node10" href="$sprite_8c.html#aa4253e3c15ef1fb16e04b687d32c6f4e" title="initialize_sprite" alt="" coords="906,271,1014,297"/>
+<area shape="rect" id="node12" href="$video__gr_8c.html#aeac38e0c4152dd54143e87088d044240" title="draw_transparent_map" alt="" coords="883,169,1037,196"/>
+<area shape="rect" id="node14" href="$sprite_8c.html#abaa8006487ae3af58d131f0e34c5a3d9" title="destroy_sprite" alt="" coords="908,220,1012,247"/>
+<area shape="rect" id="node11" href="$read__xpm_8c.html#a05b2c5e4dbcaffa701703b50a2111783" title="read_xpm" alt="" coords="1093,271,1171,297"/>
+<area shape="rect" id="node13" href="$video__gr_8c.html#a8399aae2d2f8a89099f6724e54b5cc42" title="vg_set_pixel" alt="" coords="1085,169,1179,196"/>
+<area shape="rect" id="node16" href="$group__video__gr.html#ga62a06f3a0dc2bfe74941b60f3f0e4294" title="getHRES" alt="" coords="575,259,651,285"/>
+<area shape="rect" id="node18" href="$interface_8c.html#adab943f9f51fa4b94caccb44bb578ea0" title="draw_letter" alt="" coords="571,208,656,235"/>
+<area shape="rect" id="node22" href="$video__gr_8c.html#a11dba15680d97efad5ac51abdac1eb63" title="draw_map" alt="" coords="919,321,1001,348"/>
+</map>

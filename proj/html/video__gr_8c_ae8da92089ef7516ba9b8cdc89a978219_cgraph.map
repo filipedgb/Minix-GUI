@@ -1,0 +1,6 @@
+<map id="display_VBE_controller_info" name="display_VBE_controller_info">
+<area shape="rect" id="node2" href="$vbe_8c.html#a2f3d06d07ed60a6feeecd16176c7a887" title="vbe_get_info" alt="" coords="237,56,331,83"/>
+<area shape="rect" id="node3" href="$group__lmlib.html#ga00a9c17c01e794a6bfc80fc5c6ab1ed1" title="Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the ..." alt="" coords="385,5,445,32"/>
+<area shape="rect" id="node4" href="$group__lmlib.html#gae45d971ce2ffcf4dc2677eba033a92cd" title="Allocates a memory block in low memory area with the specified size. " alt="" coords="379,56,450,83"/>
+<area shape="rect" id="node5" href="$group__lmlib.html#ga73e89d9c297b7390021fb545513579c6" title="Frees a memory block in the low memory area, previously allocated using lm_alloc() ..." alt="" coords="383,107,447,133"/>
+</map>

@@ -1,0 +1,278 @@
+\hypertarget{group__timer}{}\section{timer}
+\label{group__timer}\index{timer@{timer}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__timer_gada4efbb5c88275795526fc45f0814aa3}{timer\+\_\+set\+\_\+square} (unsigned long timer, unsigned long freq)
+\begin{DoxyCompactList}\small\item\em Configures a timer to generate a square wave. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga4c5d9f47323eda494cfd826f6d62eec9}{timer\+\_\+subscribe\+\_\+int} (void)
+\begin{DoxyCompactList}\small\item\em Subscribes and enables Timer 0 interrupts. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_gab9eea51549744bca5c5c923b388bb4ee}{timer\+\_\+unsubscribe\+\_\+int} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes Timer 0 interrupts. \end{DoxyCompactList}\item 
+void \hyperlink{group__timer_ga10fc9c867b15c7da6649311c9987cd17}{timer\+\_\+int\+\_\+handler} ()
+\begin{DoxyCompactList}\small\item\em Timer 0 interrupt handler. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga8eb3357bc05265afc4bea5bbbb480a53}{timer\+\_\+get\+\_\+conf} (unsigned long timer, unsigned char $\ast$st)
+\begin{DoxyCompactList}\small\item\em Reads the input timer configuration via read-\/back command. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga9ca64a3f3f048936d961d656d6829200}{timer\+\_\+display\+\_\+conf} (unsigned char conf)
+\begin{DoxyCompactList}\small\item\em Shows timer configuration. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga2e596aede5a7bfc4a6f4382779bf0d7d}{timer\+\_\+test\+\_\+square} (unsigned long freq)
+\begin{DoxyCompactList}\small\item\em Tests programming timer in square wave mode. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga459859709b7cc1ee37899fa48cce6a6e}{timer\+\_\+test\+\_\+int} (unsigned long time)
+\begin{DoxyCompactList}\small\item\em Tests Timer 0 interrupt handling. \end{DoxyCompactList}\item 
+int \hyperlink{group__timer_ga363e72d1c055d859746cb3305a68af6d}{timer\+\_\+test\+\_\+config} (unsigned long timer)
+\begin{DoxyCompactList}\small\item\em Tests display of timer config. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for using the i8254 timers 
+
+\subsection{Function Documentation}
+\hypertarget{group__timer_ga9ca64a3f3f048936d961d656d6829200}{}\index{timer@{timer}!timer\+\_\+display\+\_\+conf@{timer\+\_\+display\+\_\+conf}}
+\index{timer\+\_\+display\+\_\+conf@{timer\+\_\+display\+\_\+conf}!timer@{timer}}
+\subsubsection[{timer\+\_\+display\+\_\+conf}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+display\+\_\+conf (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{conf}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga9ca64a3f3f048936d961d656d6829200}
+
+
+Shows timer configuration. 
+
+Displays in a human friendly way, the configuration of a timer as read via the read-\/back command, by providing the values (and meanings) of the different components of a timer configuration
+
+
+\begin{DoxyParams}{Parameters}
+{\em conf} & configuration to display in human friendly way \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file timer.\+c.
+
+\hypertarget{group__timer_ga8eb3357bc05265afc4bea5bbbb480a53}{}\index{timer@{timer}!timer\+\_\+get\+\_\+conf@{timer\+\_\+get\+\_\+conf}}
+\index{timer\+\_\+get\+\_\+conf@{timer\+\_\+get\+\_\+conf}!timer@{timer}}
+\subsubsection[{timer\+\_\+get\+\_\+conf}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+get\+\_\+conf (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{timer, }
+\item[{unsigned char $\ast$}]{st}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga8eb3357bc05265afc4bea5bbbb480a53}
+
+
+Reads the input timer configuration via read-\/back command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer whose config to read (Ranges from 0 to 2) \\
+\hline
+{\em st} & Address of memory position to be filled with the timer config \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file timer.\+c.
+
+\hypertarget{group__timer_ga10fc9c867b15c7da6649311c9987cd17}{}\index{timer@{timer}!timer\+\_\+int\+\_\+handler@{timer\+\_\+int\+\_\+handler}}
+\index{timer\+\_\+int\+\_\+handler@{timer\+\_\+int\+\_\+handler}!timer@{timer}}
+\subsubsection[{timer\+\_\+int\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}void timer\+\_\+int\+\_\+handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga10fc9c867b15c7da6649311c9987cd17}
+
+
+Timer 0 interrupt handler. 
+
+Increments counter 
+
+Definition at line 39 of file timer.\+c.
+
+\hypertarget{group__timer_gada4efbb5c88275795526fc45f0814aa3}{}\index{timer@{timer}!timer\+\_\+set\+\_\+square@{timer\+\_\+set\+\_\+square}}
+\index{timer\+\_\+set\+\_\+square@{timer\+\_\+set\+\_\+square}!timer@{timer}}
+\subsubsection[{timer\+\_\+set\+\_\+square}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+set\+\_\+square (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{timer, }
+\item[{unsigned long}]{freq}
+\end{DoxyParamCaption}
+)}\label{group__timer_gada4efbb5c88275795526fc45f0814aa3}
+
+
+Configures a timer to generate a square wave. 
+
+Does not change the L\+S\+B (B\+C\+D/binary) of the timer\textquotesingle{}s control word.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to configure. (Ranges from 0 to 2) \\
+\hline
+{\em freq} & Frequency of the square wave to generate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file timer.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{group__timer_gada4efbb5c88275795526fc45f0814aa3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__timer_ga4c5d9f47323eda494cfd826f6d62eec9}{}\index{timer@{timer}!timer\+\_\+subscribe\+\_\+int@{timer\+\_\+subscribe\+\_\+int}}
+\index{timer\+\_\+subscribe\+\_\+int@{timer\+\_\+subscribe\+\_\+int}!timer@{timer}}
+\subsubsection[{timer\+\_\+subscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+subscribe\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga4c5d9f47323eda494cfd826f6d62eec9}
+
+
+Subscribes and enables Timer 0 interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns bit order in interrupt mask; negative value on failure 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file timer.\+c.
+
+\hypertarget{group__timer_ga363e72d1c055d859746cb3305a68af6d}{}\index{timer@{timer}!timer\+\_\+test\+\_\+config@{timer\+\_\+test\+\_\+config}}
+\index{timer\+\_\+test\+\_\+config@{timer\+\_\+test\+\_\+config}!timer@{timer}}
+\subsubsection[{timer\+\_\+test\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+test\+\_\+config (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{timer}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga363e72d1c055d859746cb3305a68af6d}
+
+
+Tests display of timer config. 
+
+Just calls \hyperlink{group__timer_ga8eb3357bc05265afc4bea5bbbb480a53}{timer\+\_\+get\+\_\+conf()} followed by \hyperlink{group__timer_ga9ca64a3f3f048936d961d656d6829200}{timer\+\_\+display\+\_\+conf()}
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer whose config to read (Ranges from 0 to 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 143 of file timer.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{group__timer_ga363e72d1c055d859746cb3305a68af6d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__timer_ga459859709b7cc1ee37899fa48cce6a6e}{}\index{timer@{timer}!timer\+\_\+test\+\_\+int@{timer\+\_\+test\+\_\+int}}
+\index{timer\+\_\+test\+\_\+int@{timer\+\_\+test\+\_\+int}!timer@{timer}}
+\subsubsection[{timer\+\_\+test\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+test\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{time}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga459859709b7cc1ee37899fa48cce6a6e}
+
+
+Tests Timer 0 interrupt handling. 
+
+Subscribes Timer 0 interrupts and prints a message once per second for the specified time interval
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Length of time interval while interrupts are subscribed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file timer.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{group__timer_ga459859709b7cc1ee37899fa48cce6a6e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__timer_ga2e596aede5a7bfc4a6f4382779bf0d7d}{}\index{timer@{timer}!timer\+\_\+test\+\_\+square@{timer\+\_\+test\+\_\+square}}
+\index{timer\+\_\+test\+\_\+square@{timer\+\_\+test\+\_\+square}!timer@{timer}}
+\subsubsection[{timer\+\_\+test\+\_\+square}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+test\+\_\+square (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{freq}
+\end{DoxyParamCaption}
+)}\label{group__timer_ga2e596aede5a7bfc4a6f4382779bf0d7d}
+
+
+Tests programming timer in square wave mode. 
+
+Programs Timer 0 to generate square mode with input frequency
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & Frequency of square wave to generate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file timer.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__timer_ga2e596aede5a7bfc4a6f4382779bf0d7d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{group__timer_gab9eea51549744bca5c5c923b388bb4ee}{}\index{timer@{timer}!timer\+\_\+unsubscribe\+\_\+int@{timer\+\_\+unsubscribe\+\_\+int}}
+\index{timer\+\_\+unsubscribe\+\_\+int@{timer\+\_\+unsubscribe\+\_\+int}!timer@{timer}}
+\subsubsection[{timer\+\_\+unsubscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int timer\+\_\+unsubscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__timer_gab9eea51549744bca5c5c923b388bb4ee}
+
+
+Unsubscribes Timer 0 interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file timer.\+c.
+

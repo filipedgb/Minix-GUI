@@ -1,0 +1,15 @@
+<map id="test_square" name="test_square">
+<area shape="rect" id="node2" href="$keyboard_8c.html#aa6ca41cf20ce933ec9bbd56b193278cc" title="keyboard_subscribe_int" alt="" coords="151,43,310,69"/>
+<area shape="rect" id="node3" href="$group__video__gr.html#gacef21667c79365d57a084bed994c2189" title="Initializes the video module in graphics mode. " alt="" coords="201,93,260,120"/>
+<area shape="rect" id="node8" href="$video__gr_8c.html#ad84bc9bf7b3634e87401ccbd26153935" title="draw_rectangle" alt="" coords="176,144,285,171"/>
+<area shape="rect" id="node11" href="$keyboard_8c.html#a8c04882e56f7ceb7257ba13e0652b188" title="receiver_loop" alt="" coords="182,195,279,221"/>
+<area shape="rect" id="node13" href="$group__video__gr.html#ga42f593e6656f1a978315aff02b1bcebf" title="Returns to default Minix 3 text mode (0x03: 25 x 80, 16 colors) " alt="" coords="199,245,262,272"/>
+<area shape="rect" id="node14" href="$keyboard_8c.html#ac95aea27a5e91b363b876fed881f368f" title="keyboard_unsubscribe_int" alt="" coords="144,296,317,323"/>
+<area shape="rect" id="node4" href="$group__vbe.html#ga4ef3234e41f2050bc094a22049b69e45" title="Returns information on the input VBE mode, including screen dimensions, color depth and VRAM physical..." alt="" coords="381,68,513,95"/>
+<area shape="rect" id="node5" href="$group__lmlib.html#ga00a9c17c01e794a6bfc80fc5c6ab1ed1" title="Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the ..." alt="" coords="593,5,653,32"/>
+<area shape="rect" id="node6" href="$group__lmlib.html#gae45d971ce2ffcf4dc2677eba033a92cd" title="Allocates a memory block in low memory area with the specified size. " alt="" coords="587,56,658,83"/>
+<area shape="rect" id="node7" href="$group__lmlib.html#ga73e89d9c297b7390021fb545513579c6" title="Frees a memory block in the low memory area, previously allocated using lm_alloc() ..." alt="" coords="591,107,655,133"/>
+<area shape="rect" id="node9" href="$video__gr_8c.html#a9677ee1d2ff56c4791a196feca494fdf" title="draw_line" alt="" coords="409,144,485,171"/>
+<area shape="rect" id="node10" href="$video__gr_8c.html#a8399aae2d2f8a89099f6724e54b5cc42" title="vg_set_pixel" alt="" coords="576,157,669,184"/>
+<area shape="rect" id="node12" href="$keyboard_8c.html#ab07cf29ed086faf6d5a30e0c7cd443e2" title="keyboard_int_handler_C" alt="" coords="366,195,527,221"/>
+</map>

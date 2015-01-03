@@ -1,0 +1,8 @@
+<map id="check_mouse_double_click" name="check_mouse_double_click">
+<area shape="rect" id="node2" href="$logic_8c.html#a65b0f047568e3d106306bd405b5be72b" title="getFolderByCoords" alt="" coords="203,5,336,32"/>
+<area shape="rect" id="node3" href="$logic_8c.html#a913ad8296c70b807df4fbf6302f8072a" title="openFolder" alt="" coords="226,56,313,83"/>
+<area shape="rect" id="node4" href="$logic_8c.html#af25edb24b597453fb95c3c2080569bd5" title="getSubFolders" alt="" coords="387,31,493,57"/>
+<area shape="rect" id="node7" href="$logic_8c.html#a31ba4de847c8b9762dfe9fdbb08ef4f1" title="getFolderName" alt="" coords="385,81,495,108"/>
+<area shape="rect" id="node5" href="$logic_8c.html#a5b0080e32e3cb075b00c7184ce3f5ad0" title="updatePath" alt="" coords="544,5,632,32"/>
+<area shape="rect" id="node6" href="$logic_8c.html#abfbb060a687a19a5ecb65b761bb153c0" title="isFile" alt="" coords="561,56,615,83"/>
+</map>

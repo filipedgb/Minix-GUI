@@ -1,0 +1,114 @@
+\hypertarget{keyboard_8h}{}\section{keyboard.\+h File Reference}
+\label{keyboard_8h}\index{keyboard.\+h@{keyboard.\+h}}
+{\ttfamily \#include $<$minix/syslib.\+h$>$}\\*
+{\ttfamily \#include $<$minix/drivers.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}headers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}i8254.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{keyboard_8h_af9d4827856b96cc09dc19308771fcd24}{set\+Timer\+Flag} ()
+\item 
+void \hyperlink{keyboard_8h_a538a48fcda412eebfedbf8e5b45397a9}{set\+Time} (int seconds)
+\item 
+int \hyperlink{keyboard_8h_ab07cf29ed086faf6d5a30e0c7cd443e2}{keyboard\+\_\+int\+\_\+handler\+\_\+\+C} (unsigned long $\ast$code)
+\item 
+int \hyperlink{keyboard_8h_a4ac76b0a9a73670254d5fd4c520e458f}{keyboard\+\_\+subscribe\+\_\+int} ()
+\item 
+int \hyperlink{keyboard_8h_ac95aea27a5e91b363b876fed881f368f}{keyboard\+\_\+unsubscribe\+\_\+int} ()
+\item 
+int \hyperlink{keyboard_8h_a16755b6adaea6823bf15eb00344deb08}{issue\+\_\+command} (unsigned long command, unsigned long argument)
+\item 
+int \hyperlink{keyboard_8h_af94b6d9ab910f1571cfe57854870b083}{receiver\+\_\+loop} ()
+\item 
+void \hyperlink{keyboard_8h_a4c24e4a8939cfda0f96ebafcf0d8b0a6}{print\+\_\+codes} (unsigned long code)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{keyboard_8h_a16755b6adaea6823bf15eb00344deb08}{}\index{keyboard.\+h@{keyboard.\+h}!issue\+\_\+command@{issue\+\_\+command}}
+\index{issue\+\_\+command@{issue\+\_\+command}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{issue\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}int issue\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{command, }
+\item[{unsigned long}]{argument}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_a16755b6adaea6823bf15eb00344deb08}
+
+
+Definition at line 127 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_ab07cf29ed086faf6d5a30e0c7cd443e2}{}\index{keyboard.\+h@{keyboard.\+h}!keyboard\+\_\+int\+\_\+handler\+\_\+\+C@{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}}
+\index{keyboard\+\_\+int\+\_\+handler\+\_\+\+C@{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+int\+\_\+handler\+\_\+\+C (
+\begin{DoxyParamCaption}
+\item[{unsigned long $\ast$}]{code}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_ab07cf29ed086faf6d5a30e0c7cd443e2}
+Handles interrupts for the keyboard 
+
+Definition at line 29 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_a4ac76b0a9a73670254d5fd4c520e458f}{}\index{keyboard.\+h@{keyboard.\+h}!keyboard\+\_\+subscribe\+\_\+int@{keyboard\+\_\+subscribe\+\_\+int}}
+\index{keyboard\+\_\+subscribe\+\_\+int@{keyboard\+\_\+subscribe\+\_\+int}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{keyboard\+\_\+subscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+subscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_a4ac76b0a9a73670254d5fd4c520e458f}
+Subscribes keyboard interrupts 
+
+Definition at line 15 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_ac95aea27a5e91b363b876fed881f368f}{}\index{keyboard.\+h@{keyboard.\+h}!keyboard\+\_\+unsubscribe\+\_\+int@{keyboard\+\_\+unsubscribe\+\_\+int}}
+\index{keyboard\+\_\+unsubscribe\+\_\+int@{keyboard\+\_\+unsubscribe\+\_\+int}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{keyboard\+\_\+unsubscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+unsubscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_ac95aea27a5e91b363b876fed881f368f}
+Unsubscribes keyboard interrupts 
+
+Definition at line 22 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_a4c24e4a8939cfda0f96ebafcf0d8b0a6}{}\index{keyboard.\+h@{keyboard.\+h}!print\+\_\+codes@{print\+\_\+codes}}
+\index{print\+\_\+codes@{print\+\_\+codes}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{print\+\_\+codes}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+codes (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{code}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_a4c24e4a8939cfda0f96ebafcf0d8b0a6}
+Prints keyboard input codes 
+
+Definition at line 79 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_af94b6d9ab910f1571cfe57854870b083}{}\index{keyboard.\+h@{keyboard.\+h}!receiver\+\_\+loop@{receiver\+\_\+loop}}
+\index{receiver\+\_\+loop@{receiver\+\_\+loop}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{receiver\+\_\+loop}]{\setlength{\rightskip}{0pt plus 5cm}int receiver\+\_\+loop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_af94b6d9ab910f1571cfe57854870b083}
+Loop to handle keyboard interrupts \hypertarget{keyboard_8h_a538a48fcda412eebfedbf8e5b45397a9}{}\index{keyboard.\+h@{keyboard.\+h}!set\+Time@{set\+Time}}
+\index{set\+Time@{set\+Time}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{set\+Time}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Time (
+\begin{DoxyParamCaption}
+\item[{int}]{seconds}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_a538a48fcda412eebfedbf8e5b45397a9}
+Set seconds 
+
+Definition at line 11 of file keyboard.\+c.
+
+\hypertarget{keyboard_8h_af9d4827856b96cc09dc19308771fcd24}{}\index{keyboard.\+h@{keyboard.\+h}!set\+Timer\+Flag@{set\+Timer\+Flag}}
+\index{set\+Timer\+Flag@{set\+Timer\+Flag}!keyboard.\+h@{keyboard.\+h}}
+\subsubsection[{set\+Timer\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Timer\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8h_af9d4827856b96cc09dc19308771fcd24}
+Activate timer flag 
+
+Definition at line 3 of file keyboard.\+c.
+

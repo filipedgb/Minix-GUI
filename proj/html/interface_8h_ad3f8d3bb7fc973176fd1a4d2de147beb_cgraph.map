@@ -1,0 +1,8 @@
+<map id="drawCursor" name="drawCursor">
+<area shape="rect" id="node2" href="$sprite_8c.html#aedbe780f71c8f924022265095a0796d3" title="draw_transp_sprite" alt="" coords="141,56,272,83"/>
+<area shape="rect" id="node3" href="$sprite_8c.html#aa4253e3c15ef1fb16e04b687d32c6f4e" title="initialize_sprite" alt="" coords="343,5,451,32"/>
+<area shape="rect" id="node5" href="$video__gr_8c.html#aeac38e0c4152dd54143e87088d044240" title="draw_transparent_map" alt="" coords="321,56,474,83"/>
+<area shape="rect" id="node7" href="$sprite_8c.html#abaa8006487ae3af58d131f0e34c5a3d9" title="destroy_sprite" alt="" coords="345,107,449,133"/>
+<area shape="rect" id="node4" href="$read__xpm_8c.html#a05b2c5e4dbcaffa701703b50a2111783" title="read_xpm" alt="" coords="530,5,609,32"/>
+<area shape="rect" id="node6" href="$video__gr_8c.html#a8399aae2d2f8a89099f6724e54b5cc42" title="vg_set_pixel" alt="" coords="523,56,616,83"/>
+</map>

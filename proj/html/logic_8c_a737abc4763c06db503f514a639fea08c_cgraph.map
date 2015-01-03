@@ -1,0 +1,7 @@
+<map id="check_rename_folder" name="check_rename_folder">
+<area shape="rect" id="node2" href="$logic_8c.html#a1e48323b0a3fdd311f7cd1988532ace8" title="renameFolder" alt="" coords="200,31,301,57"/>
+<area shape="rect" id="node3" href="$logic_8c.html#a5b0080e32e3cb075b00c7184ce3f5ad0" title="updatePath" alt="" coords="509,5,597,32"/>
+<area shape="rect" id="node4" href="$logic_8c.html#a31ba4de847c8b9762dfe9fdbb08ef4f1" title="getFolderName" alt="" coords="350,31,461,57"/>
+<area shape="rect" id="node5" href="$logic_8c.html#af25edb24b597453fb95c3c2080569bd5" title="getSubFolders" alt="" coords="352,81,459,108"/>
+<area shape="rect" id="node6" href="$logic_8c.html#abfbb060a687a19a5ecb65b761bb153c0" title="isFile" alt="" coords="527,81,580,108"/>
+</map>

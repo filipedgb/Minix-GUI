@@ -1,0 +1,14 @@
+<map id="test_line" name="test_line">
+<area shape="rect" id="node2" href="$keyboard_8c.html#aa6ca41cf20ce933ec9bbd56b193278cc" title="keyboard_subscribe_int" alt="" coords="133,5,291,32"/>
+<area shape="rect" id="node3" href="$group__video__gr.html#gacef21667c79365d57a084bed994c2189" title="Initializes the video module in graphics mode. " alt="" coords="183,56,241,83"/>
+<area shape="rect" id="node8" href="$video__gr_8c.html#a9677ee1d2ff56c4791a196feca494fdf" title="draw_line" alt="" coords="174,107,250,133"/>
+<area shape="rect" id="node10" href="$keyboard_8c.html#a8c04882e56f7ceb7257ba13e0652b188" title="receiver_loop" alt="" coords="163,157,261,184"/>
+<area shape="rect" id="node12" href="$group__video__gr.html#ga42f593e6656f1a978315aff02b1bcebf" title="Returns to default Minix 3 text mode (0x03: 25 x 80, 16 colors) " alt="" coords="181,208,243,235"/>
+<area shape="rect" id="node13" href="$keyboard_8c.html#ac95aea27a5e91b363b876fed881f368f" title="keyboard_unsubscribe_int" alt="" coords="125,259,299,285"/>
+<area shape="rect" id="node4" href="$group__vbe.html#ga4ef3234e41f2050bc094a22049b69e45" title="Returns information on the input VBE mode, including screen dimensions, color depth and VRAM physical..." alt="" coords="362,56,494,83"/>
+<area shape="rect" id="node5" href="$group__lmlib.html#ga00a9c17c01e794a6bfc80fc5c6ab1ed1" title="Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the ..." alt="" coords="563,5,623,32"/>
+<area shape="rect" id="node6" href="$group__lmlib.html#gae45d971ce2ffcf4dc2677eba033a92cd" title="Allocates a memory block in low memory area with the specified size. " alt="" coords="558,56,629,83"/>
+<area shape="rect" id="node7" href="$group__lmlib.html#ga73e89d9c297b7390021fb545513579c6" title="Frees a memory block in the low memory area, previously allocated using lm_alloc() ..." alt="" coords="561,107,625,133"/>
+<area shape="rect" id="node9" href="$video__gr_8c.html#a8399aae2d2f8a89099f6724e54b5cc42" title="vg_set_pixel" alt="" coords="381,107,475,133"/>
+<area shape="rect" id="node11" href="$keyboard_8c.html#ab07cf29ed086faf6d5a30e0c7cd443e2" title="keyboard_int_handler_C" alt="" coords="347,157,509,184"/>
+</map>

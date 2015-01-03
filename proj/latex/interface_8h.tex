@@ -1,0 +1,432 @@
+\hypertarget{interface_8h}{}\section{interface.\+h File Reference}
+\label{interface_8h}\index{interface.\+h@{interface.\+h}}
+{\ttfamily \#include \char`\"{}pixmap.\+c\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}video\+\_\+gr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mouse.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}logic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{interface_8h_a2d06ffd4626bb0d6bb6b6bccb7feb3c3}{center\+Image\+X} (int image\+Width)
+\item 
+void \hyperlink{interface_8h_aaee65a42f436525f7b9887fbe4f3663d}{main\+Draw} ()
+\item 
+void \hyperlink{interface_8h_ad3f8d3bb7fc973176fd1a4d2de147beb}{draw\+Cursor} (\hyperlink{structmouse__state}{mouse\+\_\+state} \hyperlink{state_8h_a39d9a371f9aef2042923a96e2f855d5e}{current\+\_\+mouse\+\_\+state})
+\item 
+void \hyperlink{interface_8h_acbd5457c126570af763ea24dc41da830}{draw\+Background} ()
+\item 
+void \hyperlink{interface_8h_a97f9bd0d20e1e9481357a22084763da7}{clean\+Cursor} (\hyperlink{structmouse__state}{mouse\+\_\+state} \hyperlink{state_8h_a39d9a371f9aef2042923a96e2f855d5e}{current\+\_\+mouse\+\_\+state})
+\item 
+void \hyperlink{interface_8h_a06326bc3ce2fdfe90cb6eb3172159fd0}{draw\+Main\+Menu} ()
+\item 
+void \hyperlink{interface_8h_a79fd6c1e1239d1f44ed8cc6a3f9bbbe1}{clean\+Screen} ()
+\item 
+void \hyperlink{interface_8h_a6f3710a0deef4dec8c40e1387f00b2cf}{draw\+Input\+Box} (char $\ast$title, char $\ast$message)
+\item 
+void \hyperlink{interface_8h_a04b43cf8b4fbf16e17cea07e7daf8bf9}{draw\+Output\+Box} (char $\ast$title, char $\ast$message)
+\item 
+void \hyperlink{interface_8h_adab943f9f51fa4b94caccb44bb578ea0}{draw\+\_\+letter} (char letter, int x\+In, int y\+In)
+\item 
+void \hyperlink{interface_8h_a26626ea6081aecf9fbce1d504567749d}{draw\+File} (char $\ast$file\+Path)
+\item 
+void \hyperlink{interface_8h_a53105180167cdfba24a8c9f7ac6f0c2b}{draw\+\_\+string} (char $\ast$string, int position\+X, int position\+Y)
+\item 
+void \hyperlink{interface_8h_a7191ba49f3495cfb9304adc2a6661d7e}{draw\+Right\+Click\+Menu} (\hyperlink{structmouse__state}{mouse\+\_\+state} \hyperlink{state_8h_a39d9a371f9aef2042923a96e2f855d5e}{current\+\_\+mouse\+\_\+state})
+\item 
+void \hyperlink{interface_8h_a53b9d58cdef13b9d6394064ff6f9174e}{draw\+Clock} (\hyperlink{structrtc__state}{rtc\+\_\+state} \hyperlink{state_8h_aab5669abb2a76b898c30b667998b6f1e}{current\+\_\+rtc\+\_\+state})
+\item 
+void \hyperlink{interface_8h_a05505f25859a670bb3d5eb8df6fd5f23}{draw\+Folders} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{interface_8h_a2d06ffd4626bb0d6bb6b6bccb7feb3c3}{}\index{interface.\+h@{interface.\+h}!center\+Image\+X@{center\+Image\+X}}
+\index{center\+Image\+X@{center\+Image\+X}!interface.\+h@{interface.\+h}}
+\subsubsection[{center\+Image\+X}]{\setlength{\rightskip}{0pt plus 5cm}int center\+Image\+X (
+\begin{DoxyParamCaption}
+\item[{int}]{image\+Width}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a2d06ffd4626bb0d6bb6b6bccb7feb3c3}
+Centers an image on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+Width} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{interface_8h_a2d06ffd4626bb0d6bb6b6bccb7feb3c3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a97f9bd0d20e1e9481357a22084763da7}{}\index{interface.\+h@{interface.\+h}!clean\+Cursor@{clean\+Cursor}}
+\index{clean\+Cursor@{clean\+Cursor}!interface.\+h@{interface.\+h}}
+\subsubsection[{clean\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void clean\+Cursor (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{current\+\_\+mouse\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a97f9bd0d20e1e9481357a22084763da7}
+Erases the cursor from the screen according to \hyperlink{structmouse__state}{mouse\+\_\+state} coordinates 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+mouse\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a97f9bd0d20e1e9481357a22084763da7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a79fd6c1e1239d1f44ed8cc6a3f9bbbe1}{}\index{interface.\+h@{interface.\+h}!clean\+Screen@{clean\+Screen}}
+\index{clean\+Screen@{clean\+Screen}!interface.\+h@{interface.\+h}}
+\subsubsection[{clean\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}void clean\+Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a79fd6c1e1239d1f44ed8cc6a3f9bbbe1}
+Cleans the screen 
+
+Definition at line 59 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_8h_a79fd6c1e1239d1f44ed8cc6a3f9bbbe1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_adab943f9f51fa4b94caccb44bb578ea0}{}\index{interface.\+h@{interface.\+h}!draw\+\_\+letter@{draw\+\_\+letter}}
+\index{draw\+\_\+letter@{draw\+\_\+letter}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+\_\+letter}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+\_\+letter (
+\begin{DoxyParamCaption}
+\item[{char}]{letter, }
+\item[{int}]{x\+In, }
+\item[{int}]{y\+In}
+\end{DoxyParamCaption}
+)}\label{interface_8h_adab943f9f51fa4b94caccb44bb578ea0}
+Draws letters 
+
+Definition at line 101 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_adab943f9f51fa4b94caccb44bb578ea0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a53105180167cdfba24a8c9f7ac6f0c2b}{}\index{interface.\+h@{interface.\+h}!draw\+\_\+string@{draw\+\_\+string}}
+\index{draw\+\_\+string@{draw\+\_\+string}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{position\+X, }
+\item[{int}]{position\+Y}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a53105180167cdfba24a8c9f7ac6f0c2b}
+Receives a string and draws it starting from position\+X and position\+Y coordinates 
+\begin{DoxyParams}{Parameters}
+{\em string} & \\
+\hline
+{\em position\+X} & \\
+\hline
+{\em position\+Y} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 230 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a53105180167cdfba24a8c9f7ac6f0c2b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_acbd5457c126570af763ea24dc41da830}{}\index{interface.\+h@{interface.\+h}!draw\+Background@{draw\+Background}}
+\index{draw\+Background@{draw\+Background}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Background}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_8h_acbd5457c126570af763ea24dc41da830}
+Draws the background 
+
+Definition at line 37 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{interface_8h_acbd5457c126570af763ea24dc41da830_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a53b9d58cdef13b9d6394064ff6f9174e}{}\index{interface.\+h@{interface.\+h}!draw\+Clock@{draw\+Clock}}
+\index{draw\+Clock@{draw\+Clock}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Clock}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Clock (
+\begin{DoxyParamCaption}
+\item[{{\bf rtc\+\_\+state}}]{current\+\_\+rtc\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a53b9d58cdef13b9d6394064ff6f9174e}
+Draws Clock according to its current state 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+rtc\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a53b9d58cdef13b9d6394064ff6f9174e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_ad3f8d3bb7fc973176fd1a4d2de147beb}{}\index{interface.\+h@{interface.\+h}!draw\+Cursor@{draw\+Cursor}}
+\index{draw\+Cursor@{draw\+Cursor}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Cursor (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{current\+\_\+mouse\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{interface_8h_ad3f8d3bb7fc973176fd1a4d2de147beb}
+Draws the cursor on the screen according to \hyperlink{structmouse__state}{mouse\+\_\+state} coordinates 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+mouse\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_ad3f8d3bb7fc973176fd1a4d2de147beb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a26626ea6081aecf9fbce1d504567749d}{}\index{interface.\+h@{interface.\+h}!draw\+File@{draw\+File}}
+\index{draw\+File@{draw\+File}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+File}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Path}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a26626ea6081aecf9fbce1d504567749d}
+Draws file to the screen (not fully working) 
+
+Definition at line 214 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a26626ea6081aecf9fbce1d504567749d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a05505f25859a670bb3d5eb8df6fd5f23}{}\index{interface.\+h@{interface.\+h}!draw\+Folders@{draw\+Folders}}
+\index{draw\+Folders@{draw\+Folders}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Folders}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Folders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a05505f25859a670bb3d5eb8df6fd5f23}
+Draws the folders and files on the screen 
+
+Definition at line 314 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a05505f25859a670bb3d5eb8df6fd5f23_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a6f3710a0deef4dec8c40e1387f00b2cf}{}\index{interface.\+h@{interface.\+h}!draw\+Input\+Box@{draw\+Input\+Box}}
+\index{draw\+Input\+Box@{draw\+Input\+Box}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Input\+Box}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Input\+Box (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{title, }
+\item[{char $\ast$}]{message}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a6f3710a0deef4dec8c40e1387f00b2cf}
+Draws input box for rename purposes 
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a6f3710a0deef4dec8c40e1387f00b2cf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a06326bc3ce2fdfe90cb6eb3172159fd0}{}\index{interface.\+h@{interface.\+h}!draw\+Main\+Menu@{draw\+Main\+Menu}}
+\index{draw\+Main\+Menu@{draw\+Main\+Menu}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Main\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Main\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a06326bc3ce2fdfe90cb6eb3172159fd0}
+Draws main menu 
+
+Definition at line 46 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a06326bc3ce2fdfe90cb6eb3172159fd0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a04b43cf8b4fbf16e17cea07e7daf8bf9}{}\index{interface.\+h@{interface.\+h}!draw\+Output\+Box@{draw\+Output\+Box}}
+\index{draw\+Output\+Box@{draw\+Output\+Box}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Output\+Box}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Output\+Box (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{title, }
+\item[{char $\ast$}]{message}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a04b43cf8b4fbf16e17cea07e7daf8bf9}
+Draws a pop-\/up box with title and message 
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a04b43cf8b4fbf16e17cea07e7daf8bf9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_a7191ba49f3495cfb9304adc2a6661d7e}{}\index{interface.\+h@{interface.\+h}!draw\+Right\+Click\+Menu@{draw\+Right\+Click\+Menu}}
+\index{draw\+Right\+Click\+Menu@{draw\+Right\+Click\+Menu}!interface.\+h@{interface.\+h}}
+\subsubsection[{draw\+Right\+Click\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Right\+Click\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{current\+\_\+mouse\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{interface_8h_a7191ba49f3495cfb9304adc2a6661d7e}
+Draws right click menu according to \hyperlink{structmouse__state}{mouse\+\_\+state} coordinates 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+mouse\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 247 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_a7191ba49f3495cfb9304adc2a6661d7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8h_aaee65a42f436525f7b9887fbe4f3663d}{}\index{interface.\+h@{interface.\+h}!main\+Draw@{main\+Draw}}
+\index{main\+Draw@{main\+Draw}!interface.\+h@{interface.\+h}}
+\subsubsection[{main\+Draw}]{\setlength{\rightskip}{0pt plus 5cm}void main\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interface_8h_aaee65a42f436525f7b9887fbe4f3663d}
+Draws the initial interface (Penguin, logo and developers) 
+
+Definition at line 7 of file interface.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8h_aaee65a42f436525f7b9887fbe4f3663d_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,102 @@
+\hypertarget{sprite_8c}{}\section{sprite.\+c File Reference}
+\label{sprite_8c}\index{sprite.\+c@{sprite.\+c}}
+{\ttfamily \#include \char`\"{}sprite.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}video\+\_\+gr.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_sprite}{Sprite} $\ast$ \hyperlink{sprite_8c_aa4253e3c15ef1fb16e04b687d32c6f4e}{initialize\+\_\+sprite} (char $\ast$xpm\mbox{[}$\,$\mbox{]}, int $\ast$width2, int $\ast$height2)
+\item 
+void \hyperlink{sprite_8c_abaa8006487ae3af58d131f0e34c5a3d9}{destroy\+\_\+sprite} (\hyperlink{struct_sprite}{Sprite} $\ast$Sp)
+\item 
+void \hyperlink{sprite_8c_a691f3ea004e32d6b8773872b3cbcf620}{draw\+\_\+sprite} (unsigned short xi, unsigned short yi, char $\ast$xpm\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{sprite_8c_aedbe780f71c8f924022265095a0796d3}{draw\+\_\+transp\+\_\+sprite} (unsigned short xi, unsigned short yi, char $\ast$xpm\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sprite_8c_abaa8006487ae3af58d131f0e34c5a3d9}{}\index{sprite.\+c@{sprite.\+c}!destroy\+\_\+sprite@{destroy\+\_\+sprite}}
+\index{destroy\+\_\+sprite@{destroy\+\_\+sprite}!sprite.\+c@{sprite.\+c}}
+\subsubsection[{destroy\+\_\+sprite}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\+\_\+sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{Sp}
+\end{DoxyParamCaption}
+)}\label{sprite_8c_abaa8006487ae3af58d131f0e34c5a3d9}
+Deallocates the memory used by a certain sprite 
+
+Definition at line 21 of file sprite.\+c.
+
+\hypertarget{sprite_8c_a691f3ea004e32d6b8773872b3cbcf620}{}\index{sprite.\+c@{sprite.\+c}!draw\+\_\+sprite@{draw\+\_\+sprite}}
+\index{draw\+\_\+sprite@{draw\+\_\+sprite}!sprite.\+c@{sprite.\+c}}
+\subsubsection[{draw\+\_\+sprite}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+\_\+sprite (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{char $\ast$}]{xpm\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{sprite_8c_a691f3ea004e32d6b8773872b3cbcf620}
+Draws a sprite 
+
+Definition at line 31 of file sprite.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sprite_8c_a691f3ea004e32d6b8773872b3cbcf620_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sprite_8c_aedbe780f71c8f924022265095a0796d3}{}\index{sprite.\+c@{sprite.\+c}!draw\+\_\+transp\+\_\+sprite@{draw\+\_\+transp\+\_\+sprite}}
+\index{draw\+\_\+transp\+\_\+sprite@{draw\+\_\+transp\+\_\+sprite}!sprite.\+c@{sprite.\+c}}
+\subsubsection[{draw\+\_\+transp\+\_\+sprite}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+\_\+transp\+\_\+sprite (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{xi, }
+\item[{unsigned short}]{yi, }
+\item[{char $\ast$}]{xpm\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{sprite_8c_aedbe780f71c8f924022265095a0796d3}
+Draws a transparent sprite 
+
+Definition at line 46 of file sprite.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sprite_8c_aedbe780f71c8f924022265095a0796d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sprite_8c_aa4253e3c15ef1fb16e04b687d32c6f4e}{}\index{sprite.\+c@{sprite.\+c}!initialize\+\_\+sprite@{initialize\+\_\+sprite}}
+\index{initialize\+\_\+sprite@{initialize\+\_\+sprite}!sprite.\+c@{sprite.\+c}}
+\subsubsection[{initialize\+\_\+sprite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite}$\ast$ initialize\+\_\+sprite (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{xpm\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{width2, }
+\item[{int $\ast$}]{height2}
+\end{DoxyParamCaption}
+)}\label{sprite_8c_aa4253e3c15ef1fb16e04b687d32c6f4e}
+Initializes a sprite by allocating memory and reading it 
+
+Definition at line 5 of file sprite.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{sprite_8c_aa4253e3c15ef1fb16e04b687d32c6f4e_cgraph}
+\end{center}
+\end{figure}
+
+

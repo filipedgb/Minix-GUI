@@ -1,0 +1,7 @@
+<map id="draw_transp_sprite" name="draw_transp_sprite">
+<area shape="rect" id="node2" href="$sprite_8c.html#aa4253e3c15ef1fb16e04b687d32c6f4e" title="initialize_sprite" alt="" coords="207,5,315,32"/>
+<area shape="rect" id="node4" href="$video__gr_8c.html#aeac38e0c4152dd54143e87088d044240" title="draw_transparent_map" alt="" coords="185,56,338,83"/>
+<area shape="rect" id="node6" href="$sprite_8c.html#abaa8006487ae3af58d131f0e34c5a3d9" title="destroy_sprite" alt="" coords="209,107,313,133"/>
+<area shape="rect" id="node3" href="$read__xpm_8c.html#a05b2c5e4dbcaffa701703b50a2111783" title="read_xpm" alt="" coords="394,5,473,32"/>
+<area shape="rect" id="node5" href="$video__gr_8c.html#a8399aae2d2f8a89099f6724e54b5cc42" title="vg_set_pixel" alt="" coords="387,56,480,83"/>
+</map>

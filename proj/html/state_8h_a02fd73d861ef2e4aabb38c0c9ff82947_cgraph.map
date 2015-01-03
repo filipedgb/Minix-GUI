@@ -1,0 +1,23 @@
+<map id="init" name="init">
+<area shape="rect" id="node2" href="$state_8c.html#a684b4d91247c64a37a7b9c42fd00cb08" title="subscribe_devices" alt="" coords="93,208,221,235"/>
+<area shape="rect" id="node15" href="$logic_8c.html#af25edb24b597453fb95c3c2080569bd5" title="getSubFolders" alt="" coords="104,411,211,437"/>
+<area shape="rect" id="node18" href="$logic_8c.html#a27d3ba5afb772cc36c9a432c28975ace" title="initButtons" alt="" coords="115,461,199,488"/>
+<area shape="rect" id="node21" href="$video__gr_8c.html#accd11b97cbe02e658083a97f1eb46ed7" title="getVideoMemSize" alt="" coords="93,512,221,539"/>
+<area shape="rect" id="node22" href="$video__gr_8c.html#a1cd7727ad0fc3fe3ffbbb98cd9115c1c" title="getBuffer" alt="" coords="121,563,194,589"/>
+<area shape="rect" id="node3" href="$group__video__gr.html#gacef21667c79365d57a084bed994c2189" title="Initializes the video module in graphics mode. " alt="" coords="321,56,380,83"/>
+<area shape="rect" id="node8" href="$mouse_8c.html#a51e6ee02a5c0a7e618abde7250cd0841" title="mouse_subscribe_int" alt="" coords="278,107,423,133"/>
+<area shape="rect" id="node9" href="$keyboard_8c.html#aa6ca41cf20ce933ec9bbd56b193278cc" title="keyboard_subscribe_int" alt="" coords="271,157,430,184"/>
+<area shape="rect" id="node10" href="$group__timer.html#ga4c5d9f47323eda494cfd826f6d62eec9" title="Subscribes and enables Timer 0 interrupts. " alt="" coords="283,208,418,235"/>
+<area shape="rect" id="node11" href="$mouse_8c.html#aeb383501440759d264265b9a378ffacd" title="kbc_input" alt="" coords="311,259,390,285"/>
+<area shape="rect" id="node14" href="$mouse_8c.html#a5a255b0a98660461ff9453eeae4821b4" title="issue_command_mouse" alt="" coords="269,309,432,336"/>
+<area shape="rect" id="node4" href="$group__vbe.html#ga4ef3234e41f2050bc094a22049b69e45" title="Returns information on the input VBE mode, including screen dimensions, color depth and VRAM physical..." alt="" coords="481,56,613,83"/>
+<area shape="rect" id="node5" href="$group__lmlib.html#ga00a9c17c01e794a6bfc80fc5c6ab1ed1" title="Initializes the low memory area, the region up to the 1 MByte physical address, by mapping it on the ..." alt="" coords="667,5,727,32"/>
+<area shape="rect" id="node6" href="$group__lmlib.html#gae45d971ce2ffcf4dc2677eba033a92cd" title="Allocates a memory block in low memory area with the specified size. " alt="" coords="662,56,733,83"/>
+<area shape="rect" id="node7" href="$group__lmlib.html#ga73e89d9c297b7390021fb545513579c6" title="Frees a memory block in the low memory area, previously allocated using lm_alloc() ..." alt="" coords="665,107,729,133"/>
+<area shape="rect" id="node12" href="$mouse_8c.html#ac750edce7c5a652ab8314780b68751eb" title="kbc_read" alt="" coords="509,259,584,285"/>
+<area shape="rect" id="node13" href="$mouse_8c.html#ad7dfd406cb30b866f8a6593c32396780" title="kbc_write" alt="" coords="508,309,585,336"/>
+<area shape="rect" id="node16" href="$logic_8c.html#a5b0080e32e3cb075b00c7184ce3f5ad0" title="updatePath" alt="" coords="307,360,395,387"/>
+<area shape="rect" id="node17" href="$logic_8c.html#abfbb060a687a19a5ecb65b761bb153c0" title="isFile" alt="" coords="324,411,377,437"/>
+<area shape="rect" id="node19" href="$group__video__gr.html#ga62a06f3a0dc2bfe74941b60f3f0e4294" title="getHRES" alt="" coords="313,461,389,488"/>
+<area shape="rect" id="node20" href="$group__video__gr.html#ga200a747d2cbe6ff688b650fa5972dcec" title="getVRES" alt="" coords="313,512,389,539"/>
+</map>

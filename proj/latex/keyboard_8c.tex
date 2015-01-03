@@ -1,0 +1,138 @@
+\hypertarget{keyboard_8c}{}\section{keyboard.\+c File Reference}
+\label{keyboard_8c}\index{keyboard.\+c@{keyboard.\+c}}
+{\ttfamily \#include \char`\"{}keyboard.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{keyboard_8c_af9d4827856b96cc09dc19308771fcd24}{set\+Timer\+Flag} ()
+\item 
+void \hyperlink{keyboard_8c_aa022a30b37ac135bdebcf64b6787e621}{set\+Assembly\+Flag} ()
+\item 
+void \hyperlink{keyboard_8c_a538a48fcda412eebfedbf8e5b45397a9}{set\+Time} (int seconds)
+\item 
+int \hyperlink{keyboard_8c_aa6ca41cf20ce933ec9bbd56b193278cc}{keyboard\+\_\+subscribe\+\_\+int} (void)
+\item 
+int \hyperlink{keyboard_8c_ac95aea27a5e91b363b876fed881f368f}{keyboard\+\_\+unsubscribe\+\_\+int} ()
+\item 
+int \hyperlink{keyboard_8c_ab07cf29ed086faf6d5a30e0c7cd443e2}{keyboard\+\_\+int\+\_\+handler\+\_\+\+C} (unsigned long $\ast$code)
+\item 
+void \hyperlink{keyboard_8c_a4c24e4a8939cfda0f96ebafcf0d8b0a6}{print\+\_\+codes} (unsigned long code)
+\item 
+int \hyperlink{keyboard_8c_a8c04882e56f7ceb7257ba13e0652b188}{receiver\+\_\+loop} (int shiftkeyboard)
+\item 
+int \hyperlink{keyboard_8c_a16755b6adaea6823bf15eb00344deb08}{issue\+\_\+command} (unsigned long command, unsigned long argument)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{keyboard_8c_a16755b6adaea6823bf15eb00344deb08}{}\index{keyboard.\+c@{keyboard.\+c}!issue\+\_\+command@{issue\+\_\+command}}
+\index{issue\+\_\+command@{issue\+\_\+command}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{issue\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}int issue\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{command, }
+\item[{unsigned long}]{argument}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_a16755b6adaea6823bf15eb00344deb08}
+
+
+Definition at line 127 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_ab07cf29ed086faf6d5a30e0c7cd443e2}{}\index{keyboard.\+c@{keyboard.\+c}!keyboard\+\_\+int\+\_\+handler\+\_\+\+C@{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}}
+\index{keyboard\+\_\+int\+\_\+handler\+\_\+\+C@{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{keyboard\+\_\+int\+\_\+handler\+\_\+\+C}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+int\+\_\+handler\+\_\+\+C (
+\begin{DoxyParamCaption}
+\item[{unsigned long $\ast$}]{code}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_ab07cf29ed086faf6d5a30e0c7cd443e2}
+Handles interrupts for the keyboard 
+
+Definition at line 29 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_aa6ca41cf20ce933ec9bbd56b193278cc}{}\index{keyboard.\+c@{keyboard.\+c}!keyboard\+\_\+subscribe\+\_\+int@{keyboard\+\_\+subscribe\+\_\+int}}
+\index{keyboard\+\_\+subscribe\+\_\+int@{keyboard\+\_\+subscribe\+\_\+int}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{keyboard\+\_\+subscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+subscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_aa6ca41cf20ce933ec9bbd56b193278cc}
+Subscribes keyboard interrupts 
+
+Definition at line 15 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_ac95aea27a5e91b363b876fed881f368f}{}\index{keyboard.\+c@{keyboard.\+c}!keyboard\+\_\+unsubscribe\+\_\+int@{keyboard\+\_\+unsubscribe\+\_\+int}}
+\index{keyboard\+\_\+unsubscribe\+\_\+int@{keyboard\+\_\+unsubscribe\+\_\+int}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{keyboard\+\_\+unsubscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int keyboard\+\_\+unsubscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_ac95aea27a5e91b363b876fed881f368f}
+Unsubscribes keyboard interrupts 
+
+Definition at line 22 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_a4c24e4a8939cfda0f96ebafcf0d8b0a6}{}\index{keyboard.\+c@{keyboard.\+c}!print\+\_\+codes@{print\+\_\+codes}}
+\index{print\+\_\+codes@{print\+\_\+codes}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{print\+\_\+codes}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+codes (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{code}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_a4c24e4a8939cfda0f96ebafcf0d8b0a6}
+Prints keyboard input codes 
+
+Definition at line 79 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_a8c04882e56f7ceb7257ba13e0652b188}{}\index{keyboard.\+c@{keyboard.\+c}!receiver\+\_\+loop@{receiver\+\_\+loop}}
+\index{receiver\+\_\+loop@{receiver\+\_\+loop}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{receiver\+\_\+loop}]{\setlength{\rightskip}{0pt plus 5cm}int receiver\+\_\+loop (
+\begin{DoxyParamCaption}
+\item[{int}]{shiftkeyboard}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_a8c04882e56f7ceb7257ba13e0652b188}
+
+
+Definition at line 91 of file keyboard.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{keyboard_8c_a8c04882e56f7ceb7257ba13e0652b188_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{keyboard_8c_aa022a30b37ac135bdebcf64b6787e621}{}\index{keyboard.\+c@{keyboard.\+c}!set\+Assembly\+Flag@{set\+Assembly\+Flag}}
+\index{set\+Assembly\+Flag@{set\+Assembly\+Flag}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{set\+Assembly\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Assembly\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_aa022a30b37ac135bdebcf64b6787e621}
+
+
+Definition at line 7 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_a538a48fcda412eebfedbf8e5b45397a9}{}\index{keyboard.\+c@{keyboard.\+c}!set\+Time@{set\+Time}}
+\index{set\+Time@{set\+Time}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{set\+Time}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Time (
+\begin{DoxyParamCaption}
+\item[{int}]{seconds}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_a538a48fcda412eebfedbf8e5b45397a9}
+Set seconds 
+
+Definition at line 11 of file keyboard.\+c.
+
+\hypertarget{keyboard_8c_af9d4827856b96cc09dc19308771fcd24}{}\index{keyboard.\+c@{keyboard.\+c}!set\+Timer\+Flag@{set\+Timer\+Flag}}
+\index{set\+Timer\+Flag@{set\+Timer\+Flag}!keyboard.\+c@{keyboard.\+c}}
+\subsubsection[{set\+Timer\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Timer\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{keyboard_8c_af9d4827856b96cc09dc19308771fcd24}
+Activate timer flag 
+
+Definition at line 3 of file keyboard.\+c.
+

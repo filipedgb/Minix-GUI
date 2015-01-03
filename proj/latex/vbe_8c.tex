@@ -1,0 +1,81 @@
+\hypertarget{vbe_8c}{}\section{vbe.\+c File Reference}
+\label{vbe_8c}\index{vbe.\+c@{vbe.\+c}}
+{\ttfamily \#include $<$minix/syslib.\+h$>$}\\*
+{\ttfamily \#include $<$minix/drivers.\+h$>$}\\*
+{\ttfamily \#include $<$machine/int86.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}vbe.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lmlib.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vbe_8c_a0007120a310d0ec70307f51f43eb81a3}{L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T}~14
+\item 
+\#define \hyperlink{vbe_8c_a68b87c2339cb305d66b69b5551b96c73}{P\+B2\+B\+A\+S\+E}(x)~(((x) $>$$>$ 4) \& 0x0\+F000)
+\item 
+\#define \hyperlink{vbe_8c_a70c65ed4c6d71865daa96d31befb33fd}{P\+B2\+O\+F\+F}(x)~((x) \& 0x0\+F\+F\+F\+F)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__vbe_ga4ef3234e41f2050bc094a22049b69e45}{vbe\+\_\+get\+\_\+mode\+\_\+info} (unsigned short mode, vbe\+\_\+mode\+\_\+info\+\_\+t $\ast$vmi\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Returns information on the input V\+B\+E mode, including screen dimensions, color depth and V\+R\+A\+M physical address. \end{DoxyCompactList}\item 
+int \hyperlink{vbe_8c_a2f3d06d07ed60a6feeecd16176c7a887}{vbe\+\_\+get\+\_\+info} (Vbe\+Info\+Block\+\_\+t $\ast$v\+\_\+info, int $\ast$pointer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vbe_8c_a0007120a310d0ec70307f51f43eb81a3}{}\index{vbe.\+c@{vbe.\+c}!L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T@{L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T}}
+\index{L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T@{L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T}!vbe.\+c@{vbe.\+c}}
+\subsubsection[{L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+I\+N\+E\+A\+R\+\_\+\+M\+O\+D\+E\+L\+\_\+\+B\+I\+T~14}\label{vbe_8c_a0007120a310d0ec70307f51f43eb81a3}
+
+
+Definition at line 8 of file vbe.\+c.
+
+\hypertarget{vbe_8c_a68b87c2339cb305d66b69b5551b96c73}{}\index{vbe.\+c@{vbe.\+c}!P\+B2\+B\+A\+S\+E@{P\+B2\+B\+A\+S\+E}}
+\index{P\+B2\+B\+A\+S\+E@{P\+B2\+B\+A\+S\+E}!vbe.\+c@{vbe.\+c}}
+\subsubsection[{P\+B2\+B\+A\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+B2\+B\+A\+S\+E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x) $>$$>$ 4) \& 0x0\+F000)}\label{vbe_8c_a68b87c2339cb305d66b69b5551b96c73}
+
+
+Definition at line 10 of file vbe.\+c.
+
+\hypertarget{vbe_8c_a70c65ed4c6d71865daa96d31befb33fd}{}\index{vbe.\+c@{vbe.\+c}!P\+B2\+O\+F\+F@{P\+B2\+O\+F\+F}}
+\index{P\+B2\+O\+F\+F@{P\+B2\+O\+F\+F}!vbe.\+c@{vbe.\+c}}
+\subsubsection[{P\+B2\+O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+B2\+O\+F\+F(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x) \& 0x0\+F\+F\+F\+F)}\label{vbe_8c_a70c65ed4c6d71865daa96d31befb33fd}
+
+
+Definition at line 11 of file vbe.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{vbe_8c_a2f3d06d07ed60a6feeecd16176c7a887}{}\index{vbe.\+c@{vbe.\+c}!vbe\+\_\+get\+\_\+info@{vbe\+\_\+get\+\_\+info}}
+\index{vbe\+\_\+get\+\_\+info@{vbe\+\_\+get\+\_\+info}!vbe.\+c@{vbe.\+c}}
+\subsubsection[{vbe\+\_\+get\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}int vbe\+\_\+get\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{Vbe\+Info\+Block\+\_\+t $\ast$}]{v\+\_\+info, }
+\item[{int $\ast$}]{pointer}
+\end{DoxyParamCaption}
+)}\label{vbe_8c_a2f3d06d07ed60a6feeecd16176c7a887}
+
+
+Definition at line 43 of file vbe.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{vbe_8c_a2f3d06d07ed60a6feeecd16176c7a887_cgraph}
+\end{center}
+\end{figure}
+
+

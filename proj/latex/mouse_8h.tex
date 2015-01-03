@@ -1,0 +1,239 @@
+\hypertarget{mouse_8h}{}\section{mouse.\+h File Reference}
+\label{mouse_8h}\index{mouse.\+h@{mouse.\+h}}
+{\ttfamily \#include $<$minix/syslib.\+h$>$}\\*
+{\ttfamily \#include $<$minix/drivers.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}headers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}video\+\_\+gr.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmouse__state}{mouse\+\_\+state}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mouse_8h_ad511c347b6ff8bc7793fd53e59d7af56}{set\+Tolerance} (int val)
+\item 
+void \hyperlink{mouse_8h_afbe85e75895d0c21ccdeca473cd4310d}{set\+Length} (int val)
+\item 
+void \hyperlink{mouse_8h_a366965083bf733d3dcb930f023b3b66f}{set\+Gesture} ()
+\item 
+void \hyperlink{mouse_8h_a3add575c994af48186b546df3e9e557a}{set\+Max\+Packets} (int max)
+\item 
+void \hyperlink{mouse_8h_a3694967142c09b45485a3dfe642f3322}{print\+\_\+packet} ()
+\item 
+void \hyperlink{mouse_8h_ac8471a77a592a1fbe4b3af45fa93098a}{read\+\_\+config} ()
+\item 
+void \hyperlink{mouse_8h_a86ad7fbf111820c4cba8e88efe97ca63}{print\+\_\+mouse\+\_\+config} ()
+\item 
+int \hyperlink{mouse_8h_a58b93efb6a8f4663e3483eff76868253}{gesture\+\_\+state\+\_\+machine} ()
+\item 
+int \hyperlink{mouse_8h_aeeb82392bcbada700e9001a2454198a5}{mouse\+\_\+int\+\_\+handler} ()
+\item 
+int \hyperlink{mouse_8h_a99506573209b197b84ee22a228b89fbd}{mouse\+\_\+subscribe\+\_\+int} ()
+\item 
+int \hyperlink{mouse_8h_a685ad2706aca36d9869a30a19b9f446a}{mouse\+\_\+unsubscribe\+\_\+int} ()
+\item 
+int \hyperlink{mouse_8h_a5a255b0a98660461ff9453eeae4821b4}{issue\+\_\+command\+\_\+mouse} (unsigned char command, unsigned char argument)
+\item 
+void \hyperlink{mouse_8h_a6070aa93dde00a013222c78812762d2b}{interruption\+\_\+loop} ()
+\item 
+int \hyperlink{mouse_8h_aeb383501440759d264265b9a378ffacd}{kbc\+\_\+input} (char kbc\+\_\+command)
+\item 
+int \hyperlink{mouse_8h_a2338d14ae57d95731567ba696d97e08a}{kbc\+\_\+output} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mouse_8h_a58b93efb6a8f4663e3483eff76868253}{}\index{mouse.\+h@{mouse.\+h}!gesture\+\_\+state\+\_\+machine@{gesture\+\_\+state\+\_\+machine}}
+\index{gesture\+\_\+state\+\_\+machine@{gesture\+\_\+state\+\_\+machine}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{gesture\+\_\+state\+\_\+machine}]{\setlength{\rightskip}{0pt plus 5cm}int gesture\+\_\+state\+\_\+machine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a58b93efb6a8f4663e3483eff76868253}
+Nota importante\+: Sempre que h� valores negativos no dx e dy n�o os consegui ler correctamente, aparecendo sempre -\/255 tanto movendo para a esquerda como para baixo. Portanto, para testar esta fun��o com a tolerancia vertical ter� de o fazer movendo o rato para cima, pois para baixo como os valores eram sempre -\/255 decidi ignorar. Para a esquerda ele detecta que houve movimento negativo simplesmente e faz reset, portanto tamb�m funciona nesse caso. 
+
+Definition at line 168 of file mouse.\+c.
+
+\hypertarget{mouse_8h_a6070aa93dde00a013222c78812762d2b}{}\index{mouse.\+h@{mouse.\+h}!interruption\+\_\+loop@{interruption\+\_\+loop}}
+\index{interruption\+\_\+loop@{interruption\+\_\+loop}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{interruption\+\_\+loop}]{\setlength{\rightskip}{0pt plus 5cm}void interruption\+\_\+loop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a6070aa93dde00a013222c78812762d2b}
+\hypertarget{mouse_8h_a5a255b0a98660461ff9453eeae4821b4}{}\index{mouse.\+h@{mouse.\+h}!issue\+\_\+command\+\_\+mouse@{issue\+\_\+command\+\_\+mouse}}
+\index{issue\+\_\+command\+\_\+mouse@{issue\+\_\+command\+\_\+mouse}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{issue\+\_\+command\+\_\+mouse}]{\setlength{\rightskip}{0pt plus 5cm}int issue\+\_\+command\+\_\+mouse (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{command, }
+\item[{unsigned char}]{argument}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a5a255b0a98660461ff9453eeae4821b4}
+
+
+Definition at line 342 of file mouse.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mouse_8h_a5a255b0a98660461ff9453eeae4821b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mouse_8h_aeb383501440759d264265b9a378ffacd}{}\index{mouse.\+h@{mouse.\+h}!kbc\+\_\+input@{kbc\+\_\+input}}
+\index{kbc\+\_\+input@{kbc\+\_\+input}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{kbc\+\_\+input}]{\setlength{\rightskip}{0pt plus 5cm}int kbc\+\_\+input (
+\begin{DoxyParamCaption}
+\item[{char}]{kbc\+\_\+command}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_aeb383501440759d264265b9a378ffacd}
+
+
+Definition at line 299 of file mouse.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{mouse_8h_aeb383501440759d264265b9a378ffacd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mouse_8h_a2338d14ae57d95731567ba696d97e08a}{}\index{mouse.\+h@{mouse.\+h}!kbc\+\_\+output@{kbc\+\_\+output}}
+\index{kbc\+\_\+output@{kbc\+\_\+output}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{kbc\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}int kbc\+\_\+output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a2338d14ae57d95731567ba696d97e08a}
+
+
+Definition at line 322 of file mouse.\+c.
+
+\hypertarget{mouse_8h_aeeb82392bcbada700e9001a2454198a5}{}\index{mouse.\+h@{mouse.\+h}!mouse\+\_\+int\+\_\+handler@{mouse\+\_\+int\+\_\+handler}}
+\index{mouse\+\_\+int\+\_\+handler@{mouse\+\_\+int\+\_\+handler}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{mouse\+\_\+int\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}int mouse\+\_\+int\+\_\+handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_aeeb82392bcbada700e9001a2454198a5}
+Handles mouse interrupts \hypertarget{mouse_8h_a99506573209b197b84ee22a228b89fbd}{}\index{mouse.\+h@{mouse.\+h}!mouse\+\_\+subscribe\+\_\+int@{mouse\+\_\+subscribe\+\_\+int}}
+\index{mouse\+\_\+subscribe\+\_\+int@{mouse\+\_\+subscribe\+\_\+int}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{mouse\+\_\+subscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int mouse\+\_\+subscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a99506573209b197b84ee22a228b89fbd}
+Subscribes mouse interrupts 
+
+Definition at line 39 of file mouse.\+c.
+
+\hypertarget{mouse_8h_a685ad2706aca36d9869a30a19b9f446a}{}\index{mouse.\+h@{mouse.\+h}!mouse\+\_\+unsubscribe\+\_\+int@{mouse\+\_\+unsubscribe\+\_\+int}}
+\index{mouse\+\_\+unsubscribe\+\_\+int@{mouse\+\_\+unsubscribe\+\_\+int}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{mouse\+\_\+unsubscribe\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}int mouse\+\_\+unsubscribe\+\_\+int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a685ad2706aca36d9869a30a19b9f446a}
+Unsubscribes mouse interrupts 
+
+Definition at line 46 of file mouse.\+c.
+
+\hypertarget{mouse_8h_a86ad7fbf111820c4cba8e88efe97ca63}{}\index{mouse.\+h@{mouse.\+h}!print\+\_\+mouse\+\_\+config@{print\+\_\+mouse\+\_\+config}}
+\index{print\+\_\+mouse\+\_\+config@{print\+\_\+mouse\+\_\+config}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{print\+\_\+mouse\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+mouse\+\_\+config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a86ad7fbf111820c4cba8e88efe97ca63}
+Prints mouse configuration 
+
+Definition at line 239 of file mouse.\+c.
+
+\hypertarget{mouse_8h_a3694967142c09b45485a3dfe642f3322}{}\index{mouse.\+h@{mouse.\+h}!print\+\_\+packet@{print\+\_\+packet}}
+\index{print\+\_\+packet@{print\+\_\+packet}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{print\+\_\+packet}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a3694967142c09b45485a3dfe642f3322}
+
+
+Definition at line 137 of file mouse.\+c.
+
+\hypertarget{mouse_8h_ac8471a77a592a1fbe4b3af45fa93098a}{}\index{mouse.\+h@{mouse.\+h}!read\+\_\+config@{read\+\_\+config}}
+\index{read\+\_\+config@{read\+\_\+config}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{read\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_ac8471a77a592a1fbe4b3af45fa93098a}
+
+
+Definition at line 224 of file mouse.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{mouse_8h_ac8471a77a592a1fbe4b3af45fa93098a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mouse_8h_a366965083bf733d3dcb930f023b3b66f}{}\index{mouse.\+h@{mouse.\+h}!set\+Gesture@{set\+Gesture}}
+\index{set\+Gesture@{set\+Gesture}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{set\+Gesture}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Gesture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a366965083bf733d3dcb930f023b3b66f}
+
+
+Definition at line 31 of file mouse.\+c.
+
+\hypertarget{mouse_8h_afbe85e75895d0c21ccdeca473cd4310d}{}\index{mouse.\+h@{mouse.\+h}!set\+Length@{set\+Length}}
+\index{set\+Length@{set\+Length}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{set\+Length}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Length (
+\begin{DoxyParamCaption}
+\item[{int}]{val}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_afbe85e75895d0c21ccdeca473cd4310d}
+
+
+Definition at line 27 of file mouse.\+c.
+
+\hypertarget{mouse_8h_a3add575c994af48186b546df3e9e557a}{}\index{mouse.\+h@{mouse.\+h}!set\+Max\+Packets@{set\+Max\+Packets}}
+\index{set\+Max\+Packets@{set\+Max\+Packets}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{set\+Max\+Packets}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Max\+Packets (
+\begin{DoxyParamCaption}
+\item[{int}]{max}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_a3add575c994af48186b546df3e9e557a}
+
+
+Definition at line 35 of file mouse.\+c.
+
+\hypertarget{mouse_8h_ad511c347b6ff8bc7793fd53e59d7af56}{}\index{mouse.\+h@{mouse.\+h}!set\+Tolerance@{set\+Tolerance}}
+\index{set\+Tolerance@{set\+Tolerance}!mouse.\+h@{mouse.\+h}}
+\subsubsection[{set\+Tolerance}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Tolerance (
+\begin{DoxyParamCaption}
+\item[{int}]{val}
+\end{DoxyParamCaption}
+)}\label{mouse_8h_ad511c347b6ff8bc7793fd53e59d7af56}
+
+
+Definition at line 24 of file mouse.\+c.
+

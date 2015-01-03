@@ -1,0 +1,799 @@
+\hypertarget{logic_8c}{}\section{logic.\+c File Reference}
+\label{logic_8c}\index{logic.\+c@{logic.\+c}}
+{\ttfamily \#include \char`\"{}logic.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{logic_8c_a0a12179d687ca2d67e72e78268f7cc2c}{collision} (\hyperlink{structmouse__state}{mouse\+\_\+state} mouse, \hyperlink{logic_8h_a8dd5b76d2972cdce6fd4f1c7d8e175c5}{Button} a)
+\item 
+int \hyperlink{logic_8c_aa39071f67e32c2002f72ce59c1e6fa11}{check\+\_\+mouse\+\_\+click} (\hyperlink{structmouse__state}{mouse\+\_\+state} \hyperlink{state_8h_a39d9a371f9aef2042923a96e2f855d5e}{current\+\_\+mouse\+\_\+state})
+\item 
+void \hyperlink{logic_8c_a27d3ba5afb772cc36c9a432c28975ace}{init\+Buttons} ()
+\item 
+int \hyperlink{logic_8c_ab16ca2694321ab91f2f0a0b332c0df58}{check\+\_\+mouse\+\_\+double\+\_\+click} (\hyperlink{structmouse__state}{mouse\+\_\+state} \hyperlink{state_8h_a39d9a371f9aef2042923a96e2f855d5e}{current\+\_\+mouse\+\_\+state})
+\item 
+void \hyperlink{logic_8c_a737abc4763c06db503f514a639fea08c}{check\+\_\+rename\+\_\+folder} ()
+\item 
+int \hyperlink{logic_8c_ac4ac4a95ff10cf3256c2a36d0e90d45e}{check\+\_\+delete\+\_\+files} ()
+\item 
+void \hyperlink{logic_8c_a20a866a30fdbb32fc9bfc74dacd0b89c}{set\+Delete\+Flag} ()
+\item 
+int \hyperlink{logic_8c_aaa9525bb143ec0e36c7b6eda42881715}{get\+Delete\+Flag} ()
+\item 
+int \hyperlink{logic_8c_a283e5fd540509ad3e89cd63bb7f6e999}{get\+Turn\+Off\+Flag} ()
+\item 
+void \hyperlink{logic_8c_a6673774c3b7ef292567a5637f47a9579}{set\+Rename\+Flag} ()
+\item 
+int \hyperlink{logic_8c_a62436370dd4c3bd2452cef7f4fd7b7f0}{get\+Rename\+Flag} ()
+\item 
+int \hyperlink{logic_8c_a0e1eda02d10d0930fa24e87170c111ff}{is\+Box\+Confirmed} ()
+\item 
+void \hyperlink{logic_8c_a913ad8296c70b807df4fbf6302f8072a}{open\+Folder} (int index)
+\item 
+void \hyperlink{logic_8c_a0d8e78acd24989789082f4306f903596}{disable\+Box} ()
+\item 
+void \hyperlink{logic_8c_a017ced8b7330e5d2522c9718de024750}{enable\+Box} (int type, char $\ast$title, char $\ast$text)
+\item 
+char $\ast$ \hyperlink{logic_8c_ac767299fe51a7511dc7dcb8f41a1f4b9}{get\+Box\+Title} ()
+\item 
+char $\ast$ \hyperlink{logic_8c_a158bfa83c4b1dd186a3a89151b687e01}{get\+Box\+Text} ()
+\item 
+int \hyperlink{logic_8c_a7400b316b1eb9244af06ab06f37757f8}{is\+Box} ()
+\item 
+int \hyperlink{logic_8c_a7b844fdb59d5c51e10bceedf336b6429}{is\+Output} ()
+\item 
+char $\ast$ \hyperlink{logic_8c_a87d8b4ed67ed030ef2f6f3faeb7aa6df}{get\+Title} ()
+\item 
+void \hyperlink{logic_8c_a530fba246396179676ecb402fb2d2e4a}{delete\+Folder} (int index)
+\item 
+void \hyperlink{logic_8c_a1e48323b0a3fdd311f7cd1988532ace8}{rename\+Folder} (int index)
+\item 
+int \hyperlink{logic_8c_ab8591ddf31e5c4ab28c07160e84ee893}{navigate\+Left} ()
+\item 
+int \hyperlink{logic_8c_a87b6ad8fb397f0e72cbf79c99c3c3b25}{navigate\+Right} ()
+\item 
+int \hyperlink{logic_8c_ade9da36feece104d5099779b77e0370d}{navigate\+Up} ()
+\item 
+int \hyperlink{logic_8c_a602ddea367dab1b4fec0e9f96abbcf0f}{navigate\+Down} ()
+\item 
+char $\ast$ \hyperlink{logic_8c_a31ba4de847c8b9762dfe9fdbb08ef4f1}{get\+Folder\+Name} (int index)
+\item 
+int \hyperlink{logic_8c_a34121a3403c30a9dd71f71624aaaf0e7}{is\+Folder\+Selected} (int index)
+\item 
+int \hyperlink{logic_8c_a317bd44d55f4edc8580bbdbdc8a5f506}{open\+Folder\+By\+Enter} ()
+\item 
+int \hyperlink{logic_8c_a6ea97012f3e7cfbdac36a77b25046e9b}{move\+Back} ()
+\item 
+int \hyperlink{logic_8c_a4ea80b22f633b3030dec0db2269ada1d}{get\+Folder\+Selected} ()
+\item 
+void \hyperlink{logic_8c_a3b3c14dae824723e0e1b4720a370b3e6}{set\+Folder\+Coords} (int index, int in\+X, int in\+Y)
+\item 
+void \hyperlink{logic_8c_aa9f20f8c541306d3b93879d0a6d497e8}{toggle\+Selected} (int index)
+\item 
+char $\ast$ \hyperlink{logic_8c_a551b12c420e086648c320df4fa034130}{get\+Path} ()
+\item 
+\hyperlink{logic_8h_ad5e554666c5d1a199d39416c639f97f8}{Directory} $\ast$ \hyperlink{logic_8c_a4b7468f1ca81496cf0ee00452194e81f}{get\+Directories} ()
+\item 
+int \hyperlink{logic_8c_a00fee6141a63232b663143211aacc392}{get\+Number\+Folders} ()
+\item 
+int \hyperlink{logic_8c_a65b0f047568e3d106306bd405b5be72b}{get\+Folder\+By\+Coords} (int x, int y)
+\item 
+char \hyperlink{logic_8c_aa5aa39c1f1818cfbd5141e37c3a9e5c0}{get\+Char\+By\+Number} (unsigned long input)
+\item 
+void \hyperlink{logic_8c_a501609335890024a00bc939c19538b0f}{update\+Text\+Box} (unsigned long input)
+\item 
+int \hyperlink{logic_8c_a4b6ed6ccee9c7d03c7f1c93b51debcb7}{is\+File\+By\+Index} (int index)
+\item 
+int \hyperlink{logic_8c_abfbb060a687a19a5ecb65b761bb153c0}{is\+File} (char $\ast$path)
+\item 
+void \hyperlink{logic_8c_a5b0080e32e3cb075b00c7184ce3f5ad0}{update\+Path} (char $\ast$foldername)
+\item 
+int \hyperlink{logic_8c_af25edb24b597453fb95c3c2080569bd5}{get\+Sub\+Folders} (char $\ast$foldername)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{logic_8c_ac4ac4a95ff10cf3256c2a36d0e90d45e}{}\index{logic.\+c@{logic.\+c}!check\+\_\+delete\+\_\+files@{check\+\_\+delete\+\_\+files}}
+\index{check\+\_\+delete\+\_\+files@{check\+\_\+delete\+\_\+files}!logic.\+c@{logic.\+c}}
+\subsubsection[{check\+\_\+delete\+\_\+files}]{\setlength{\rightskip}{0pt plus 5cm}int check\+\_\+delete\+\_\+files (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_ac4ac4a95ff10cf3256c2a36d0e90d45e}
+Deletes selected folder/file 
+
+Definition at line 112 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_ac4ac4a95ff10cf3256c2a36d0e90d45e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_aa39071f67e32c2002f72ce59c1e6fa11}{}\index{logic.\+c@{logic.\+c}!check\+\_\+mouse\+\_\+click@{check\+\_\+mouse\+\_\+click}}
+\index{check\+\_\+mouse\+\_\+click@{check\+\_\+mouse\+\_\+click}!logic.\+c@{logic.\+c}}
+\subsubsection[{check\+\_\+mouse\+\_\+click}]{\setlength{\rightskip}{0pt plus 5cm}int check\+\_\+mouse\+\_\+click (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{current\+\_\+mouse\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{logic_8c_aa39071f67e32c2002f72ce59c1e6fa11}
+Does verifications when the mouse is clicked once 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+mouse\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 19 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{logic_8c_aa39071f67e32c2002f72ce59c1e6fa11_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_ab16ca2694321ab91f2f0a0b332c0df58}{}\index{logic.\+c@{logic.\+c}!check\+\_\+mouse\+\_\+double\+\_\+click@{check\+\_\+mouse\+\_\+double\+\_\+click}}
+\index{check\+\_\+mouse\+\_\+double\+\_\+click@{check\+\_\+mouse\+\_\+double\+\_\+click}!logic.\+c@{logic.\+c}}
+\subsubsection[{check\+\_\+mouse\+\_\+double\+\_\+click}]{\setlength{\rightskip}{0pt plus 5cm}int check\+\_\+mouse\+\_\+double\+\_\+click (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{current\+\_\+mouse\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{logic_8c_ab16ca2694321ab91f2f0a0b332c0df58}
+Does verifications when the mouse is clicked twice in less than 0.\+25 seconds (double click) 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+mouse\+\_\+state} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 83 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_ab16ca2694321ab91f2f0a0b332c0df58_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a737abc4763c06db503f514a639fea08c}{}\index{logic.\+c@{logic.\+c}!check\+\_\+rename\+\_\+folder@{check\+\_\+rename\+\_\+folder}}
+\index{check\+\_\+rename\+\_\+folder@{check\+\_\+rename\+\_\+folder}!logic.\+c@{logic.\+c}}
+\subsubsection[{check\+\_\+rename\+\_\+folder}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+rename\+\_\+folder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a737abc4763c06db503f514a639fea08c}
+
+
+Definition at line 97 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a737abc4763c06db503f514a639fea08c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a0a12179d687ca2d67e72e78268f7cc2c}{}\index{logic.\+c@{logic.\+c}!collision@{collision}}
+\index{collision@{collision}!logic.\+c@{logic.\+c}}
+\subsubsection[{collision}]{\setlength{\rightskip}{0pt plus 5cm}int collision (
+\begin{DoxyParamCaption}
+\item[{{\bf mouse\+\_\+state}}]{mouse, }
+\item[{{\bf Button}}]{a}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a0a12179d687ca2d67e72e78268f7cc2c}
+Handles mouse collisions 
+\begin{DoxyParams}{Parameters}
+{\em mouse} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 8 of file logic.\+c.
+
+\hypertarget{logic_8c_a530fba246396179676ecb402fb2d2e4a}{}\index{logic.\+c@{logic.\+c}!delete\+Folder@{delete\+Folder}}
+\index{delete\+Folder@{delete\+Folder}!logic.\+c@{logic.\+c}}
+\subsubsection[{delete\+Folder}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+Folder (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a530fba246396179676ecb402fb2d2e4a}
+Deletes a folder with a certain index 
+
+Definition at line 198 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a530fba246396179676ecb402fb2d2e4a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a0d8e78acd24989789082f4306f903596}{}\index{logic.\+c@{logic.\+c}!disable\+Box@{disable\+Box}}
+\index{disable\+Box@{disable\+Box}!logic.\+c@{logic.\+c}}
+\subsubsection[{disable\+Box}]{\setlength{\rightskip}{0pt plus 5cm}void disable\+Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a0d8e78acd24989789082f4306f903596}
+Disables box 
+
+Definition at line 160 of file logic.\+c.
+
+\hypertarget{logic_8c_a017ced8b7330e5d2522c9718de024750}{}\index{logic.\+c@{logic.\+c}!enable\+Box@{enable\+Box}}
+\index{enable\+Box@{enable\+Box}!logic.\+c@{logic.\+c}}
+\subsubsection[{enable\+Box}]{\setlength{\rightskip}{0pt plus 5cm}void enable\+Box (
+\begin{DoxyParamCaption}
+\item[{int}]{type, }
+\item[{char $\ast$}]{title, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a017ced8b7330e5d2522c9718de024750}
+Enables box 
+
+Definition at line 167 of file logic.\+c.
+
+\hypertarget{logic_8c_a158bfa83c4b1dd186a3a89151b687e01}{}\index{logic.\+c@{logic.\+c}!get\+Box\+Text@{get\+Box\+Text}}
+\index{get\+Box\+Text@{get\+Box\+Text}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Box\+Text}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Box\+Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a158bfa83c4b1dd186a3a89151b687e01}
+Gets a box input 
+
+Definition at line 181 of file logic.\+c.
+
+\hypertarget{logic_8c_ac767299fe51a7511dc7dcb8f41a1f4b9}{}\index{logic.\+c@{logic.\+c}!get\+Box\+Title@{get\+Box\+Title}}
+\index{get\+Box\+Title@{get\+Box\+Title}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Box\+Title}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Box\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_ac767299fe51a7511dc7dcb8f41a1f4b9}
+
+
+Definition at line 176 of file logic.\+c.
+
+\hypertarget{logic_8c_aa5aa39c1f1818cfbd5141e37c3a9e5c0}{}\index{logic.\+c@{logic.\+c}!get\+Char\+By\+Number@{get\+Char\+By\+Number}}
+\index{get\+Char\+By\+Number@{get\+Char\+By\+Number}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Char\+By\+Number}]{\setlength{\rightskip}{0pt plus 5cm}char get\+Char\+By\+Number (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{input}
+\end{DoxyParamCaption}
+)}\label{logic_8c_aa5aa39c1f1818cfbd5141e37c3a9e5c0}
+
+
+Definition at line 357 of file logic.\+c.
+
+\hypertarget{logic_8c_aaa9525bb143ec0e36c7b6eda42881715}{}\index{logic.\+c@{logic.\+c}!get\+Delete\+Flag@{get\+Delete\+Flag}}
+\index{get\+Delete\+Flag@{get\+Delete\+Flag}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Delete\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Delete\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_aaa9525bb143ec0e36c7b6eda42881715}
+Returns delete flag 
+
+Definition at line 132 of file logic.\+c.
+
+\hypertarget{logic_8c_a4b7468f1ca81496cf0ee00452194e81f}{}\index{logic.\+c@{logic.\+c}!get\+Directories@{get\+Directories}}
+\index{get\+Directories@{get\+Directories}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Directories}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Directory}$\ast$ get\+Directories (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a4b7468f1ca81496cf0ee00452194e81f}
+Returns current folders of the current directory 
+
+Definition at line 334 of file logic.\+c.
+
+\hypertarget{logic_8c_a65b0f047568e3d106306bd405b5be72b}{}\index{logic.\+c@{logic.\+c}!get\+Folder\+By\+Coords@{get\+Folder\+By\+Coords}}
+\index{get\+Folder\+By\+Coords@{get\+Folder\+By\+Coords}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Folder\+By\+Coords}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Folder\+By\+Coords (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a65b0f047568e3d106306bd405b5be72b}
+Gets folder index by coordinates 
+
+Definition at line 343 of file logic.\+c.
+
+\hypertarget{logic_8c_a31ba4de847c8b9762dfe9fdbb08ef4f1}{}\index{logic.\+c@{logic.\+c}!get\+Folder\+Name@{get\+Folder\+Name}}
+\index{get\+Folder\+Name@{get\+Folder\+Name}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Folder\+Name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Folder\+Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a31ba4de847c8b9762dfe9fdbb08ef4f1}
+Returns a folder\textquotesingle{}s name with a certain index 
+
+Definition at line 288 of file logic.\+c.
+
+\hypertarget{logic_8c_a4ea80b22f633b3030dec0db2269ada1d}{}\index{logic.\+c@{logic.\+c}!get\+Folder\+Selected@{get\+Folder\+Selected}}
+\index{get\+Folder\+Selected@{get\+Folder\+Selected}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Folder\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Folder\+Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a4ea80b22f633b3030dec0db2269ada1d}
+Returns index of the folder currently selected 
+
+Definition at line 308 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{logic_8c_a4ea80b22f633b3030dec0db2269ada1d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a00fee6141a63232b663143211aacc392}{}\index{logic.\+c@{logic.\+c}!get\+Number\+Folders@{get\+Number\+Folders}}
+\index{get\+Number\+Folders@{get\+Number\+Folders}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Number\+Folders}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Folders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a00fee6141a63232b663143211aacc392}
+Returns the number of folders 
+
+Definition at line 338 of file logic.\+c.
+
+\hypertarget{logic_8c_a551b12c420e086648c320df4fa034130}{}\index{logic.\+c@{logic.\+c}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Path}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a551b12c420e086648c320df4fa034130}
+Returns the current path 
+
+Definition at line 330 of file logic.\+c.
+
+\hypertarget{logic_8c_a62436370dd4c3bd2452cef7f4fd7b7f0}{}\index{logic.\+c@{logic.\+c}!get\+Rename\+Flag@{get\+Rename\+Flag}}
+\index{get\+Rename\+Flag@{get\+Rename\+Flag}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Rename\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Rename\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a62436370dd4c3bd2452cef7f4fd7b7f0}
+
+
+Definition at line 144 of file logic.\+c.
+
+\hypertarget{logic_8c_af25edb24b597453fb95c3c2080569bd5}{}\index{logic.\+c@{logic.\+c}!get\+Sub\+Folders@{get\+Sub\+Folders}}
+\index{get\+Sub\+Folders@{get\+Sub\+Folders}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Sub\+Folders}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sub\+Folders (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{foldername}
+\end{DoxyParamCaption}
+)}\label{logic_8c_af25edb24b597453fb95c3c2080569bd5}
+Gets a folder subfolders, and stores them in a static array to be used later 
+
+Definition at line 431 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{logic_8c_af25edb24b597453fb95c3c2080569bd5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a87d8b4ed67ed030ef2f6f3faeb7aa6df}{}\index{logic.\+c@{logic.\+c}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Title}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a87d8b4ed67ed030ef2f6f3faeb7aa6df}
+
+
+Definition at line 193 of file logic.\+c.
+
+\hypertarget{logic_8c_a283e5fd540509ad3e89cd63bb7f6e999}{}\index{logic.\+c@{logic.\+c}!get\+Turn\+Off\+Flag@{get\+Turn\+Off\+Flag}}
+\index{get\+Turn\+Off\+Flag@{get\+Turn\+Off\+Flag}!logic.\+c@{logic.\+c}}
+\subsubsection[{get\+Turn\+Off\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Turn\+Off\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a283e5fd540509ad3e89cd63bb7f6e999}
+Returns turn off flag 
+
+Definition at line 136 of file logic.\+c.
+
+\hypertarget{logic_8c_a27d3ba5afb772cc36c9a432c28975ace}{}\index{logic.\+c@{logic.\+c}!init\+Buttons@{init\+Buttons}}
+\index{init\+Buttons@{init\+Buttons}!logic.\+c@{logic.\+c}}
+\subsubsection[{init\+Buttons}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a27d3ba5afb772cc36c9a432c28975ace}
+Initiates interface buttons 
+
+Definition at line 71 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{logic_8c_a27d3ba5afb772cc36c9a432c28975ace_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a7400b316b1eb9244af06ab06f37757f8}{}\index{logic.\+c@{logic.\+c}!is\+Box@{is\+Box}}
+\index{is\+Box@{is\+Box}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+Box}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a7400b316b1eb9244af06ab06f37757f8}
+Returns whether a box is active or not 
+
+Definition at line 185 of file logic.\+c.
+
+\hypertarget{logic_8c_a0e1eda02d10d0930fa24e87170c111ff}{}\index{logic.\+c@{logic.\+c}!is\+Box\+Confirmed@{is\+Box\+Confirmed}}
+\index{is\+Box\+Confirmed@{is\+Box\+Confirmed}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+Box\+Confirmed}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Box\+Confirmed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a0e1eda02d10d0930fa24e87170c111ff}
+Returns whether a box is confirmed or not 
+
+Definition at line 149 of file logic.\+c.
+
+\hypertarget{logic_8c_abfbb060a687a19a5ecb65b761bb153c0}{}\index{logic.\+c@{logic.\+c}!is\+File@{is\+File}}
+\index{is\+File@{is\+File}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+File}]{\setlength{\rightskip}{0pt plus 5cm}int is\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{logic_8c_abfbb060a687a19a5ecb65b761bb153c0}
+Returns whether it is a file or a folder by path 
+
+Definition at line 407 of file logic.\+c.
+
+\hypertarget{logic_8c_a4b6ed6ccee9c7d03c7f1c93b51debcb7}{}\index{logic.\+c@{logic.\+c}!is\+File\+By\+Index@{is\+File\+By\+Index}}
+\index{is\+File\+By\+Index@{is\+File\+By\+Index}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+File\+By\+Index}]{\setlength{\rightskip}{0pt plus 5cm}int is\+File\+By\+Index (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a4b6ed6ccee9c7d03c7f1c93b51debcb7}
+Returns whether it is a file or a folder by index 
+
+Definition at line 400 of file logic.\+c.
+
+\hypertarget{logic_8c_a34121a3403c30a9dd71f71624aaaf0e7}{}\index{logic.\+c@{logic.\+c}!is\+Folder\+Selected@{is\+Folder\+Selected}}
+\index{is\+Folder\+Selected@{is\+Folder\+Selected}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+Folder\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Folder\+Selected (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a34121a3403c30a9dd71f71624aaaf0e7}
+Returns whether a certain folder is selected or not 
+
+Definition at line 292 of file logic.\+c.
+
+\hypertarget{logic_8c_a7b844fdb59d5c51e10bceedf336b6429}{}\index{logic.\+c@{logic.\+c}!is\+Output@{is\+Output}}
+\index{is\+Output@{is\+Output}!logic.\+c@{logic.\+c}}
+\subsubsection[{is\+Output}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a7b844fdb59d5c51e10bceedf336b6429}
+Returns whether a box is out/input 
+
+Definition at line 189 of file logic.\+c.
+
+\hypertarget{logic_8c_a6ea97012f3e7cfbdac36a77b25046e9b}{}\index{logic.\+c@{logic.\+c}!move\+Back@{move\+Back}}
+\index{move\+Back@{move\+Back}!logic.\+c@{logic.\+c}}
+\subsubsection[{move\+Back}]{\setlength{\rightskip}{0pt plus 5cm}int move\+Back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a6ea97012f3e7cfbdac36a77b25046e9b}
+Returns to initial folder by pressing backspace 
+
+Definition at line 303 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a6ea97012f3e7cfbdac36a77b25046e9b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a602ddea367dab1b4fec0e9f96abbcf0f}{}\index{logic.\+c@{logic.\+c}!navigate\+Down@{navigate\+Down}}
+\index{navigate\+Down@{navigate\+Down}!logic.\+c@{logic.\+c}}
+\subsubsection[{navigate\+Down}]{\setlength{\rightskip}{0pt plus 5cm}int navigate\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a602ddea367dab1b4fec0e9f96abbcf0f}
+Allows down arrow key navigation 
+
+Definition at line 274 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a602ddea367dab1b4fec0e9f96abbcf0f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_ab8591ddf31e5c4ab28c07160e84ee893}{}\index{logic.\+c@{logic.\+c}!navigate\+Left@{navigate\+Left}}
+\index{navigate\+Left@{navigate\+Left}!logic.\+c@{logic.\+c}}
+\subsubsection[{navigate\+Left}]{\setlength{\rightskip}{0pt plus 5cm}int navigate\+Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_ab8591ddf31e5c4ab28c07160e84ee893}
+Allows left arrow key navigation 
+
+Definition at line 237 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_ab8591ddf31e5c4ab28c07160e84ee893_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a87b6ad8fb397f0e72cbf79c99c3c3b25}{}\index{logic.\+c@{logic.\+c}!navigate\+Right@{navigate\+Right}}
+\index{navigate\+Right@{navigate\+Right}!logic.\+c@{logic.\+c}}
+\subsubsection[{navigate\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int navigate\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a87b6ad8fb397f0e72cbf79c99c3c3b25}
+Allows right arrow key navigation 
+
+Definition at line 249 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a87b6ad8fb397f0e72cbf79c99c3c3b25_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_ade9da36feece104d5099779b77e0370d}{}\index{logic.\+c@{logic.\+c}!navigate\+Up@{navigate\+Up}}
+\index{navigate\+Up@{navigate\+Up}!logic.\+c@{logic.\+c}}
+\subsubsection[{navigate\+Up}]{\setlength{\rightskip}{0pt plus 5cm}int navigate\+Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_ade9da36feece104d5099779b77e0370d}
+Allows up arrow key navigation 
+
+Definition at line 262 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_ade9da36feece104d5099779b77e0370d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a913ad8296c70b807df4fbf6302f8072a}{}\index{logic.\+c@{logic.\+c}!open\+Folder@{open\+Folder}}
+\index{open\+Folder@{open\+Folder}!logic.\+c@{logic.\+c}}
+\subsubsection[{open\+Folder}]{\setlength{\rightskip}{0pt plus 5cm}void open\+Folder (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a913ad8296c70b807df4fbf6302f8072a}
+Opens folder with a certain index 
+
+Definition at line 155 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a913ad8296c70b807df4fbf6302f8072a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a317bd44d55f4edc8580bbdbdc8a5f506}{}\index{logic.\+c@{logic.\+c}!open\+Folder\+By\+Enter@{open\+Folder\+By\+Enter}}
+\index{open\+Folder\+By\+Enter@{open\+Folder\+By\+Enter}!logic.\+c@{logic.\+c}}
+\subsubsection[{open\+Folder\+By\+Enter}]{\setlength{\rightskip}{0pt plus 5cm}int open\+Folder\+By\+Enter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a317bd44d55f4edc8580bbdbdc8a5f506}
+Allows opening a folder by pressing Enter 
+
+Definition at line 297 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a317bd44d55f4edc8580bbdbdc8a5f506_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a1e48323b0a3fdd311f7cd1988532ace8}{}\index{logic.\+c@{logic.\+c}!rename\+Folder@{rename\+Folder}}
+\index{rename\+Folder@{rename\+Folder}!logic.\+c@{logic.\+c}}
+\subsubsection[{rename\+Folder}]{\setlength{\rightskip}{0pt plus 5cm}void rename\+Folder (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a1e48323b0a3fdd311f7cd1988532ace8}
+Receives an index of a folder to rename and uses the text from the input box to do so 
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logic_8c_a1e48323b0a3fdd311f7cd1988532ace8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{logic_8c_a20a866a30fdbb32fc9bfc74dacd0b89c}{}\index{logic.\+c@{logic.\+c}!set\+Delete\+Flag@{set\+Delete\+Flag}}
+\index{set\+Delete\+Flag@{set\+Delete\+Flag}!logic.\+c@{logic.\+c}}
+\subsubsection[{set\+Delete\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Delete\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a20a866a30fdbb32fc9bfc74dacd0b89c}
+Activates delete flag 
+
+Definition at line 128 of file logic.\+c.
+
+\hypertarget{logic_8c_a3b3c14dae824723e0e1b4720a370b3e6}{}\index{logic.\+c@{logic.\+c}!set\+Folder\+Coords@{set\+Folder\+Coords}}
+\index{set\+Folder\+Coords@{set\+Folder\+Coords}!logic.\+c@{logic.\+c}}
+\subsubsection[{set\+Folder\+Coords}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Folder\+Coords (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{int}]{in\+X, }
+\item[{int}]{in\+Y}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a3b3c14dae824723e0e1b4720a370b3e6}
+Sets folder coords 
+
+Definition at line 319 of file logic.\+c.
+
+\hypertarget{logic_8c_a6673774c3b7ef292567a5637f47a9579}{}\index{logic.\+c@{logic.\+c}!set\+Rename\+Flag@{set\+Rename\+Flag}}
+\index{set\+Rename\+Flag@{set\+Rename\+Flag}!logic.\+c@{logic.\+c}}
+\subsubsection[{set\+Rename\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Rename\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a6673774c3b7ef292567a5637f47a9579}
+Sets rename flag to true 
+
+Definition at line 140 of file logic.\+c.
+
+\hypertarget{logic_8c_aa9f20f8c541306d3b93879d0a6d497e8}{}\index{logic.\+c@{logic.\+c}!toggle\+Selected@{toggle\+Selected}}
+\index{toggle\+Selected@{toggle\+Selected}!logic.\+c@{logic.\+c}}
+\subsubsection[{toggle\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}void toggle\+Selected (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{logic_8c_aa9f20f8c541306d3b93879d0a6d497e8}
+Selects/\+Unselects a certain folder 
+
+Definition at line 324 of file logic.\+c.
+
+\hypertarget{logic_8c_a5b0080e32e3cb075b00c7184ce3f5ad0}{}\index{logic.\+c@{logic.\+c}!update\+Path@{update\+Path}}
+\index{update\+Path@{update\+Path}!logic.\+c@{logic.\+c}}
+\subsubsection[{update\+Path}]{\setlength{\rightskip}{0pt plus 5cm}void update\+Path (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{foldername}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a5b0080e32e3cb075b00c7184ce3f5ad0}
+Given a foldername this function updates the current path, if file doesn\textquotesingle{}t 
+\begin{DoxyParams}{Parameters}
+{\em foldername} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 416 of file logic.\+c.
+
+\hypertarget{logic_8c_a501609335890024a00bc939c19538b0f}{}\index{logic.\+c@{logic.\+c}!update\+Text\+Box@{update\+Text\+Box}}
+\index{update\+Text\+Box@{update\+Text\+Box}!logic.\+c@{logic.\+c}}
+\subsubsection[{update\+Text\+Box}]{\setlength{\rightskip}{0pt plus 5cm}void update\+Text\+Box (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{input}
+\end{DoxyParamCaption}
+)}\label{logic_8c_a501609335890024a00bc939c19538b0f}
+
+
+Definition at line 390 of file logic.\+c.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{logic_8c_a501609335890024a00bc939c19538b0f_cgraph}
+\end{center}
+\end{figure}
+
+

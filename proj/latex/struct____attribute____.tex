@@ -1,0 +1,631 @@
+\hypertarget{struct____attribute____}{}\section{\+\_\+\+\_\+attribute\+\_\+\+\_\+ Struct Reference}
+\label{struct____attribute____}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+
+
+{\ttfamily \#include $<$vbe.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____aae97bc03200134a557339f79aeeea94e}{Vbe\+Signature}
+\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____ab50a7a6ed578c30d9411db043c0b34c9}{Vbe\+Version}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____acc74a7d7f3d3d90bc058f13f4d30a61c}{Oem\+String\+Ptr}
+\item 
+u8\+\_\+t \hyperlink{struct____attribute_____a22a17ae44df67e1ebae6eb2721b64279}{Capabilities} \mbox{[}4\mbox{]}
+\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a135a4de316befee6c1415c22e5636f15}{Video\+Mode\+Ptr} \mbox{[}2\mbox{]}
+\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a5659e88b961bf423d6385f315264e005}{Total\+Memory}
+\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____abd3b5364844ce7019b91c129b5535f42}{Oem\+Software\+Rev}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____ad8741201b5c9013911dd092185d780b6}{Oem\+Vendor\+Name\+Ptr}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a79d41d28ea7c0aa5c8f36e46c92ee2d0}{Oem\+Product\+Name\+Ptr}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____aa746b73bc137e19abbbac805a97594b9}{Oem\+Product\+Rev\+Ptr}
+\item 
+u8\+\_\+t \hyperlink{struct____attribute_____a7d9d8bf3e618f409748302e3d2484fe6}{Reserved} \mbox{[}222\mbox{]}
+\item 
+u8\+\_\+t \hyperlink{struct____attribute_____ac3f69bedeb0dc55c1ee1bd481a74b08e}{Oem\+Data} \mbox{[}256\mbox{]}
+\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a68ea99ad36679e583fa9674016e30903}{Mode\+Attributes}
+\begin{DoxyCompactList}\small\item\em mode attributes \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____aeffe4dec59c5a757f65a97a66c812d3b}{Win\+A\+Attributes}
+\begin{DoxyCompactList}\small\item\em window A attributes \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ac9e21a3d7d22b24ed82be39f790b1408}{Win\+B\+Attributes}
+\begin{DoxyCompactList}\small\item\em window B attributes \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____acc2114dbf039909e55cc3966abd3358d}{Win\+Granularity}
+\begin{DoxyCompactList}\small\item\em window granularity \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____ad26e754fe362f3085c7ec4c0e5e75a6f}{Win\+Size}
+\begin{DoxyCompactList}\small\item\em window size \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a7cde26f911e3df97b7498ee139d8de12}{Win\+A\+Segment}
+\begin{DoxyCompactList}\small\item\em window A start segment \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a6dbaac9ee1cae36ca0c7b46559264b69}{Win\+B\+Segment}
+\begin{DoxyCompactList}\small\item\em window B start segment \end{DoxyCompactList}\item 
+phys\+\_\+bytes \hyperlink{struct____attribute_____aa211c2411f48f899b0bb0739ecef0b37}{Win\+Func\+Ptr}
+\begin{DoxyCompactList}\small\item\em real mode/far pointer to window function \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a3c9eb4b107ecee102c6e63f9054ede06}{Bytes\+Per\+Scan\+Line}
+\begin{DoxyCompactList}\small\item\em bytes per scan line \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____abe48e2b29aa99e813a1447d22711f4f4}{X\+Resolution}
+\begin{DoxyCompactList}\small\item\em horizontal resolution in pixels/characters \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____aa91385451d974d9c33978062e22d39e2}{Y\+Resolution}
+\begin{DoxyCompactList}\small\item\em vertical resolution in pixels/characters \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____acac41a300563737d7849a92cd1d5c10b}{X\+Char\+Size}
+\begin{DoxyCompactList}\small\item\em character cell width in pixels \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____acb93d86860efea5c87e3c2950f39123e}{Y\+Char\+Size}
+\begin{DoxyCompactList}\small\item\em character cell height in pixels \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ab1471d2f75e61117d65290da9070cf89}{Number\+Of\+Planes}
+\begin{DoxyCompactList}\small\item\em number of memory planes \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____abd9c59af53589a54188bb57ada5c5f26}{Bits\+Per\+Pixel}
+\begin{DoxyCompactList}\small\item\em bits per pixel \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a59483378dd87414afcde6cb3ca93c2d8}{Number\+Of\+Banks}
+\begin{DoxyCompactList}\small\item\em number of banks \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a0fe34321b6dfba9e784fbbc649aa193a}{Memory\+Model}
+\begin{DoxyCompactList}\small\item\em memory model type \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____aa1307567cbc12f9c5c724b7457be14ad}{Bank\+Size}
+\begin{DoxyCompactList}\small\item\em bank size in K\+B \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a988714bc16626547fbdc31f25dfa6470}{Number\+Of\+Image\+Pages}
+\begin{DoxyCompactList}\small\item\em number of images \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a8ace2dfe4814abc401442986ac8a5356}{Reserved1}
+\begin{DoxyCompactList}\small\item\em reserved for page function \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a9ffc14e11d6b1c80b63aba344292849e}{Red\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a8b5b2e458757061bce7e056f7f910dae}{Red\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____af69ef188a0f5d526ecd5f25a8d6336e3}{Green\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a44aab7c8026a131654e079837a95ba2b}{Green\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ab5967602a79dcb7f0061195ffdaaa47a}{Blue\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ada852d5ed926757d24b5038a38e6292c}{Blue\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a73862db83bdb9b6d31356af3cec7a5be}{Rsvd\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a61fb6dc07b7edbd8a3a94745336f256c}{Rsvd\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a35fb3e1fc0dc9924bc52977b3a234f9f}{Direct\+Color\+Mode\+Info}
+\item 
+phys\+\_\+bytes \hyperlink{struct____attribute_____a852a4f68cfbabf08df197128e137bde6}{Phys\+Base\+Ptr}
+\begin{DoxyCompactList}\small\item\em physical address for flat memory frame buffer \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a534ebf7a2bdad17747cfc9cb6cc50c5c}{Reserved2} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved -\/ always set to 0. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a9336499af9094522dbe1bfd4d43934a1}{Reserved3} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved -\/ always set to 0. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____af7036270c257deabc1ebd111faf3e3a5}{Lin\+Bytes\+Per\+Scan\+Line}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ad5820084f2b821b85a635df8394f0d9e}{Bnk\+Number\+Of\+Image\+Pages}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____af9ba0d9902f5336bd9d044a9dee2ba42}{Lin\+Number\+Of\+Image\+Pages}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a88a5ced225c9ef7ed6ffe33e5a39edc6}{Lin\+Red\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____aec8d45f188ac9210b88216af83de847d}{Lin\+Red\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a5768a84391f8a26d8a9bfd6a22d5e49d}{Lin\+Green\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a5571b1959950d520f2b45bb5549994e3}{Lin\+Green\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____aa2b79b8eed8d842e0db481fb1fbb9a06}{Lin\+Blue\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a99e6b6bdbda9f98f2823429dfd5b5685}{Lin\+Blue\+Field\+Position}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a577b5892a22d06e230f528a62a472d1d}{Lin\+Rsvd\+Mask\+Size}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a012126db503ad1281ae53aa41f4c96a7}{Lin\+Rsvd\+Field\+Position}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____afd81a69353c35e8b1fb9b696931f79a5}{Max\+Pixel\+Clock}
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ab859fb715f83f005dfa2f13d8b0e4ff0}{Reserved4} \mbox{[}190\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Packed V\+B\+E Info Block
+
+Packed V\+B\+E Mode Info Block 
+
+Definition at line 19 of file vbe.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct____attribute_____aa1307567cbc12f9c5c724b7457be14ad}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Bank\+Size@{Bank\+Size}}
+\index{Bank\+Size@{Bank\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Bank\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Bank\+Size}\label{struct____attribute_____aa1307567cbc12f9c5c724b7457be14ad}
+
+
+bank size in K\+B 
+
+
+
+Definition at line 67 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____abd9c59af53589a54188bb57ada5c5f26}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Bits\+Per\+Pixel@{Bits\+Per\+Pixel}}
+\index{Bits\+Per\+Pixel@{Bits\+Per\+Pixel}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Bits\+Per\+Pixel}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Bits\+Per\+Pixel}\label{struct____attribute_____abd9c59af53589a54188bb57ada5c5f26}
+
+
+bits per pixel 
+
+
+
+Definition at line 64 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ada852d5ed926757d24b5038a38e6292c}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Blue\+Field\+Position@{Blue\+Field\+Position}}
+\index{Blue\+Field\+Position@{Blue\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Blue\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Blue\+Field\+Position}\label{struct____attribute_____ada852d5ed926757d24b5038a38e6292c}
+
+
+Definition at line 78 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ab5967602a79dcb7f0061195ffdaaa47a}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Blue\+Mask\+Size@{Blue\+Mask\+Size}}
+\index{Blue\+Mask\+Size@{Blue\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Blue\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Blue\+Mask\+Size}\label{struct____attribute_____ab5967602a79dcb7f0061195ffdaaa47a}
+
+
+Definition at line 77 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ad5820084f2b821b85a635df8394f0d9e}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Bnk\+Number\+Of\+Image\+Pages@{Bnk\+Number\+Of\+Image\+Pages}}
+\index{Bnk\+Number\+Of\+Image\+Pages@{Bnk\+Number\+Of\+Image\+Pages}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Bnk\+Number\+Of\+Image\+Pages}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Bnk\+Number\+Of\+Image\+Pages}\label{struct____attribute_____ad5820084f2b821b85a635df8394f0d9e}
+
+
+Definition at line 90 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a3c9eb4b107ecee102c6e63f9054ede06}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Bytes\+Per\+Scan\+Line@{Bytes\+Per\+Scan\+Line}}
+\index{Bytes\+Per\+Scan\+Line@{Bytes\+Per\+Scan\+Line}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Bytes\+Per\+Scan\+Line}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Bytes\+Per\+Scan\+Line}\label{struct____attribute_____a3c9eb4b107ecee102c6e63f9054ede06}
+
+
+bytes per scan line 
+
+
+
+Definition at line 55 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a22a17ae44df67e1ebae6eb2721b64279}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Capabilities@{Capabilities}}
+\index{Capabilities@{Capabilities}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Capabilities}]{\setlength{\rightskip}{0pt plus 5cm}u8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Capabilities\mbox{[}4\mbox{]}}\label{struct____attribute_____a22a17ae44df67e1ebae6eb2721b64279}
+
+
+Definition at line 24 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a35fb3e1fc0dc9924bc52977b3a234f9f}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Direct\+Color\+Mode\+Info@{Direct\+Color\+Mode\+Info}}
+\index{Direct\+Color\+Mode\+Info@{Direct\+Color\+Mode\+Info}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Direct\+Color\+Mode\+Info}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Direct\+Color\+Mode\+Info}\label{struct____attribute_____a35fb3e1fc0dc9924bc52977b3a234f9f}
+
+
+Definition at line 81 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a44aab7c8026a131654e079837a95ba2b}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Green\+Field\+Position@{Green\+Field\+Position}}
+\index{Green\+Field\+Position@{Green\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Green\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Green\+Field\+Position}\label{struct____attribute_____a44aab7c8026a131654e079837a95ba2b}
+
+
+Definition at line 76 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____af69ef188a0f5d526ecd5f25a8d6336e3}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Green\+Mask\+Size@{Green\+Mask\+Size}}
+\index{Green\+Mask\+Size@{Green\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Green\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Green\+Mask\+Size}\label{struct____attribute_____af69ef188a0f5d526ecd5f25a8d6336e3}
+
+
+Definition at line 75 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a99e6b6bdbda9f98f2823429dfd5b5685}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Blue\+Field\+Position@{Lin\+Blue\+Field\+Position}}
+\index{Lin\+Blue\+Field\+Position@{Lin\+Blue\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Blue\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Blue\+Field\+Position}\label{struct____attribute_____a99e6b6bdbda9f98f2823429dfd5b5685}
+
+
+Definition at line 97 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aa2b79b8eed8d842e0db481fb1fbb9a06}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Blue\+Mask\+Size@{Lin\+Blue\+Mask\+Size}}
+\index{Lin\+Blue\+Mask\+Size@{Lin\+Blue\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Blue\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Blue\+Mask\+Size}\label{struct____attribute_____aa2b79b8eed8d842e0db481fb1fbb9a06}
+
+
+Definition at line 96 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____af7036270c257deabc1ebd111faf3e3a5}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Bytes\+Per\+Scan\+Line@{Lin\+Bytes\+Per\+Scan\+Line}}
+\index{Lin\+Bytes\+Per\+Scan\+Line@{Lin\+Bytes\+Per\+Scan\+Line}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Bytes\+Per\+Scan\+Line}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Bytes\+Per\+Scan\+Line}\label{struct____attribute_____af7036270c257deabc1ebd111faf3e3a5}
+
+
+Definition at line 89 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a5571b1959950d520f2b45bb5549994e3}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Green\+Field\+Position@{Lin\+Green\+Field\+Position}}
+\index{Lin\+Green\+Field\+Position@{Lin\+Green\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Green\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Green\+Field\+Position}\label{struct____attribute_____a5571b1959950d520f2b45bb5549994e3}
+
+
+Definition at line 95 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a5768a84391f8a26d8a9bfd6a22d5e49d}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Green\+Mask\+Size@{Lin\+Green\+Mask\+Size}}
+\index{Lin\+Green\+Mask\+Size@{Lin\+Green\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Green\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Green\+Mask\+Size}\label{struct____attribute_____a5768a84391f8a26d8a9bfd6a22d5e49d}
+
+
+Definition at line 94 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____af9ba0d9902f5336bd9d044a9dee2ba42}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Number\+Of\+Image\+Pages@{Lin\+Number\+Of\+Image\+Pages}}
+\index{Lin\+Number\+Of\+Image\+Pages@{Lin\+Number\+Of\+Image\+Pages}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Number\+Of\+Image\+Pages}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Number\+Of\+Image\+Pages}\label{struct____attribute_____af9ba0d9902f5336bd9d044a9dee2ba42}
+
+
+Definition at line 91 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aec8d45f188ac9210b88216af83de847d}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Red\+Field\+Position@{Lin\+Red\+Field\+Position}}
+\index{Lin\+Red\+Field\+Position@{Lin\+Red\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Red\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Red\+Field\+Position}\label{struct____attribute_____aec8d45f188ac9210b88216af83de847d}
+
+
+Definition at line 93 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a88a5ced225c9ef7ed6ffe33e5a39edc6}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Red\+Mask\+Size@{Lin\+Red\+Mask\+Size}}
+\index{Lin\+Red\+Mask\+Size@{Lin\+Red\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Red\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Red\+Mask\+Size}\label{struct____attribute_____a88a5ced225c9ef7ed6ffe33e5a39edc6}
+
+
+Definition at line 92 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a012126db503ad1281ae53aa41f4c96a7}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Rsvd\+Field\+Position@{Lin\+Rsvd\+Field\+Position}}
+\index{Lin\+Rsvd\+Field\+Position@{Lin\+Rsvd\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Rsvd\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Rsvd\+Field\+Position}\label{struct____attribute_____a012126db503ad1281ae53aa41f4c96a7}
+
+
+Definition at line 99 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a577b5892a22d06e230f528a62a472d1d}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Lin\+Rsvd\+Mask\+Size@{Lin\+Rsvd\+Mask\+Size}}
+\index{Lin\+Rsvd\+Mask\+Size@{Lin\+Rsvd\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Lin\+Rsvd\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Lin\+Rsvd\+Mask\+Size}\label{struct____attribute_____a577b5892a22d06e230f528a62a472d1d}
+
+
+Definition at line 98 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____afd81a69353c35e8b1fb9b696931f79a5}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Max\+Pixel\+Clock@{Max\+Pixel\+Clock}}
+\index{Max\+Pixel\+Clock@{Max\+Pixel\+Clock}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Max\+Pixel\+Clock}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Max\+Pixel\+Clock}\label{struct____attribute_____afd81a69353c35e8b1fb9b696931f79a5}
+
+
+Definition at line 100 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a0fe34321b6dfba9e784fbbc649aa193a}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Memory\+Model@{Memory\+Model}}
+\index{Memory\+Model@{Memory\+Model}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Memory\+Model}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Memory\+Model}\label{struct____attribute_____a0fe34321b6dfba9e784fbbc649aa193a}
+
+
+memory model type 
+
+
+
+Definition at line 66 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a68ea99ad36679e583fa9674016e30903}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Mode\+Attributes@{Mode\+Attributes}}
+\index{Mode\+Attributes@{Mode\+Attributes}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Mode\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Mode\+Attributes}\label{struct____attribute_____a68ea99ad36679e583fa9674016e30903}
+
+
+mode attributes 
+
+
+
+Definition at line 47 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a59483378dd87414afcde6cb3ca93c2d8}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Number\+Of\+Banks@{Number\+Of\+Banks}}
+\index{Number\+Of\+Banks@{Number\+Of\+Banks}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Number\+Of\+Banks}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Number\+Of\+Banks}\label{struct____attribute_____a59483378dd87414afcde6cb3ca93c2d8}
+
+
+number of banks 
+
+
+
+Definition at line 65 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a988714bc16626547fbdc31f25dfa6470}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Number\+Of\+Image\+Pages@{Number\+Of\+Image\+Pages}}
+\index{Number\+Of\+Image\+Pages@{Number\+Of\+Image\+Pages}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Number\+Of\+Image\+Pages}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Number\+Of\+Image\+Pages}\label{struct____attribute_____a988714bc16626547fbdc31f25dfa6470}
+
+
+number of images 
+
+
+
+Definition at line 68 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ab1471d2f75e61117d65290da9070cf89}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Number\+Of\+Planes@{Number\+Of\+Planes}}
+\index{Number\+Of\+Planes@{Number\+Of\+Planes}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Number\+Of\+Planes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Number\+Of\+Planes}\label{struct____attribute_____ab1471d2f75e61117d65290da9070cf89}
+
+
+number of memory planes 
+
+
+
+Definition at line 63 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ac3f69bedeb0dc55c1ee1bd481a74b08e}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+Data@{Oem\+Data}}
+\index{Oem\+Data@{Oem\+Data}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+Data}]{\setlength{\rightskip}{0pt plus 5cm}u8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+Data\mbox{[}256\mbox{]}}\label{struct____attribute_____ac3f69bedeb0dc55c1ee1bd481a74b08e}
+
+
+Definition at line 32 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a79d41d28ea7c0aa5c8f36e46c92ee2d0}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+Product\+Name\+Ptr@{Oem\+Product\+Name\+Ptr}}
+\index{Oem\+Product\+Name\+Ptr@{Oem\+Product\+Name\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+Product\+Name\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+Product\+Name\+Ptr}\label{struct____attribute_____a79d41d28ea7c0aa5c8f36e46c92ee2d0}
+
+
+Definition at line 29 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aa746b73bc137e19abbbac805a97594b9}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+Product\+Rev\+Ptr@{Oem\+Product\+Rev\+Ptr}}
+\index{Oem\+Product\+Rev\+Ptr@{Oem\+Product\+Rev\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+Product\+Rev\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+Product\+Rev\+Ptr}\label{struct____attribute_____aa746b73bc137e19abbbac805a97594b9}
+
+
+Definition at line 30 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____abd3b5364844ce7019b91c129b5535f42}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+Software\+Rev@{Oem\+Software\+Rev}}
+\index{Oem\+Software\+Rev@{Oem\+Software\+Rev}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+Software\+Rev}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+Software\+Rev}\label{struct____attribute_____abd3b5364844ce7019b91c129b5535f42}
+
+
+Definition at line 27 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____acc74a7d7f3d3d90bc058f13f4d30a61c}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+String\+Ptr@{Oem\+String\+Ptr}}
+\index{Oem\+String\+Ptr@{Oem\+String\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+String\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+String\+Ptr}\label{struct____attribute_____acc74a7d7f3d3d90bc058f13f4d30a61c}
+
+
+Definition at line 23 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ad8741201b5c9013911dd092185d780b6}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Oem\+Vendor\+Name\+Ptr@{Oem\+Vendor\+Name\+Ptr}}
+\index{Oem\+Vendor\+Name\+Ptr@{Oem\+Vendor\+Name\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Oem\+Vendor\+Name\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Oem\+Vendor\+Name\+Ptr}\label{struct____attribute_____ad8741201b5c9013911dd092185d780b6}
+
+
+Definition at line 28 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a852a4f68cfbabf08df197128e137bde6}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Phys\+Base\+Ptr@{Phys\+Base\+Ptr}}
+\index{Phys\+Base\+Ptr@{Phys\+Base\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Phys\+Base\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}phys\+\_\+bytes \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Phys\+Base\+Ptr}\label{struct____attribute_____a852a4f68cfbabf08df197128e137bde6}
+
+
+physical address for flat memory frame buffer 
+
+
+
+Definition at line 84 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a8b5b2e458757061bce7e056f7f910dae}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Red\+Field\+Position@{Red\+Field\+Position}}
+\index{Red\+Field\+Position@{Red\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Red\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Red\+Field\+Position}\label{struct____attribute_____a8b5b2e458757061bce7e056f7f910dae}
+
+
+Definition at line 74 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a9ffc14e11d6b1c80b63aba344292849e}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Red\+Mask\+Size@{Red\+Mask\+Size}}
+\index{Red\+Mask\+Size@{Red\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Red\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Red\+Mask\+Size}\label{struct____attribute_____a9ffc14e11d6b1c80b63aba344292849e}
+
+
+Definition at line 73 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a7d9d8bf3e618f409748302e3d2484fe6}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Reserved@{Reserved}}
+\index{Reserved@{Reserved}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Reserved}]{\setlength{\rightskip}{0pt plus 5cm}u8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Reserved\mbox{[}222\mbox{]}}\label{struct____attribute_____a7d9d8bf3e618f409748302e3d2484fe6}
+
+
+Definition at line 31 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a8ace2dfe4814abc401442986ac8a5356}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Reserved1@{Reserved1}}
+\index{Reserved1@{Reserved1}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Reserved1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Reserved1}\label{struct____attribute_____a8ace2dfe4814abc401442986ac8a5356}
+
+
+reserved for page function 
+
+
+
+Definition at line 69 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a534ebf7a2bdad17747cfc9cb6cc50c5c}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Reserved2@{Reserved2}}
+\index{Reserved2@{Reserved2}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Reserved2}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Reserved2\mbox{[}4\mbox{]}}\label{struct____attribute_____a534ebf7a2bdad17747cfc9cb6cc50c5c}
+
+
+Reserved -\/ always set to 0. 
+
+
+
+Definition at line 85 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a9336499af9094522dbe1bfd4d43934a1}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Reserved3@{Reserved3}}
+\index{Reserved3@{Reserved3}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Reserved3}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Reserved3\mbox{[}2\mbox{]}}\label{struct____attribute_____a9336499af9094522dbe1bfd4d43934a1}
+
+
+Reserved -\/ always set to 0. 
+
+
+
+Definition at line 86 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ab859fb715f83f005dfa2f13d8b0e4ff0}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Reserved4@{Reserved4}}
+\index{Reserved4@{Reserved4}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Reserved4}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Reserved4\mbox{[}190\mbox{]}}\label{struct____attribute_____ab859fb715f83f005dfa2f13d8b0e4ff0}
+
+
+Definition at line 101 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a61fb6dc07b7edbd8a3a94745336f256c}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Rsvd\+Field\+Position@{Rsvd\+Field\+Position}}
+\index{Rsvd\+Field\+Position@{Rsvd\+Field\+Position}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Rsvd\+Field\+Position}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Rsvd\+Field\+Position}\label{struct____attribute_____a61fb6dc07b7edbd8a3a94745336f256c}
+
+
+Definition at line 80 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a73862db83bdb9b6d31356af3cec7a5be}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Rsvd\+Mask\+Size@{Rsvd\+Mask\+Size}}
+\index{Rsvd\+Mask\+Size@{Rsvd\+Mask\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Rsvd\+Mask\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Rsvd\+Mask\+Size}\label{struct____attribute_____a73862db83bdb9b6d31356af3cec7a5be}
+
+
+Definition at line 79 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a5659e88b961bf423d6385f315264e005}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Total\+Memory@{Total\+Memory}}
+\index{Total\+Memory@{Total\+Memory}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Total\+Memory}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Total\+Memory}\label{struct____attribute_____a5659e88b961bf423d6385f315264e005}
+
+
+Definition at line 26 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aae97bc03200134a557339f79aeeea94e}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Vbe\+Signature@{Vbe\+Signature}}
+\index{Vbe\+Signature@{Vbe\+Signature}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Vbe\+Signature}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Vbe\+Signature}\label{struct____attribute_____aae97bc03200134a557339f79aeeea94e}
+
+
+Definition at line 21 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ab50a7a6ed578c30d9411db043c0b34c9}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Vbe\+Version@{Vbe\+Version}}
+\index{Vbe\+Version@{Vbe\+Version}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Vbe\+Version}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Vbe\+Version}\label{struct____attribute_____ab50a7a6ed578c30d9411db043c0b34c9}
+
+
+Definition at line 22 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a135a4de316befee6c1415c22e5636f15}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Video\+Mode\+Ptr@{Video\+Mode\+Ptr}}
+\index{Video\+Mode\+Ptr@{Video\+Mode\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Video\+Mode\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Video\+Mode\+Ptr\mbox{[}2\mbox{]}}\label{struct____attribute_____a135a4de316befee6c1415c22e5636f15}
+
+
+Definition at line 25 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aeffe4dec59c5a757f65a97a66c812d3b}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+A\+Attributes@{Win\+A\+Attributes}}
+\index{Win\+A\+Attributes@{Win\+A\+Attributes}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+A\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+A\+Attributes}\label{struct____attribute_____aeffe4dec59c5a757f65a97a66c812d3b}
+
+
+window A attributes 
+
+
+
+Definition at line 48 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a7cde26f911e3df97b7498ee139d8de12}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+A\+Segment@{Win\+A\+Segment}}
+\index{Win\+A\+Segment@{Win\+A\+Segment}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+A\+Segment}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+A\+Segment}\label{struct____attribute_____a7cde26f911e3df97b7498ee139d8de12}
+
+
+window A start segment 
+
+
+
+Definition at line 52 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ac9e21a3d7d22b24ed82be39f790b1408}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+B\+Attributes@{Win\+B\+Attributes}}
+\index{Win\+B\+Attributes@{Win\+B\+Attributes}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+B\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+B\+Attributes}\label{struct____attribute_____ac9e21a3d7d22b24ed82be39f790b1408}
+
+
+window B attributes 
+
+
+
+Definition at line 49 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____a6dbaac9ee1cae36ca0c7b46559264b69}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+B\+Segment@{Win\+B\+Segment}}
+\index{Win\+B\+Segment@{Win\+B\+Segment}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+B\+Segment}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+B\+Segment}\label{struct____attribute_____a6dbaac9ee1cae36ca0c7b46559264b69}
+
+
+window B start segment 
+
+
+
+Definition at line 53 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aa211c2411f48f899b0bb0739ecef0b37}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+Func\+Ptr@{Win\+Func\+Ptr}}
+\index{Win\+Func\+Ptr@{Win\+Func\+Ptr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+Func\+Ptr}]{\setlength{\rightskip}{0pt plus 5cm}phys\+\_\+bytes \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+Func\+Ptr}\label{struct____attribute_____aa211c2411f48f899b0bb0739ecef0b37}
+
+
+real mode/far pointer to window function 
+
+
+
+Definition at line 54 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____acc2114dbf039909e55cc3966abd3358d}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+Granularity@{Win\+Granularity}}
+\index{Win\+Granularity@{Win\+Granularity}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+Granularity}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+Granularity}\label{struct____attribute_____acc2114dbf039909e55cc3966abd3358d}
+
+
+window granularity 
+
+
+
+Definition at line 50 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____ad26e754fe362f3085c7ec4c0e5e75a6f}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Win\+Size@{Win\+Size}}
+\index{Win\+Size@{Win\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Win\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Win\+Size}\label{struct____attribute_____ad26e754fe362f3085c7ec4c0e5e75a6f}
+
+
+window size 
+
+
+
+Definition at line 51 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____acac41a300563737d7849a92cd1d5c10b}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!X\+Char\+Size@{X\+Char\+Size}}
+\index{X\+Char\+Size@{X\+Char\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{X\+Char\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+X\+Char\+Size}\label{struct____attribute_____acac41a300563737d7849a92cd1d5c10b}
+
+
+character cell width in pixels 
+
+
+
+Definition at line 61 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____abe48e2b29aa99e813a1447d22711f4f4}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!X\+Resolution@{X\+Resolution}}
+\index{X\+Resolution@{X\+Resolution}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{X\+Resolution}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+X\+Resolution}\label{struct____attribute_____abe48e2b29aa99e813a1447d22711f4f4}
+
+
+horizontal resolution in pixels/characters 
+
+
+
+Definition at line 59 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____acb93d86860efea5c87e3c2950f39123e}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Y\+Char\+Size@{Y\+Char\+Size}}
+\index{Y\+Char\+Size@{Y\+Char\+Size}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Y\+Char\+Size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Y\+Char\+Size}\label{struct____attribute_____acb93d86860efea5c87e3c2950f39123e}
+
+
+character cell height in pixels 
+
+
+
+Definition at line 62 of file vbe.\+h.
+
+\hypertarget{struct____attribute_____aa91385451d974d9c33978062e22d39e2}{}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!Y\+Resolution@{Y\+Resolution}}
+\index{Y\+Resolution@{Y\+Resolution}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{Y\+Resolution}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+Y\+Resolution}\label{struct____attribute_____aa91385451d974d9c33978062e22d39e2}
+
+
+vertical resolution in pixels/characters 
+
+
+
+Definition at line 60 of file vbe.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vbe_8h}{vbe.\+h}\end{DoxyCompactItemize}

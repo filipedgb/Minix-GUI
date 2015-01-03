@@ -1,0 +1,6 @@
+<map id="draw_sprite" name="draw_sprite">
+<area shape="rect" id="node2" href="$sprite_8c.html#aa4253e3c15ef1fb16e04b687d32c6f4e" title="initialize_sprite" alt="" coords="142,5,250,32"/>
+<area shape="rect" id="node4" href="$video__gr_8c.html#a11dba15680d97efad5ac51abdac1eb63" title="draw_map" alt="" coords="155,56,237,83"/>
+<area shape="rect" id="node5" href="$sprite_8c.html#abaa8006487ae3af58d131f0e34c5a3d9" title="destroy_sprite" alt="" coords="144,107,248,133"/>
+<area shape="rect" id="node3" href="$read__xpm_8c.html#a05b2c5e4dbcaffa701703b50a2111783" title="read_xpm" alt="" coords="299,5,378,32"/>
+</map>
