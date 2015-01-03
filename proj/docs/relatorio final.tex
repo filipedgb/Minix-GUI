@@ -1,0 +1,377 @@
+\documentclass[a4paper]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{pl}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{url}
+\usepackage{framed}
+\usepackage{graphicx,wrapfig,lipsum}
+\usepackage{placeins}
+
+
+
+
+\begin{document}
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{22cm}
+\lstset{language=Prolog}
+
+\title{\Huge\textbf{Interface Gráfica para Minix }\linebreak\linebreak\linebreak
+\Large\textbf{Relatório Final}\linebreak\linebreak
+\linebreak\linebreak
+\includegraphics[scale=0.1]{feup-logo.png}\linebreak\linebreak
+\linebreak\linebreak
+\Large{Mestrado Integrado em Engenharia Informática e Computação} \linebreak\linebreak
+\Large{Laboratório de Computadores}\linebreak
+}
+
+\author{\textbf{Turma 1 Grupo 2}\\
+Filipe Gama - ei12068 \\
+Guilherme Routar - ei12042 \\
+\linebreak\linebreak \\
+ \\ Faculdade de Engenharia da Universidade do Porto \\ Rua Roberto Frias, s\/n, 4200-465 Porto, Portugal \linebreak\linebreak\linebreak
+\linebreak\linebreak\vspace{1cm}}
+
+\maketitle
+\thispagestyle{empty}
+
+%************************************************************************************************
+%************************************************************************************************
+
+\newpage
+
+%Todas as figuras devem ser referidas no texto. %\ref{fig:codigoFigura}
+%
+%%Exemplo de código para inserção de figuras
+%%\begin{figure}[h!]
+%%\begin{center}
+%%escolher entre uma das seguintes três linhas:
+%%\includegraphics[height=20cm,width=15cm]{path relativo da imagem}
+%%\includegraphics[scale=0.5]{path relativo da imagem}
+%%\includegraphics{path relativo da imagem}
+%%\caption{legenda da figura}
+%%\label{fig:codigoFigura}
+%%\end{center}
+%%\end{figure}
+%
+%
+%\textit{Para escrever em itálico}
+%\textbf{Para escrever em negrito}
+%Para escrever em letra normal
+%``Para escrever texto entre aspas''
+%
+%Para fazer parágrafo, deixar uma linha em branco.
+%
+%Como fazer bullet points:
+%\begin{itemize}
+	%\item Item1
+	%\item Item2
+%\end{itemize}
+%
+%Como enumerar itens:
+%\begin{enumerate}
+	%\item Item 1
+	%\item Item 2
+%\end{enumerate}
+%
+%\begin{quote}``Isto é uma citação''\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents{}
+
+\newpage
+\section{Instruções de utilização}
+
+\subsection{Ecrã Inicial}
+
+	Ao iniciar o programa desenvolvido, é apresentado um ecrã de introdução ao mesmo, que simula o \textit{boot} de um Sistema Operativo, o Minix 3.1.8. Tal pode ser verificado na imagem seguinte.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{Boot_screen.png}
+\caption{Animação inicial}
+\end{figure}
+
+
+\subsection{Interface Gráfica}
+
+	Posteriormente, o utilizador é redirecionado para a interface principal do programa, onde poderá navegar usando o rato ou as \textit{arrow keys}. A simples manipulação do programa nesta fase deve-se à sua semelhança com os Sistemas Operativos atuais. Tal é especificado na secção 1.2.1 - Navegação.
+	A interface apresenta um conjunto de pastas e ficheiros pertencentes a um determinado diretório. Tal pode ser verificado utilizando o comando \textit{ls} no modo de texto do Minix.
+
+\begin{figure}[h]
+    \centering
+     \includegraphics[scale=0.45]{Initial_Screen.png}
+    \caption{Ecrã inicial}
+    \end{figure}
+    
+
+
+As 2 primeiras pastas ("." e "..") permitem retornar à pasta origem e à pasta anterior, respetivamente. 
+	
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{Back_Folders.png}
+\caption{Pastas de voltar atrás ou à origem}
+\end{figure}
+
+
+
+\subsection{Navegação}
+	
+	\textbf{Rato}\bigskip
+
+	Ao clicar (1 clique) sobre um ficheiro ou pasta pode ser verificada a seleção do(a) mesmo(a), através de um simples \textit{highlight}.
+
+
+	
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9]{Selected_Folder.png}
+\caption{Pasta selecionada}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{Back_Folders.png}
+\caption{Voltar à origem e à pasta anterior, respectivamente}
+\end{figure}
+
+
+	
+
+	O duplo clique permite abrir a pasta em questão, revelando o seu conteúdo.\bigskip
+
+	\textbf{Arrow Keys}\bigskip
+
+	A navegação utilizando \textit{arrow keys} é igualmente intuitiva. No caso de nada estar selecionado ( \textit{highlighted} ), é selecionado o ficheiro ou pasta que se apresentar primeiramente na interface (mais à esquerda) quando premida qualquer uma das 4 teclas. Caso contrário, a navegação para as 4 diferentes direções é efetuada premindo a tecla respetiva. 
+	A abertura das pastas é efetuada através da tecla \textit{enter} e o \textit{backspace} permite ao utilizador regressar à pasta origem (a que é apresentada inicialmente).
+	A tecla \textit{delete} permite apagar um determinado ficheiro ou pasta, aparecendo uma mensagem \textit{pop up} de confirmação.
+
+	
+	\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Delete_Message.png}
+\caption{Pop-up confirmação delete}
+\end{figure}
+
+
+	Por fim, o utilizador pode terminar o programa clicando duplamente na tecla \textit{ESC} ou clicando no símbolo apresentado no canto superior esquerdo do ecrã. De seguida, aparece uma mensagem \textit{pop up}, que questiona o utilizador relativamente à sua intenção.d
+
+
+	
+	\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Shutdown_Message.png}
+\caption{Botão de shutdown}
+\end{figure}
+
+Como funcionalidade adicional, foi implementado um mini menu acionado pelo \textit{right click} do rato com as opções \textit{cut}, \textit{copy} e \textit{paste}. Todavia, não houve possibilidade de implementar ações associadas.
+	
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9]{Right_Click_Menu.png}
+\caption{Menu de clique direito do rato}
+\end{figure}
+\FloatBarrier
+\newpage
+\section{Funcionalidades}
+
+\textbf { Implementadas:}
+
+\begin{itemize}
+
+    \item "Display" gráfico dos directórios e pastas (reais) do minix, bem como de o "path" actual em que o utilizador se encontra
+
+	\item A navegação entre directórios ficou implementada, tanto utilizando o cursor (duplo clique para abrir pastas) como o teclado (enter para abrir e setas para navegar).
+	
+	\item Funcionalidade de apagar um directorio (inteiro e recursivamente) ou um ficheiro, através do teclado (botão delete)
+
+	\item Possibilidade de renomear uma pasta. 
+	
+	\item Botão de shutdown que pode ser utilizado com o rato, sendo mostrado um pop-up de confirmação. Também é possível sair do programa através de duplo clique do botão "escape".
+
+\end{itemize}
+
+
+
+
+\textbf {Por implementar:}\bigskip
+
+Das funcionalidades que tentamos implementar, ficou por fazer copy/paste de pastas ou ficheiros, visto não ser possível realizar aquilo que esperávamos - fork e exec - devido às características do minix. Apesar disso, ficou implementado o que seria a interface gráfica desta funcionalidade, usando o botão direito do rato em cima de uma pasta/ficheiro para aceder a um menu com a tal funcionalidade.
+
+Apesar de não nos termos comprometido a tal na especificação do projecto, tentamos também implementar a visualização de ficheiros graficamente, no entanto não conseguimos realizar na totalidade esta "feature" tendo ficado só parcialmente funcional.\bigskip
+
+\textbf {Dispositivos utilizados e respectivas funções:}\bigskip
+
+
+\begin{center}
+    \begin{tabular}{ | l | p{7cm} | l |}
+    \hline
+    Dispositivo & Funcionalidade & Int. \\ \hline
+    Timer & Controlo do frame rate e também para duplos cliques (tanto do teclado como do rato) & Y \\ \hline
+    Placa gráfica & Menus e toda a interface gráfica & N \\ \hline
+    Teclado & Para executar operações como delete, ou fazer a navegação entre pastas com as "arrow keys" & Y \\ \hline
+    Rato  & Usado como cursor, para poder abrir pastas, selecionar ou aceder a menus & Y  \\ \hline
+    RTC & Para mostrar a hora e data do sistema operativo & N \\
+    \hline
+    \end{tabular}
+\end{center}\bigskip
+
+
+\newpage
+\section{Estrutura e organização do código}
+
+Nota: os pesos relativos aos ficheiros dos labs foram atribuídos tendo em conta que estes já se encontravam implementados, ou seja apenas foi contada a dificuldade da sua integração no projecto. Para os mesmos também não apresentamos a contribuição por já terem sido auto-avaliados anteriormente\bigskip
+
+
+\subsection{main.c}
+
+Neste ficheiro são apenas chamadas as funções necessárias ao início do programa.\bigskip
+
+Peso do módulo no projecto: desprezável 
+
+
+\subsection{logic.c}
+
+É neste ficheiro que se encontra toda a "lógica" associada ao programa, nomeadamente todo o tipo de funções relacionadas com directórios, bem como relativas ao tratamento dos inputs recebidos pelos dispositivos, isto é, cálculo das consequências das interrupções fazendo por exemplo verificações de colisões.\bigskip
+
+Peso do módulo no projecto: 20\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 80\%
+
+Guilherme Routar - 20\%
+
+
+\subsection{state.c}
+
+É neste ficheiro que se encontra o loop que lida com as interrupções, e faz update ao estado do programa atualizando estruturas como do rtc e do rato. É aqui também onde se encontram guardados estados relativos a menus abertos, popups, etc. \bigskip
+
+Peso do módulo no projecto: 20\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 80\%
+
+Guilherme Routar - 20\%
+
+
+\subsection{interface.c} 
+
+Todas as funções relativas ao output no ecrã se encontram neste ficheiro. A saber, desenho de menus, do relógio, do cursor, incluindo também a lógica associada ao desenho de strings graficamente,e a lógica associada ao desenho de pastas e ficheiros (i.e. verificar quando desenha com imagem de pasta ou de ficheiro, quando estão selecionados ou não, etc).\bigskip
+
+Peso do módulo no projecto: 20\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 65\%
+
+Guilherme Routar - 35\%
+
+\subsection{pixmap.c}
+
+Ficheiro fornecido onde foram adicionados alguns xpm necessários ao projecto. \bigskip
+
+Peso do módulo no projecto: 10\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 20\%
+
+Guilherme Routar - 80\%
+
+\subsection{keyboard.c } 
+
+Ficheiro onde se encontram as funções associadas ao keyboard, relativas ao subscribe e ao handling das interrupções. O handler foi alterado para retornar valores em vez de os imprimir \bigskip
+
+Peso do módulo no projecto: 10\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 50\%
+
+Guilherme Routar - 50\%
+
+
+\subsection{mouse.c}
+
+Ficheiro onde se encontram as funções associadas ao mouse, relativas ao subscribe e ao handling das interrupções. Foi implementada uma estrutura de dados (mouse\_state) para guardar as coordenadas do cursor e o estado dos botões durante a execução do programa. É actualizado cada vez que um pacote é inteiro é recebido. \bigskip
+
+Peso do módulo no projecto: 10\%
+
+Contribuição dos membros do grupo:
+
+Filipe Gama - 80\%
+
+Guilherme Routar - 20\%
+
+\subsection{rtc.c}
+
+Ficheiro onde se encontram as funções associadas ao keyboard, relativas ao subscribe e ao handling das interrupções. Foi implementada uma estrutura de dados (rtc\_state) para guardar as variáveis relativas às horas, minutos, segundos, dia, mês e ano. É actualizada a cada interrupt (do timer), ou seja 60 vezes por segundo. \bigskip
+
+
+Peso do módulo no projecto: 10\%
+
+
+
+\subsection{read\_xpm.c}
+
+Ficheiro fornecido e apenas adicionada uma função que desenha um xpm transparente, isto é, em vez de ser desenhado um fundo preto não ser desenhado fundo simplesmente. (Usado para o cursor, entre outros)\bigskip
+
+Peso do módulo no projecto: 0\%
+
+
+\subsection{vbe.c}
+
+Ficheiro utilizado nos labs para permitir o init do modo de vídeo, não tendo sido alterado.\bigskip
+
+Peso do módulo no projecto: 0\%
+
+\subsection{video\_gr.c}
+
+Ficheiro utilizado nos labs, tendo sido adicionadas uma função também relativamente ao desenho de xpm sem fundo (background) e outra para desenhar retangulos sólidos, isto é, com fundo. É onde se encontram definidas praticamente todas as funções utilizadas no ficheiro de interface, num nível mais baixo, desenho de retângulos e de xpm's, que já tinha sido criadas para o lab5.\bigskip 
+
+Peso do módulo no projecto: 0\%
+
+
+\subsection{timer.c}        
+ 
+Ficheiro onde se encontram as funções associadas ao timer, relativas ao subscribe e ao handling das interrupções. Não houve quaisquer alterações a esta classe. \bigskip
+
+Peso do módulo no projecto: 0\%
+
+ 
+\newpage
+\section{Grafo de chamadas de funções}\bigskip\FloatBarrier
+
+Nota: Este grafo foi gerado comentando a função da animação inicial, visto que tornava o grafo bastante menos legível (pois tinha um loop de interrupções à parte) e não era realmente relevante para a sua lógica. Foi implementada essencialmente para demonstrarmos que conseguíamos usar animações visto não terem feito parte do nosso projecto.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{diagrama}
+\caption{Diagrama de chamada de funções}
+\end{figure}
+
+\newpage
+\section{Detalhes de implementação}
+
+Para a realização do nosso projecto foi necessário aprender alguns conceitos novos, nomeadamente funções de C para  abrir, apagar, renomear directórios em unix. 
+
+\newpage
+\section{Avaliação}
+
+Auto-avaliação relativa ao código:\bigskip
+
+Filipe Gama - 70\%
+
+Guilherme Routar - 30\%\bigskip
+
+
+
+\end{document}
